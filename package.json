@@ -22,6 +22,7 @@
     },
     "plugins": [],
     "devDependencies": {
+        "@types/node": "^7.0.66",
         "@types/request": "^2.47.1",
         "@types/request-promise-native":"^1.0.15"
 
