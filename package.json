@@ -10,6 +10,8 @@
     },
     "license": "MIT",
     "scripts": {
+        "build": "grunt build",
+        "test": "grunt test",
         "start": "node ./index.js",
         "ftp":   "node/node_modules/ftp-srv"
     },
@@ -28,8 +30,9 @@
 
     },
     "dependencies": {
-        "hsnode": "^2.0.0",
-        "hsutil": "^2.0.0",
+        "hsnode": "*",
+        "hsutil": "*",
+        "hsosaes6":"*",
         "ftp-srv": "^2.19.2"
     }
   }
