@@ -5,3 +5,4 @@ node_modules
 .tscache
 docs
 src/config/homeCfg.json
+deploy.sh
