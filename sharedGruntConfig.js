@@ -248,7 +248,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                 expand: true, 
                 cwd: 'src/', 
                 src: ['**/*.ts'], 
-                dest: `_dist/docs/src/${lib}/`,
+                dest: `_dist/docs/data/src/${lib}/`,
                 rename: (dest, src) => dest + src.slice(src.lastIndexOf('/')+1).replace('.ts','.html')
             }
         },
