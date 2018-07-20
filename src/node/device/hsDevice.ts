@@ -1,5 +1,7 @@
 
+import { URL }      from 'url';
 import { Log }      from 'hsnode';   const log = new Log('hsDevice');
+import { http }     from 'hsnode';
 import { fs }       from 'hsnode'; 
 import { Settings } from '../core/hsSettings';
 
@@ -147,6 +149,7 @@ export abstract class AbstractDevice implements Device {
 export abstract class AbstractCamera extends AbstractDevice implements Camera, AlarmDevice {
     private audible = false;
     protected armed   = false;
+    protected path = '';
 
     constructor(device: DeviceSettings, settings:Settings) {
         super(device, settings);
@@ -228,6 +231,41 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
 
     getAudible() {
         return this.audible;
+    }
+
+        /**
+     * promised to send `cmd` to the foscam camera specified in `options`
+     * @param cmd the command string to send
+     * @param {dynData an http options object
+     */
+    protected sendCommandToDevice(cmd:string, dynData?:any):Promise<any> {
+        const settings = this.getSettings();
+        log.debug(`requesting ${cmd}`);
+        const Url = new URL(`http://${settings.user}:${settings.passwd}@${settings.host}:${settings.port}${this.path}${cmd}`);
+        const options = {
+            host:       Url.host,
+            hostname:   Url.hostname,
+            port:       Url.port,
+            method:     'GET',
+            path:       Url.pathname+Url.search,
+            protocol:   Url.protocol,
+            headers:<any>    { 'User-Agent': 'helpful scripts' },
+            username:   Url.username,
+            password:   Url.password
+        };
+        if (dynData) {
+            options.path = dynData.path;
+            options.headers.referer = Url.href;
+        }
+        return http.get(options)
+            .then((r:http.HttpResponse) => {
+                log.debug(`${r.response.headers['content-type']} received for ${cmd}`);
+                if (r.response.headers['content-type'].indexOf('text/') >= 0) {
+                    r.body = http.decodeXmlResult(r.data);
+                }
+                return r;
+            })
+            .catch(log.error.bind(log));
     }
 }
     

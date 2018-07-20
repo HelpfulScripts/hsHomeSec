@@ -1,7 +1,6 @@
 /**
  * functions to interface with WansView devices.
  */
-import { URL }              from 'url';
 import { Log }              from 'hsnode';  const log = new Log('WansView');
 import { http }             from 'hsnode';
 //import { fs  }              from 'hsnode';
@@ -21,46 +20,11 @@ const linkage      = 4+8; // ring:1, mail:2, pic:4, vid:8
 
 
 export class WansView extends AbstractCamera {
-    
-    /**
-     * promised to send `cmd` to the foscam camera specified in `options`
-     * @param cmd the command string to send
-     * @param {dynData an http options object
-     */
-    private sendCommandToDevice(cmd:string, dynData:any={}):Promise<any> {
-//        let binary = false;
-        const settings = this.getSettings();
-        log.debug(`requesting ${cmd}`);
-        const Url = new URL(`http://${settings.user}:${settings.passwd}@${settings.host}:${settings.port}${cmd}`);
-        const options = {
-            host:       Url.host,
-            hostname:   Url.hostname,
-            port:       Url.port,
-            method:     'GET',
-            path:       Url.pathname+Url.search,
-            protocol:   Url.protocol,
-            headers:    { 'User-Agent': 'helpful scripts' },
-            username:   Url.username,
-            password:   Url.password
-        };
-        return http.get(options)
-        .then((r:http.HttpResponse) => {
-            log.debug(`${r.response.headers['content-type']} received for ${cmd}`);
-            if (r.response.headers['content-type']==='text/html') {
-                r.body = http.decodeXmlResult(r.data);
-            }
-            return r;
-        })
-        .catch((error:any) => {
-            log.error(`error received`);
-            log.error(log.inspect(error));
-        });
-
-    }
-
     constructor(device: DeviceSettings, settings:Settings) {
         super(device, settings); 
         log.prefix(`WansView ${device.name}`);
+        this.path = `/hy-cgi/`;
+
     }
 
     initDevice(settings:Settings) {
@@ -73,18 +37,17 @@ export class WansView extends AbstractCamera {
      * @param string deviceName the name of the device
      */
     snapPicture():Promise<any> {
-        const cmd = '/hy-cgi/av.cgi?cmd=manualsnap&chn=0';
+        const cmd = 'av.cgi?cmd=manualsnap&chn=0';
         return this.sendCommandToDevice(cmd)
-            .then((receivedData:http.HttpResponse) => { 
-                const path = receivedData.body.toString().split('=');
-                const url = path[1].replace(';','').trim();
-                log.debug('get snapshot:' + url);
-                return this.sendCommandToDevice(url);
+            .then((res:http.HttpResponse) => { 
+                const path = res.body.toString().split('=');
+                const src = path[1].replace(';','').trim();
+                log.debug('get snapshot:' + src);
+                const dyn = { path: src };
+                return this.sendCommandToDevice(cmd, dyn);
             })
-            .catch(err => {
-                log.error('error'+err);
-            });
-    }
+            .catch(log.error.bind(log));
+        }
 
     /**
      * gets the device's ftp confguration and calls `cb`. 
@@ -92,7 +55,7 @@ export class WansView extends AbstractCamera {
      * @param function cb the function to call with the result
      */
     getFtpCfg():Promise<any> {
-        const cmd = '/hy-cgi/ftp.cgi?cmd=getftpattr';
+        const cmd = 'ftp.cgi?cmd=getftpattr';
         return this.sendCommandToDevice(cmd)
             .then((receivedData:http.HttpResponse) => { 
                 log.info('get ftp config:' + inspect(receivedData.body));
@@ -110,7 +73,7 @@ export class WansView extends AbstractCamera {
      */
     setFtpCfg():Promise<boolean> {
         const ftpSettings:ftp.FtpSettings = ftp.get();
-        const cmd = `/hy-cgi/ftp.cgi?cmd=setftpattr&ft_server=${ftpSettings.host}&ft_port=${ftpSettings.port}&ft_username=${ftpSettings.user}&ft_password=${ftpSettings.pwd}&ft_dirname=./`;
+        const cmd = `ftp.cgi?cmd=setftpattr&ft_server=${ftpSettings.host}&ft_port=${ftpSettings.port}&ft_username=${ftpSettings.user}&ft_password=${ftpSettings.pwd}&ft_dirname=./`;
         return this.sendCommandToDevice(cmd)
             .then((receivedData:http.HttpResponse) => { 
                 log.info('set ftp config:' + inspect(receivedData.body).trim());
@@ -129,8 +92,8 @@ export class WansView extends AbstractCamera {
      * @return Promise a promise that resolves to the testResult: 0 = success, -1 = failure, -3 = unknown 
      */
     testFtpServer():Promise<boolean> {
-        const cmd1 = `/hy-cgi/ftp.cgi?cmd=testftp`;
-        const cmd2 = `/hy-cgi/ftp.cgi?cmd=testftpresult`;
+        const cmd1 = `ftp.cgi?cmd=testftp`;
+        const cmd2 = `ftp.cgi?cmd=testftpresult`;
         return this.sendCommandToDevice(cmd1)
             .then((receivedData:any) => { 
                 log.debug('ftp server test1:' + receivedData.url + '\n' + inspect(receivedData));
