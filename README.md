@@ -13,8 +13,8 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/i
 
 ## Installation
 1. Inside your `~/Documents` folder, create a `homeses` folder and move there:<br>
-`> mkdir homesec`<br>
-`> cd homesec`<br>
+`> mkdir homeSec`<br>
+`> cd homeSec`<br>
    > if you choose a different installation folder, be sure to update the Applescript file `respondToMailAs.scpt` below.
 2. Cone the project:<br>
 `> npm i hshomesec`<br>
@@ -48,10 +48,10 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/i
         - `Ask befor closing: Never`
 
 ## Run
-- Call<br>
+- From `~/Documents/homeSec`, call<br>
     `> sudo node node_modules/.bin/hsHomeSec`<br>
     to start the system without starting an ftp server
-- Call<br>
+- Or call<br>
     `> sudo node node_modules/.bin/hsHomeSec ftp`<br>
     to start the system with its own ftp server.
     > You can try the calls without `sudo`, though it is likely needed since we start a webserver (and, if selected, an ftp server). 
