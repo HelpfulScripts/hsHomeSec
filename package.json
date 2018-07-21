@@ -2,7 +2,15 @@
     "name": "hshomesec",
     "version": "1.0.0",
     "main": "./index.js",
-    "keywords": [],
+    "bin" : { "hsHomeSec" : "./index.js" },
+    "keywords": [
+        "home security app",
+        "javascript",
+        "es6",
+        "foscam",
+        "wansview",
+        "applescript"
+    ],
     "description": "Helpful Scripts home security solution",
     "author": {
         "name": "masterscripter",
