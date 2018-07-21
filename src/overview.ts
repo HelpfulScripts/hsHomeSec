@@ -1,8 +1,15 @@
 /**
  * # Home Security Setup
- * A simple homebrew alarm system.
+ * A simple OSX-based homebrew alarm system.
+ * - supports cameras with built-in web api. Currently tested
+ *     - WansView Q3S
+ *     - Foscam C1
+ * - creates its own ftp server and configures devices to send snapshots and videos there
+ * - communicates with users via email and OSX services Messages, Facetime 
+ * - receives remote user commands vial email
  * 
  * ##Installation
+ * `
  * 1. User Setup
  *     - create a standard user `obs`
  *     - Create folder `/Users/<user>/homeSec`
@@ -53,28 +60,4 @@
  *         - `Ask befor closing: Never` 
  */
 
- /**
- # Alarm Lib
- A simple homebrew alarm system.
- ## Installation
- ### How it works:
-
- ### Installation Steps
- On the target system: 
- 1. create folder and content structure:
-     - `/Downloads/homesec/`
-     - `/Applications/homesec/MyCamera/CameraOSX.app`
- 2. install Messages Script:
-     - copy _relayChatCommand.applescript_ to `~/Library/Application Scripts/con.apple.iChat`
-     - open Messages
-     - under `Preferences...` -> `General` -> `AppleScript handler`, select _relayChatCommand.applescript_ 
- 3. add to login items:
-     - _postRestartScript.app_
-     - _Safari_
-     - _Messages_
- 4. System Preferences settings:
-     - `Accessibility` -> `SystemVoice`: install voice _Allison_ in 
-     - `Network`: set manual IP Address: 192.168.1.101
-     - `Network`: check 'Ask to join Networks' 
-
- */
+ /** */
