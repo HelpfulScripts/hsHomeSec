@@ -1,6 +1,6 @@
 {
     "name": "hshomesec",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "main": "./index.js",
     "keywords": [],
     "description": "Helpful Scripts home security solution",
@@ -30,6 +30,7 @@
     "dependencies": {
         "hsnode": "*",
         "hsutil": "*",
-        "hsosaes6": "*"
+        "hsosaes6": "*",
+        "ftp-srv": "^2.19.2"
     }
 }
