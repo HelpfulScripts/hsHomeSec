@@ -28,7 +28,7 @@
  * - open `Preferences` -> `Rules`, then `Add Rule`
  * - give it a desciptive name, such as `talkToHomeSec`
  * - configure it as <code>if `any` of the folowing conditions are met: `Every Message` 
- * perform the following actions: `Run Applescript`</code> and select respondToMailAs.scpt from the popdown
+ * perform the following actions: `Run Applescript`</code> and select `respondToMailAs.scpt` from the popdown
  * 5. Optional: Setup your Mac as follows
  * - select `Desktop & Screen Saver`, set `Start after:` to `never`
  * - select `Energy Saver`; set `Computer Sleep` to `never`; deselect `Put hard disk to sleep`
@@ -43,6 +43,15 @@
  * ## Run
  * - Call `> sudo node ./index` to start the system without starting an ftp server
  * - Call `> sudo node ./index ftp` to start the system with its own ftp server
+ * Ypou can try the calls without `sudo`. It is likely needed since we start a webserver (and, if selected, an ftp server). 
+ * The webserver is used to let Mail communicate incoming messages via Applescript.
+ * 
+ * ## Operations
+ * - send an email to the mail account configuered above.
+ * - ensure that the mail address you send it from is configured as `User` in `homeCfg.json`. A `403` error will be returned if not.
+ * - issue commands via the subject field in the email. For example:
+ *    - `snap` will return a snapshot from each attacherd camera
+ *    - `help` will return a list of available commands.
  * 
  * 
  */
