@@ -1,7 +1,7 @@
 {
     "homeSecDir":   "/.../",
     "ftp": {
-        "root": "<path relative to homeSecDir>"
+        "root": "<path relative to homeSecDir>",
         "host": "x.x.x.x <IP address of ftp server>"
     },
     "devices":  [
