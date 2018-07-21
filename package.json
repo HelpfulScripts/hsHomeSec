@@ -12,15 +12,14 @@
     "scripts": {
         "build": "grunt build",
         "test": "grunt test",
-        "start": "node ./index.js",
-        "ftp": "node/node_modules/ftp-srv"
+        "start": "node ./index.js"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/HelpfulScripts/hsHomesec.git"
+        "url": "https://github.com/HelpfulScripts/hsHomeSec.git"
     },
     "engines": {
-        "node": ">= 8.9.0"
+        "node": "^8.11.0"
     },
     "plugins": [],
     "devDependencies": {
@@ -31,7 +30,6 @@
     "dependencies": {
         "hsnode": "*",
         "hsutil": "*",
-        "hsosaes6": "*",
-        "ftp-srv": "^2.19.2"
+        "hsosaes6": "*"
     }
 }

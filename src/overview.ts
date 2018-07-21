@@ -8,8 +8,9 @@
  * - communicates with users via email and OSX services Messages, Facetime 
  * - receives remote user commands vial email
  * 
- * ##Installation
- * `
+ * ##Installation and Setup
+ * 1. `npm i hshomesec`
+ * 2. configure `src/
  * 1. User Setup
  *     - create a standard user `obs`
  *     - Create folder `/Users/<user>/homeSec`

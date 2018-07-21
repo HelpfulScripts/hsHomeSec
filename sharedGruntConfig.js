@@ -95,9 +95,6 @@ module.exports = (grunt, dir, dependencies, type) => {
             htmlGH: { files: [
                 { expand:true, cwd: devPath,    // index.html and indexGH.html
                     src:['index.html', 'indexGH.html'], dest:'_dist/docs' 
-                },
-                { expand:true, cwd: devPath,    // index.html and indexGH.html
-                    src:['index.html', 'indexGH.html'], dest:'_dist/bin' 
                 }
             ]},
             example:{ expand:true, cwd: 'src/example', 
@@ -115,7 +112,9 @@ module.exports = (grunt, dir, dependencies, type) => {
             ]},
             app2NPM: { files: [ 
                 { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
-                src:['**/*'], dest:`node_modules/${libPath}/` }
+                    src:['**/*'], dest:`node_modules/${libPath}/` },
+                { expand:true, cwd: devPath,            // index.html and indexGH.html
+                    src:['index.html', 'indexGH.html'], dest:`node_modules/${libPath}/` }
             ]},
             docs2NPM:   { files: [                      // copy the module's typeodc json  
                 { expand:true, cwd: '_dist/docs', 
