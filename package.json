@@ -1,8 +1,10 @@
 {
     "name": "hshomesec",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "./index.js",
-    "bin" : { "hsHomeSec" : "./index.js" },
+    "bin": {
+        "hsHomeSec": "./index.js"
+    },
     "keywords": [
         "home security app",
         "javascript",
