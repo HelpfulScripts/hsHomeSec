@@ -1,6 +1,6 @@
 {
     "name": "hshomesec",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "main": "./index.js",
     "keywords": [],
     "description": "Helpful Scripts home security solution",
@@ -13,7 +13,7 @@
         "build": "grunt build",
         "test": "grunt test",
         "start": "node ./index.js",
-        "ftp":   "node/node_modules/ftp-srv"
+        "ftp": "node/node_modules/ftp-srv"
     },
     "repository": {
         "type": "git",
@@ -26,13 +26,12 @@
     "devDependencies": {
         "@types/node": "^7.0.66",
         "@types/request": "^2.47.1",
-        "@types/request-promise-native":"^1.0.15"
-
+        "@types/request-promise-native": "^1.0.15"
     },
     "dependencies": {
         "hsnode": "*",
         "hsutil": "*",
-        "hsosaes6":"*",
+        "hsosaes6": "*",
         "ftp-srv": "^2.19.2"
     }
-  }
+}
