@@ -47,7 +47,7 @@ export function start(baseDir:string, s:FtpSettings): Promise<void> {
                 log.error(`wrong user/pwd: ${data.username}/${data.password}`);
                 reject(new Error('nono'));
             }
-            log.info('login accepted for root "${settings.root}"');
+            log.info(`login accepted for root "${settings.root}"`);
             resolve({root:settings.root, cwd:'./'});
         });  
         ftpServer.on('client-error', (data:any) => { 
