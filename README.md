@@ -12,13 +12,14 @@ Written entirely in [Typescript](typescriptlang.org) to run on [Node](nodejs.org
 See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/indexGH.html#!/api/hsHomeSec/0)
 
 ## Installation
-1. Inside your `~/Documents` folder, clone the project:<br>
-`> git clone https://github.com/HelpfulScripts/hsHomeSec.git`<br>
+1. Inside your `~/Documents` folder, create a `homeses` folder and move there:<br>
+`> mkdir homesec`<br>
+`> cd homesec`<br>
    > if you choose a different installation folder, be sure to update the Applescript file `respondToMailAs.scpt` below.
-2. Move there:<br>
-`> cd hsHomeSec`
-3. And install dependencies:<br>
-`> npm i`
+2. Cone the project:<br>
+`> npm i hshomesec`<br>
+3. Move to the installation:<br>
+`> cd node_modules/hshomesec`
 
 ## Setup
 1. create homeCfg.json from the template:<br>

@@ -1,2 +1,2 @@
 #!/usr/local/bin/node
-require("./node/core/hsMain"); 
+require("./node/core/hsMain");

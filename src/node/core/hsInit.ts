@@ -57,7 +57,7 @@ export const startSecuritySystem = (settings:Settings):Settings => {
 };
 
 export const startSecuritySystemTestMode = (settings:Settings):Settings => {
-    log.logFile(`${__dirname}/../../test${settings.logFile}`);
+    log.logFile(`${settings.homeSecDir}/${settings.logDir}/${settings.logFile}`);
     log.level(log.INFO);
     return settings;
 };
