@@ -49,7 +49,7 @@ function onRequest(request:any, response:any) {
     const cmd = completeCmd[0];
     const param = completeCmd[1]? completeCmd[1] : '';
     const sender:string = query.sender;
-    log.info(`received message '${cmd}' '${param}' from '${sender}'`);
+    log.debug(`received message '${cmd}' '${param}' from '${sender}'`);
 
     const user = users.userByEmail(sender);
 
@@ -62,7 +62,7 @@ function onRequest(request:any, response:any) {
         .then(content => {
             content.attachments?
                 email(`Re: ${cmd}`, [sender], '', content.attachments)
-              : email(`Re: ${cmd}`, [sender], content);
+              : email(`Re: ${cmd}`, [sender], JSON.stringify(content));
         });
     }
 }

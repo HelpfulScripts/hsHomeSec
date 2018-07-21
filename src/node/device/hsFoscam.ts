@@ -10,17 +10,22 @@ import { AbstractCamera }   from './hsDevice';
 import { Settings }         from '../core/hsSettings';
 import * as ftp             from '../comm/ftpSrv';
 
-let   armCmd       = 'setMotionDetectConfig&isEnable=1';
-const disarmCmd    = 'setMotionDetectConfig&isEnable=0';
-const statusCmd    = 'getDevState';
-const getFtpCmd    = 'getFtpConfig';
-const ring         = 1;
-const linkage      = 4+8; // ring:1, mail:2, pic:4, vid:8
+let   armCmd       = '';
 const snapInterval = 1;   // in seconds
 const sensitivity  = '1'; // low - high: 4, 3, 0, 1, 2
 
+const linkage = {
+    audio:  1,
+    mail:   2,
+    pic:    4,
+    video:  8
+};
+
+
 
 export class Foscam extends AbstractCamera {  
+    protected path = '';
+
     constructor(device: DeviceSettings, settings:Settings) {
         super(device, settings);
         log.prefix(`Foscam ${device.name}`);
@@ -29,11 +34,7 @@ export class Foscam extends AbstractCamera {
         let area        = '';
         for (let i=0; i<7; i++)  { schedule = schedule + '&schedule' + i + '=281474976710655'; }
         for (let i=0; i<10; i++) { area = area + '&area' + i + '=1023'; }
-        armCmd = armCmd  +
-            '&sensitivity=' + sensitivity +
-            schedule + area +
-            '&snapInterval=' + snapInterval + 
-            '&triggerInterval=5';    
+        armCmd = `setMotionDetectConfig${schedule}${area}`;    
     }
 
     initDevice(settings:Settings) {
@@ -46,7 +47,7 @@ export class Foscam extends AbstractCamera {
      * @param string deviceName the name of the device
      */
     snapPicture():Promise<any> {
-        const cmd = 'snapPicture';
+        const cmd = `${this.path}snapPicture`;
         return this.sendCommandToDevice(cmd)
         .then((res:http.HttpResponse) => {
             const src = res.body.html.body.img.attrs.src;
@@ -61,10 +62,18 @@ export class Foscam extends AbstractCamera {
      * gets the device's ftp confguration and calls `cb`. 
      */
     getFtpCfg():Promise<any> {
-        return this.sendCommandToDevice(getFtpCmd)
+        const cmd = `${this.path}getFtpConfig`;
+        return this.sendCommandToDevice(cmd)
         .then((res:http.HttpResponse) => { 
-            log.info(`ftp config = \n${log.inspect(res.body)}`); 
-            return res.body; 
+            const result = res.body.CGI_Result;
+            if (result.result === '0') {
+                result.ftpAddr = unescape(result.ftpAddr);
+                log.info(`ftp config = \n${log.inspect(result)}`); 
+                return result; 
+            } else {
+                log.error(`ftp config result=${result.result}: \n${log.inspect(result)}`);
+                return result;
+            }
         })
         .catch(log.error.bind(log));
     }
@@ -75,11 +84,13 @@ export class Foscam extends AbstractCamera {
      */
     setFtpCfg():Promise<boolean> {
         const ftpSettings = ftp.get();
-        const cmd = `setFtpConfig&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
+        const cmd = `${this.path}setFtpConfig&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
         return this.sendCommandToDevice(cmd)
             .then((res:http.HttpResponse) => { 
-                log.info(`setFtpCfg ${(res.body.result === '0')?'success':'failure'}`);
-                return res.body.result === 0;
+                const success = res.body.CGI_Result.result === '0';
+                log.info(`setFtpCfg ${success?'success':'failure'}`);
+                log.debug(`res: ${log.inspect(res.body, null)}`);
+                return success;
             })
             .catch(err => {
                 log.error(err);
@@ -95,7 +106,7 @@ export class Foscam extends AbstractCamera {
      */
     testFtpServer():Promise<boolean> {
         const ftpSettings = ftp.get();
-        const cmd = `testFtpServer&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
+        const cmd = `${this.path}testFtpServer&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
         return this.sendCommandToDevice(cmd)
         .then((res:http.HttpResponse) => { 
             const result = res.body.testResult === '0';
@@ -112,8 +123,9 @@ export class Foscam extends AbstractCamera {
      * @return Promise a promise that resolves to True (status: armed) or False (status: disarmed). 
      */
     armStatus():Promise<boolean> {
+        const cmd = `${this.path}getDevState`;
         // results in {motionDetectAlarm: '0'- disarmed, '1'-no alarm, '2'- detect alarm}
-        return this.sendCommandToDevice(statusCmd)  
+        return this.sendCommandToDevice(cmd)  
             // resolves to True (armed) of False (disarmed)
             .then((result:any) => this.armed = (result.body.motionDetectAlarm !== '0'))   
             .catch(err => {
@@ -129,12 +141,20 @@ export class Foscam extends AbstractCamera {
      * @return Promise a promise that resolves to True (status: armed) or False (status: disarmed). 
      */
     arm(arm:boolean):Promise<boolean> {
-        const cmd = arm? (armCmd+'&linkage=' + (linkage + (this.getAudible()?ring:0))) : disarmCmd;
+        const link = linkage.pic + linkage.video + (this.getAudible()? linkage.audio : 0);
+        const cmd = `${this.path}${armCmd}&isEnable=${arm?1:0}&linkage=${link}&sensitivity=${sensitivity}&snapInterval=${snapInterval}&triggerInterval=5`;
         return this.sendCommandToDevice(cmd)        
-            .then((result) => this.armed = result.body)  // resolves to the arming status of the device (true or false)
+            .then((res) => {
+                const success = res.body.CGI_Result.result === '0';
+                log.debug(`arm result: ${success? 'successful' : 'error'}`);
+                if (!success) { 
+                    log.error(`received data: ${log.inspect(res.data, null)}`);
+                } 
+                return this.armed = success;
+            })  // resolves to the arming status of the device (true or false)
             .catch(err => {
                 log.error(err);
-                throw err;
+                return this.armStatus();
             });
     }
 }

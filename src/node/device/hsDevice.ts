@@ -149,7 +149,6 @@ export abstract class AbstractDevice implements Device {
 export abstract class AbstractCamera extends AbstractDevice implements Camera, AlarmDevice {
     private audible = false;
     protected armed   = false;
-    protected path = '';
 
     constructor(device: DeviceSettings, settings:Settings) {
         super(device, settings);
@@ -225,7 +224,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
      */
     setAudible(audible:boolean):Promise<boolean> {
         this.audible = (audible===true);
-        return log.info(`${this.getName()} audible: ${this.audible}`)
+        return log.debug(`${this.getName()} audible: ${this.audible}`)
         .then(() => true);
     }
 
@@ -240,8 +239,8 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
      */
     protected sendCommandToDevice(cmd:string, dynData?:any):Promise<any> {
         const settings = this.getSettings();
-        log.debug(`requesting ${cmd}`);
-        const Url = new URL(`http://${settings.user}:${settings.passwd}@${settings.host}:${settings.port}${this.path}${cmd}`);
+        log.debug(`${this.getName()} requesting ${cmd}`);
+        const Url = new URL(`http://${settings.user}:${settings.passwd}@${settings.host}:${settings.port}${cmd}`);
         const options = {
             host:       Url.host,
             hostname:   Url.hostname,
@@ -259,7 +258,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
         }
         return http.get(options)
             .then((r:http.HttpResponse) => {
-                log.debug(`${r.response.headers['content-type']} received for ${cmd}`);
+                log.debug(`${this.getName()} received ${r.response.headers['content-type']} for ${cmd}`);
                 if (r.response.headers['content-type'].indexOf('text/') >= 0) {
                     r.body = http.decodeXmlResult(r.data);
                 }

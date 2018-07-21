@@ -99,25 +99,36 @@ export const sayFn = (msg:string):Promise<any> => {
  * arms all armable devices. If `away` is specified, it also sets the device's audible alarm repsonses 
  * @param param `[away]`
  */
-export const armFn = (param:string):Promise<boolean[]> => {
-    const away = (param === 'away');
-    log.info(`preparing to arm ${DeviceList.getDevices().length} devices: ${DeviceList.getDevices().map(d=>d.getName())}`);
-    const alarmDevices = DeviceList.getDevices()
-        .filter((dev:Device) => dev.hasAlarm());
-    log.info(`arming ${alarmDevices.length} devices ${away?' for away mode':''}`);
-    return armingCall(alarmDevices.map((dev:AlarmDevice) => 
-            dev.setAudible(away).then(() => dev.arm(true))))
-        .then(() => alarmDevices.map((dev:AlarmDevice) => dev.isArmed()))
-        .then((r) => { log.info(`devices armed`); return r; });
+export const armFn = (param:string):Promise<string> => {
+    const audible = (param === 'away');
+    const devices = DeviceList.getDevices().filter(d => d.hasAlarm());
+
+    return Promise.all(
+        devices.map((d:AlarmDevice) => 
+            d.setAudible(audible)
+            .then(() => d.arm(true))
+            .then((b:boolean) => `${d.getName()}=${b}`)
+        )
+    )
+    .then((results:string[]) => {
+        log.debug(`devices armed: ${log.inspect(results)}`);
+        return results.join(', ');
+    })
+    .catch(log.error.bind(log));
 };
 
-export const disarmFn = ():Promise<boolean[]> => {
-    const alarmDevices = DeviceList.getDevices()
-        .filter((dev:Device) => dev.hasAlarm());
-    return armingCall(alarmDevices.map((dev:AlarmDevice) => 
-            dev.setAudible(false).then(() => dev.arm(false))
-        ))
-        .then(() => alarmDevices.map((dev:AlarmDevice) => dev.isArmed()));
+export const disarmFn = ():Promise<string> => {
+    const devices = DeviceList.getDevices().filter(d => d.hasAlarm());
+
+    return Promise.all(
+        devices.map((d:AlarmDevice) => d.arm(false)
+        .then((b:boolean) => `${d.getName()}=${b}`))
+    )
+    .then(results => {
+        log.info(`devices disarmed: ${log.inspect(results)}`);
+        return results.join(', ');
+    })
+    .catch(log.error.bind(log));
 };
     
 export const armingStatusFn = ():Promise<boolean[]> => {
