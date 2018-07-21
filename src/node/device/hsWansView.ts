@@ -27,7 +27,6 @@ export class WansView extends AbstractCamera {
 
     initDevice(settings:Settings) {
         super.initDevice(settings);
-        this.setFtpCfg();
     }
 
     /**
@@ -73,11 +72,12 @@ export class WansView extends AbstractCamera {
      * @return Promise a promise that resolves to undefined. 
      */
     setFtpCfg():Promise<boolean> {
-        const ftpSettings:ftp.FtpSettings = ftp.get();
+        const ftpSettings = ftp.getSettings();
         const cmd = `${this.path}ftp.cgi?cmd=setftpattr&ft_server=${ftpSettings.host}&ft_port=${ftpSettings.port}&ft_username=${ftpSettings.user}&ft_password=${ftpSettings.pwd}&ft_dirname=./`;
         return this.sendCommandToDevice(cmd)
             .then((receivedData:http.HttpResponse) => { 
-                log.info('set ftp config:' + inspect(receivedData.body).trim());
+                const success = receivedData.body.trim() === 'Success';
+                log.info(`setFtpCfg ${success?'success':'failure'}`);
                 return true;
             })
             .catch(err => {
@@ -140,7 +140,7 @@ export class WansView extends AbstractCamera {
         /* motionDetect*/ `cmd=setmdattr&enable=${arm?1:0}&sensitivity=${videoSensitivity}&left=0&top=0&right=1920&bottom=1080&index=0&name=MD0`,
         /* audioDetect */ `cmd=setaudioalarmattr&aa_enable=${arm?1:0}&aa_value=${audioSensitivity}`,
         /* audioAlert  */ `cmd=setalarmact&aname=alarmbeep&switch=${audio?'on':'off'}`,
-        /* audioTime   */ `cmd=setalarmbeepattr&audiotime=1`,
+        /* audioTime   */ `cmd=setalarmbeepattr&audiotime=5`,
         /* emailsnap   */ `cmd=setalarmact&aname=emailsnap&switch=off`,
         /* SDcardSnap  */ `cmd=setalarmact&aname=snap&switch=off`,
         /* SDcardRecord*/ `cmd=setalarmact&aname=record&switch=off`,
@@ -158,8 +158,8 @@ export class WansView extends AbstractCamera {
             .then((result) => {
                 const successes = result.data.split('\n');
                 let success = successes[0] === 'Success';
-                log.debug(`individual arm results: (${typeof result.data}) ${result.data}`);
-                successes.forEach((s:string, i:number) => { if(s!=='Success') { log.warn(`Command '${cmds[i]}' reported error '${s}'`); }});
+                log.debug(`individual arm results: (${typeof result.data}) ${log.inspect(result.data)}`);
+                successes.forEach((s:string, i:number) => { if(s && s!=='Success') { log.warn(`Command '${cmds[i]}' reported error '${s}'`); }});
                 log.debug(`arm result: ${success? 'successful' : 'error'}`);
                 if (success!==true) {
                     log.warn(`received data: ${log.inspect(result.data, null)}`);

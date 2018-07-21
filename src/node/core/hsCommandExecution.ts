@@ -107,12 +107,12 @@ export const armFn = (param:string):Promise<string> => {
         devices.map((d:AlarmDevice) => 
             d.setAudible(audible)
             .then(() => d.arm(true))
-            .then((b:boolean) => `${d.getName()}=${b}`)
+            .then((b:boolean) => `${d.getName()} ${b?'armed':'??'} ${d.getAudible()?'with siren':''}`)
         )
     )
     .then((results:string[]) => {
         log.debug(`devices armed: ${log.inspect(results)}`);
-        return results.join(', ');
+        return results.join('\n');
     })
     .catch(log.error.bind(log));
 };
@@ -121,10 +121,12 @@ export const disarmFn = ():Promise<string> => {
     const devices = DeviceList.getDevices().filter(d => d.hasAlarm());
 
     return Promise.all(
-        devices.map((d:AlarmDevice) => d.arm(false)
-        .then((b:boolean) => `${d.getName()}=${b}`))
+        devices.map((d:AlarmDevice) => 
+            d.arm(false)
+            .then((b:boolean) => `${d.getName()} ${b?'disarmed':'??'}`)
+        )
     )
-    .then(results => {
+    .then((results:string[]) => {
         log.info(`devices disarmed: ${log.inspect(results)}`);
         return results.join(', ');
     })

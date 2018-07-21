@@ -39,7 +39,6 @@ export class Foscam extends AbstractCamera {
 
     initDevice(settings:Settings) {
         super.initDevice(settings);
-        this.setFtpCfg();
     }
 
     /**
@@ -83,7 +82,7 @@ export class Foscam extends AbstractCamera {
      * The promsie resolves to true orfalse, depending on the success of the call
      */
     setFtpCfg():Promise<boolean> {
-        const ftpSettings = ftp.get();
+        const ftpSettings = ftp.getSettings();
         const cmd = `${this.path}setFtpConfig&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
         return this.sendCommandToDevice(cmd)
             .then((res:http.HttpResponse) => { 
@@ -105,7 +104,7 @@ export class Foscam extends AbstractCamera {
      * @return Promise a promise that resolves to the testResult: 0 = success, -1 = failure, -3 = unknown 
      */
     testFtpServer():Promise<boolean> {
-        const ftpSettings = ftp.get();
+        const ftpSettings = ftp.getSettings();
         const cmd = `${this.path}testFtpServer&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
         return this.sendCommandToDevice(cmd)
         .then((res:http.HttpResponse) => { 

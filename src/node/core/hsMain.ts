@@ -15,8 +15,6 @@ import { Settings } from './hsSettings';
 import * as ftp     from '../comm/ftpSrv';
 import * as httpSrv from '../comm/httpSrv';
 
-log.level(log.INFO);
-
 const cliParams = {
     ftpServer: false
 };
@@ -37,8 +35,12 @@ function cli(args:string[]): Promise<void> {
 }
 
 function ftpInit(settings: Settings):Settings {
-    ftp.set(settings.ftp);
-    if (cliParams.ftpServer) { ftp.start(settings.homeSecDir); }
+    if (cliParams.ftpServer) { ftp.start(settings.homeSecDir, settings.ftp); }
+    return settings;
+}
+
+function httpInit(settings: Settings):Settings {
+    httpSrv.start(); 
     return settings;
 }
 
@@ -48,9 +50,9 @@ try {
     cli(process.argv)
     .then(() => fs.readJsonFile(__dirname+'/../../config/homeCfg.json'))
     .then(ftpInit)
+    .then(httpInit)
     .then(init.startSecuritySystem)
     .then(init.initDevices)
-    .then(httpSrv.start)
     .catch(log.error.bind(log)); 
 
     process.on('exit', (code:string) => {

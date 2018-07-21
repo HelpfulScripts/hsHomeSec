@@ -1,9 +1,8 @@
 {
     "homeSecDir":   "/.../",
     "ftp": {
-        "host": "x.x.x.x",
-        "port": 2127,
-        "root": "recordings/"
+        "root": "<path relative to homeSecDir>"
+        "host": "x.x.x.x <IP address of ftp server>"
     },
     "devices":  [
         {
