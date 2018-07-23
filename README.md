@@ -18,23 +18,15 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/i
    > if you choose a different installation folder, be sure to update the Applescript file `respondToMailAs.scpt` below.
 2. Cone the project:<br>
 `> npm i hshomesec`<br>
-3. Move to the installation:<br>
-`> cd node_modules/hshomesec`
 
 ## Setup
-1. create homeCfg.json from the template:<br>
+1. Move to the installation folder:<br>
+`> cd node_modules/hshomesec`
+2. create homeCfg.json from the template:<br>
     `> cp src/config/homeCfg-template.json src/config/homeCfg.json`
-2. configure homeCfg.json with server IPs and available cameras
+3. configure homeCfg.json with server IPs and available cameras
    - *hint*: it may be a good idea to also configure your DHCP server to assign fixed addresses to the computer running the homeSec server, as well as to connected devices.
-3. configure Mail to communicate with homeSec
-   - copy script to mail script folder:<br>`> cp osascript/respondToMailAs.scpt                ~/Library/Application\ Scripts/com.apple.mail`.<br>
-      (if necessary, first create the `com.apple.mail` folder)
-   - on OSX, open Mail and ensure that a valid mail account is active
-   - open `Preferences` -> `Rules`, then `Add Rule`
-   - give it a desciptive name, such as `talkToHomeSec`
-   - configure it as <code>if `any` of the folowing conditions are met: `Every Message` 
-    perform the following actions: `Run Applescript`</code> and select `respondToMailAs.scpt` from the popdown
-5. Optional: Setup your Mac as follows
+4. Optional: Setup your Mac as follows
     - select `Desktop & Screen Saver`, set `Start after:` to `never`
     - select `Energy Saver`; set `Computer Sleep` to `never`; deselect `Put hard disk to sleep`
     - install voice `Allison`
