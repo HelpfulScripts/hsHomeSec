@@ -50,11 +50,12 @@ module.exports = (grunt, dir, dependencies, type) => {
     registerBuildTasks(type);
    
     //------ Add other MultiTasks
-    grunt.registerTask('make',    ['build', 'test', 'doc', 'stage']);
-    grunt.registerTask('once',    ['make']);	
-    grunt.registerTask('default', ['make', 'watch']);	
-    grunt.registerTask('product', ['buildMin', 'doc', 'stage']);	
-    grunt.registerTask('travis',  ['build', 'test']);	
+    grunt.registerTask('make',      ['build', 'test', 'doc', 'stage']);
+    grunt.registerTask('makeShort', ['build', 'stage']);
+    grunt.registerTask('once',      ['make']);	
+    grunt.registerTask('default',   ['makeShort', 'watch']);	
+    grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
+    grunt.registerTask('travis',    ['build', 'test']);	
 
     grunt.registerMultiTask('sourceCode', translateSources);  
 
@@ -263,7 +264,7 @@ module.exports = (grunt, dir, dependencies, type) => {
 			},
 			js: {
 				files: ['src/**/*.ts', '!src/**/*.spec.ts', '!src/**/*.less'],
-				tasks: ['make']
+				tasks: ['makeShort']
 			},
 			less: {
 				files: ['src/**/*.less'],
