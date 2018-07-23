@@ -27,7 +27,9 @@ export function start(baseDir:string, s:FtpSettings): Promise<void> {
     settings.host = s.host;
 //    settings.port = Math.floor(Math.random()*2000 + 1000);
     const ftpServer = new FtpSrv(`ftp://${settings.host}:${settings.port}`);
-    return fs.realPath(baseDir + s.root)
+    const root = `${baseDir}/${s.root}`;
+    log.debug(`testing ftp server root '${root}'`);
+    return fs.realPath(root)
     .then((p:string):void => {
         settings.root = p;
         log.info(`ftp root ${settings.root}`);    
@@ -57,7 +59,7 @@ export function start(baseDir:string, s:FtpSettings): Promise<void> {
     })
     .then(() => { log.info(`ftp server started on ${settings.host}:${settings.port}`); })
     .catch((err:any) => {
-        log.error(`creating ftp server on ${settings.host}:${settings.port}`);
+        log.error(`creating ftp server on '${settings.host}:${settings.port}:/${settings.root}'`);
         log.error(err);
         ftpServer.close();
     });

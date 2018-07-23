@@ -1,11 +1,10 @@
 
-import * as http from 'http';
-import { Log }   from 'hsnode'; const log = new Log('httpSrv');
-import * as os   from 'os';
-import * as url  from 'url';
-import { interpretCommand  }    from '../core/hsCommandReceiver';
-import { email }                from './hsUserComm';
-import { users }                from './hsUserComm';
+import * as http            from 'http';
+import { Log }              from 'hsnode'; const log = new Log('httpSrv');
+import * as os              from 'os';
+import * as url             from 'url';
+import { processCommand }   from '../core/hsCommandReceiver';
+import { users, User }      from './hsUserComm';
 
 let gServer:any;
 
@@ -43,26 +42,20 @@ function writeHeader(response:any, allowed:boolean) {
  * @param response 
  */
 function onRequest(request:any, response:any) {
-    const u = url.parse(request.url, true);
-    const query = u.query;
-    const completeCmd = query.cmd.split(' ');
-    const cmd = completeCmd[0];
-    const param = completeCmd[1]? completeCmd[1] : '';
-    const sender:string = query.sender;
-    log.debug(`received message '${cmd}' '${param}' from '${sender}'`);
-
-    const user = users.userByEmail(sender);
-
+    let user:User;
+    const query = url.parse(request.url, true).query;
     request.setEncoding("utf8");
-    request.addListener("data", function(/*postDataChunk*/) { });
-    request.addListener("end", writeHeader(response, user!==undefined));
 
-    if (user) {
-        interpretCommand(cmd, param, user)
-        .then(content => {
-            content.attachments?
-                email(`Re: ${cmd}`, [sender], '', content.attachments)
-              : email(`Re: ${cmd}`, [sender], JSON.stringify(content));
-        });
+    if (query.cmd) {
+        const cmd = query.cmd;
+        const sender:string = query.sender;
+        log.debug(`received message '${cmd}' from '${sender}'`);
+
+        user = users.userByEmail(sender);
+        request.addListener("end", writeHeader(response, user!==undefined));
+        processCommand(cmd, user);
+    } else {
+        log.warn(`no cmd found: ${log.inspect(query)}`);
+        request.addListener("end", writeHeader(response, false));
     }
 }

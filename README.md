@@ -24,12 +24,10 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/i
 ## Setup
 1. create homeCfg.json from the template:<br>
     `> cp src/config/homeCfg-template.json src/config/homeCfg.json`
-2. create a recordings directory:<br>
-    `> mkdir recordings`
-3. configure homeCfg.json with server IPs and available cameras
+2. configure homeCfg.json with server IPs and available cameras
    - *hint*: it may be a good idea to also configure your DHCP server to assign fixed addresses to the computer running the homeSec server, as well as to connected devices.
-4. configure Mail to communicate with homeSec
-   - copy script to mail script folder:<br>`> cp src/osascript/respondToMailAs.scpt                ~/Library/Application\ Scripts/com.apple.mail`.<br>
+3. configure Mail to communicate with homeSec
+   - copy script to mail script folder:<br>`> cp osascript/respondToMailAs.scpt                ~/Library/Application\ Scripts/com.apple.mail`.<br>
       (if necessary, first create the `com.apple.mail` folder)
    - on OSX, open Mail and ensure that a valid mail account is active
    - open `Preferences` -> `Rules`, then `Add Rule`

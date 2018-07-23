@@ -52,6 +52,7 @@ export const startSecuritySystem = (settings:Settings):Settings => {
     settings.users.map(user => users.addUser(user));
     createDevices(settings);
     addCommands();
+    new Comm.EmailPolling(5000);
     log.info('security system started');
     return settings;
 };
@@ -63,7 +64,7 @@ export const startSecuritySystemTestMode = (settings:Settings):Settings => {
 };
 
 export const initDevices = (settings:Settings) => {
-    Exec.setSnapshotDir(settings.homeSecDir+settings.recDir+'snapshots/') ;
+    Exec.setSnapshotDir(`${settings.homeSecDir}/${settings.recDir}/`);
     DeviceList.getDevices().map((dev:Device) => dev.initDevice(settings));
     log.info(`devices initialized: ${DeviceList.getDevices().map(d=>d.getName()).join(', ')}`);
 };

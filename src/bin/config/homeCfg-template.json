@@ -1,5 +1,5 @@
 {
-    "homeSecDir":   "/.../",
+    "homeSecDir":   "/<absolute path to homeSec dir>..../node_modules/hshomesec",
     "ftp": {
         "root": "<path relative to homeSecDir>",
         "host": "x.x.x.x <IP address of ftp server>"

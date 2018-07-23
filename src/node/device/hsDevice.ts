@@ -134,7 +134,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     
     initDevice(settings:Settings) {
         super.initDevice(settings);
-        this.setRecordingDir(settings.homeSecDir + (settings.recDir || ''));
+        this.setRecordingDir(`${settings.homeSecDir}/${settings.recDir || ''}`);
         this.setFtpCfg();
     }
 

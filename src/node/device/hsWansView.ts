@@ -10,6 +10,7 @@ import { DeviceSettings }   from './hsDevice';
 import { Settings }         from '../core/hsSettings';
 import { AbstractCamera }   from './hsDevice';
 import * as ftp             from '../comm/ftpSrv';
+import { date }             from 'hsutil';
 
 
 const audioSensitivity = 5;     // 1 - 10
@@ -27,6 +28,31 @@ export class WansView extends AbstractCamera {
 
     initDevice(settings:Settings) {
         super.initDevice(settings);
+        this.setOverlayText()
+        .then(()=>this.setTime());
+    }
+
+    standardSend(cmd:string, name:string) {
+        return this.sendCommandToDevice(cmd)
+            .then((receivedData:http.HttpResponse) => { 
+                const success = receivedData.body.trim() === 'Success';
+                log.info(`${name} ${success?'success':'failure'}`);
+                return true;
+            })
+            .catch(err => {
+                log.error('error'+err);
+                return false;
+            });
+    }
+
+    setTime(): Promise<any> {
+        const cmd = `${this.path}device.cgi?cmd=setsystime&stime=${date('%YYYY-%MM-%DD;%hh:%mm:%ss')}&timezone=6`;
+        return this.standardSend(cmd, 'setTime');
+    }
+
+    setOverlayText():Promise<any> {
+        const cmd = `${this.path}av.cgi?cmd=setosdattr&region=0&show=1&cmd=setosdattr&region=1&show=1&name=${this.getName()}`;
+        return this.standardSend(cmd, 'setOverlayText');
     }
 
     /**
@@ -74,16 +100,7 @@ export class WansView extends AbstractCamera {
     setFtpCfg():Promise<boolean> {
         const ftpSettings = ftp.getSettings();
         const cmd = `${this.path}ftp.cgi?cmd=setftpattr&ft_server=${ftpSettings.host}&ft_port=${ftpSettings.port}&ft_username=${ftpSettings.user}&ft_password=${ftpSettings.pwd}&ft_dirname=./`;
-        return this.sendCommandToDevice(cmd)
-            .then((receivedData:http.HttpResponse) => { 
-                const success = receivedData.body.trim() === 'Success';
-                log.info(`setFtpCfg ${success?'success':'failure'}`);
-                return true;
-            })
-            .catch(err => {
-                log.error('error'+err);
-                return false;
-            });
+        return this.standardSend(cmd, 'setFtpCfg');
     }
 
     /**

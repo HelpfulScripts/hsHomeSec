@@ -43,8 +43,8 @@ class UserList {
 
 export const users = new UserList();
 
-export function sendMessage(message:string, users:User[]):Promise<boolean> {
-    return osa.message(message, users.map(u => u.AppleID));
+export function message(users:User[], message:string, attachments?:string[]):Promise<boolean> {
+    return osa.sendMessage(users.map(u => u.AppleID), message, attachments);
 }
 
 export function videoChat(users:User[]):Promise<boolean> {
@@ -53,9 +53,12 @@ export function videoChat(users:User[]):Promise<boolean> {
 
 export function audioChat(users:User[]):Promise<boolean> {
     return Promise.resolve(false);
-    
 }
 
-export function email(subject:string, to:string[], content: string, attachments?:string[]):Promise<boolean> {
-    return osa.email(subject, to, content, attachments);
+export function sendEmail(subject:string, to:User[], content: string, attachments?:string[]):Promise<boolean> {
+    return osa.sendEmail(subject, to.map(u=>u.email[0]), content, attachments);
+}
+
+export function getEmail(date:Date):Promise<any> {
+    return osa.getEmail(date);
 }
