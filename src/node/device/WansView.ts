@@ -6,9 +6,9 @@ import { http }             from 'hsnode';
 //import { fs  }              from 'hsnode';
 import { inspect }          from 'util';
 //import { date }             from 'hsutil';
-import { DeviceSettings }   from './hsDevice';
-import { Settings }         from '../core/hsSettings';
-import { AbstractCamera }   from './hsDevice';
+import { DeviceSettings }   from './Device';
+import { Settings }         from '../core/Settings';
+import { AbstractCamera }   from './Device';
 import * as ftp             from '../comm/ftpSrv';
 import { date }             from 'hsutil';
 

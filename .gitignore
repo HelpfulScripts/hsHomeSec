@@ -3,6 +3,5 @@ _example
 node_modules
 .DS_Store
 .tscache
-docs
 src/config/homeCfg.json
 deploy.sh

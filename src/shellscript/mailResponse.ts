@@ -4,7 +4,7 @@ import { Log }          from 'hsnode'; const log = new Log("MailResponse");
 import { fs as fsUtil } from 'hsnode';
 import { http }         from 'hsnode';
 import { commandPort }  from '../node/comm/httpSrv';
-import * as init        from '../node/core/hsInit';
+import * as init        from '../node/core/Init';
 
 // const fs = require('fs');
 // fs.writeFileSync(__dirname+'/test.txt', 'yo');

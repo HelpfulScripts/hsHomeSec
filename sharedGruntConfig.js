@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require("webpack");
+// const webpack = require("webpack");
 //const webpackConfig = require('./webpack.config');
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -28,6 +28,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.loadNpmTasks('grunt-tslint');
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-webpack');
+    grunt.loadNpmTasks('jest');
 
     //------ Add Doc Tasks
     grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
@@ -36,8 +37,9 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
     
     //------ Add Test Tasks
-    grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/mithril/ospec/bin/ospec', {stdio: 'inherit'}); });
-    grunt.registerTask('test', ['clean:test', 'copy:test', 'build-spec', 'ospec']); 
+    grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
+    grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json'], {stdio: 'inherit'}); });
+    grunt.registerTask('test', ['clean:test', /*'copy:test', 'build-spec', 'ospec',*/ 'jest']); 
     
     //------ Add Build Tasks
     grunt.registerTask('build-html',    ['copy:buildHTML']);
@@ -50,10 +52,10 @@ module.exports = (grunt, dir, dependencies, type) => {
     registerBuildTasks(type);
    
     //------ Add other MultiTasks
-    grunt.registerTask('make',      ['build', 'test', 'doc', 'stage']);
+    grunt.registerTask('make',      ['build', 'doc', 'test', 'stage']);
     grunt.registerTask('makeShort', ['build', 'stage']);
     grunt.registerTask('once',      ['make']);	
-    grunt.registerTask('default',   ['makeShort', 'watch']);	
+    grunt.registerTask('default',   ['watch']);	
     grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
     grunt.registerTask('travis',    ['build', 'test']);	
 
@@ -77,9 +79,9 @@ module.exports = (grunt, dir, dependencies, type) => {
                 ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         clean: {
 			dist:    ['_dist'],
-            docs:   ['_dist/docs'],
+            docs:   ['docs'],
             test:   ['_dist/tests'],
-            example:['_example', '_dist/example']
+            example:['_dist/example']
         },
         copy: {
             buildHTML:  { expand:true, cwd:'src/', 
@@ -95,11 +97,11 @@ module.exports = (grunt, dir, dependencies, type) => {
             ]},
             htmlGH: { files: [
                 { expand:true, cwd: devPath,    // index.html and indexGH.html
-                    src:['index.html', 'indexGH.html'], dest:'_dist/docs' 
+                    src:['index.html', 'indexGH.html'], dest:'docs' 
                 }
             ]},
             example:{ expand:true, cwd: 'src/example', 
-                src:['**/*', '!**/*.ts'], dest:'_dist/example' 
+                src:['**/*', '!**/*.ts'], dest:'docs/example' 
             },
             libStage: { files: [
                 { expand:true, cwd: '_dist/src',        // copy everything from _dist/src to _dist/bin
@@ -108,26 +110,27 @@ module.exports = (grunt, dir, dependencies, type) => {
             lib2NPM: { files: [
                 { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
                     src:['**/*'], dest:`node_modules/${libPath}/` },
-                { expand:true, cwd: '_dist/docs/src',        // copy source htmls to hsDocs
-                    src:['**/*'], dest:`${devPath}/hsApps/hsDocs/_dist/docs/src` }
+                { expand:true, cwd: 'docs/data',         // copy source htmls to hsDocs
+                    src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` }
             ]},
             app2NPM: { files: [ 
                 { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
                     src:['**/*'], dest:`node_modules/${libPath}/` },
+                { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
+                    src:['**/*', '!package.json'], dest:`docs` },
                 { expand:true, cwd: devPath,            // index.html and indexGH.html
                     src:['index.html', 'indexGH.html'], dest:`node_modules/${libPath}/` }
             ]},
-            docs2NPM:   { files: [                      // copy the module's typeodc json  
-                { expand:true, cwd: '_dist/docs', 
-                    src:['**/*.json'], dest:`node_modules/${libPath}/docs`},
-                { expand:true, cwd: '_dist/',           // copy examples to npm docs
-                    src:['example/**/*'], dest:`node_modules/${libPath}/docs` }, 
+            docs2NPM:   { files: [                      // copy the module's docs to npm  
+                { expand:true, cwd: 'docs', 
+                    src:['**/*'], dest:`node_modules/${libPath}/docs`}
             ]},
 		    test: { files: [
                 { expand:true, cwd:'_dist/',    
                     src:['*.js', '*.css', '*.html'], dest:'_dist/tests/'
                 },
-                { cwd:'example/', expand:true, src:['*.json'], dest:'_dist/tests/'}
+                { cwd:'example/', expand:true, 
+                    src:['*.json'], dest:'_dist/tests/'}
             ]}
         },
         less: {
@@ -141,7 +144,7 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             example: {
                 files: {
-                    '_dist/example/<%= pkg.name %>.css': `src/example/${libPath}.less`
+                    'docs/example/<%= pkg.name %>.css': `src/example/${libPath}.less`
                 }
             }
         },
@@ -152,10 +155,10 @@ module.exports = (grunt, dir, dependencies, type) => {
                 fix:    false
             },
             src: {
-                src: ["src/**/*.ts", "!src/**/*.spec.ts"]
+                src: ["src/**/*.ts"]
             },
             spec: {
-                src: ["src/**/*.spec.ts"]
+                src: ["src/**/*.spec.ts", "src/**/*.jest.ts"]
             }
         },
         ts: {
@@ -172,14 +175,14 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             src : {
                 outDir:     "_dist/src",
-                src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
+                src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
             srcMin : {
                 outDir:     "_dist/src",
-                src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
+                src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
             example : {
-                outDir:     "_example",
+                outDir:     "docs/example",
                 src: ["src/example/*.ts"],
             },
             test : {
@@ -198,7 +201,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                     target: 'es6',
                     module: 'commonjs',
                     moduleResolution: "node",
-                    json:   `_dist/docs/data/${lib}.json`,
+                    json:   `docs/data/${lib}.json`,
                     mode:   'modules',
                     name:   `${lib}`,
                 },
@@ -247,8 +250,8 @@ module.exports = (grunt, dir, dependencies, type) => {
             main: {  // translate all *.ts files in src *.htmlfilesin doc
                 expand: true, 
                 cwd: 'src/', 
-                src: ['**/*.ts'], 
-                dest: `_dist/docs/data/src/${lib}/`,
+                src: ['**/*.ts', '!**/*.jest.ts', '!**/*.test.ts', '!**/*.spec.ts'], 
+                dest: `docs/data/src/${lib}/`,
                 rename: (dest, src) => dest + src.slice(src.lastIndexOf('/')+1).replace('.ts','.html')
             }
         },
@@ -263,7 +266,7 @@ module.exports = (grunt, dir, dependencies, type) => {
 				tasks: ['make']
 			},
 			js: {
-				files: ['src/**/*.ts', '!src/**/*.spec.ts', '!src/**/*.less'],
+				files: ['src/**/*.ts', '!src/**/*.spec.ts', '!src/**/*.jest.ts', '!src/**/*.less'],
 				tasks: ['makeShort']
 			},
 			less: {
@@ -277,6 +280,10 @@ module.exports = (grunt, dir, dependencies, type) => {
 			specs: {
 				files: ['src/**/*.spec.ts'],
 				tasks: ['test']
+			},
+			jest: {
+				files: ['src/**/*.jest.ts'],
+				tasks: ['jest']
 			}
 		}
     }
@@ -358,7 +365,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     }
 
     function writeIndexJson() {
-        grunt.file.write('_dist/docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
+        grunt.file.write('docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
     }
 
     function publish_gh() {

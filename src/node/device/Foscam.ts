@@ -5,9 +5,9 @@
  */
 import { http }             from 'hsnode';
 import { Log }              from 'hsnode';   const log = new Log('Foscam');
-import { DeviceSettings }   from './hsDevice';
-import { AbstractCamera }   from './hsDevice';
-import { Settings }         from '../core/hsSettings';
+import { DeviceSettings }   from './Device';
+import { AbstractCamera }   from './Device';
+import { Settings }         from '../core/Settings';
 import * as ftp             from '../comm/ftpSrv';
 
 let   armCmd       = '';

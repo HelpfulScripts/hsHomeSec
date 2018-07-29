@@ -1,5 +1,5 @@
-import { DeviceSettings } from '../device/hsDevice';
-import { User }           from '../comm/hsUserComm';
+import { DeviceSettings } from '../device/Device';
+import { User }           from '../comm/UserComm';
 import { FtpSettings }    from '../comm/ftpSrv';
 
 export interface Settings { 

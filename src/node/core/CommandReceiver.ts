@@ -2,17 +2,20 @@
  * uses a http server to listens for commands via http requests
  */
 import { Log }          from 'hsnode';   const log = new Log('hsCmdRec');
-import * as Exec        from './hsCommandExecution';
-import { User, users }  from '../comm/hsUserComm';
-import { getEmail }     from '../comm/hsUserComm';
-import { message }  from '../comm/hsUserComm';
-import { sendEmail }from '../comm/hsUserComm';
+import * as Exec        from './CommandExecution';
+import { User, users }  from '../comm/UserComm';
+import { getEmail }     from '../comm/UserComm';
+import { message }  from '../comm/UserComm';
+import { sendEmail }from '../comm/UserComm';
 
 
 export interface Command {
-    command: string;
+    /** the command function to execute */
     commandFn: (query:string[]) => Promise<any>;
-    desc?: string;
+    /** the command keyword */
+    command: string;
+    /** possible command parameters */
+    params?: string;
 }
 
 export interface Query {
@@ -33,17 +36,17 @@ const gCommands = <Command[]>[];
  * @param param 
  * @param from originating user 
  */
-function interpretCommand(cmd:string, param:string, from:User):Promise<any> {
+function interpretCommand(cmd:string, param:string[], from:User):Promise<any> {
     const cmdObj = gCommands[cmd];
     if (cmdObj) { 
-        log.info(`received command '${cmd}' with param '${param}' from '${from.name}'`);
+        log.info(`received command '${cmd}' with param '${param.join('|')}' from '${from.name}'`);
         try { 
             return cmdObj.commandFn(param);
         }
         catch(err) { console.trace(`error executing command '${cmd}': ${err}`); }
     } else { 
         log.info(`received unkwon command '${cmd}'`);
-        return Exec.sayFn(cmd + ' ' + param)
+        return Exec.sayFn([`${cmd} ${param.join(' ')}`])
         .catch(err => {
             log.error(`executing ${cmd}: ${err.toString()}`);
             return err.toString();
@@ -69,7 +72,7 @@ export function processCommand(cmd:string, from:User):Promise<any> {
         const completeCmd = cmd.split(' ');
         cmd = completeCmd[0];
         const param = completeCmd[1] || '';
-        return interpretCommand(cmd, param, from)
+        return interpretCommand(cmd, param.split(' '), from)
         .then((content:Content) => informSender(cmd, content, from));
     } else {
         log.warn(`no valid sender found`);
@@ -80,13 +83,13 @@ export function processCommand(cmd:string, from:User):Promise<any> {
 /**
  * adds a command and a corresponding callback function to the list of 
  * registered commands.
- * @param string cmd the command to add.
- * @param function cmdFn the function to call when the command is received.
- * @param string desc optional; 
+ * @param cmdFn the function to call when the command is received.
+ * @param cmd the command to add.
+ * @param options optional; 
  */
-export const addCommand = (cmd:string, cmdFn:any, desc?:string) => {
+export const addCommand = (cmdFn:any, cmd:string, options?:string) => {
     log.debug('adding command ' + cmd);
-    var obj = {command: cmd, commandFn: cmdFn, desc:desc||cmd};
+    var obj = {commandFn: cmdFn, command: cmd, options:options};
     gCommands.push(obj);
     gCommands[cmd] = obj;
 };
@@ -94,11 +97,11 @@ export const addCommand = (cmd:string, cmdFn:any, desc?:string) => {
 /**
  * adds a command and a corresponding callback function to the list of 
  * registered commands.
- * @return string[ ] an array of command strings
+ * @return an array of command strings
  */
 export const getCommands = () => {
     log.debug('getting list of command');
-    return  gCommands.map((c) => c.desc);
+    return  gCommands.map((c) => `${c.command} ${c.params}`);
 };
 
 

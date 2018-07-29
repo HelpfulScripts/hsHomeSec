@@ -3,8 +3,8 @@ import * as http            from 'http';
 import { Log }              from 'hsnode'; const log = new Log('httpSrv');
 import * as os              from 'os';
 import * as url             from 'url';
-import { processCommand }   from '../core/hsCommandReceiver';
-import { users, User }      from './hsUserComm';
+import { processCommand }   from '../core/CommandReceiver';
+import { users, User }      from './UserComm';
 
 let gServer:any;
 
@@ -12,9 +12,12 @@ export const commandPort = 999;
 
 export function start() {
     const port = commandPort;
-    gServer = http.createServer(onRequest);
-    gServer.listen(port);
-    log.info('server started on http://' + os.hostname() + ':' + port + '/');
+    try {
+        gServer = http.createServer(onRequest);
+        gServer.listen(port);
+        log.info('server started on http://' + os.hostname() + ':' + port + '/');
+    }
+    catch(e) { log.error(`error starting server on port ${port}: ${e}`); }
 }
 
 export function stop() {

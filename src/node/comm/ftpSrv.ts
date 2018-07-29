@@ -2,6 +2,7 @@
 import { FtpSrv }   from 'ftp-srv';
 import { Log }      from 'hsnode';  const log = new Log('ftp');
 import { fs }       from 'hsnode'; 
+import { users, message}   from './UserComm';
 
 export interface FtpSettings {
     host: string;
@@ -23,6 +24,27 @@ export function getSettings():FtpSettings {
     return settings;
 }
 
+function login(data:any, resolve:any, reject:any) {
+    data.connection.on('RETR', (error:string, filePath:string) => { 
+    if (error) { log.error(`reading '${filePath}': ${error}`); }
+          else { log.warn(`reading '${filePath}'`);}
+    }); 
+    data.connection.on('STOR', (error:string, filePath:string) => { 
+    if (error) { log.error(`writing '${filePath}': ${error}`); }
+        else { 
+            log.warn(`writing '${filePath}'`);
+            message(users[0], 'snapshot', [filePath]);
+        }
+    }); 
+    log.debug(`ftp login received: resolving for root "${settings.root}"`);
+    if (data.username !== settings.user || data.password !== settings.pwd) {
+        log.error(`wrong user/pwd: ${data.username}/${data.password}`);
+        reject(new Error('nono'));
+    }
+    log.debug(`login accepted for root "${settings.root}"`);
+    resolve({root:settings.root, cwd:'./'});
+}
+
 export function start(baseDir:string, s:FtpSettings): Promise<void> { 
     settings.host = s.host;
 //    settings.port = Math.floor(Math.random()*2000 + 1000);
@@ -33,25 +55,7 @@ export function start(baseDir:string, s:FtpSettings): Promise<void> {
     .then((p:string):void => {
         settings.root = p;
         log.info(`ftp root ${settings.root}`);    
-        ftpServer.on('login', (data, resolve, reject) => {
-            (<any>data.connection).on('RETR', (error:string, filePath:string) => { 
-//            data.connection.on('RETR', (error:string, filePath:string) => { 
-                    if (error) { log.error(`reading '${filePath}': ${error}`); }
-                      else { log.info(`reading '${filePath}'`);}
-            }); 
-            (<any>data.connection).on('STOR', (error:string, filePath:string) => { 
-//            data.connection.on('STOR', (error:string, filePath:string) => { 
-            if (error) { log.error(`writing '${filePath}': ${error}`); }
-                      else { log.info(`writing '${filePath}'`);}
-            }); 
-            log.debug(`ftp login received: resolving for root "${settings.root}"`);
-            if (data.username !== settings.user || data.password !== settings.pwd) {
-                log.error(`wrong user/pwd: ${data.username}/${data.password}`);
-                reject(new Error('nono'));
-            }
-            log.info(`login accepted for root "${settings.root}"`);
-            resolve({root:settings.root, cwd:'./'});
-        });  
+        ftpServer.on('login', login);  
         ftpServer.on('client-error', (data:any) => { 
             log.error(`client error received: context ${data.context} \n${log.inspect(data.error)}`);
         });

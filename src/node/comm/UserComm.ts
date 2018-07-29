@@ -1,5 +1,5 @@
 
-import { User }     from './hsUserComm';
+import { User }     from './UserComm';
 import { osa }      from 'hsosaes6';
 
 //import { Log } from 'hsnode'; const log = new Log('hsUser');

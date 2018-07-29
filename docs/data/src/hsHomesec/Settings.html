@@ -1,0 +1,34 @@
+
+                <html><style>body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding-top:5px; }
+            br  { margin:0; padding:0; }
+            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
+            comment { color: #080;} module { color: #804;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                    font-size: 14px; line-height: 1.2em; 
+                    overflow:scroll;
+                    height:90%;
+            }
+            code { padding: 5px 0;}</style></html><body>
+                <h1>src/node/core/Settings.ts</h1>
+                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span>import&nbsp;{&nbsp;DeviceSettings&nbsp;}&nbsp;from&nbsp;'../device/Device';<br>
+<span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;User&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/UserComm';<br>
+<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;FtpSettings&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/ftpSrv';<br>
+<span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span><br>
+<span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>export&nbsp;interface&nbsp;Settings&nbsp;{&nbsp;<br>
+<span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;homeSecDir:&nbsp;string;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;base&nbsp;directory&nbsp;for&nbsp;all&nbsp;home&nbsp;security&nbsp;files<br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;ftp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FtpSettings;<br>
+<span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;devices:&nbsp;&nbsp;&nbsp;&nbsp;[DeviceSettings];<br>
+<span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;recDir:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;where&nbsp;to&nbsp;store&nbsp;A/V&nbsp;recordings,&nbsp;relative&nbsp;to&nbsp;homeSecDir<br>
+<span id=10 class="line">&nbsp;&nbsp;10</span>&nbsp;&nbsp;&nbsp;&nbsp;logDir:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;where&nbsp;to&nbsp;store&nbsp;log&nbsp;entries,&nbsp;relative&nbsp;to&nbsp;homeSecDir<br>
+<span id=11 class="line">&nbsp;&nbsp;11</span>&nbsp;&nbsp;&nbsp;&nbsp;logFile:&nbsp;&nbsp;&nbsp;&nbsp;string;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;template&nbsp;name&nbsp;for&nbsp;logfiles<br>
+<span id=12 class="line">&nbsp;&nbsp;12</span>&nbsp;&nbsp;&nbsp;&nbsp;cmdPort:&nbsp;&nbsp;&nbsp;&nbsp;number;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;http&nbsp;port&nbsp;on&nbsp;which&nbsp;to&nbsp;listen&nbsp;for&nbsp;incoming&nbsp;commands<br>
+<span id=13 class="line">&nbsp;&nbsp;13</span>&nbsp;&nbsp;&nbsp;&nbsp;users:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User[];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;list&nbsp;of&nbsp;reciptient&nbsp;who&nbsp;may&nbsp;get&nbsp;notifications&nbsp;from&nbsp;the&nbsp;homesec&nbsp;system<br>
+<span id=14 class="line">&nbsp;&nbsp;14</span>&nbsp;&nbsp;&nbsp;&nbsp;activeRecipient:&nbsp;string;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;who&nbsp;in&nbsp;the&nbsp;list&nbsp;of&nbsp;recipients&nbsp;is&nbsp;the&nbsp;main&nbsp;receiver<br>
+<span id=15 class="line">&nbsp;&nbsp;15</span>&nbsp;&nbsp;&nbsp;&nbsp;user?:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string;<br>
+<span id=16 class="line">&nbsp;&nbsp;16</span>&nbsp;&nbsp;&nbsp;&nbsp;passwd?:&nbsp;&nbsp;&nbsp;&nbsp;string;<br>
+<span id=17 class="line">&nbsp;&nbsp;17</span>}<br></code></div>
+                </body>
+            

@@ -3,7 +3,7 @@ import { URL }          from 'url';
 import { Log }          from 'hsnode';   const log = new Log('hsDevice');
 import { http }         from 'hsnode';
 import { fs }           from 'hsnode'; 
-import { Settings }     from '../core/hsSettings';
+import { Settings }     from '../core/Settings';
 import { FtpSettings }  from '../comm/ftpSrv';
 
 export interface DeviceSettings {

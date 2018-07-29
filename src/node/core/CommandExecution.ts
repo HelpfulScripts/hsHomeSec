@@ -7,11 +7,11 @@
 import { Log, fs}         from 'hsnode';   const log = new Log('hsCmdExec');
 import { timeout }        from 'hsutil';
 import { osa }            from 'hsosaes6';
-import { User }           from '../comm/hsUserComm';
-import { DeviceList }     from '../device/hsDevice';
-import { Device, Camera } from '../device/hsDevice';
-import { AlarmDevice }    from '../device/hsDevice';
-import { getCommands  }   from './hsCommandReceiver';
+import { users }          from '../comm/UserComm';
+import { DeviceList }     from '../device/Device';
+import { Device, Camera } from '../device/Device';
+import { AlarmDevice }    from '../device/Device';
+import { getCommands  }   from './CommandReceiver';
 import { date }           from 'hsutil';
 import * as path          from 'path';
 
@@ -68,10 +68,10 @@ export const restartFn = ():Promise<{message:boolean}> => {
 /**
  * request to snap a picture. If a device name is specified, a snapshot from that device will be requested.
  * If no name is specified, a snapshot from each available camera will be requested.
- * @param query : `snap [deviceName]`
+ * @param param : `[<deviceName>]`
  * @return promise to provide the file name if successful
  */
-export const snapFn = (param:string):Promise<{attachments:string[]}> => {
+export const snapFn = (param:string[]):Promise<{attachments:string[]}> => {
     const getSnap = (dev:Camera): Promise<string> =>
         !dev.hasVideo()? Promise.resolve(undefined) :
             dev.snapPicture()
@@ -81,19 +81,30 @@ export const snapFn = (param:string):Promise<{attachments:string[]}> => {
                 return fs.writeStream(fileName, picData.data);
             });
 
-    return Promise.all((!param || param === '')?
-         DeviceList.getDevices().map(getSnap) : [getSnap(<Camera>DeviceList.getDevice(param))])
+    return Promise.all((!param || param[0] === '')?
+         DeviceList.getDevices().map(getSnap) : [getSnap(<Camera>DeviceList.getDevice(param[0]))])
          .then((files) => { return {attachments:files}; });
 };
 
-export const facetimeFn = (user:User):Promise<{message:string}> => {
+/**
+ * request to start a facetime call with user. 
+ * @param username : `[<name>]` of user to call
+ * @return promise to provide the file name if successful
+ */
+export const facetimeFn = (username:string[]):Promise<{message:string}> => {
+    const user = users.userByName(username[0]);
     log.info('trying facetime call to ' + user.name); 
     return osa.facetime(user.AppleID)
     .then((result) => { return {message: result}; });
 };
 
-export const sayFn = (msg:string):Promise<{message:string}> => { 
-    return osa.say(msg)
+/**
+ * request to say a string of text. 
+ * @param text : `[<text>]` to say
+ * @return promise to provide the result if successful
+ */
+export const sayFn = (msg:string[]):Promise<{message:string}> => { 
+    return osa.say(msg[0])
     .then((result) => { return {message: result}; });
 };
 
@@ -101,8 +112,8 @@ export const sayFn = (msg:string):Promise<{message:string}> => {
  * arms all armable devices. If `away` is specified, it also sets the device's audible alarm repsonses 
  * @param param `[away]`
  */
-export const armFn = (param:string):Promise<{message:string}> => {
-    const audible = (param === 'away');
+export const armFn = (param:string[]):Promise<{message:string}> => {
+    const audible = (param[0] === 'away');
     const devices = DeviceList.getDevices().filter(d => d.hasAlarm());
 
     return Promise.all(
@@ -144,10 +155,10 @@ export const armingStatusFn = ():Promise<{message:{[x:string]:boolean}[]}> => {
 
 /**
  * 
- * @param param `on|off`
+ * @param param `[on|off]`
  */
-export const lightFn = (param:string):Promise<{message:boolean}> => {
-    let opt = param;
+export const lightFn = (param:string[]):Promise<{message:boolean}> => {
+    let opt = param[0];
     log.info('lights on/off ' + opt);
 //    return osa.email((opt==='on')? IFTTT_On : IFTTT_Off, IFTTT_Address);
     return Promise.resolve({message: false});

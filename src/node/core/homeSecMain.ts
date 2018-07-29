@@ -10,8 +10,8 @@
 
 import { Log }      from 'hsnode';   const log = new Log('hsMain');
 import { fs }       from 'hsnode';
-import * as init    from './hsInit';
-import { Settings } from './hsSettings';
+import * as init    from './Init';
+import { Settings } from './Settings';
 import * as ftp     from '../comm/ftpSrv';
 import * as httpSrv from '../comm/httpSrv';
 

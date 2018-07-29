@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "CommonJS",
+      "rootDir": "./src",
+      "moduleResolution": "node",
+      "inlineSourceMap": true,
+      "removeComments": true,
+      "noImplicitAny": true,
+      "suppressImplicitAnyIndexErrors": true
+    },
+    "compileOnSave": true,
+    "include": ["src/**/*.ts"],  
+    "exclude": ["**/node_modules", "src/**/*.spec.ts", "src/**/*.jest.ts", "src/example/*.ts"]
+}
+  
