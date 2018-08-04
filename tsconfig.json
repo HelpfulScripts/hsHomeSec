@@ -2,7 +2,7 @@
     "compilerOptions": {
       "target": "es6",
       "module": "CommonJS",
-      "rootDir": "./src",
+      "rootDir": "./",
       "moduleResolution": "node",
       "inlineSourceMap": true,
       "removeComments": true,
@@ -10,7 +10,7 @@
       "suppressImplicitAnyIndexErrors": true
     },
     "compileOnSave": true,
-    "include": ["src/**/*.ts"],  
+    "include": ["./src/**/*.ts"],  
     "exclude": ["**/node_modules", "src/**/*.spec.ts", "src/**/*.jest.ts", "src/example/*.ts"]
 }
   

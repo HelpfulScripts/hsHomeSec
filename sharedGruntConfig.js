@@ -1,4 +1,5 @@
 const path = require('path');
+const fs   = require('fs');
 // const webpack = require("webpack");
 //const webpackConfig = require('./webpack.config');
 
@@ -39,7 +40,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
     grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json'], {stdio: 'inherit'}); });
-    grunt.registerTask('test', ['clean:test', /*'copy:test', 'build-spec', 'ospec',*/ 'jest']); 
+    grunt.registerTask('test', ['clean:test', /*'copy:test', 'build-spec', 'ospec',*/ 'jest', 'cleanupCoverage']); 
     
     //------ Add Build Tasks
     grunt.registerTask('build-html',    ['copy:buildHTML']);
@@ -60,6 +61,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('travis',    ['build', 'test']);	
 
     grunt.registerMultiTask('sourceCode', translateSources);  
+    grunt.registerMultiTask('cleanupCoverage', removeTimestampFromCoverage);  
 
     //------ Add general help 
     grunt.registerTask('h', 'help on grunt options', printHelp); 	
@@ -89,10 +91,10 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             bin:{ files: [
                 { expand:true, cwd: 'src/bin',  // if present, scaffolding for bin distribution
-                    src:['**/*', '!**/*.ts'], dest:'_dist/bin' 
+                    src:['**/*', '!**/*.ts'], dest:'_dist' 
                 },
                 { expand:true, cwd: './',       // readme and package.json
-                    src:['*.md', 'package.json'], dest:'_dist/bin' 
+                    src:['*.md', 'package.json'], dest:'_dist' 
                 }
             ]},
             htmlGH: { files: [
@@ -104,19 +106,19 @@ module.exports = (grunt, dir, dependencies, type) => {
                 src:['**/*', '!**/*.ts'], dest:'docs/example' 
             },
             libStage: { files: [
-                { expand:true, cwd: '_dist/src',        // copy everything from _dist/src to _dist/bin
-                    src:['**/*'], dest:'_dist/bin' }
+                // { expand:true, cwd: '_dist/',        // copy everything from _dist/src to _dist
+                //     src:['**/*'], dest:'_dist' }
             ]},
             lib2NPM: { files: [
-                { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
+                { expand:true, cwd: '_dist',        // copy everything from _dist
                     src:['**/*'], dest:`node_modules/${libPath}/` },
                 { expand:true, cwd: 'docs/data',         // copy source htmls to hsDocs
                     src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` }
             ]},
             app2NPM: { files: [ 
-                { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
+                { expand:true, cwd: '_dist',        // copy everything from _dist
                     src:['**/*'], dest:`node_modules/${libPath}/` },
-                { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
+                { expand:true, cwd: '_dist',        // copy everything from _dist
                     src:['**/*', '!package.json'], dest:`docs` },
                 { expand:true, cwd: devPath,            // index.html and indexGH.html
                     src:['index.html', 'indexGH.html'], dest:`node_modules/${libPath}/` }
@@ -139,7 +141,7 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             css: {
                 files: {
-                    '_dist/bin/<%= lib %>.css': 'src/css/<%= pkg.name %>.less'
+                    '_dist/<%= lib %>.css': 'src/css/<%= pkg.name %>.less'
                 }
             },
             example: {
@@ -174,11 +176,11 @@ module.exports = (grunt, dir, dependencies, type) => {
                 suppressImplicitAnyIndexErrors: true
             },
             src : {
-                outDir:     "_dist/src",
+                outDir:     "_dist",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
             srcMin : {
-                outDir:     "_dist/src",
+                outDir:     "_dist",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
             example : {
@@ -214,11 +216,11 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             appProd: { 
                 mode: 'production',
-                entry: './_dist/src/index.js',
+                entry: './_dist/index.js',
                 output: {
                     filename: `${lib}.min.js`,
                     chunkFilename: '[name].bundle.js',
-                    path: path.resolve(dir, './_dist/bin')
+                    path: path.resolve(dir, './_dist')
                 },
                 plugins: [
                     new UglifyJsPlugin({
@@ -231,15 +233,15 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             appDev: {
                 mode: 'development',
-                entry: './_dist/src/index.js',
+                entry: './_dist/index.js',
                 devtool: "inline-source-map",
                 output: {
                     filename: `${lib}.js`,
-                    path: path.resolve(dir, './_dist/bin')
+                    path: path.resolve(dir, './_dist')
                 }
             },
             test: {
-                entry: './_dist/bin/index.js',
+                entry: './_dist/index.js',
                 output: {
                     filename: `${lib}.js`,
                     path: path.resolve(dir, './_dist')
@@ -253,6 +255,14 @@ module.exports = (grunt, dir, dependencies, type) => {
                 src: ['**/*.ts', '!**/*.jest.ts', '!**/*.test.ts', '!**/*.spec.ts'], 
                 dest: `docs/data/src/${lib}/`,
                 rename: (dest, src) => dest + src.slice(src.lastIndexOf('/')+1).replace('.ts','.html')
+            }
+        },
+        cleanupCoverage: { 
+            main: {  // translate all *.ts files in src *.htmlfilesin doc
+                expand: true, 
+                cwd: 'docs/coverage', 
+                src: ['**/*.html'],
+                dest:''
             }
         },
 
@@ -362,6 +372,21 @@ module.exports = (grunt, dir, dependencies, type) => {
         files.map(file => processFile(file.src, file.dest));
         writeIndexJson();
         grunt.log.writeln(`converted ${files.length} files`);    
+    }
+
+    function removeTimestampFromCoverage() {
+        this.files.map(f => {
+            let content = ''+fs.readFileSync(f.src[0]);
+            console.log(f.src[0]);
+            const i = content.indexOf("<div class='footer");
+            if (i>0) {
+                const j = content.indexOf('</div>', i)+6;
+                if (j>i) {
+                    content = content.substring(0, i) + '***' + content.substring(j);
+                    fs.writeFileSync(f.src[0], content);
+                }
+            }
+        });
     }
 
     function writeIndexJson() {
