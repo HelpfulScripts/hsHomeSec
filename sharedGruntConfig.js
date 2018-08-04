@@ -382,7 +382,7 @@ module.exports = (grunt, dir, dependencies, type) => {
             if (i>0) {
                 const j = content.indexOf('</div>', i)+6;
                 if (j>i) {
-                    content = content.substring(0, i) + '***' + content.substring(j);
+                    content = content.substring(0, i) + content.substring(j);
                     fs.writeFileSync(f.src[0], content);
                 }
             }
