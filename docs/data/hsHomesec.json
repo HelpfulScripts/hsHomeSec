@@ -11209,7 +11209,7 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/overview.ts",
 			"comment": {
-				"shortText": "# Home Security Setup\nA simple homebrew alarm system for OSX High Sierra\n[Github page](https://github.com/HelpfulScripts/hsHomeSec)",
+				"shortText": "# Home Security Setup\nA simple homebrew alarm system for OSX High Sierra\n[`[Github page]`](https://github.com/HelpfulScripts/hsHomeSec)\n[`[Coverage Info]`](./data/src/hsHomeSec/coverage/)\n___",
 				"text": "For installallation and Setup, see the [README](https://github.com/HelpfulScripts/hsHomeSec) file\n\n\n"
 			},
 			"sources": [

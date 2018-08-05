@@ -1,0 +1,42 @@
+{
+    "homeSecDir":   "/<absolute path to homeSec dir>..../node_modules/hshomesec",
+    "ftp": {
+        "root": "<path relative to homeSecDir>",
+        "host": "x.x.x.x <IP address of ftp server>"
+    },
+    "devices":  [
+        {
+            "id": "<id required by device for communication>", 
+            "name": "<any short name for device>", 
+            "type": "foscam",
+            "host": "x.x.x.x", 
+            "port": 88,
+            "user": "<user name on device>",
+            "passwd": "<password on device>"
+        },
+        {
+            "id": "<id required by device for communication>", 
+            "name": "<any short name for device>", 
+            "type": "wansview",
+            "host": "x.x.x.x", 
+            "port": 80,
+            "user": "<user name on device>",
+            "passwd": "<password on device>"
+        }
+    ],
+    "recDir":   "recordings/",
+    "logDir":   "log/",
+    "logFile":  "hsLog_%YYYY%MM%DD.log",
+    "cmdPort":  573,
+    "users": [
+        {   "name": "<short name for user>",  
+            "email": ["<valid email address; >"],
+            "AppleID": "<valid apple ID used for Messages and Facetime>" 
+        },    
+        {   "name": "<short group name>", 
+            "group": ["<short name for user>", "<short name for user>"]
+        }
+    ],
+    "activeRecipient": "<any short name in 'Users'>"
+}
+

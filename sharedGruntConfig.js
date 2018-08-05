@@ -1,7 +1,5 @@
 const path = require('path');
 const fs   = require('fs');
-// const webpack = require("webpack");
-//const webpackConfig = require('./webpack.config');
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -35,12 +33,12 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
 
     //------ Add Staging Tasks
-    grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
+    grunt.registerTask('stage', ['copy:coverage', `${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
     
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
     grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json'], {stdio: 'inherit'}); });
-    grunt.registerTask('test', ['clean:test', /*'copy:test', 'build-spec', 'ospec',*/ 'jest', 'cleanupCoverage']); 
+    grunt.registerTask('test', ['clean:cov', 'jest', 'cleanupCoverage']); 
     
     //------ Add Build Tasks
     grunt.registerTask('build-html',    ['copy:buildHTML']);
@@ -48,7 +46,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
     grunt.registerTask('build-jsMin',   ['ts:srcMin']);
-    grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
+    // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
 
     registerBuildTasks(type);
    
@@ -80,59 +78,59 @@ module.exports = (grunt, dir, dependencies, type) => {
 				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
                 ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         clean: {
-			dist:    ['_dist'],
+			dist:   ['bin'],
             docs:   ['docs'],
-            test:   ['_dist/tests'],
-            example:['_dist/example']
+            cov:    ['_coverage'],
+            // test:   ['bin/tests'],
+            // example:['bin/example']
         },
         copy: {
             buildHTML:  { expand:true, cwd:'src/', 
-                src:['*.html'], dest:'_dist/' 
+                src:['*.html'], dest:'bin/' 
             },
             bin:{ files: [
-                { expand:true, cwd: 'src/bin',  // if present, scaffolding for bin distribution
-                    src:['**/*', '!**/*.ts'], dest:'_dist' 
+                { expand:true, cwd: 'src/bin',              // if present, scaffolding for bin distribution
+                    src:['**/*', '!**/*.ts'], dest:'bin' 
                 },
-                { expand:true, cwd: './',       // readme and package.json
-                    src:['*.md', 'package.json'], dest:'_dist' 
+                { expand:true, cwd: './',                   // readme and package.json
+                    src:['*.md', 'package.json'], dest:'bin' 
                 }
             ]},
             htmlGH: { files: [
-                { expand:true, cwd: devPath,    // index.html and indexGH.html
-                    src:['index.html', 'indexGH.html'], dest:'docs' 
+                { expand:true, cwd: devPath+'/staging/',    // index.html and indexGH.html
+                    src:['index.html'], dest:'docs' 
                 }
             ]},
             example:{ expand:true, cwd: 'src/example', 
                 src:['**/*', '!**/*.ts'], dest:'docs/example' 
             },
             libStage: { files: [
-                // { expand:true, cwd: '_dist/',        // copy everything from _dist/src to _dist
-                //     src:['**/*'], dest:'_dist' }
+                // { expand:true, cwd: 'bin/',              // copy everything from bin/src to bin
+                //     src:['**/*'], dest:'bin' }
+            ]},
+            coverage: {files: [
+                { expand:true, cwd: '_coverage',            // copy coervage into docs
+                    src:['**/*'], dest:`docs/data/src/${lib}/coverage` },
             ]},
             lib2NPM: { files: [
-                { expand:true, cwd: '_dist',        // copy everything from _dist
+                { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:['**/*'], dest:`node_modules/${libPath}/` },
-                { expand:true, cwd: 'docs/data',         // copy source htmls to hsDocs
+                { expand:true, cwd: 'docs/data',            // copy source htmls to hsDocs
                     src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` }
             ]},
             app2NPM: { files: [ 
-                { expand:true, cwd: '_dist',        // copy everything from _dist
+                { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:['**/*'], dest:`node_modules/${libPath}/` },
-                { expand:true, cwd: '_dist',        // copy everything from _dist
+                { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:['**/*', '!package.json'], dest:`docs` },
-                { expand:true, cwd: devPath,            // index.html and indexGH.html
-                    src:['index.html', 'indexGH.html'], dest:`node_modules/${libPath}/` }
+                { expand:true, cwd: 'docs/data',            // copy source htmls to hsDocs
+                    src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` },
+                { expand:true, cwd: devPath+'/staging/',    // index.html and indexGH.html
+                    src:['index.html'], dest:`node_modules/${libPath}/` }
             ]},
             docs2NPM:   { files: [                      // copy the module's docs to npm  
                 { expand:true, cwd: 'docs', 
                     src:['**/*'], dest:`node_modules/${libPath}/docs`}
-            ]},
-		    test: { files: [
-                { expand:true, cwd:'_dist/',    
-                    src:['*.js', '*.css', '*.html'], dest:'_dist/tests/'
-                },
-                { cwd:'example/', expand:true, 
-                    src:['*.json'], dest:'_dist/tests/'}
             ]}
         },
         less: {
@@ -141,7 +139,7 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             css: {
                 files: {
-                    '_dist/<%= lib %>.css': 'src/css/<%= pkg.name %>.less'
+                    'bin/<%= lib %>.css': 'src/css/<%= pkg.name %>.less'
                 }
             },
             example: {
@@ -176,25 +174,25 @@ module.exports = (grunt, dir, dependencies, type) => {
                 suppressImplicitAnyIndexErrors: true
             },
             src : {
-                outDir:     "_dist",
+                outDir:     "bin",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
             srcMin : {
-                outDir:     "_dist",
+                outDir:     "bin",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
             example : {
                 outDir:     "docs/example",
                 src: ["src/example/*.ts"],
-            },
-            test : {
-                options: {
-                    allowJs: true,
-                    declaration: false,
-                    rootDir: "./"
-                },
-                outDir:     "_dist/tests",
-                src: ["src/**/*.spec.ts"],
+            // },
+            // test : {
+            //     options: {
+            //         allowJs: true,
+            //         declaration: false,
+            //         rootDir: "./"
+            //     },
+            //     outDir:     "bin/tests",
+            //     src: ["src/**/*.spec.ts"],
             }
         },
         typedoc: { 
@@ -216,11 +214,11 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             appProd: { 
                 mode: 'production',
-                entry: './_dist/index.js',
+                entry: './bin/index.js',
                 output: {
                     filename: `${lib}.min.js`,
                     chunkFilename: '[name].bundle.js',
-                    path: path.resolve(dir, './_dist')
+                    path: path.resolve(dir, './bin')
                 },
                 plugins: [
                     new UglifyJsPlugin({
@@ -233,18 +231,18 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             appDev: {
                 mode: 'development',
-                entry: './_dist/index.js',
+                entry: './bin/index.js',
                 devtool: "inline-source-map",
                 output: {
                     filename: `${lib}.js`,
-                    path: path.resolve(dir, './_dist')
+                    path: path.resolve(dir, './bin')
                 }
             },
             test: {
-                entry: './_dist/index.js',
+                entry: './bin/index.js',
                 output: {
                     filename: `${lib}.js`,
-                    path: path.resolve(dir, './_dist')
+                    path: path.resolve(dir, './bin')
                 }
             }
         },
@@ -299,7 +297,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     }
 
     function registerBuildTasks(type) { 
-        let buildTasks = ['clean:dist', 'build-html', 'build-css', /*'build-example',*/ 'copy:bin', 'copy:example'];
+        let buildTasks = ['clean:dist', 'build-html', 'build-css', 'copy:bin', 'copy:example'];
         let buildProduct;
         switch (type) {
             case 'app':     buildProduct = buildTasks.concat(['build-jsMin', 'webpack:appProd']);
@@ -394,10 +392,11 @@ module.exports = (grunt, dir, dependencies, type) => {
     }
 
     function publish_gh() {
-        grunt.log.writeln(`spawning ${devPath}ghpages-push.sh`);
+        const path = `${devPath}staging/ghpages-push.sh`;
+        grunt.log.writeln(`spawning ${path}`);
         var done = this.async();
         grunt.util.spawn({
-            cmd: devPath+'ghpages-push.sh',
+            cmd: path,
             args: [dir]
         }, (error, result, code) => {
             grunt.log.writeln(`>> ${result.stdout.replace(/[\n|\r]/g, '\n>> ')}`);

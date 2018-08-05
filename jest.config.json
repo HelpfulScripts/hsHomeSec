@@ -1,6 +1,6 @@
 {
     "collectCoverage": true,
-    "coverageDirectory": "docs/coverage/",
+    "coverageDirectory": "_coverage/",
     "coverageReporters": ["json", "lcov", "text", "html"],
     "rootDir": "./",
     "roots":["./src"],
