@@ -33,12 +33,12 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
 
     //------ Add Staging Tasks
-    grunt.registerTask('stage', ['copy:coverage', `${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
+    grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
     
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
     grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json'], {stdio: 'inherit'}); });
-    grunt.registerTask('test', ['clean:cov', 'jest', 'cleanupCoverage']); 
+    grunt.registerTask('test', ['clean:cov', 'jest', 'copy:coverage', 'cleanupCoverage']); 
     
     //------ Add Build Tasks
     grunt.registerTask('build-html',    ['copy:buildHTML']);
@@ -256,9 +256,9 @@ module.exports = (grunt, dir, dependencies, type) => {
             }
         },
         cleanupCoverage: { 
-            main: {  // translate all *.ts files in src *.htmlfilesin doc
+            main: {  // translate all *.ts files in src *.html files in doc
                 expand: true, 
-                cwd: 'docs/coverage', 
+                cwd: `docs/data/src/${lib}/coverage`, 
                 src: ['**/*.html'],
                 dest:''
             }
@@ -373,17 +373,15 @@ module.exports = (grunt, dir, dependencies, type) => {
     }
 
     function removeTimestampFromCoverage() {
+        const replaceFooter = content => content.replace(/<div class='footer[\s\S]*?<\/div>/, '');
+        const addLibName    = content => content.replace(/All files/g, `${lib}: All files`);
+
         this.files.map(f => {
             let content = ''+fs.readFileSync(f.src[0]);
-            console.log(f.src[0]);
-            const i = content.indexOf("<div class='footer");
-            if (i>0) {
-                const j = content.indexOf('</div>', i)+6;
-                if (j>i) {
-                    content = content.substring(0, i) + content.substring(j);
-                    fs.writeFileSync(f.src[0], content);
-                }
-            }
+            console.log(`${lib}: ${f.src[0]}`);
+            content = replaceFooter(content);
+            content = addLibName(content);
+            fs.writeFileSync(f.src[0], content);
         });
     }
 
