@@ -2,6 +2,7 @@
     "collectCoverage": true,
     "coverageDirectory": "_coverage/",
     "coverageReporters": ["json", "lcov", "text", "html"],
+    "coveragePathIgnorePatterns": ["./osaCalls.ts"],
     "rootDir": "./",
     "roots":["./src"],
     "testMatch": ["**/*.jest.ts"],

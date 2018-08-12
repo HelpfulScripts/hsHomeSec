@@ -43,7 +43,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     //------ Add Build Tasks
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
-    grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
+    // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
     grunt.registerTask('build-jsMin',   ['ts:srcMin']);
     // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
@@ -64,9 +64,6 @@ module.exports = (grunt, dir, dependencies, type) => {
     //------ Add general help 
     grunt.registerTask('h', 'help on grunt options', printHelp); 	
 
-    //------ Add post to gh-pages 
-    grunt.registerTask('ghpages', 'Github post to gh-pages', publish_gh); 	
-  
     //------ Add Task Configurations
     return {
         pkg: grunt.file.readJSON(dir+'/package.json'),
@@ -80,9 +77,7 @@ module.exports = (grunt, dir, dependencies, type) => {
         clean: {
 			dist:   ['bin'],
             docs:   ['docs'],
-            cov:    ['_coverage'],
-            // test:   ['bin/tests'],
-            // example:['bin/example']
+            cov:    ['_coverage']
         },
         copy: {
             buildHTML:  { expand:true, cwd:'src/', 
@@ -184,15 +179,6 @@ module.exports = (grunt, dir, dependencies, type) => {
             example : {
                 outDir:     "docs/example",
                 src: ["src/example/*.ts"],
-            // },
-            // test : {
-            //     options: {
-            //         allowJs: true,
-            //         declaration: false,
-            //         rootDir: "./"
-            //     },
-            //     outDir:     "bin/tests",
-            //     src: ["src/**/*.spec.ts"],
             }
         },
         typedoc: { 
@@ -237,13 +223,13 @@ module.exports = (grunt, dir, dependencies, type) => {
                     filename: `${lib}.js`,
                     path: path.resolve(dir, './bin')
                 }
-            },
-            test: {
-                entry: './bin/index.js',
-                output: {
-                    filename: `${lib}.js`,
-                    path: path.resolve(dir, './bin')
-                }
+            // },
+            // test: {
+            //     entry: './bin/index.js',
+            //     output: {
+            //         filename: `${lib}.js`,
+            //         path: path.resolve(dir, './bin')
+            //     }
             }
         },
         sourceCode: { 
@@ -387,19 +373,5 @@ module.exports = (grunt, dir, dependencies, type) => {
 
     function writeIndexJson() {
         grunt.file.write('docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
-    }
-
-    function publish_gh() {
-        const path = `${devPath}staging/ghpages-push.sh`;
-        grunt.log.writeln(`spawning ${path}`);
-        var done = this.async();
-        grunt.util.spawn({
-            cmd: path,
-            args: [dir]
-        }, (error, result, code) => {
-            grunt.log.writeln(`>> ${result.stdout.replace(/[\n|\r]/g, '\n>> ')}`);
-            grunt.log.writeln(`exit code: ${code}, errors:${result.stderr}`);
-            done();
-        });
     }
 };
