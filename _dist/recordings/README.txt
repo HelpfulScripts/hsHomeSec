@@ -1,1 +1,0 @@
-Placeholder for snapshots and videos transfered via ftp

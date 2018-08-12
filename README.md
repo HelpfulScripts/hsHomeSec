@@ -1,9 +1,9 @@
 # Home Security System
 A simple homebrew alarm system for OSX High Sierra
 
-Written entirely in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).
+Written in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).
 - supports cameras with built-in web api. Currently tested
-    - WansView Q3S
+    - WansView Q3S, K3
     - Foscam C1
 - creates its own ftp server and configures devices to send snapshots and videos there
 - communicates with users via email and OSX services Messages, and Facetime 

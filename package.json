@@ -6,11 +6,12 @@
         "hsHomeSec": "./index.js"
     },
     "keywords": [
-        "home security app",
+        "home security",
         "javascript",
         "es6",
         "foscam",
         "wansview",
+        "osa",
         "applescript"
     ],
     "description": "Helpful Scripts home security solution",
