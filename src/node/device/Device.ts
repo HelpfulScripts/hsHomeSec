@@ -1,7 +1,8 @@
 
 import { URL }          from 'url';
-import { Log }          from 'hsnode';   const log = new Log('hsDevice');
+import { Log }          from 'hsnode'; const log = new Log('Device');
 import { http }         from 'hsnode';
+
 import { fs }           from 'hsnode'; 
 import { Settings }     from '../core/Settings';
 import { FtpSettings }  from '../comm/ftpSrv';
@@ -13,6 +14,7 @@ export interface DeviceSettings {
     host:       string;         // IP number of device
     prot:       string;         // http or https
     port:       number;         // port number on device
+    useAlarm?:  boolean;        // whether to include when arming, default: true
     recDir?:    string;         // where to store device recordings, absolute path
 //    devices:    Device[];       // list of all registered devices
 //    cameras:    Camera[];       // list of all camera devices registered
@@ -101,6 +103,7 @@ export interface Camera extends Device {
 
 export abstract class AbstractDevice implements Device {
     private settings: DeviceSettings;
+    protected log:Log;
 
     hasVideo():boolean          { return false; }
     hasAudio():boolean          { return false; }
@@ -110,6 +113,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:Settings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
+        this.log = new Log(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 
     initDevice(settings:Settings) {}
@@ -125,11 +129,12 @@ export abstract class AbstractDevice implements Device {
 }
 
 export abstract class AbstractCamera extends AbstractDevice implements Camera, AlarmDevice {
-    private audible = false;
-    protected armed   = false;
+    private audible     = false;
+    protected armed     = false;
 
     constructor(device: DeviceSettings, settings:Settings) {
         super(device, settings);
+        if (device.useAlarm === undefined) { device.useAlarm = true; }
     }
     
     initDevice(settings:Settings) {
@@ -150,7 +155,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     setRecordingDir(recDir:string):Promise<string> {
         return fs.realPath(recDir).then((p:string) => {
             this.getSettings().recDir = p;
-            log.debug(`${this.getName()} recording directory set to ${this.getSettings().recDir}`);
+            this.log.debug(`${this.getName()} recording directory set to ${this.getSettings().recDir}`);
             return p;
         });
     }
@@ -203,7 +208,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
      */
     setAudible(audible:boolean):Promise<boolean> {
         this.audible = (audible===true);
-        return log.debug(`${this.getName()} audible: ${this.audible}`)
+        return this.log.debug(`${this.getName()} audible: ${this.audible}`)
         .then(() => true);
     }
 
@@ -214,36 +219,22 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
         /**
      * promised to send `cmd` to the foscam camera specified in `options`
      * @param cmd the command string to send
-     * @param {dynData an http options object
+     * @param dynRef an http options object
      */
-    protected sendCommandToDevice(cmd:string, dynData?:any):Promise<any> {
+    protected sendCommandToDevice(cmd:string, referer?:string):Promise<any> {
         const settings = this.getSettings();
-        log.debug(`${this.getName()} requesting ${cmd}`);
-        const Url = new URL(`http://${settings.user}:${settings.passwd}@${settings.host}:${settings.port}${cmd}`);
-        const options = {
-            host:       Url.host,
-            hostname:   Url.hostname,
-            port:       Url.port,
-            method:     'GET',
-            path:       Url.pathname+Url.search,
-            protocol:   Url.protocol,
-            headers:<any>    { 'User-Agent': 'helpful scripts' },
-            username:   Url.username,
-            password:   Url.password
-        };
-        if (dynData) {
-            options.path = dynData.path;
-            options.headers.referer = Url.href;
-        }
-        return http.get(options)
+        const Url = new URL(`http://${settings.host}:${settings.port}${cmd}`);
+        this.log.debug(`${this.getName()} requesting ${Url.href}`);
+        return http.request(Url, new http.Digest(settings.user, settings.passwd), referer)
             .then((r:http.HttpResponse) => {
-                log.debug(`${this.getName()} received ${r.response.headers['content-type']} for ${cmd}`);
+                this.log.debug(`${this.getName()} received ${r.response.headers['content-type']} for ${cmd}`);
                 if (r.response.headers['content-type'].indexOf('text/') >= 0) {
-                    r.body = http.decodeXmlResult(r.data);
+                    r.body = http.xml2json(r.data);
+                    this.log.debug(`response: ${this.log.inspect(r.body,null)}`);
                 }
                 return r;
             })
-            .catch(log.error.bind(log));
+            .catch(this.log.error.bind(this.log));
     }
 }
     

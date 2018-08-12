@@ -21,7 +21,7 @@
 <span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span><br>
 <span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>import&nbsp;{&nbsp;Log,&nbsp;fs}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log('hsCmdExec');<br>
 <span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>import&nbsp;{&nbsp;timeout&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsutil';<br>
-<span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>import&nbsp;{&nbsp;osa&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsosaes6';<br>
+<span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>import&nbsp;{&nbsp;osaCommands&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsosaes6';<br>
 <span id=10 class="line">&nbsp;&nbsp;10</span>import&nbsp;{&nbsp;users&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/UserComm';<br>
 <span id=11 class="line">&nbsp;&nbsp;11</span>import&nbsp;{&nbsp;DeviceList&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../device/Device';<br>
 <span id=12 class="line">&nbsp;&nbsp;12</span>import&nbsp;{&nbsp;Device,&nbsp;Camera&nbsp;}&nbsp;from&nbsp;'../device/Device';<br>
@@ -68,7 +68,7 @@
 <span id=53 class="line">&nbsp;&nbsp;53</span>};<br>
 <span id=54 class="line">&nbsp;&nbsp;54</span><br>
 <span id=55 class="line">&nbsp;&nbsp;55</span>export&nbsp;const&nbsp;restartFn&nbsp;=&nbsp;():Promise<{message:boolean}>&nbsp;=>&nbsp;{<br>
-<span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osa.restart()<br>
+<span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.restart()<br>
 <span id=57 class="line">&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;.then(result&nbsp;=>&nbsp;{<br>
 <span id=58 class="line">&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.info('restarting...'+result);&nbsp;<br>
 <span id=59 class="line">&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!result&nbsp;||&nbsp;result&nbsp;===&nbsp;true)&nbsp;{&nbsp;<br>
@@ -109,7 +109,7 @@
 <span id=94 class="line">&nbsp;&nbsp;94</span>export&nbsp;const&nbsp;facetimeFn&nbsp;=&nbsp;(username:string[]):Promise<{message:string}>&nbsp;=>&nbsp;{<br>
 <span id=95 class="line">&nbsp;&nbsp;95</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;user&nbsp;=&nbsp;users.userByName(username[0]);<br>
 <span id=96 class="line">&nbsp;&nbsp;96</span>&nbsp;&nbsp;&nbsp;&nbsp;log.info('trying&nbsp;facetime&nbsp;call&nbsp;to&nbsp;'&nbsp;+&nbsp;user.name);&nbsp;<br>
-<span id=97 class="line">&nbsp;&nbsp;97</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osa.facetime(user.AppleID)<br>
+<span id=97 class="line">&nbsp;&nbsp;97</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.facetime(user.AppleID)<br>
 <span id=98 class="line">&nbsp;&nbsp;98</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((result)&nbsp;=>&nbsp;{&nbsp;return&nbsp;{message:&nbsp;result};&nbsp;});<br>
 <span id=99 class="line">&nbsp;&nbsp;99</span>};<br>
 <span id=100 class="line">&nbsp;100</span><br>
@@ -119,7 +119,7 @@
 <span id=104 class="line">&nbsp;104</span>&nbsp;*&nbsp;@return&nbsp;promise&nbsp;to&nbsp;provide&nbsp;the&nbsp;result&nbsp;if&nbsp;successful<br>
 <span id=105 class="line">&nbsp;105</span>&nbsp;*/</comment><br>
 <span id=106 class="line">&nbsp;106</span>export&nbsp;const&nbsp;sayFn&nbsp;=&nbsp;(msg:string[]):Promise<{message:string}>&nbsp;=>&nbsp;{&nbsp;<br>
-<span id=107 class="line">&nbsp;107</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osa.say(msg[0])<br>
+<span id=107 class="line">&nbsp;107</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.say(msg[0])<br>
 <span id=108 class="line">&nbsp;108</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((result)&nbsp;=>&nbsp;{&nbsp;return&nbsp;{message:&nbsp;result};&nbsp;});<br>
 <span id=109 class="line">&nbsp;109</span>};<br>
 <span id=110 class="line">&nbsp;110</span><br>
@@ -175,7 +175,7 @@
 <span id=160 class="line">&nbsp;160</span>export&nbsp;const&nbsp;lightFn&nbsp;=&nbsp;(param:string[]):Promise<{message:boolean}>&nbsp;=>&nbsp;{<br>
 <span id=161 class="line">&nbsp;161</span>&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;opt&nbsp;=&nbsp;param[0];<br>
 <span id=162 class="line">&nbsp;162</span>&nbsp;&nbsp;&nbsp;&nbsp;log.info('lights&nbsp;on/off&nbsp;'&nbsp;+&nbsp;opt);<br>
-<span id=163 class="line">&nbsp;163</span>//&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osa.email((opt==='on')?&nbsp;IFTTT_On&nbsp;:&nbsp;IFTTT_Off,&nbsp;IFTTT_Address);<br>
+<span id=163 class="line">&nbsp;163</span>//&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.email((opt==='on')?&nbsp;IFTTT_On&nbsp;:&nbsp;IFTTT_Off,&nbsp;IFTTT_Address);<br>
 <span id=164 class="line">&nbsp;164</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Promise.resolve({message:&nbsp;false});<br>
 <span id=165 class="line">&nbsp;165</span>};<br>
 <span id=166 class="line">&nbsp;166</span><br>

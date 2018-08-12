@@ -1,6 +1,6 @@
 //import { FtpSrv }   from '../../../ftp-srv';
 import { FtpSrv }   from 'ftp-srv';
-import { Log }      from 'hsnode';  const log = new Log('ftp');
+import { Log }      from 'hsnode';  const log = new Log('ftpSrv');
 import { fs }       from 'hsnode'; 
 import { users, message}   from './UserComm';
 
@@ -26,14 +26,14 @@ export function getSettings():FtpSettings {
 
 function login(data:any, resolve:any, reject:any) {
     data.connection.on('RETR', (error:string, filePath:string) => { 
-    if (error) { log.error(`reading '${filePath}': ${error}`); }
-          else { log.warn(`reading '${filePath}'`);}
+        if (error) { log.error(`reading '${filePath}': ${error}`); }
+              else { log.warn(`reading '${filePath}'`);}
     }); 
     data.connection.on('STOR', (error:string, filePath:string) => { 
-    if (error) { log.error(`writing '${filePath}': ${error}`); }
+        if (error) { log.error(`writing '${filePath}': ${error}`); }
         else { 
-            log.warn(`writing '${filePath}'`);
-            message(users[0], 'snapshot', [filePath]);
+            log.warn(`motion alarm: writing '${filePath}'`);
+            message([users.userByName()], 'snapshot', [filePath]);
         }
     }); 
     log.debug(`ftp login received: resolving for root "${settings.root}"`);

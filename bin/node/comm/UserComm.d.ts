@@ -7,14 +7,16 @@ export interface User {
 }
 declare class UserList {
     users: any;
+    defaultRecipient: User;
     emails: {
         string: User;
     };
     constructor();
     addUser(user: User): void;
     userByEmail(email: string): User;
-    userByName(name: string): User;
+    userByName(name?: string): User;
     registeredUsers(): string[];
+    setDefaultRecipient(name: string): User;
 }
 export declare const users: UserList;
 export declare function message(users: User[], message: string, attachments?: string[]): Promise<boolean>;

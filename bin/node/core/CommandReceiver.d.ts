@@ -14,6 +14,7 @@ export declare const getCommands: () => string[];
 export declare class EmailPolling {
     private ms;
     private processed;
+    private firstRun;
     constructor(ms: number);
     private poll;
     private processMails;

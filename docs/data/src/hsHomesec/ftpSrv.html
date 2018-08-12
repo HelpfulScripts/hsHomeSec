@@ -15,7 +15,7 @@
                 <h1>src/node/comm/ftpSrv.ts</h1>
                 <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span>//import&nbsp;{&nbsp;FtpSrv&nbsp;}&nbsp;&nbsp;&nbsp;from&nbsp;'../../../ftp-srv';<br>
 <span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;FtpSrv&nbsp;}&nbsp;&nbsp;&nbsp;from&nbsp;'ftp-srv';<br>
-<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;Log&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log('ftp');<br>
+<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;Log&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log('ftpSrv');<br>
 <span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>import&nbsp;{&nbsp;fs&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;<br>
 <span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>import&nbsp;{&nbsp;users,&nbsp;message}&nbsp;&nbsp;&nbsp;from&nbsp;'./UserComm';<br>
 <span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span><br>
@@ -41,14 +41,14 @@
 <span id=26 class="line">&nbsp;&nbsp;26</span><br>
 <span id=27 class="line">&nbsp;&nbsp;27</span>function&nbsp;login(data:any,&nbsp;resolve:any,&nbsp;reject:any)&nbsp;{<br>
 <span id=28 class="line">&nbsp;&nbsp;28</span>&nbsp;&nbsp;&nbsp;&nbsp;data.connection.on('RETR',&nbsp;(error:string,&nbsp;filePath:string)&nbsp;=>&nbsp;{&nbsp;<br>
-<span id=29 class="line">&nbsp;&nbsp;29</span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(error)&nbsp;{&nbsp;log.error(`reading&nbsp;'${filePath}':&nbsp;${error}`);&nbsp;}<br>
-<span id=30 class="line">&nbsp;&nbsp;30</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{&nbsp;log.warn(`reading&nbsp;'${filePath}'`);}<br>
+<span id=29 class="line">&nbsp;&nbsp;29</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(error)&nbsp;{&nbsp;log.error(`reading&nbsp;'${filePath}':&nbsp;${error}`);&nbsp;}<br>
+<span id=30 class="line">&nbsp;&nbsp;30</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{&nbsp;log.warn(`reading&nbsp;'${filePath}'`);}<br>
 <span id=31 class="line">&nbsp;&nbsp;31</span>&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;<br>
 <span id=32 class="line">&nbsp;&nbsp;32</span>&nbsp;&nbsp;&nbsp;&nbsp;data.connection.on('STOR',&nbsp;(error:string,&nbsp;filePath:string)&nbsp;=>&nbsp;{&nbsp;<br>
-<span id=33 class="line">&nbsp;&nbsp;33</span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(error)&nbsp;{&nbsp;log.error(`writing&nbsp;'${filePath}':&nbsp;${error}`);&nbsp;}<br>
+<span id=33 class="line">&nbsp;&nbsp;33</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(error)&nbsp;{&nbsp;log.error(`writing&nbsp;'${filePath}':&nbsp;${error}`);&nbsp;}<br>
 <span id=34 class="line">&nbsp;&nbsp;34</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{&nbsp;<br>
-<span id=35 class="line">&nbsp;&nbsp;35</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.warn(`writing&nbsp;'${filePath}'`);<br>
-<span id=36 class="line">&nbsp;&nbsp;36</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message(users[0],&nbsp;'snapshot',&nbsp;[filePath]);<br>
+<span id=35 class="line">&nbsp;&nbsp;35</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.warn(`motion&nbsp;alarm:&nbsp;writing&nbsp;'${filePath}'`);<br>
+<span id=36 class="line">&nbsp;&nbsp;36</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message([users.userByName()],&nbsp;'snapshot',&nbsp;[filePath]);<br>
 <span id=37 class="line">&nbsp;&nbsp;37</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 <span id=38 class="line">&nbsp;&nbsp;38</span>&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;<br>
 <span id=39 class="line">&nbsp;&nbsp;39</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`ftp&nbsp;login&nbsp;received:&nbsp;resolving&nbsp;for&nbsp;root&nbsp;"${settings.root}"`);<br>

@@ -6,7 +6,7 @@
 
 import { Log, fs}         from 'hsnode';   const log = new Log('hsCmdExec');
 import { timeout }        from 'hsutil';
-import { osa }            from 'hsosaes6';
+import { osaCommands }    from 'hsosaes6';
 import { users }          from '../comm/UserComm';
 import { DeviceList }     from '../device/Device';
 import { Device, Camera } from '../device/Device';
@@ -53,7 +53,7 @@ export const helpFn = ():Promise<{message:string}> => {
 };
 
 export const restartFn = ():Promise<{message:boolean}> => {
-    return osa.restart()
+    return osaCommands.restart()
     .then(result => {
         log.info('restarting...'+result); 
         if (!result || result === true) { 
@@ -94,7 +94,7 @@ export const snapFn = (param:string[]):Promise<{attachments:string[]}> => {
 export const facetimeFn = (username:string[]):Promise<{message:string}> => {
     const user = users.userByName(username[0]);
     log.info('trying facetime call to ' + user.name); 
-    return osa.facetime(user.AppleID)
+    return osaCommands.facetime(user.AppleID)
     .then((result) => { return {message: result}; });
 };
 
@@ -104,7 +104,7 @@ export const facetimeFn = (username:string[]):Promise<{message:string}> => {
  * @return promise to provide the result if successful
  */
 export const sayFn = (msg:string[]):Promise<{message:string}> => { 
-    return osa.say(msg[0])
+    return osaCommands.say(msg[0])
     .then((result) => { return {message: result}; });
 };
 
@@ -160,7 +160,7 @@ export const armingStatusFn = ():Promise<{message:{[x:string]:boolean}[]}> => {
 export const lightFn = (param:string[]):Promise<{message:boolean}> => {
     let opt = param[0];
     log.info('lights on/off ' + opt);
-//    return osa.email((opt==='on')? IFTTT_On : IFTTT_Off, IFTTT_Address);
+//    return osaCommands.email((opt==='on')? IFTTT_On : IFTTT_Off, IFTTT_Address);
     return Promise.resolve({message: false});
 };
 

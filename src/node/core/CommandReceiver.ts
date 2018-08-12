@@ -123,6 +123,7 @@ interface Account {
 
 export class EmailPolling {
     private processed = <{string:number}[]>[];
+    private firstRun = true;
 
     constructor(private ms:number) {
         setTimeout(this.poll.bind(this), this.ms);
@@ -133,7 +134,6 @@ export class EmailPolling {
         const date = new Date(Date.now());
         date.setHours(date.getHours()-1);
         getEmail(date)
-        .then(JSON.parse)
         .then(this.processMails.bind(this))
         .then(() => setTimeout(this.poll.bind(this), this.ms));
     }
@@ -143,6 +143,7 @@ export class EmailPolling {
         accounts.forEach((a:Account) => a.msgSinceDate.forEach((m:Message) => {
             if (!this.processed[''+m.id]) {
                 this.processed[''+m.id] = Date.now();
+                if (this.firstRun) { return; }
                 const from = m.from.match(/<(.*)>/)[1];
                 const user = users.userByEmail(from);
                 if (user) {
@@ -156,6 +157,7 @@ export class EmailPolling {
             }
         }));
         this.cleanupProcessed();
+        this.firstRun = false;
     }
 
     private cleanupProcessed() {

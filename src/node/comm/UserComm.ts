@@ -1,6 +1,6 @@
 
-import { User }     from './UserComm';
-import { osa }      from 'hsosaes6';
+import { User }         from './UserComm';
+import { osaCommands }  from 'hsosaes6';
 
 //import { Log } from 'hsnode'; const log = new Log('hsUser');
 
@@ -14,6 +14,7 @@ export interface User {
 
 class UserList {
     users:any = {};
+    defaultRecipient:User;
     emails = <{string: User}>{};
 
     constructor() {
@@ -32,23 +33,27 @@ class UserList {
         return this.emails[email];
     }
 
-    userByName(name:string):User {
-        return this.users[name];
+    userByName(name?:string):User {
+        return name? this.users[name] : this.defaultRecipient;
     }
 
     registeredUsers():string[] {
         return this.users.list.map((u:User) => u.name);
+    }
+
+    setDefaultRecipient(name:string) {
+        return this.defaultRecipient = this.userByName(name); 
     }
 }
 
 export const users = new UserList();
 
 export function message(users:User[], message:string, attachments?:string[]):Promise<boolean> {
-    return osa.sendMessage(users.map(u => u.AppleID), message, attachments);
+    return osaCommands.sendMessage(users.map(u => u.AppleID), message, attachments);
 }
 
 export function videoChat(users:User[]):Promise<boolean> {
-    return osa.facetime(users[0].AppleID);
+    return osaCommands.facetime(users[0].AppleID);
 }
 
 export function audioChat(users:User[]):Promise<boolean> {
@@ -56,9 +61,9 @@ export function audioChat(users:User[]):Promise<boolean> {
 }
 
 export function sendEmail(subject:string, to:User[], content: string, attachments?:string[]):Promise<boolean> {
-    return osa.sendEmail(subject, to.map(u=>u.email[0]), content, attachments);
+    return osaCommands.sendEmail(subject, to.map(u=>u.email[0]), content, attachments);
 }
 
 export function getEmail(date:Date):Promise<any> {
-    return osa.getEmail(date);
+    return osaCommands.getEmail(date);
 }

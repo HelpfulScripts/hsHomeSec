@@ -1,2 +1,0 @@
-#!/bin/node
-export {};

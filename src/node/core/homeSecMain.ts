@@ -18,6 +18,7 @@ import * as httpSrv from '../comm/httpSrv';
 const cliParams = {
     ftpServer: false
 };
+// log.level(log.DEBUG);
 
 //==========================================================
 // Settings
@@ -26,9 +27,9 @@ const cliParams = {
 function cli(args:string[]): Promise<void> {
     args.forEach((arg:string) => {
         const cmd = arg.split('=');
-        if (cmd[0] === 'debug')    { log.level(log.DEBUG); }
-        if (cmd[0] === 'info')     { log.level(log.INFO); }
-        if (cmd[0] === 'warning')  { log.level(log.WARN); }
+        if (cmd[0] === 'debug')    { log.level(log.DEBUG, true); }
+        if (cmd[0] === 'info')     { log.level(log.INFO, true); }
+        if (cmd[0] === 'warning')  { log.level(log.WARN, true); }
         if (cmd[0] === 'ftp')      { cliParams.ftpServer = true; }
     });
     return Promise.resolve();

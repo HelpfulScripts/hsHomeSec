@@ -1,4 +1,4 @@
-import { Log }              from 'hsnode';  const log = new Log('hsInit');
+import { Log }              from 'hsnode';  const log = new Log('Init');
 import { Foscam }           from '../device/Foscam';
 import { WansView }         from '../device/WansView';
 import * as Comm            from './CommandReceiver';
@@ -37,6 +37,7 @@ function createDevices(settings:Settings) {
 export const startSecuritySystem = (settings:Settings):Settings => {
     log.logFile(`${settings.homeSecDir}${settings.logDir}${settings.logFile}`);
     settings.users.map(user => users.addUser(user));
+    users.setDefaultRecipient(settings.activeRecipient);
     createDevices(settings);
     addCommands();
     new Comm.EmailPolling(5000);
@@ -46,7 +47,6 @@ export const startSecuritySystem = (settings:Settings):Settings => {
 
 export const startSecuritySystemTestMode = (settings:Settings):Settings => {
     log.logFile(`${settings.homeSecDir}/${settings.logDir}/${settings.logFile}`);
-    log.level(log.INFO);
     return settings;
 };
 

@@ -4,7 +4,6 @@
  * @description functions to interface with foscam devices.
  */
 import { http }             from 'hsnode';
-import { Log }              from 'hsnode';   const log = new Log('Foscam');
 import { DeviceSettings }   from './Device';
 import { AbstractCamera }   from './Device';
 import { Settings }         from '../core/Settings';
@@ -28,7 +27,7 @@ export class Foscam extends AbstractCamera {
 
     constructor(device: DeviceSettings, settings:Settings) {
         super(device, settings);
-        log.prefix(`Foscam ${device.name}`);
+// this.log.level(this.log.DEBUG);
         this.path = `/cgi-bin/CGIProxy.fcgi?usr=${device.user}&pwd=${device.passwd}&cmd=`;
         let schedule    = '';
         let area        = '';
@@ -49,12 +48,12 @@ export class Foscam extends AbstractCamera {
         const cmd = `${this.path}snapPicture`;
         return this.sendCommandToDevice(cmd)
         .then((res:http.HttpResponse) => {
-            const src = res.body.html.body.img.attrs.src;
-            log.debug(`get snapshot: ${src}`);
-            const dyn = { path: src };
-            return this.sendCommandToDevice(cmd, dyn);    // no command word triggers simple request for options.path
+            let src = res.body.html.body.img.attrs.src;
+            if (src.indexOf('../')===0) { src = src.substr(2); }
+            this.log.debug(`get snapshot: ${src}`);
+            return this.sendCommandToDevice(src);    // no command word triggers simple request for options.path
         })
-        .catch(log.error.bind(log));
+        .catch(this.log.error.bind(this.log));
     }
 
     /**
@@ -67,14 +66,14 @@ export class Foscam extends AbstractCamera {
             const result = res.body.CGI_Result;
             if (result.result === '0') {
                 result.ftpAddr = unescape(result.ftpAddr);
-                log.info(`ftp config = \n${log.inspect(result)}`); 
+                this.log.info(`ftp config = \n${this.log.inspect(result)}`); 
                 return result; 
             } else {
-                log.error(`ftp config result=${result.result}: \n${log.inspect(result)}`);
+                this.log.error(`ftp config result=${result.result}: \n${this.log.inspect(result)}`);
                 return result;
             }
         })
-        .catch(log.error.bind(log));
+        .catch(this.log.error.bind(this.log));
     }
 
     /**
@@ -84,15 +83,16 @@ export class Foscam extends AbstractCamera {
     setFtpCfg():Promise<boolean> {
         const ftpSettings = ftp.getSettings();
         const cmd = `${this.path}setFtpConfig&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
+        this.log.info(`setting FTP config`);
         return this.sendCommandToDevice(cmd)
             .then((res:http.HttpResponse) => { 
                 const success = res.body.CGI_Result.result === '0';
-                log.info(`setFtpCfg ${success?'success':'failure'}`);
-                log.debug(`res: ${log.inspect(res.body, null)}`);
+                this.log.info(`setFtpCfg ${success?'success':'failure'}`);
+                this.log.debug(`res: ${this.log.inspect(res.body, null)}`);
                 return success;
             })
             .catch(err => {
-                log.error(err);
+                this.log.error(err);
                 return false;
             });
     }
@@ -109,10 +109,10 @@ export class Foscam extends AbstractCamera {
         return this.sendCommandToDevice(cmd)
         .then((res:http.HttpResponse) => { 
             const result = res.body.testResult === '0';
-            log[result?'info':'error'](`ftp server test ${result?'succeeded':'failed'}`);
+            this.log[result?'info':'error'](`ftp server test ${result?'succeeded':'failed'}`);
             return result;
         })
-        .catch(log.error.bind(log));
+        .catch(this.log.error.bind(this.log));
     }
 
     /**
@@ -128,7 +128,7 @@ export class Foscam extends AbstractCamera {
             // resolves to True (armed) of False (disarmed)
             .then((result:any) => this.armed = (result.body.motionDetectAlarm !== '0'))   
             .catch(err => {
-                log.error(err);
+                this.log.error(err);
                 throw err;
             });
     }
@@ -140,19 +140,23 @@ export class Foscam extends AbstractCamera {
      * @return Promise a promise that resolves to True (status: armed) or False (status: disarmed). 
      */
     arm(arm:boolean):Promise<boolean> {
+        if (!this.getSettings().useAlarm) { 
+            this.armed = false;
+            return Promise.resolve(false); 
+        }
         const link = linkage.pic + linkage.video + (this.getAudible()? linkage.audio : 0);
         const cmd = `${this.path}${armCmd}&isEnable=${arm?1:0}&linkage=${link}&sensitivity=${sensitivity}&snapInterval=${snapInterval}&triggerInterval=5`;
         return this.sendCommandToDevice(cmd)        
             .then((res) => {
                 const success = res.body.CGI_Result.result === '0';
-                log.debug(`arm result: ${success? 'successful' : 'error'}`);
+                this.log.debug(`arm result: ${success? 'successful' : 'error'}`);
                 if (!success) { 
-                    log.error(`received data: ${log.inspect(res.data, null)}`);
+                    this.log.error(`received data: ${this.log.inspect(res.data, null)}`);
                 } 
                 return this.armed = success;
             })  // resolves to the arming status of the device (true or false)
             .catch(err => {
-                log.error(err);
+                this.log.error(err);
                 return this.armStatus();
             });
     }

@@ -1,3 +1,4 @@
+import { Log } from 'hsnode';
 import { Settings } from '../core/Settings';
 import { FtpSettings } from '../comm/ftpSrv';
 export interface DeviceSettings {
@@ -7,6 +8,7 @@ export interface DeviceSettings {
     host: string;
     prot: string;
     port: number;
+    useAlarm?: boolean;
     recDir?: string;
     user?: string;
     passwd?: string;
@@ -39,6 +41,7 @@ export interface Camera extends Device {
 }
 export declare abstract class AbstractDevice implements Device {
     private settings;
+    protected log: Log;
     hasVideo(): boolean;
     hasAudio(): boolean;
     hasAlarm(): boolean;
@@ -66,7 +69,7 @@ export declare abstract class AbstractCamera extends AbstractDevice implements C
     abstract arm(arm: boolean): Promise<boolean>;
     setAudible(audible: boolean): Promise<boolean>;
     getAudible(): boolean;
-    protected sendCommandToDevice(cmd: string, dynData?: any): Promise<any>;
+    protected sendCommandToDevice(cmd: string, referer?: string): Promise<any>;
 }
 export declare class DeviceList {
     private static list;

@@ -1,0 +1,56 @@
+{
+    "homeSecDir":   "/Users/hauke/Documents/homeSec/node_modules/hshomesec/",
+    "ftp": {
+        "host": "10.0.0.100", 
+        "root": "recordings/"
+    },
+    "devices":  [
+        {
+            "id": "C1_C4D6553FAFB7", 
+            "name": "puppy", 
+            "type": "foscam",
+            "host": "10.0.0.101", 
+            "port": 88,
+            "user": "doggie",
+            "passwd": "a3c-woof-!Yo"
+        },
+        {
+            "id": "CAMERA-223248-HTKEV", 
+            "name": "parrot", 
+            "type": "wansview",
+            "host": "10.0.0.102", 
+            "port": 80,
+            "user": "hauke",
+            "passwd": "a3c-woof-!Yo"
+        },
+        {
+            "id": "CAMERA-303282-NUXWT", 
+            "name": "owl", 
+            "type": "wansview",
+            "host": "10.0.0.103", 
+            "port": 80,
+            "user": "hauke",
+            "passwd": "a3c-woof-!Yo",
+            "useAlarm": false
+        }
+    ],
+    "recDir":   "recordings/",
+    "logDir":   "log/",
+    "logFile":  "hsLog_%YYYY%MM%DD.log",
+    "cmdPort":  573,
+    "users": [
+        {   "name": "Hauke",  
+            "email": ["haukeschmidt@icloud.com", "hauke.schmidt@us.bosch.com"],
+            "AppleID": "+16502834038" 
+        },    
+        {   "name": "Regine", 
+            "email": ["regines@gmail.com"],
+            "AppleID": "+16507965050" 
+        },
+        {   "name": "family", 
+            "group": ["Hauke", "Regine"]
+        }
+    ],
+    "activeRecipient": "Hauke"
+}
+
