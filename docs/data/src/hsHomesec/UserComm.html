@@ -1,0 +1,86 @@
+
+                <html><style>body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding-top:5px; }
+            br  { margin:0; padding:0; }
+            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
+            comment { color: #080;} module { color: #804;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                    font-size: 14px; line-height: 1.2em; 
+                    overflow:scroll;
+                    height:90%;
+            }
+            code { padding: 5px 0;}</style></html><body>
+                <h1>src/node/comm/UserComm.ts</h1>
+                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span><br>
+<span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;User&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'./UserComm';<br>
+<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;osaCommands&nbsp;}&nbsp;&nbsp;from&nbsp;'hsosaes6';<br>
+<span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span><br>
+<span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>//import&nbsp;{&nbsp;Log&nbsp;}&nbsp;from&nbsp;'hsnode';&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log('hsUser');<br>
+<span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span><br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>export&nbsp;interface&nbsp;User&nbsp;{<br>
+<span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;name&nbsp;of&nbsp;the&nbsp;recipient<br>
+<span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string[];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;list&nbsp;of&nbsp;valid&nbsp;email&nbsp;addresses.<br>
+<span id=10 class="line">&nbsp;&nbsp;10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;these&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;authenticate&nbsp;incoming&nbsp;email&nbsp;commands<br>
+<span id=11 class="line">&nbsp;&nbsp;11</span>&nbsp;&nbsp;&nbsp;&nbsp;AppleID?:&nbsp;&nbsp;&nbsp;string;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;used&nbsp;to&nbsp;contact&nbsp;user&nbsp;via&nbsp;FaceTime&nbsp;or&nbsp;Messages<br>
+<span id=12 class="line">&nbsp;&nbsp;12</span>&nbsp;&nbsp;&nbsp;&nbsp;group?:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[string];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;present,&nbsp;messages&nbsp;will&nbsp;be&nbsp;sent&nbsp;to&nbsp;group&nbsp;members&nbsp;<br>
+<span id=13 class="line">&nbsp;&nbsp;13</span>}<br>
+<span id=14 class="line">&nbsp;&nbsp;14</span><br>
+<span id=15 class="line">&nbsp;&nbsp;15</span>class&nbsp;UserList&nbsp;{<br>
+<span id=16 class="line">&nbsp;&nbsp;16</span>&nbsp;&nbsp;&nbsp;&nbsp;users:any&nbsp;=&nbsp;{};<br>
+<span id=17 class="line">&nbsp;&nbsp;17</span>&nbsp;&nbsp;&nbsp;&nbsp;defaultRecipient:User;<br>
+<span id=18 class="line">&nbsp;&nbsp;18</span>&nbsp;&nbsp;&nbsp;&nbsp;emails&nbsp;=&nbsp;<{string:&nbsp;User}>{};<br>
+<span id=19 class="line">&nbsp;&nbsp;19</span><br>
+<span id=20 class="line">&nbsp;&nbsp;20</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor()&nbsp;{<br>
+<span id=21 class="line">&nbsp;&nbsp;21</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.users.list&nbsp;=&nbsp;[];<br>
+<span id=22 class="line">&nbsp;&nbsp;22</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=23 class="line">&nbsp;&nbsp;23</span><br>
+<span id=24 class="line">&nbsp;&nbsp;24</span>&nbsp;&nbsp;&nbsp;&nbsp;addUser(user:User)&nbsp;{<br>
+<span id=25 class="line">&nbsp;&nbsp;25</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.users[user.name]&nbsp;=&nbsp;user;<br>
+<span id=26 class="line">&nbsp;&nbsp;26</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.users.list.push(user);<br>
+<span id=27 class="line">&nbsp;&nbsp;27</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(user.email)&nbsp;{<br>
+<span id=28 class="line">&nbsp;&nbsp;28</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.email.forEach(e&nbsp;=>&nbsp;this.emails[e]&nbsp;=&nbsp;user);<br>
+<span id=29 class="line">&nbsp;&nbsp;29</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;//&nbsp;else:&nbsp;group<br>
+<span id=30 class="line">&nbsp;&nbsp;30</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=31 class="line">&nbsp;&nbsp;31</span><br>
+<span id=32 class="line">&nbsp;&nbsp;32</span>&nbsp;&nbsp;&nbsp;&nbsp;userByEmail(email:string):User&nbsp;{<br>
+<span id=33 class="line">&nbsp;&nbsp;33</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.emails[email];<br>
+<span id=34 class="line">&nbsp;&nbsp;34</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=35 class="line">&nbsp;&nbsp;35</span><br>
+<span id=36 class="line">&nbsp;&nbsp;36</span>&nbsp;&nbsp;&nbsp;&nbsp;userByName(name?:string):User&nbsp;{<br>
+<span id=37 class="line">&nbsp;&nbsp;37</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;name?&nbsp;this.users[name]&nbsp;:&nbsp;this.defaultRecipient;<br>
+<span id=38 class="line">&nbsp;&nbsp;38</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=39 class="line">&nbsp;&nbsp;39</span><br>
+<span id=40 class="line">&nbsp;&nbsp;40</span>&nbsp;&nbsp;&nbsp;&nbsp;registeredUsers():string[]&nbsp;{<br>
+<span id=41 class="line">&nbsp;&nbsp;41</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.users.list.map((u:User)&nbsp;=>&nbsp;u.name);<br>
+<span id=42 class="line">&nbsp;&nbsp;42</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=43 class="line">&nbsp;&nbsp;43</span><br>
+<span id=44 class="line">&nbsp;&nbsp;44</span>&nbsp;&nbsp;&nbsp;&nbsp;setDefaultRecipient(name:string)&nbsp;{<br>
+<span id=45 class="line">&nbsp;&nbsp;45</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.defaultRecipient&nbsp;=&nbsp;this.userByName(name);&nbsp;<br>
+<span id=46 class="line">&nbsp;&nbsp;46</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=47 class="line">&nbsp;&nbsp;47</span>}<br>
+<span id=48 class="line">&nbsp;&nbsp;48</span><br>
+<span id=49 class="line">&nbsp;&nbsp;49</span>export&nbsp;const&nbsp;users&nbsp;=&nbsp;new&nbsp;UserList();<br>
+<span id=50 class="line">&nbsp;&nbsp;50</span><br>
+<span id=51 class="line">&nbsp;&nbsp;51</span>export&nbsp;function&nbsp;message(users:User[],&nbsp;message:string,&nbsp;attachments?:string[]):Promise<boolean>&nbsp;{<br>
+<span id=52 class="line">&nbsp;&nbsp;52</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.sendMessage(users.map(u&nbsp;=>&nbsp;u.AppleID),&nbsp;message,&nbsp;attachments);<br>
+<span id=53 class="line">&nbsp;&nbsp;53</span>}<br>
+<span id=54 class="line">&nbsp;&nbsp;54</span><br>
+<span id=55 class="line">&nbsp;&nbsp;55</span>export&nbsp;function&nbsp;videoChat(users:User[]):Promise<boolean>&nbsp;{<br>
+<span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.facetime(users[0].AppleID);<br>
+<span id=57 class="line">&nbsp;&nbsp;57</span>}<br>
+<span id=58 class="line">&nbsp;&nbsp;58</span><br>
+<span id=59 class="line">&nbsp;&nbsp;59</span>export&nbsp;function&nbsp;audioChat(users:User[]):Promise<boolean>&nbsp;{<br>
+<span id=60 class="line">&nbsp;&nbsp;60</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Promise.resolve(false);<br>
+<span id=61 class="line">&nbsp;&nbsp;61</span>}<br>
+<span id=62 class="line">&nbsp;&nbsp;62</span><br>
+<span id=63 class="line">&nbsp;&nbsp;63</span>export&nbsp;function&nbsp;sendEmail(subject:string,&nbsp;to:User[],&nbsp;content:&nbsp;string,&nbsp;attachments?:string[]):Promise<boolean>&nbsp;{<br>
+<span id=64 class="line">&nbsp;&nbsp;64</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.sendEmail(subject,&nbsp;to.map(u=>u.email[0]),&nbsp;content,&nbsp;attachments);<br>
+<span id=65 class="line">&nbsp;&nbsp;65</span>}<br>
+<span id=66 class="line">&nbsp;&nbsp;66</span><br>
+<span id=67 class="line">&nbsp;&nbsp;67</span>export&nbsp;function&nbsp;getEmail(date:Date):Promise<any>&nbsp;{<br>
+<span id=68 class="line">&nbsp;&nbsp;68</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.getEmail(date);<br>
+<span id=69 class="line">&nbsp;&nbsp;69</span>}<br></code></div>
+                </body>
+            
