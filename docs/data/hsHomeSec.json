@@ -12435,7 +12435,7 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/overview.ts",
 			"comment": {
-				"shortText": "# Home Security Setup\nA simple homebrew alarm system for OSX High Sierra\n[`[Github page]`](https://github.com/HelpfulScripts/hsHomeSec)\n[`[Coverage Info]`](./data/src/hsHomeSec/coverage/)\n___\nWritten in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).\n- supports cameras with built-in web api. Currently tested\n    - WansView Q3S, K3\n    - Foscam C1\n- creates its own ftp server and configures devices to send snapshots and videos there\n- communicates with users via email and OSX services Messages, and Facetime\n- simple and universal UI: receives remote user commands via email",
+				"shortText": "# Home Security Setup\nA simple homebrew alarm system for OSX High Sierra\n[`[Github page]`](https://github.com/HelpfulScripts/hsHomeSec)\n[`[Coverage Info]`](./data/src/hsHomeSec/coverage/)\n___\nWritten in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).\n- supports cameras with built-in web api. Currently tested\n    - WansView Q3S, K3\n    - Foscam C1\n- creates its own ftp server and configures devices to send snapshots and videos there\n- communicates with users via email and OSX services Messages, and Facetime\n- simple and universal UI: receives remote user commands via email.",
 				"text": "For installallation and Setup, see the [README](https://github.com/HelpfulScripts/hsHomeSec) file\n\n\n"
 			},
 			"sources": [
