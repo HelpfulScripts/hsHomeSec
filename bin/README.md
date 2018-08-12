@@ -9,7 +9,7 @@ Written in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).
 - communicates with users via email and OSX services Messages, and Facetime 
 - simple and universal UI: receives remote user commands via email
 
-See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/indexGH.html#!/api/hsHomeSec/0)
+See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/index.html#!/api/hsHomeSec/0)
 
 ## Installation
 1. Inside your `~/Documents` folder, create a `homeses` folder and move there:<br>
