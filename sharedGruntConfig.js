@@ -10,11 +10,11 @@ function hsCamelCase(name) {
     return name;
 }
 
-module.exports = (grunt, dir, dependencies, type) => {
+module.exports = (grunt, dir, dependencies, type, lib) => {
     const devPath = dir.slice(0, dir.indexOf('/dev/')+5);
     const pkg = grunt.file.readJSON(dir+'/package.json');
     const slash = pkg.name.lastIndexOf('/');
-    const lib = hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
+    lib = lib || hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
     const libPath = lib.toLowerCase();
     console.log(`${devPath} > ${lib}: ${type}`);    
 
