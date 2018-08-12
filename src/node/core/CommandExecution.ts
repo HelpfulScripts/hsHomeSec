@@ -5,7 +5,7 @@
  */
 
 import { Log, fs}         from 'hsnode';   const log = new Log('hsCmdExec');
-import { timeout }        from 'hsutil';
+import { timeout, delay }        from 'hsutil';
 import { osaCommands }    from 'hsosaes6';
 import { users }          from '../comm/UserComm';
 import { DeviceList }     from '../device/Device';
@@ -68,10 +68,10 @@ export const restartFn = ():Promise<{message:boolean}> => {
 /**
  * request to snap a picture. If a device name is specified, a snapshot from that device will be requested.
  * If no name is specified, a snapshot from each available camera will be requested.
- * @param param : `[<deviceName>]`
+ * @param params : `[<deviceName>]`
  * @return promise to provide the file name if successful
  */
-export const snapFn = (param:string[]):Promise<{attachments:string[]}> => {
+export const snapFn = (params:string[]):Promise<{attachments:string[]}> => {
     const getSnap = (dev:Camera): Promise<string> =>
         !dev.hasVideo()? Promise.resolve(undefined) :
             dev.snapPicture()
@@ -81,9 +81,24 @@ export const snapFn = (param:string[]):Promise<{attachments:string[]}> => {
                 return fs.writeStream(fileName, picData.data);
             });
 
-    return Promise.all((!param || param[0] === '')?
-         DeviceList.getDevices().map(getSnap) : [getSnap(<Camera>DeviceList.getDevice(param[0]))])
-         .then((files) => { return {attachments:files}; });
+    return Promise.all((!params || params[0] === '')?
+         DeviceList.getDevices().map(getSnap)               // get snapshot from all devices
+      : [getSnap(<Camera>DeviceList.getDevice(params[0]))])  // get snapshot from specific device
+         .then((files) => { return {attachments:files}; }); // send result(s) back to user
+};
+
+/**
+ * instrruct a PTZ device to move to a preset, then returns a snapshot
+ * @param params : `<deviceName>, <positionIndex>`
+ * @return promise to provide the snapshot file name if successful
+ */
+export const camPreset = (params:string[]):Promise<{attachments:string[]}> => {
+    const device = <Camera>DeviceList.getDevice(params[0]);
+    const presetIndex = parseInt(params[1]);
+    return device.ptzPreset(presetIndex)
+    .then(() => log.info(`moving ${device.getName()} to preset ${presetIndex}`))
+    .then(delay(10000))     // wait 10s for camera to move
+    .then(() => snapFn([device.getName()]));
 };
 
 /**

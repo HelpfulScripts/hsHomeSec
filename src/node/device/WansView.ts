@@ -14,6 +14,43 @@ import { date }             from 'hsutil';
 const audioSensitivity = 5;     // 1 - 10
 const videoSensitivity = 95;    // 1 - 100 ??
 
+const commands = {
+    alarm: { cgi: 'alarm.cgi?', cmds: (arm:boolean, audio:boolean)=>[
+        /* motionDetect*/ `cmd=setmdattr&enable=${arm?1:0}&sensitivity=${videoSensitivity}&left=0&top=0&right=1920&bottom=1080&index=0&name=MD0`,
+        /* audioDetect */ `cmd=setaudioalarmattr&aa_enable=${arm?1:0}&aa_value=${audioSensitivity}`,
+        /* audioAlert  */ `cmd=setalarmact&aname=alarmbeep&switch=${audio?'on':'off'}`,
+        /* audioTime   */ `cmd=setalarmbeepattr&audiotime=5`,
+        /* emailsnap   */ `cmd=setalarmact&aname=emailsnap&switch=off`,
+        /* SDcardSnap  */ `cmd=setalarmact&aname=snap&switch=off`,
+        /* SDcardRecord*/ `cmd=setalarmact&aname=record&switch=off`,
+        /* ftpSnap     */ `cmd=setalarmact&aname=ftpsnap&switch=on`,
+        /* ftpRecord   */ `cmd=setalarmact&aname=ftprec&switch=on`,
+        /* preset      */ `cmd=setalarmact&aname=preset&switch=off`,
+        /* relay       */ `cmd=setrelayattr&time=5&cmd=setalarmact&aname=relay&switch=off`,
+        /* motor       */ `cmd=setmotorattr&alarmpresetindex=1`,
+        /* other       */ `cmd=setalarmact&aname=type&switch=off`
+    ].join('&')},
+    status: { cgi: 'status.cgi?', cmds: [
+        /* dev status  */ `cmd=getdevstatus`,                   // returns var MAC='14:6B:9C:D3:59:D7'; var networktype=1; var rtspclientnum=1; 
+    ]},
+    net: { cgi: 'net.cgi?', cmds: [
+        /* mac address */ `cmd=getmacaddr`,                     // returns var wifimacaddr='14:6B:9C:D3:59:D7'; var macaddr=''; 
+    ]},
+    user: { cgi: 'user.cgi?', cmds: [
+        /* usr info    */ `cmd=checkuserinfo&ck_password=0`,    // returns var userid='10001' var username='hauke'; var rolename='admin'; 
+    ]},
+    ptz: { cgi: 'ptz.cgi?', cmds: [
+        /* ptz info    */ `cmd=getmotorattr`,                   // returns var panscan=1; var tiltscan=1; var panspeed=3; var tiltspeed=3; var selfdet='on'; var movehome='on'; var ptzalarmmask='on'; var homegopos=1; 
+        /* ptz info    */ `cmd=getptztour`,                     // returns var tour_enable=0; var tour_index=''; var tour_interval='';  
+        /* ptz info    */ `cmd=getrealtimeptzpos`,              // returns var realTimeposenable=0; 
+        /* ptz preset  */ `cmd=preset&act=goto&number=`,
+    ]},
+    device: { cgi: 'device.cgi?', cmds: [
+        /* ind. lights */ `cmd=setlightattr&statuslight=on&wifilight=on`,
+        /* ind. lights */ `cmd=getlightattr`,                   // returns var statuslight='on'; var wifilight='on'; 
+    ]}
+};
+
 export class WansView extends AbstractCamera {
     protected path = '';
 
@@ -48,7 +85,7 @@ export class WansView extends AbstractCamera {
     }
 
     setTime(): Promise<any> {
-        const cmd = `${this.path}device.cgi?cmd=setsystime&stime=${date('%YYYY-%MM-%DD;%hh:%mm:%ss')}&timezone=6`;
+        const cmd = `${this.path}device.cgi?cmd=setsystime&stime=${date('%YYYY-%MM-%DD;%hh:%mm:%ss')}&timezone=7`;
         return this.standardSend(cmd, 'setTime');
     }
 
@@ -72,6 +109,16 @@ export class WansView extends AbstractCamera {
             })
             .catch(this.log.error.bind(this.log));
         }
+
+    /**
+     * Moves the camera to a preset position. 
+     * This default implementation returns an empty promise.
+     * @param index the preset position index to move to
+     */
+    ptzPreset(index:number):Promise<any> { 
+        const cmd = `${this.path}${commands.ptz.cgi}${commands.ptz.cmds[3]}${index}`;
+        return this.sendCommandToDevice(cmd);    
+    }
 
     /**
      * gets the device's ftp confguration and calls `cb`. 
@@ -155,34 +202,19 @@ export class WansView extends AbstractCamera {
      */
     arm(arm:boolean):Promise<boolean> {
         const audio = this.getAudible();
-        const cmds = [
-        /* motionDetect*/ `cmd=setmdattr&enable=${arm?1:0}&sensitivity=${videoSensitivity}&left=0&top=0&right=1920&bottom=1080&index=0&name=MD0`,
-        /* audioDetect */ `cmd=setaudioalarmattr&aa_enable=${arm?1:0}&aa_value=${audioSensitivity}`,
-        /* audioAlert  */ `cmd=setalarmact&aname=alarmbeep&switch=${audio?'on':'off'}`,
-        /* audioTime   */ `cmd=setalarmbeepattr&audiotime=5`,
-        /* emailsnap   */ `cmd=setalarmact&aname=emailsnap&switch=off`,
-        /* SDcardSnap  */ `cmd=setalarmact&aname=snap&switch=off`,
-        /* SDcardRecord*/ `cmd=setalarmact&aname=record&switch=off`,
-        /* ftpSnap     */ `cmd=setalarmact&aname=ftpsnap&switch=on`,
-        /* ftpRecord   */ `cmd=setalarmact&aname=ftprec&switch=on`,
-        /* preset      */ `cmd=setalarmact&aname=preset&switch=off`,
-        /* relay       */ `cmd=setrelayattr&time=5&cmd=setalarmact&aname=relay&switch=off`,
-        /* motor       */ `cmd=setmotorattr&alarmpresetindex=1`,
-        /* other       */ `cmd=setalarmact&aname=type&switch=off`
-        ];
         
         if (!this.getSettings().useAlarm) { 
             this.armed = false;
             return Promise.resolve(false); 
         }
-        const cmd = `${this.path}alarm.cgi?${cmds.join('&')}`;
+        const cmd = `${this.path}${commands.alarm.cgi}${commands.alarm.cmds(arm, audio)}`;
         return this.sendCommandToDevice(cmd)        
             .then((result) => this.armed = result)  // resolves to the arming status of the device (true or false)
             .then((result) => {
                 const successes = result.data.split('\n');
                 let success = successes[0] === 'Success';
                 this.log.debug(`individual arm results: (${typeof result.data}) ${this.log.inspect(result.data)}`);
-                successes.forEach((s:string, i:number) => { if(s && s!=='Success') { this.log.warn(`Command '${cmds[i]}' reported error '${s}'`); }});
+                successes.forEach((s:string, i:number) => { if(s && s!=='Success') { this.log.warn(`Command '${commands.alarm.cmds[i]}' reported error '${s}'`); }});
                 this.log.debug(`arm result: ${success? 'successful' : 'error'}`);
                 if (success!==true) {
                     this.log.warn(`received data: ${this.log.inspect(result.data, null)}`);

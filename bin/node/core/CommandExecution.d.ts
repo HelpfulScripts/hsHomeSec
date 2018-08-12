@@ -5,7 +5,10 @@ export declare const helpFn: () => Promise<{
 export declare const restartFn: () => Promise<{
     message: boolean;
 }>;
-export declare const snapFn: (param: string[]) => Promise<{
+export declare const snapFn: (params: string[]) => Promise<{
+    attachments: string[];
+}>;
+export declare const camPreset: (params: string[]) => Promise<{
     attachments: string[];
 }>;
 export declare const facetimeFn: (username: string[]) => Promise<{

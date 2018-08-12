@@ -15,7 +15,7 @@ export interface Command {
     /** the command keyword */
     command: string;
     /** possible command parameters */
-    params?: string;
+    params?: string[];
 }
 
 export interface Query {
@@ -36,17 +36,17 @@ const gCommands = <Command[]>[];
  * @param param 
  * @param from originating user 
  */
-function interpretCommand(cmd:string, param:string[], from:User):Promise<any> {
-    const cmdObj = gCommands[cmd];
+function interpretCommand(cmd:string, params:string[], from:User):Promise<any> {
+    const cmdObj:Command = gCommands[cmd];
     if (cmdObj) { 
-        log.info(`received command '${cmd}' with param '${param.join('|')}' from '${from.name}'`);
+        log.info(`received command '${cmd}' with params '${params.join('|')}' from '${from.name}'`);
         try { 
-            return cmdObj.commandFn(param);
+            return cmdObj.commandFn(params);
         }
         catch(err) { console.trace(`error executing command '${cmd}': ${err}`); }
     } else { 
         log.info(`received unkwon command '${cmd}'`);
-        return Exec.sayFn([`${cmd} ${param.join(' ')}`])
+        return Exec.sayFn([`${cmd} ${params.join(' ')}`])
         .catch(err => {
             log.error(`executing ${cmd}: ${err.toString()}`);
             return err.toString();
@@ -71,8 +71,8 @@ export function processCommand(cmd:string, from:User):Promise<any> {
     if (from) {
         const completeCmd = cmd.split(' ');
         cmd = completeCmd[0];
-        const param = completeCmd[1] || '';
-        return interpretCommand(cmd, param.split(' '), from)
+        completeCmd.shift();
+        return interpretCommand(cmd, completeCmd, from)
         .then((content:Content) => informSender(cmd, content, from));
     } else {
         log.warn(`no valid sender found`);
@@ -87,9 +87,9 @@ export function processCommand(cmd:string, from:User):Promise<any> {
  * @param cmd the command to add.
  * @param options optional; 
  */
-export const addCommand = (cmdFn:any, cmd:string, options?:string) => {
+export const addCommand = (cmdFn:any, cmd:string, ...options:string[]) => {
     log.debug('adding command ' + cmd);
-    var obj = {commandFn: cmdFn, command: cmd, options:options};
+    var obj:Command = {commandFn: cmdFn, command: cmd, params:options};
     gCommands.push(obj);
     gCommands[cmd] = obj;
 };
@@ -101,7 +101,7 @@ export const addCommand = (cmdFn:any, cmd:string, options?:string) => {
  */
 export const getCommands = () => {
     log.debug('getting list of command');
-    return  gCommands.map((c) => `${c.command} ${c.params}`);
+    return  gCommands.map((c) => `${c.command} ${c.params.join(' ')}`);
 };
 
 

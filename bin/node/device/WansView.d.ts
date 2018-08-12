@@ -9,6 +9,7 @@ export declare class WansView extends AbstractCamera {
     setTime(): Promise<any>;
     setOverlayText(): Promise<any>;
     snapPicture(): Promise<any>;
+    ptzPreset(index: number): Promise<any>;
     getFtpCfg(): Promise<any>;
     setFtpCfg(): Promise<boolean>;
     testFtpServer(): Promise<boolean>;

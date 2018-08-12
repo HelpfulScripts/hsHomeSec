@@ -17,9 +17,10 @@ function addCommands() {
     Comm.addCommand(Exec.disarmFn,      'disarm');
     Comm.addCommand(Exec.disarmFn,      'relax');
     Comm.addCommand(Exec.armingStatusFn,'status');
-    Comm.addCommand(Exec.snapFn,        'snap');
+    Comm.addCommand(Exec.snapFn,        'snap',     '[%name%]');
     Comm.addCommand(Exec.lightFn,       'light',    'on|off');
     Comm.addCommand(Exec.restartFn,     'restart');
+    Comm.addCommand(Exec.camPreset,     'preset',   '%name%',   '%index%');
     log.debug(`added ${Comm.getCommands().length} commands`);
 }
 

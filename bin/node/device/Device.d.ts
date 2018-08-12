@@ -32,10 +32,12 @@ export interface AlarmDevice extends Device {
 export interface Camera extends Device {
     hasVideo(): boolean;
     hasAudio(): boolean;
+    hasPTZ(): boolean;
     setRecordingDir(recDir: string): Promise<string>;
     getRecordingDir(): Promise<string>;
     snapPicture(): Promise<any>;
     getFtpCfg(): Promise<any>;
+    ptzPreset(index: number): Promise<any>;
     setFtpCfg(ftpSettings: FtpSettings): Promise<boolean>;
     testFtpServer(): Promise<boolean>;
 }
@@ -59,9 +61,11 @@ export declare abstract class AbstractCamera extends AbstractDevice implements C
     hasVideo(): boolean;
     hasAlarm(): boolean;
     isArmed(): boolean;
+    hasPTZ(): boolean;
     setRecordingDir(recDir: string): Promise<string>;
     getRecordingDir(): Promise<string>;
     abstract snapPicture(): Promise<any>;
+    ptzPreset(index: number): Promise<any>;
     abstract getFtpCfg(): Promise<FtpSettings>;
     abstract setFtpCfg(): Promise<boolean>;
     abstract testFtpServer(): Promise<boolean>;

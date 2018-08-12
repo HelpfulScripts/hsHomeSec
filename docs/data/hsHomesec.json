@@ -929,7 +929,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 8,
+									"line": 9,
 									"character": 8
 								}
 							],
@@ -949,7 +949,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 9,
+									"line": 10,
 									"character": 8
 								}
 							],
@@ -969,7 +969,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 12,
+									"line": 13,
 									"character": 7
 								}
 							],
@@ -989,7 +989,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 10,
+									"line": 11,
 									"character": 8
 								}
 							],
@@ -1009,7 +1009,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 11,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -1035,7 +1035,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/ftpSrv.ts",
-							"line": 7,
+							"line": 8,
 							"character": 28
 						}
 					]
@@ -1086,7 +1086,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/ftpSrv.ts",
-							"line": 23,
+							"line": 24,
 							"character": 27
 						}
 					]
@@ -1148,7 +1148,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/ftpSrv.ts",
-							"line": 27,
+							"line": 28,
 							"character": 14
 						}
 					]
@@ -1208,7 +1208,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/ftpSrv.ts",
-							"line": 48,
+							"line": 54,
 							"character": 21
 						}
 					]
@@ -1231,7 +1231,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 16,
+									"line": 17,
 									"character": 8
 								}
 							],
@@ -1250,7 +1250,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 17,
+									"line": 18,
 									"character": 8
 								}
 							],
@@ -1269,7 +1269,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 20,
+									"line": 21,
 									"character": 7
 								}
 							],
@@ -1288,7 +1288,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 18,
+									"line": 19,
 									"character": 8
 								}
 							],
@@ -1307,7 +1307,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/ftpSrv.ts",
-									"line": 19,
+									"line": 20,
 									"character": 8
 								}
 							],
@@ -1334,7 +1334,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/ftpSrv.ts",
-							"line": 15,
+							"line": 16,
 							"character": 14
 						}
 					],
@@ -1385,7 +1385,7 @@
 			]
 		},
 		{
-			"id": 372,
+			"id": 387,
 			"name": "\"node/comm/httpSrv\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1395,7 +1395,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/comm/httpSrv.ts",
 			"children": [
 				{
-					"id": 375,
+					"id": 390,
 					"name": "commandPort",
 					"kind": 32,
 					"kindString": "Variable",
@@ -1417,7 +1417,7 @@
 					"defaultValue": "999"
 				},
 				{
-					"id": 374,
+					"id": 389,
 					"name": "gServer",
 					"kind": 32,
 					"kindString": "Variable",
@@ -1437,7 +1437,7 @@
 					}
 				},
 				{
-					"id": 373,
+					"id": 388,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -1458,14 +1458,14 @@
 					"defaultValue": " new Log('httpSrv')"
 				},
 				{
-					"id": 384,
+					"id": 399,
 					"name": "onRequest",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 385,
+							"id": 400,
 							"name": "onRequest",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1475,7 +1475,7 @@
 							},
 							"parameters": [
 								{
-									"id": 386,
+									"id": 401,
 									"name": "request",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1487,7 +1487,7 @@
 									}
 								},
 								{
-									"id": 387,
+									"id": 402,
 									"name": "response",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1516,7 +1516,7 @@
 					]
 				},
 				{
-					"id": 376,
+					"id": 391,
 					"name": "start",
 					"kind": 64,
 					"kindString": "Function",
@@ -1525,7 +1525,7 @@
 					},
 					"signatures": [
 						{
-							"id": 377,
+							"id": 392,
 							"name": "start",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1545,7 +1545,7 @@
 					]
 				},
 				{
-					"id": 378,
+					"id": 393,
 					"name": "stop",
 					"kind": 64,
 					"kindString": "Function",
@@ -1554,7 +1554,7 @@
 					},
 					"signatures": [
 						{
-							"id": 379,
+							"id": 394,
 							"name": "stop",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1574,21 +1574,21 @@
 					]
 				},
 				{
-					"id": 380,
+					"id": 395,
 					"name": "writeHeader",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 381,
+							"id": 396,
 							"name": "writeHeader",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 382,
+									"id": 397,
 									"name": "response",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1599,7 +1599,7 @@
 									}
 								},
 								{
-									"id": 383,
+									"id": 398,
 									"name": "allowed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1630,19 +1630,19 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						375,
-						374,
-						373
+						390,
+						389,
+						388
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						384,
-						376,
-						378,
-						380
+						399,
+						391,
+						393,
+						395
 					]
 				}
 			],
@@ -1655,7 +1655,7 @@
 			]
 		},
 		{
-			"id": 254,
+			"id": 264,
 			"name": "\"node/core/CommandExecution\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1665,7 +1665,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
 			"children": [
 				{
-					"id": 256,
+					"id": 266,
 					"name": "gSnapshotDir",
 					"kind": 32,
 					"kindString": "Variable",
@@ -1686,7 +1686,7 @@
 					"defaultValue": "\"\""
 				},
 				{
-					"id": 255,
+					"id": 265,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -1707,7 +1707,7 @@
 					"defaultValue": " new Log('hsCmdExec')"
 				},
 				{
-					"id": 286,
+					"id": 301,
 					"name": "armFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -1720,7 +1720,7 @@
 					},
 					"signatures": [
 						{
-							"id": 287,
+							"id": 302,
 							"name": "armFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1730,7 +1730,7 @@
 							},
 							"parameters": [
 								{
-									"id": 288,
+									"id": 303,
 									"name": "param",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1754,14 +1754,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 289,
+											"id": 304,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 290,
+													"id": 305,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -1769,7 +1769,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 115,
+															"line": 130,
 															"character": 54
 														}
 													],
@@ -1784,14 +1784,14 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														290
+														305
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 115,
+													"line": 130,
 													"character": 46
 												}
 											]
@@ -1804,27 +1804,27 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 115,
+							"line": 130,
 							"character": 18
 						}
 					]
 				},
 				{
-					"id": 257,
+					"id": 267,
 					"name": "armingCall",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 258,
+							"id": 268,
 							"name": "armingCall",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 259,
+									"id": 269,
 									"name": "deviceCalls",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1865,7 +1865,7 @@
 					]
 				},
 				{
-					"id": 295,
+					"id": 310,
 					"name": "armingStatusFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -1875,7 +1875,7 @@
 					},
 					"signatures": [
 						{
-							"id": 296,
+							"id": 311,
 							"name": "armingStatusFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1887,14 +1887,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 297,
+											"id": 312,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 298,
+													"id": 313,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -1902,7 +1902,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 149,
+															"line": 164,
 															"character": 49
 														}
 													],
@@ -1911,20 +1911,20 @@
 														"elementType": {
 															"type": "reflection",
 															"declaration": {
-																"id": 299,
+																"id": 314,
 																"name": "__type",
 																"kind": 65536,
 																"kindString": "Type literal",
 																"flags": {},
 																"indexSignature": {
-																	"id": 300,
+																	"id": 315,
 																	"name": "__index",
 																	"kind": 8192,
 																	"kindString": "Index signature",
 																	"flags": {},
 																	"parameters": [
 																		{
-																			"id": 301,
+																			"id": 316,
 																			"name": "x",
 																			"kind": 32768,
 																			"kindString": "Parameter",
@@ -1943,7 +1943,7 @@
 																"sources": [
 																	{
 																		"fileName": "node/core/CommandExecution.ts",
-																		"line": 149,
+																		"line": 164,
 																		"character": 50
 																	}
 																]
@@ -1957,14 +1957,14 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														298
+														313
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 149,
+													"line": 164,
 													"character": 41
 												}
 											]
@@ -1977,13 +1977,121 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 149,
+							"line": 164,
 							"character": 27
 						}
 					]
 				},
 				{
-					"id": 291,
+					"id": 286,
+					"name": "camPreset",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"comment": {
+						"shortText": "instrruct a PTZ device to move to a preset, then returns a snapshot",
+						"returns": "promise to provide the snapshot file name if successful\n"
+					},
+					"signatures": [
+						{
+							"id": 287,
+							"name": "camPreset",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "instrruct a PTZ device to move to a preset, then returns a snapshot",
+								"returns": "promise to provide the snapshot file name if successful\n"
+							},
+							"parameters": [
+								{
+									"id": 288,
+									"name": "params",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"shortText": ": `<deviceName>, <positionIndex>`"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Promise",
+								"typeArguments": [
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 289,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 290,
+													"name": "attachments",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "node/core/CommandExecution.ts",
+															"line": 95,
+															"character": 63
+														}
+													],
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "string"
+														}
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Variables",
+													"kind": 32,
+													"children": [
+														290
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "node/core/CommandExecution.ts",
+													"line": 95,
+													"character": 51
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "node/core/CommandExecution.ts",
+							"line": 95,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 306,
 					"name": "disarmFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -1993,7 +2101,7 @@
 					},
 					"signatures": [
 						{
-							"id": 292,
+							"id": 307,
 							"name": "disarmFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2005,14 +2113,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 293,
+											"id": 308,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 294,
+													"id": 309,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -2020,7 +2128,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 133,
+															"line": 148,
 															"character": 43
 														}
 													],
@@ -2035,14 +2143,14 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														294
+														309
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 133,
+													"line": 148,
 													"character": 35
 												}
 											]
@@ -2055,13 +2163,13 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 133,
+							"line": 148,
 							"character": 21
 						}
 					]
 				},
 				{
-					"id": 276,
+					"id": 291,
 					"name": "facetimeFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -2075,7 +2183,7 @@
 					},
 					"signatures": [
 						{
-							"id": 277,
+							"id": 292,
 							"name": "facetimeFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2086,7 +2194,7 @@
 							},
 							"parameters": [
 								{
-									"id": 278,
+									"id": 293,
 									"name": "username",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2110,14 +2218,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 279,
+											"id": 294,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 280,
+													"id": 295,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -2125,7 +2233,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 94,
+															"line": 109,
 															"character": 62
 														}
 													],
@@ -2140,14 +2248,14 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														280
+														295
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 94,
+													"line": 109,
 													"character": 54
 												}
 											]
@@ -2160,13 +2268,13 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 94,
+							"line": 109,
 							"character": 23
 						}
 					]
 				},
 				{
-					"id": 263,
+					"id": 273,
 					"name": "helpFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -2176,7 +2284,7 @@
 					},
 					"signatures": [
 						{
-							"id": 264,
+							"id": 274,
 							"name": "helpFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2188,14 +2296,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 265,
+											"id": 275,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 266,
+													"id": 276,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -2218,7 +2326,7 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														266
+														276
 													]
 												}
 											],
@@ -2244,7 +2352,7 @@
 					]
 				},
 				{
-					"id": 302,
+					"id": 317,
 					"name": "lightFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -2255,7 +2363,7 @@
 					"comment": {},
 					"signatures": [
 						{
-							"id": 303,
+							"id": 318,
 							"name": "lightFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2263,7 +2371,7 @@
 							"comment": {},
 							"parameters": [
 								{
-									"id": 304,
+									"id": 319,
 									"name": "param",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2287,14 +2395,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 305,
+											"id": 320,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 306,
+													"id": 321,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -2302,7 +2410,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 160,
+															"line": 175,
 															"character": 56
 														}
 													],
@@ -2317,14 +2425,14 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														306
+														321
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 160,
+													"line": 175,
 													"character": 48
 												}
 											]
@@ -2337,13 +2445,13 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 160,
+							"line": 175,
 							"character": 20
 						}
 					]
 				},
 				{
-					"id": 267,
+					"id": 277,
 					"name": "restartFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -2353,7 +2461,7 @@
 					},
 					"signatures": [
 						{
-							"id": 268,
+							"id": 278,
 							"name": "restartFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2365,14 +2473,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 269,
+											"id": 279,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 270,
+													"id": 280,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -2395,7 +2503,7 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														270
+														280
 													]
 												}
 											],
@@ -2421,7 +2529,7 @@
 					]
 				},
 				{
-					"id": 281,
+					"id": 296,
 					"name": "sayFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -2435,7 +2543,7 @@
 					},
 					"signatures": [
 						{
-							"id": 282,
+							"id": 297,
 							"name": "sayFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2446,7 +2554,7 @@
 							},
 							"parameters": [
 								{
-									"id": 283,
+									"id": 298,
 									"name": "msg",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2467,14 +2575,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 284,
+											"id": 299,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 285,
+													"id": 300,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
@@ -2482,7 +2590,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 106,
+															"line": 121,
 															"character": 52
 														}
 													],
@@ -2497,14 +2605,14 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														285
+														300
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 106,
+													"line": 121,
 													"character": 44
 												}
 											]
@@ -2517,13 +2625,13 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 106,
+							"line": 121,
 							"character": 18
 						}
 					]
 				},
 				{
-					"id": 260,
+					"id": 270,
 					"name": "setSnapshotDir",
 					"kind": 64,
 					"kindString": "Function",
@@ -2532,14 +2640,14 @@
 					},
 					"signatures": [
 						{
-							"id": 261,
+							"id": 271,
 							"name": "setSnapshotDir",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 262,
+									"id": 272,
 									"name": "dir",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2565,7 +2673,7 @@
 					]
 				},
 				{
-					"id": 271,
+					"id": 281,
 					"name": "snapFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -2579,7 +2687,7 @@
 					},
 					"signatures": [
 						{
-							"id": 272,
+							"id": 282,
 							"name": "snapFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2590,8 +2698,8 @@
 							},
 							"parameters": [
 								{
-									"id": 273,
-									"name": "param",
+									"id": 283,
+									"name": "params",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
@@ -2614,14 +2722,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 274,
+											"id": 284,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 275,
+													"id": 285,
 													"name": "attachments",
 													"kind": 32,
 													"kindString": "Variable",
@@ -2630,7 +2738,7 @@
 														{
 															"fileName": "node/core/CommandExecution.ts",
 															"line": 74,
-															"character": 59
+															"character": 60
 														}
 													],
 													"type": {
@@ -2647,7 +2755,7 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														275
+														285
 													]
 												}
 											],
@@ -2655,7 +2763,7 @@
 												{
 													"fileName": "node/core/CommandExecution.ts",
 													"line": 74,
-													"character": 47
+													"character": 48
 												}
 											]
 										}
@@ -2678,25 +2786,26 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						256,
-						255
+						266,
+						265
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						286,
-						257,
-						295,
-						291,
-						276,
-						263,
-						302,
+						301,
 						267,
-						281,
-						260,
-						271
+						310,
+						286,
+						306,
+						291,
+						273,
+						317,
+						277,
+						296,
+						270,
+						281
 					]
 				}
 			],
@@ -2709,7 +2818,7 @@
 			]
 		},
 		{
-			"id": 307,
+			"id": 322,
 			"name": "\"node/core/CommandReceiver\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2719,7 +2828,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandReceiver.ts",
 			"children": [
 				{
-					"id": 333,
+					"id": 348,
 					"name": "EmailPolling",
 					"kind": 128,
 					"kindString": "Class",
@@ -2728,7 +2837,7 @@
 					},
 					"children": [
 						{
-							"id": 338,
+							"id": 353,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -2737,14 +2846,14 @@
 							},
 							"signatures": [
 								{
-									"id": 340,
+									"id": 355,
 									"name": "new EmailPolling",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 341,
+											"id": 356,
 											"name": "ms",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2758,7 +2867,7 @@
 									"type": {
 										"type": "reference",
 										"name": "EmailPolling",
-										"id": 333
+										"id": 348
 									}
 								}
 							],
@@ -2771,7 +2880,7 @@
 							]
 						},
 						{
-							"id": 337,
+							"id": 352,
 							"name": "firstRun",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2793,7 +2902,7 @@
 							"defaultValue": "true"
 						},
 						{
-							"id": 339,
+							"id": 354,
 							"name": "ms",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2815,7 +2924,7 @@
 							}
 						},
 						{
-							"id": 334,
+							"id": 349,
 							"name": "processed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2835,14 +2944,14 @@
 								"elementType": {
 									"type": "reflection",
 									"declaration": {
-										"id": 335,
+										"id": 350,
 										"name": "__type",
 										"kind": 65536,
 										"kindString": "Type literal",
 										"flags": {},
 										"children": [
 											{
-												"id": 336,
+												"id": 351,
 												"name": "string",
 												"kind": 32,
 												"kindString": "Variable",
@@ -2865,7 +2974,7 @@
 												"title": "Variables",
 												"kind": 32,
 												"children": [
-													336
+													351
 												]
 											}
 										]
@@ -2875,7 +2984,7 @@
 							"defaultValue": " <{string:number}[]>[]"
 						},
 						{
-							"id": 347,
+							"id": 362,
 							"name": "cleanupProcessed",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2885,7 +2994,7 @@
 							},
 							"signatures": [
 								{
-									"id": 348,
+									"id": 363,
 									"name": "cleanupProcessed",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2905,7 +3014,7 @@
 							]
 						},
 						{
-							"id": 342,
+							"id": 357,
 							"name": "poll",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2915,7 +3024,7 @@
 							},
 							"signatures": [
 								{
-									"id": 343,
+									"id": 358,
 									"name": "poll",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2935,7 +3044,7 @@
 							]
 						},
 						{
-							"id": 344,
+							"id": 359,
 							"name": "processMails",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2945,14 +3054,14 @@
 							},
 							"signatures": [
 								{
-									"id": 345,
+									"id": 360,
 									"name": "processMails",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 346,
+											"id": 361,
 											"name": "accounts",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2983,25 +3092,25 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								338
+								353
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								337,
-								339,
-								334
+								352,
+								354,
+								349
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								347,
-								342,
-								344
+								362,
+								357,
+								359
 							]
 						}
 					],
@@ -3014,14 +3123,14 @@
 					]
 				},
 				{
-					"id": 326,
+					"id": 341,
 					"name": "Account",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 327,
+							"id": 342,
 							"name": "account",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3039,7 +3148,7 @@
 							}
 						},
 						{
-							"id": 331,
+							"id": 346,
 							"name": "dateSince",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3057,7 +3166,7 @@
 							}
 						},
 						{
-							"id": 328,
+							"id": 343,
 							"name": "inbox",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3075,7 +3184,7 @@
 							}
 						},
 						{
-							"id": 332,
+							"id": 347,
 							"name": "msgSinceDate",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3092,12 +3201,12 @@
 								"elementType": {
 									"type": "reference",
 									"name": "Message",
-									"id": 321
+									"id": 336
 								}
 							}
 						},
 						{
-							"id": 330,
+							"id": 345,
 							"name": "numMsgNew",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3115,7 +3224,7 @@
 							}
 						},
 						{
-							"id": 329,
+							"id": 344,
 							"name": "numMsgTotal",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3138,12 +3247,12 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								327,
-								331,
-								328,
-								332,
-								330,
-								329
+								342,
+								346,
+								343,
+								347,
+								345,
+								344
 							]
 						}
 					],
@@ -3156,7 +3265,7 @@
 					]
 				},
 				{
-					"id": 308,
+					"id": 323,
 					"name": "Command",
 					"kind": 256,
 					"kindString": "Interface",
@@ -3165,7 +3274,7 @@
 					},
 					"children": [
 						{
-							"id": 313,
+							"id": 328,
 							"name": "command",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3188,7 +3297,7 @@
 							}
 						},
 						{
-							"id": 309,
+							"id": 324,
 							"name": "commandFn",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3208,21 +3317,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 310,
+									"id": 325,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 311,
+											"id": 326,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 312,
+													"id": 327,
 													"name": "query",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3259,7 +3368,7 @@
 							}
 						},
 						{
-							"id": 314,
+							"id": 329,
 							"name": "params",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3278,8 +3387,11 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "string"
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
 							}
 						}
 					],
@@ -3288,9 +3400,9 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								313,
-								309,
-								314
+								328,
+								324,
+								329
 							]
 						}
 					],
@@ -3303,14 +3415,14 @@
 					]
 				},
 				{
-					"id": 318,
+					"id": 333,
 					"name": "Content",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 320,
+							"id": 335,
 							"name": "attachments",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3333,7 +3445,7 @@
 							}
 						},
 						{
-							"id": 319,
+							"id": 334,
 							"name": "message",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3358,8 +3470,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								320,
-								319
+								335,
+								334
 							]
 						}
 					],
@@ -3372,14 +3484,14 @@
 					]
 				},
 				{
-					"id": 321,
+					"id": 336,
 					"name": "Message",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 322,
+							"id": 337,
 							"name": "from",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3397,7 +3509,7 @@
 							}
 						},
 						{
-							"id": 325,
+							"id": 340,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3415,7 +3527,7 @@
 							}
 						},
 						{
-							"id": 324,
+							"id": 339,
 							"name": "received",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3433,7 +3545,7 @@
 							}
 						},
 						{
-							"id": 323,
+							"id": 338,
 							"name": "subject",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3456,10 +3568,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								322,
-								325,
-								324,
-								323
+								337,
+								340,
+								339,
+								338
 							]
 						}
 					],
@@ -3472,7 +3584,7 @@
 					]
 				},
 				{
-					"id": 315,
+					"id": 330,
 					"name": "Query",
 					"kind": 256,
 					"kindString": "Interface",
@@ -3481,7 +3593,7 @@
 					},
 					"children": [
 						{
-							"id": 317,
+							"id": 332,
 							"name": "command",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3501,7 +3613,7 @@
 							}
 						},
 						{
-							"id": 316,
+							"id": 331,
 							"name": "event",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3526,8 +3638,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								317,
-								316
+								332,
+								331
 							]
 						}
 					],
@@ -3540,7 +3652,7 @@
 					]
 				},
 				{
-					"id": 350,
+					"id": 365,
 					"name": "gCommands",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3559,13 +3671,13 @@
 						"elementType": {
 							"type": "reference",
 							"name": "Command",
-							"id": 308
+							"id": 323
 						}
 					},
 					"defaultValue": " <Command[]>[]"
 				},
 				{
-					"id": 349,
+					"id": 364,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3586,7 +3698,7 @@
 					"defaultValue": " new Log('hsCmdRec')"
 				},
 				{
-					"id": 365,
+					"id": 380,
 					"name": "addCommand",
 					"kind": 64,
 					"kindString": "Function",
@@ -3599,7 +3711,7 @@
 					},
 					"signatures": [
 						{
-							"id": 366,
+							"id": 381,
 							"name": "addCommand",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3609,7 +3721,7 @@
 							},
 							"parameters": [
 								{
-									"id": 367,
+									"id": 382,
 									"name": "cmdFn",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3623,7 +3735,7 @@
 									}
 								},
 								{
-									"id": 368,
+									"id": 383,
 									"name": "cmd",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3637,19 +3749,22 @@
 									}
 								},
 								{
-									"id": 369,
+									"id": 384,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
-										"isOptional": true
+										"isRest": true
 									},
 									"comment": {
 										"shortText": "optional;\n"
 									},
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
 									}
 								}
 							],
@@ -3668,7 +3783,7 @@
 					]
 				},
 				{
-					"id": 370,
+					"id": 385,
 					"name": "getCommands",
 					"kind": 64,
 					"kindString": "Function",
@@ -3682,7 +3797,7 @@
 					},
 					"signatures": [
 						{
-							"id": 371,
+							"id": 386,
 							"name": "getCommands",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3709,21 +3824,21 @@
 					]
 				},
 				{
-					"id": 356,
+					"id": 371,
 					"name": "informSender",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 357,
+							"id": 372,
 							"name": "informSender",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 358,
+									"id": 373,
 									"name": "cmd",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3734,7 +3849,7 @@
 									}
 								},
 								{
-									"id": 359,
+									"id": 374,
 									"name": "content",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3742,11 +3857,11 @@
 									"type": {
 										"type": "reference",
 										"name": "Content",
-										"id": 318
+										"id": 333
 									}
 								},
 								{
-									"id": 360,
+									"id": 375,
 									"name": "from",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3779,14 +3894,14 @@
 					]
 				},
 				{
-					"id": 351,
+					"id": 366,
 					"name": "interpretCommand",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 352,
+							"id": 367,
 							"name": "interpretCommand",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3794,7 +3909,7 @@
 							"comment": {},
 							"parameters": [
 								{
-									"id": 353,
+									"id": 368,
 									"name": "cmd",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3806,12 +3921,11 @@
 									}
 								},
 								{
-									"id": 354,
-									"name": "param",
+									"id": 369,
+									"name": "params",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
-									"comment": {},
 									"type": {
 										"type": "array",
 										"elementType": {
@@ -3821,7 +3935,7 @@
 									}
 								},
 								{
-									"id": 355,
+									"id": 370,
 									"name": "from",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3857,7 +3971,7 @@
 					]
 				},
 				{
-					"id": 361,
+					"id": 376,
 					"name": "processCommand",
 					"kind": 64,
 					"kindString": "Function",
@@ -3866,14 +3980,14 @@
 					},
 					"signatures": [
 						{
-							"id": 362,
+							"id": 377,
 							"name": "processCommand",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 363,
+									"id": 378,
 									"name": "cmd",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3884,7 +3998,7 @@
 									}
 								},
 								{
-									"id": 364,
+									"id": 379,
 									"name": "from",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3922,37 +4036,37 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						333
+						348
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						326,
-						308,
-						318,
-						321,
-						315
+						341,
+						323,
+						333,
+						336,
+						330
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						350,
-						349
+						365,
+						364
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						365,
-						370,
-						356,
-						351,
-						361
+						380,
+						385,
+						371,
+						366,
+						376
 					]
 				}
 			],
@@ -3965,7 +4079,7 @@
 			]
 		},
 		{
-			"id": 512,
+			"id": 559,
 			"name": "\"node/core/Init\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3975,7 +4089,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/Init.ts",
 			"children": [
 				{
-					"id": 513,
+					"id": 560,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3996,14 +4110,14 @@
 					"defaultValue": " new Log('Init')"
 				},
 				{
-					"id": 514,
+					"id": 561,
 					"name": "addCommands",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 515,
+							"id": 562,
 							"name": "addCommands",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4023,21 +4137,21 @@
 					]
 				},
 				{
-					"id": 516,
+					"id": 563,
 					"name": "createDevices",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 517,
+							"id": 564,
 							"name": "createDevices",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 518,
+									"id": 565,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4058,13 +4172,13 @@
 					"sources": [
 						{
 							"fileName": "node/core/Init.ts",
-							"line": 26,
+							"line": 27,
 							"character": 22
 						}
 					]
 				},
 				{
-					"id": 525,
+					"id": 572,
 					"name": "initDevices",
 					"kind": 64,
 					"kindString": "Function",
@@ -4074,14 +4188,14 @@
 					},
 					"signatures": [
 						{
-							"id": 526,
+							"id": 573,
 							"name": "initDevices",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 527,
+									"id": 574,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4102,13 +4216,13 @@
 					"sources": [
 						{
 							"fileName": "node/core/Init.ts",
-							"line": 53,
+							"line": 54,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 519,
+					"id": 566,
 					"name": "startSecuritySystem",
 					"kind": 64,
 					"kindString": "Function",
@@ -4118,14 +4232,14 @@
 					},
 					"signatures": [
 						{
-							"id": 520,
+							"id": 567,
 							"name": "startSecuritySystem",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 521,
+									"id": 568,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4147,13 +4261,13 @@
 					"sources": [
 						{
 							"fileName": "node/core/Init.ts",
-							"line": 37,
+							"line": 38,
 							"character": 32
 						}
 					]
 				},
 				{
-					"id": 522,
+					"id": 569,
 					"name": "startSecuritySystemTestMode",
 					"kind": 64,
 					"kindString": "Function",
@@ -4163,14 +4277,14 @@
 					},
 					"signatures": [
 						{
-							"id": 523,
+							"id": 570,
 							"name": "startSecuritySystemTestMode",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 524,
+									"id": 571,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4192,7 +4306,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/Init.ts",
-							"line": 48,
+							"line": 49,
 							"character": 40
 						}
 					]
@@ -4203,18 +4317,18 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						513
+						560
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						514,
-						516,
-						525,
-						519,
-						522
+						561,
+						563,
+						572,
+						566,
+						569
 					]
 				}
 			],
@@ -4525,7 +4639,7 @@
 			]
 		},
 		{
-			"id": 528,
+			"id": 575,
 			"name": "\"node/core/homeSecMain\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4538,7 +4652,7 @@
 			},
 			"children": [
 				{
-					"id": 529,
+					"id": 576,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -4559,21 +4673,21 @@
 					"defaultValue": " new Log('hsMain')"
 				},
 				{
-					"id": 532,
+					"id": 579,
 					"name": "cli",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 533,
+							"id": 580,
 							"name": "cli",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 534,
+									"id": 581,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4608,21 +4722,21 @@
 					]
 				},
 				{
-					"id": 535,
+					"id": 582,
 					"name": "ftpInit",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 536,
+							"id": 583,
 							"name": "ftpInit",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 537,
+									"id": 584,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4650,21 +4764,21 @@
 					]
 				},
 				{
-					"id": 538,
+					"id": 585,
 					"name": "httpInit",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 539,
+							"id": 586,
 							"name": "httpInit",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 540,
+									"id": 587,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4692,7 +4806,7 @@
 					]
 				},
 				{
-					"id": 530,
+					"id": 577,
 					"name": "cliParams",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -4701,7 +4815,7 @@
 					},
 					"children": [
 						{
-							"id": 531,
+							"id": 578,
 							"name": "ftpServer",
 							"kind": 32,
 							"kindString": "Variable",
@@ -4725,7 +4839,7 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								531
+								578
 							]
 						}
 					],
@@ -4747,23 +4861,23 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						529
+						576
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						532,
-						535,
-						538
+						579,
+						582,
+						585
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						530
+						577
 					]
 				}
 			],
@@ -4786,7 +4900,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/device/Device.ts",
 			"children": [
 				{
-					"id": 191,
+					"id": 196,
 					"name": "AbstractCamera",
 					"kind": 128,
 					"kindString": "Class",
@@ -4796,7 +4910,7 @@
 					},
 					"children": [
 						{
-							"id": 194,
+							"id": 199,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -4805,14 +4919,14 @@
 							},
 							"signatures": [
 								{
-									"id": 195,
+									"id": 200,
 									"name": "new AbstractCamera",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 196,
+											"id": 201,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4824,7 +4938,7 @@
 											}
 										},
 										{
-											"id": 197,
+											"id": 202,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4839,30 +4953,30 @@
 									"type": {
 										"type": "reference",
 										"name": "AbstractCamera",
-										"id": 191
+										"id": 196
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.__constructor",
-										"id": 180
+										"id": 185
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 133,
+									"line": 140,
 									"character": 32
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.__constructor",
-								"id": 180
+								"id": 185
 							}
 						},
 						{
-							"id": 193,
+							"id": 198,
 							"name": "armed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4873,7 +4987,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 133,
+									"line": 140,
 									"character": 19
 								}
 							],
@@ -4884,7 +4998,7 @@
 							"defaultValue": "false"
 						},
 						{
-							"id": 192,
+							"id": 197,
 							"name": "audible",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4895,7 +5009,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 132,
+									"line": 139,
 									"character": 19
 								}
 							],
@@ -4906,7 +5020,7 @@
 							"defaultValue": "false"
 						},
 						{
-							"id": 234,
+							"id": 244,
 							"name": "log",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4917,7 +5031,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 106,
+									"line": 113,
 									"character": 17
 								}
 							],
@@ -4928,11 +5042,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.log",
-								"id": 171
+								"id": 176
 							}
 						},
 						{
-							"id": 222,
+							"id": 232,
 							"name": "arm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4942,7 +5056,7 @@
 							},
 							"signatures": [
 								{
-									"id": 223,
+									"id": 233,
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4953,7 +5067,7 @@
 									},
 									"parameters": [
 										{
-											"id": 224,
+											"id": 234,
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4987,7 +5101,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 201,
+									"line": 216,
 									"character": 16
 								}
 							],
@@ -4998,7 +5112,7 @@
 							}
 						},
 						{
-							"id": 220,
+							"id": 230,
 							"name": "armStatus",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5008,7 +5122,7 @@
 							},
 							"signatures": [
 								{
-									"id": 221,
+									"id": 231,
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5037,7 +5151,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 194,
+									"line": 209,
 									"character": 22
 								}
 							],
@@ -5048,7 +5162,7 @@
 							}
 						},
 						{
-							"id": 228,
+							"id": 238,
 							"name": "getAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5057,7 +5171,7 @@
 							},
 							"signatures": [
 								{
-									"id": 229,
+									"id": 239,
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5076,7 +5190,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 215,
+									"line": 230,
 									"character": 14
 								}
 							],
@@ -5087,7 +5201,7 @@
 							}
 						},
 						{
-							"id": 214,
+							"id": 224,
 							"name": "getFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5097,7 +5211,7 @@
 							},
 							"signatures": [
 								{
-									"id": 215,
+									"id": 225,
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5119,25 +5233,25 @@
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.getFtpCfg",
-										"id": 154
+										"id": 156
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 176,
+									"line": 191,
 									"character": 22
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.getFtpCfg",
-								"id": 153
+								"id": 155
 							}
 						},
 						{
-							"id": 241,
+							"id": 251,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5146,7 +5260,7 @@
 							},
 							"signatures": [
 								{
-									"id": 242,
+									"id": 252,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5158,7 +5272,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.getName",
-										"id": 189
+										"id": 194
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -5170,14 +5284,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 125,
+									"line": 132,
 									"character": 11
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.getName",
-								"id": 189
+								"id": 194
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -5186,7 +5300,7 @@
 							}
 						},
 						{
-							"id": 210,
+							"id": 217,
 							"name": "getRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5195,7 +5309,7 @@
 							},
 							"signatures": [
 								{
-									"id": 211,
+									"id": 218,
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5213,25 +5327,25 @@
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.getRecordingDir",
-										"id": 150
+										"id": 152
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 163,
+									"line": 171,
 									"character": 19
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.getRecordingDir",
-								"id": 149
+								"id": 151
 							}
 						},
 						{
-							"id": 239,
+							"id": 249,
 							"name": "getSettings",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5240,7 +5354,7 @@
 							},
 							"signatures": [
 								{
-									"id": 240,
+									"id": 250,
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5253,7 +5367,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.getSettings",
-										"id": 187
+										"id": 192
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -5265,14 +5379,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 121,
+									"line": 128,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.getSettings",
-								"id": 187
+								"id": 192
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -5281,7 +5395,7 @@
 							}
 						},
 						{
-							"id": 203,
+							"id": 208,
 							"name": "hasAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5290,7 +5404,7 @@
 							},
 							"signatures": [
 								{
-									"id": 204,
+									"id": 209,
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5302,7 +5416,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.hasAlarm",
-										"id": 176
+										"id": 181
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -5314,14 +5428,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 147,
+									"line": 154,
 									"character": 12
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.hasAlarm",
-								"id": 176
+								"id": 181
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -5330,7 +5444,7 @@
 							}
 						},
 						{
-							"id": 235,
+							"id": 245,
 							"name": "hasAudio",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5339,7 +5453,7 @@
 							},
 							"signatures": [
 								{
-									"id": 236,
+									"id": 246,
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5351,7 +5465,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.hasAudio",
-										"id": 174
+										"id": 179
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -5363,14 +5477,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 109,
+									"line": 116,
 									"character": 12
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.hasAudio",
-								"id": 174
+								"id": 179
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -5379,7 +5493,7 @@
 							}
 						},
 						{
-							"id": 237,
+							"id": 247,
 							"name": "hasMotionAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5388,7 +5502,7 @@
 							},
 							"signatures": [
 								{
-									"id": 238,
+									"id": 248,
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5400,25 +5514,64 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.hasMotionAlarm",
-										"id": 178
+										"id": 183
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 111,
+									"line": 118,
 									"character": 18
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.hasMotionAlarm",
-								"id": 178
+								"id": 183
 							}
 						},
 						{
-							"id": 201,
+							"id": 212,
+							"name": "hasPTZ",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 213,
+									"name": "hasPTZ",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Camera.hasPTZ",
+										"id": 147
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/Device.ts",
+									"line": 156,
+									"character": 10
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Camera.hasPTZ",
+								"id": 146
+							}
+						},
+						{
+							"id": 206,
 							"name": "hasVideo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5427,7 +5580,7 @@
 							},
 							"signatures": [
 								{
-									"id": 202,
+									"id": 207,
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5439,7 +5592,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.hasVideo",
-										"id": 172
+										"id": 177
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -5451,14 +5604,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 146,
+									"line": 153,
 									"character": 12
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.hasVideo",
-								"id": 172
+								"id": 177
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -5467,7 +5620,7 @@
 							}
 						},
 						{
-							"id": 198,
+							"id": 203,
 							"name": "initDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5476,14 +5629,14 @@
 							},
 							"signatures": [
 								{
-									"id": 199,
+									"id": 204,
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 200,
+											"id": 205,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5502,7 +5655,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.initDevice",
-										"id": 184
+										"id": 189
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -5514,14 +5667,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 140,
+									"line": 147,
 									"character": 14
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.initDevice",
-								"id": 184
+								"id": 189
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -5530,7 +5683,7 @@
 							}
 						},
 						{
-							"id": 205,
+							"id": 210,
 							"name": "isArmed",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5539,7 +5692,7 @@
 							},
 							"signatures": [
 								{
-									"id": 206,
+									"id": 211,
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5558,7 +5711,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 148,
+									"line": 155,
 									"character": 11
 								}
 							],
@@ -5569,7 +5722,71 @@
 							}
 						},
 						{
-							"id": 230,
+							"id": 221,
+							"name": "ptzPreset",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 222,
+									"name": "ptzPreset",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Moves the camera to a preset position.\nThis default implementation returns an empty promise."
+									},
+									"parameters": [
+										{
+											"id": 223,
+											"name": "index",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "the preset position index to move to\n"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Promise",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										]
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Camera.ptzPreset",
+										"id": 158
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/Device.ts",
+									"line": 185,
+									"character": 13
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Camera.ptzPreset",
+								"id": 157
+							}
+						},
+						{
+							"id": 240,
 							"name": "sendCommandToDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5579,7 +5796,7 @@
 							},
 							"signatures": [
 								{
-									"id": 231,
+									"id": 241,
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5589,7 +5806,7 @@
 									},
 									"parameters": [
 										{
-											"id": 232,
+											"id": 242,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5603,7 +5820,7 @@
 											}
 										},
 										{
-											"id": 233,
+											"id": 243,
 											"name": "referer",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5631,13 +5848,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 224,
+									"line": 239,
 									"character": 33
 								}
 							]
 						},
 						{
-							"id": 225,
+							"id": 235,
 							"name": "setAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5646,7 +5863,7 @@
 							},
 							"signatures": [
 								{
-									"id": 226,
+									"id": 236,
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5657,7 +5874,7 @@
 									},
 									"parameters": [
 										{
-											"id": 227,
+											"id": 237,
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5691,7 +5908,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 209,
+									"line": 224,
 									"character": 14
 								}
 							],
@@ -5702,7 +5919,7 @@
 							}
 						},
 						{
-							"id": 216,
+							"id": 226,
 							"name": "setFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5712,7 +5929,7 @@
 							},
 							"signatures": [
 								{
-									"id": 217,
+									"id": 227,
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5736,18 +5953,18 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 182,
+									"line": 197,
 									"character": 22
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.setFtpCfg",
-								"id": 155
+								"id": 160
 							}
 						},
 						{
-							"id": 207,
+							"id": 214,
 							"name": "setRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5756,7 +5973,7 @@
 							},
 							"signatures": [
 								{
-									"id": 208,
+									"id": 215,
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5767,7 +5984,7 @@
 									},
 									"parameters": [
 										{
-											"id": 209,
+											"id": 216,
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5794,25 +6011,25 @@
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.setRecordingDir",
-										"id": 147
+										"id": 149
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 155,
+									"line": 163,
 									"character": 19
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.setRecordingDir",
-								"id": 146
+								"id": 148
 							}
 						},
 						{
-							"id": 212,
+							"id": 219,
 							"name": "snapPicture",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5822,7 +6039,7 @@
 							},
 							"signatures": [
 								{
-									"id": 213,
+									"id": 220,
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5843,25 +6060,25 @@
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.snapPicture",
-										"id": 152
+										"id": 154
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 170,
+									"line": 178,
 									"character": 24
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.snapPicture",
-								"id": 151
+								"id": 153
 							}
 						},
 						{
-							"id": 218,
+							"id": 228,
 							"name": "testFtpServer",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5871,7 +6088,7 @@
 							},
 							"signatures": [
 								{
-									"id": 219,
+									"id": 229,
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5893,21 +6110,21 @@
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.testFtpServer",
-										"id": 159
+										"id": 164
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 188,
+									"line": 203,
 									"character": 26
 								}
 							],
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.testFtpServer",
-								"id": 158
+								"id": 163
 							}
 						}
 					],
@@ -5916,48 +6133,50 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								194
+								199
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								193,
-								192,
-								234
+								198,
+								197,
+								244
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								222,
-								220,
-								228,
-								214,
-								241,
-								210,
-								239,
-								203,
-								235,
-								237,
-								201,
-								198,
-								205,
+								232,
 								230,
-								225,
-								216,
-								207,
+								238,
+								224,
+								251,
+								217,
+								249,
+								208,
+								245,
+								247,
 								212,
-								218
+								206,
+								203,
+								210,
+								221,
+								240,
+								235,
+								226,
+								214,
+								219,
+								228
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "node/device/Device.ts",
-							"line": 131,
+							"line": 138,
 							"character": 36
 						}
 					],
@@ -5965,19 +6184,19 @@
 						{
 							"type": "reference",
 							"name": "AbstractDevice",
-							"id": 169
+							"id": 174
 						}
 					],
 					"extendedBy": [
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 389
+							"id": 404
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 450
+							"id": 470
 						}
 					],
 					"implementedTypes": [
@@ -5999,7 +6218,7 @@
 					]
 				},
 				{
-					"id": 169,
+					"id": 174,
 					"name": "AbstractDevice",
 					"kind": 128,
 					"kindString": "Class",
@@ -6009,7 +6228,7 @@
 					},
 					"children": [
 						{
-							"id": 180,
+							"id": 185,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -6018,14 +6237,14 @@
 							},
 							"signatures": [
 								{
-									"id": 181,
+									"id": 186,
 									"name": "new AbstractDevice",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 182,
+											"id": 187,
 											"name": "deviceSettings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6037,7 +6256,7 @@
 											}
 										},
 										{
-											"id": 183,
+											"id": 188,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6052,20 +6271,20 @@
 									"type": {
 										"type": "reference",
 										"name": "AbstractDevice",
-										"id": 169
+										"id": 174
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 111,
+									"line": 118,
 									"character": 49
 								}
 							]
 						},
 						{
-							"id": 171,
+							"id": 176,
 							"name": "log",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6076,7 +6295,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 106,
+									"line": 113,
 									"character": 17
 								}
 							],
@@ -6086,7 +6305,7 @@
 							}
 						},
 						{
-							"id": 170,
+							"id": 175,
 							"name": "settings",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6097,7 +6316,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 105,
+									"line": 112,
 									"character": 20
 								}
 							],
@@ -6108,7 +6327,7 @@
 							}
 						},
 						{
-							"id": 189,
+							"id": 194,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6117,7 +6336,7 @@
 							},
 							"signatures": [
 								{
-									"id": 190,
+									"id": 195,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -6136,7 +6355,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 125,
+									"line": 132,
 									"character": 11
 								}
 							],
@@ -6147,7 +6366,7 @@
 							}
 						},
 						{
-							"id": 187,
+							"id": 192,
 							"name": "getSettings",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6156,7 +6375,7 @@
 							},
 							"signatures": [
 								{
-									"id": 188,
+									"id": 193,
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -6176,7 +6395,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 121,
+									"line": 128,
 									"character": 15
 								}
 							],
@@ -6187,7 +6406,7 @@
 							}
 						},
 						{
-							"id": 176,
+							"id": 181,
 							"name": "hasAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6196,7 +6415,7 @@
 							},
 							"signatures": [
 								{
-									"id": 177,
+									"id": 182,
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -6215,7 +6434,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 110,
+									"line": 117,
 									"character": 12
 								}
 							],
@@ -6226,7 +6445,7 @@
 							}
 						},
 						{
-							"id": 174,
+							"id": 179,
 							"name": "hasAudio",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6235,7 +6454,7 @@
 							},
 							"signatures": [
 								{
-									"id": 175,
+									"id": 180,
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -6254,7 +6473,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 109,
+									"line": 116,
 									"character": 12
 								}
 							],
@@ -6265,7 +6484,7 @@
 							}
 						},
 						{
-							"id": 178,
+							"id": 183,
 							"name": "hasMotionAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6274,7 +6493,7 @@
 							},
 							"signatures": [
 								{
-									"id": 179,
+									"id": 184,
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -6288,13 +6507,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 111,
+									"line": 118,
 									"character": 18
 								}
 							]
 						},
 						{
-							"id": 172,
+							"id": 177,
 							"name": "hasVideo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6303,7 +6522,7 @@
 							},
 							"signatures": [
 								{
-									"id": 173,
+									"id": 178,
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -6322,7 +6541,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 108,
+									"line": 115,
 									"character": 12
 								}
 							],
@@ -6333,7 +6552,7 @@
 							}
 						},
 						{
-							"id": 184,
+							"id": 189,
 							"name": "initDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6342,14 +6561,14 @@
 							},
 							"signatures": [
 								{
-									"id": 185,
+									"id": 190,
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 186,
+											"id": 191,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6375,7 +6594,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 119,
+									"line": 126,
 									"character": 14
 								}
 							],
@@ -6391,35 +6610,35 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								180
+								185
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								171,
-								170
+								176,
+								175
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								189,
-								187,
-								176,
-								174,
-								178,
-								172,
-								184
+								194,
+								192,
+								181,
+								179,
+								183,
+								177,
+								189
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "node/device/Device.ts",
-							"line": 104,
+							"line": 111,
 							"character": 36
 						}
 					],
@@ -6427,7 +6646,7 @@
 						{
 							"type": "reference",
 							"name": "AbstractCamera",
-							"id": 191
+							"id": 196
 						}
 					],
 					"implementedTypes": [
@@ -6439,7 +6658,7 @@
 					]
 				},
 				{
-					"id": 243,
+					"id": 253,
 					"name": "DeviceList",
 					"kind": 128,
 					"kindString": "Class",
@@ -6448,7 +6667,7 @@
 					},
 					"children": [
 						{
-							"id": 244,
+							"id": 254,
 							"name": "list",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6460,7 +6679,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 242,
+									"line": 257,
 									"character": 23
 								}
 							],
@@ -6475,7 +6694,7 @@
 							"defaultValue": " <Device[]>[]"
 						},
 						{
-							"id": 245,
+							"id": 255,
 							"name": "addDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6485,14 +6704,14 @@
 							},
 							"signatures": [
 								{
-									"id": 246,
+									"id": 256,
 									"name": "addDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 247,
+											"id": 257,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6513,13 +6732,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 243,
+									"line": 258,
 									"character": 20
 								}
 							]
 						},
 						{
-							"id": 248,
+							"id": 258,
 							"name": "getDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6529,14 +6748,14 @@
 							},
 							"signatures": [
 								{
-									"id": 249,
+									"id": 259,
 									"name": "getDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 250,
+											"id": 260,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6557,13 +6776,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 254,
+									"line": 269,
 									"character": 20
 								}
 							]
 						},
 						{
-							"id": 251,
+							"id": 261,
 							"name": "getDevices",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6573,7 +6792,7 @@
 							},
 							"signatures": [
 								{
-									"id": 252,
+									"id": 262,
 									"name": "getDevices",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -6594,7 +6813,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 259,
+									"line": 274,
 									"character": 21
 								}
 							]
@@ -6605,23 +6824,23 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								244
+								254
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								245,
-								248,
-								251
+								255,
+								258,
+								261
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "node/device/Device.ts",
-							"line": 241,
+							"line": 256,
 							"character": 23
 						}
 					]
@@ -7132,17 +7351,17 @@
 						{
 							"type": "reference",
 							"name": "AbstractCamera",
-							"id": 191
+							"id": 196
 						},
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 389
+							"id": 404
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 450
+							"id": 470
 						}
 					]
 				},
@@ -7156,7 +7375,7 @@
 					},
 					"children": [
 						{
-							"id": 153,
+							"id": 155,
 							"name": "getFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7165,7 +7384,7 @@
 							},
 							"signatures": [
 								{
-									"id": 154,
+									"id": 156,
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7188,13 +7407,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 89,
+									"line": 90,
 									"character": 13
 								}
 							]
 						},
 						{
-							"id": 165,
+							"id": 170,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7203,7 +7422,7 @@
 							},
 							"signatures": [
 								{
-									"id": 166,
+									"id": 171,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7233,7 +7452,7 @@
 							}
 						},
 						{
-							"id": 149,
+							"id": 151,
 							"name": "getRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7242,7 +7461,7 @@
 							},
 							"signatures": [
 								{
-									"id": 150,
+									"id": 152,
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7265,13 +7484,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 78,
+									"line": 79,
 									"character": 19
 								}
 							]
 						},
 						{
-							"id": 163,
+							"id": 168,
 							"name": "getSettings",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7280,7 +7499,7 @@
 							},
 							"signatures": [
 								{
-									"id": 164,
+									"id": 169,
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7311,7 +7530,7 @@
 							}
 						},
 						{
-							"id": 167,
+							"id": 172,
 							"name": "hasAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7320,7 +7539,7 @@
 							},
 							"signatures": [
 								{
-									"id": 168,
+									"id": 173,
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7389,6 +7608,35 @@
 							}
 						},
 						{
+							"id": 146,
+							"name": "hasPTZ",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 147,
+									"name": "hasPTZ",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/Device.ts",
+									"line": 68,
+									"character": 10
+								}
+							]
+						},
+						{
 							"id": 142,
 							"name": "hasVideo",
 							"kind": 2048,
@@ -7428,7 +7676,7 @@
 							}
 						},
 						{
-							"id": 160,
+							"id": 165,
 							"name": "initDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7437,14 +7685,14 @@
 							},
 							"signatures": [
 								{
-									"id": 161,
+									"id": 166,
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 162,
+											"id": 167,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7481,7 +7729,61 @@
 							}
 						},
 						{
-							"id": 155,
+							"id": 157,
+							"name": "ptzPreset",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 158,
+									"name": "ptzPreset",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "moves the camera to a preset position"
+									},
+									"parameters": [
+										{
+											"id": 159,
+											"name": "index",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "the preset position index to move to\n"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Promise",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										]
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/Device.ts",
+									"line": 96,
+									"character": 13
+								}
+							]
+						},
+						{
+							"id": 160,
 							"name": "setFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7490,7 +7792,7 @@
 							},
 							"signatures": [
 								{
-									"id": 156,
+									"id": 161,
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7501,7 +7803,7 @@
 									},
 									"parameters": [
 										{
-											"id": 157,
+											"id": 162,
 											"name": "ftpSettings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7528,13 +7830,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 95,
+									"line": 102,
 									"character": 13
 								}
 							]
 						},
 						{
-							"id": 146,
+							"id": 148,
 							"name": "setRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7543,7 +7845,7 @@
 							},
 							"signatures": [
 								{
-									"id": 147,
+									"id": 149,
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7554,7 +7856,7 @@
 									},
 									"parameters": [
 										{
-											"id": 148,
+											"id": 150,
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7583,13 +7885,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 74,
+									"line": 75,
 									"character": 19
 								}
 							]
 						},
 						{
-							"id": 151,
+							"id": 153,
 							"name": "snapPicture",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7598,7 +7900,7 @@
 							},
 							"signatures": [
 								{
-									"id": 152,
+									"id": 154,
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7621,13 +7923,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 83,
+									"line": 84,
 									"character": 15
 								}
 							]
 						},
 						{
-							"id": 158,
+							"id": 163,
 							"name": "testFtpServer",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7636,7 +7938,7 @@
 							},
 							"signatures": [
 								{
-									"id": 159,
+									"id": 164,
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -7660,7 +7962,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 101,
+									"line": 108,
 									"character": 17
 								}
 							]
@@ -7671,18 +7973,20 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								153,
-								165,
-								149,
-								163,
-								167,
-								144,
-								142,
-								160,
 								155,
-								146,
+								170,
 								151,
-								158
+								168,
+								172,
+								144,
+								146,
+								142,
+								165,
+								157,
+								160,
+								148,
+								153,
+								163
 							]
 						}
 					],
@@ -7704,17 +8008,17 @@
 						{
 							"type": "reference",
 							"name": "AbstractCamera",
-							"id": 191
+							"id": 196
 						},
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 389
+							"id": 404
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 450
+							"id": 470
 						}
 					]
 				},
@@ -7954,22 +8258,22 @@
 						{
 							"type": "reference",
 							"name": "AbstractCamera",
-							"id": 191
+							"id": 196
 						},
 						{
 							"type": "reference",
 							"name": "AbstractDevice",
-							"id": 169
+							"id": 174
 						},
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 389
+							"id": 404
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 450
+							"id": 470
 						}
 					]
 				},
@@ -8214,7 +8518,7 @@
 					]
 				},
 				{
-					"id": 253,
+					"id": 263,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8240,9 +8544,9 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						191,
-						169,
-						243
+						196,
+						174,
+						253
 					]
 				},
 				{
@@ -8259,7 +8563,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						253
+						263
 					]
 				}
 			],
@@ -8272,7 +8576,7 @@
 			]
 		},
 		{
-			"id": 388,
+			"id": 403,
 			"name": "\"node/device/Foscam\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -8282,7 +8586,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/device/Foscam.ts",
 			"children": [
 				{
-					"id": 389,
+					"id": 404,
 					"name": "Foscam",
 					"kind": 128,
 					"kindString": "Class",
@@ -8291,7 +8595,7 @@
 					},
 					"children": [
 						{
-							"id": 391,
+							"id": 406,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -8300,14 +8604,14 @@
 							},
 							"signatures": [
 								{
-									"id": 392,
+									"id": 407,
 									"name": "new Foscam",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 393,
+											"id": 408,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -8319,7 +8623,7 @@
 											}
 										},
 										{
-											"id": 394,
+											"id": 409,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -8334,12 +8638,12 @@
 									"type": {
 										"type": "reference",
 										"name": "Foscam",
-										"id": 389
+										"id": 404
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.__constructor",
-										"id": 194
+										"id": 199
 									}
 								}
 							],
@@ -8353,11 +8657,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.__constructor",
-								"id": 194
+								"id": 199
 							}
 						},
 						{
-							"id": 411,
+							"id": 426,
 							"name": "armed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8368,7 +8672,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 133,
+									"line": 140,
 									"character": 19
 								}
 							],
@@ -8380,11 +8684,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.armed",
-								"id": 193
+								"id": 198
 							}
 						},
 						{
-							"id": 432,
+							"id": 452,
 							"name": "log",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8395,7 +8699,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 106,
+									"line": 113,
 									"character": 17
 								}
 							],
@@ -8406,11 +8710,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.log",
-								"id": 171
+								"id": 176
 							}
 						},
 						{
-							"id": 390,
+							"id": 405,
 							"name": "path",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8432,7 +8736,7 @@
 							"defaultValue": "\"\""
 						},
 						{
-							"id": 408,
+							"id": 423,
 							"name": "arm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8441,7 +8745,7 @@
 							},
 							"signatures": [
 								{
-									"id": 409,
+									"id": 424,
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8452,7 +8756,7 @@
 									},
 									"parameters": [
 										{
-											"id": 410,
+											"id": 425,
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -8476,7 +8780,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.arm",
-										"id": 222
+										"id": 232
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -8495,7 +8799,7 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.arm",
-								"id": 222
+								"id": 232
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -8504,7 +8808,7 @@
 							}
 						},
 						{
-							"id": 406,
+							"id": 421,
 							"name": "armStatus",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8513,7 +8817,7 @@
 							},
 							"signatures": [
 								{
-									"id": 407,
+									"id": 422,
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8535,7 +8839,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.armStatus",
-										"id": 220
+										"id": 230
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -8554,7 +8858,7 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.armStatus",
-								"id": 220
+								"id": 230
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -8563,7 +8867,7 @@
 							}
 						},
 						{
-							"id": 426,
+							"id": 446,
 							"name": "getAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8572,7 +8876,7 @@
 							},
 							"signatures": [
 								{
-									"id": 427,
+									"id": 447,
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8584,7 +8888,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.getAudible",
-										"id": 228
+										"id": 238
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -8596,14 +8900,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 215,
+									"line": 230,
 									"character": 14
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.getAudible",
-								"id": 228
+								"id": 238
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -8612,7 +8916,7 @@
 							}
 						},
 						{
-							"id": 400,
+							"id": 415,
 							"name": "getFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8621,7 +8925,7 @@
 							},
 							"signatures": [
 								{
-									"id": 401,
+									"id": 416,
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8642,12 +8946,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.getFtpCfg",
-										"id": 214
+										"id": 224
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.getFtpCfg",
-										"id": 154
+										"id": 156
 									}
 								}
 							],
@@ -8661,16 +8965,16 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.getFtpCfg",
-								"id": 214
+								"id": 224
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.getFtpCfg",
-								"id": 153
+								"id": 155
 							}
 						},
 						{
-							"id": 439,
+							"id": 459,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8679,7 +8983,7 @@
 							},
 							"signatures": [
 								{
-									"id": 440,
+									"id": 460,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8691,7 +8995,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.getName",
-										"id": 189
+										"id": 194
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -8703,14 +9007,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 125,
+									"line": 132,
 									"character": 11
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.getName",
-								"id": 189
+								"id": 194
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -8719,7 +9023,7 @@
 							}
 						},
 						{
-							"id": 421,
+							"id": 438,
 							"name": "getRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8728,7 +9032,7 @@
 							},
 							"signatures": [
 								{
-									"id": 422,
+									"id": 439,
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8746,35 +9050,35 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.getRecordingDir",
-										"id": 210
+										"id": 217
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.getRecordingDir",
-										"id": 150
+										"id": 152
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 163,
+									"line": 171,
 									"character": 19
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.getRecordingDir",
-								"id": 210
+								"id": 217
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.getRecordingDir",
-								"id": 149
+								"id": 151
 							}
 						},
 						{
-							"id": 437,
+							"id": 457,
 							"name": "getSettings",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8783,7 +9087,7 @@
 							},
 							"signatures": [
 								{
-									"id": 438,
+									"id": 458,
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8796,7 +9100,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.getSettings",
-										"id": 187
+										"id": 192
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -8808,14 +9112,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 121,
+									"line": 128,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.getSettings",
-								"id": 187
+								"id": 192
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -8824,7 +9128,7 @@
 							}
 						},
 						{
-							"id": 414,
+							"id": 429,
 							"name": "hasAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8833,7 +9137,7 @@
 							},
 							"signatures": [
 								{
-									"id": 415,
+									"id": 430,
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8845,12 +9149,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.hasAlarm",
-										"id": 176
+										"id": 181
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.hasAlarm",
-										"id": 203
+										"id": 208
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -8862,19 +9166,19 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 147,
+									"line": 154,
 									"character": 12
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.hasAlarm",
-								"id": 176
+								"id": 181
 							},
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.hasAlarm",
-								"id": 203
+								"id": 208
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -8883,7 +9187,7 @@
 							}
 						},
 						{
-							"id": 433,
+							"id": 453,
 							"name": "hasAudio",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8892,7 +9196,7 @@
 							},
 							"signatures": [
 								{
-									"id": 434,
+									"id": 454,
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8904,7 +9208,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.hasAudio",
-										"id": 174
+										"id": 179
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -8916,14 +9220,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 109,
+									"line": 116,
 									"character": 12
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.hasAudio",
-								"id": 174
+								"id": 179
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -8932,7 +9236,7 @@
 							}
 						},
 						{
-							"id": 435,
+							"id": 455,
 							"name": "hasMotionAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8941,7 +9245,7 @@
 							},
 							"signatures": [
 								{
-									"id": 436,
+									"id": 456,
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8953,25 +9257,74 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.hasMotionAlarm",
-										"id": 178
+										"id": 183
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 111,
+									"line": 118,
 									"character": 18
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.hasMotionAlarm",
-								"id": 178
+								"id": 183
 							}
 						},
 						{
-							"id": 412,
+							"id": 433,
+							"name": "hasPTZ",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 434,
+									"name": "hasPTZ",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "AbstractCamera.hasPTZ",
+										"id": 212
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Camera.hasPTZ",
+										"id": 147
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/Device.ts",
+									"line": 156,
+									"character": 10
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "AbstractCamera.hasPTZ",
+								"id": 212
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "Camera.hasPTZ",
+								"id": 146
+							}
+						},
+						{
+							"id": 427,
 							"name": "hasVideo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -8980,7 +9333,7 @@
 							},
 							"signatures": [
 								{
-									"id": 413,
+									"id": 428,
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -8992,12 +9345,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.hasVideo",
-										"id": 172
+										"id": 177
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.hasVideo",
-										"id": 201
+										"id": 206
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -9009,19 +9362,19 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 146,
+									"line": 153,
 									"character": 12
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.hasVideo",
-								"id": 172
+								"id": 177
 							},
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.hasVideo",
-								"id": 201
+								"id": 206
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -9030,7 +9383,7 @@
 							}
 						},
 						{
-							"id": 395,
+							"id": 410,
 							"name": "initDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9039,14 +9392,14 @@
 							},
 							"signatures": [
 								{
-									"id": 396,
+									"id": 411,
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 397,
+											"id": 412,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9065,7 +9418,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.initDevice",
-										"id": 198
+										"id": 203
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -9084,7 +9437,7 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.initDevice",
-								"id": 198
+								"id": 203
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -9093,7 +9446,7 @@
 							}
 						},
 						{
-							"id": 416,
+							"id": 431,
 							"name": "isArmed",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9102,7 +9455,7 @@
 							},
 							"signatures": [
 								{
-									"id": 417,
+									"id": 432,
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -9114,7 +9467,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.isArmed",
-										"id": 205
+										"id": 210
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -9126,14 +9479,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 148,
+									"line": 155,
 									"character": 11
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.isArmed",
-								"id": 205
+								"id": 210
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -9142,7 +9495,81 @@
 							}
 						},
 						{
-							"id": 428,
+							"id": 440,
+							"name": "ptzPreset",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 441,
+									"name": "ptzPreset",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Moves the camera to a preset position.\nThis default implementation returns an empty promise."
+									},
+									"parameters": [
+										{
+											"id": 442,
+											"name": "index",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "the preset position index to move to\n"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Promise",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										]
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "AbstractCamera.ptzPreset",
+										"id": 221
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Camera.ptzPreset",
+										"id": 158
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/Device.ts",
+									"line": 185,
+									"character": 13
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "AbstractCamera.ptzPreset",
+								"id": 221
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "Camera.ptzPreset",
+								"id": 157
+							}
+						},
+						{
+							"id": 448,
 							"name": "sendCommandToDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9152,7 +9579,7 @@
 							},
 							"signatures": [
 								{
-									"id": 429,
+									"id": 449,
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -9162,7 +9589,7 @@
 									},
 									"parameters": [
 										{
-											"id": 430,
+											"id": 450,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9176,7 +9603,7 @@
 											}
 										},
 										{
-											"id": 431,
+											"id": 451,
 											"name": "referer",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9202,25 +9629,25 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.sendCommandToDevice",
-										"id": 230
+										"id": 240
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 224,
+									"line": 239,
 									"character": 33
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.sendCommandToDevice",
-								"id": 230
+								"id": 240
 							}
 						},
 						{
-							"id": 423,
+							"id": 443,
 							"name": "setAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9229,7 +9656,7 @@
 							},
 							"signatures": [
 								{
-									"id": 424,
+									"id": 444,
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -9240,7 +9667,7 @@
 									},
 									"parameters": [
 										{
-											"id": 425,
+											"id": 445,
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9267,7 +9694,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.setAudible",
-										"id": 225
+										"id": 235
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -9279,14 +9706,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 209,
+									"line": 224,
 									"character": 14
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.setAudible",
-								"id": 225
+								"id": 235
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -9295,7 +9722,7 @@
 							}
 						},
 						{
-							"id": 402,
+							"id": 417,
 							"name": "setFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9304,7 +9731,7 @@
 							},
 							"signatures": [
 								{
-									"id": 403,
+									"id": 418,
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -9325,7 +9752,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.setFtpCfg",
-										"id": 216
+										"id": 226
 									}
 								}
 							],
@@ -9339,16 +9766,16 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.setFtpCfg",
-								"id": 216
+								"id": 226
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.setFtpCfg",
-								"id": 155
+								"id": 160
 							}
 						},
 						{
-							"id": 418,
+							"id": 435,
 							"name": "setRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9357,7 +9784,7 @@
 							},
 							"signatures": [
 								{
-									"id": 419,
+									"id": 436,
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -9368,7 +9795,7 @@
 									},
 									"parameters": [
 										{
-											"id": 420,
+											"id": 437,
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9395,35 +9822,35 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.setRecordingDir",
-										"id": 207
+										"id": 214
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.setRecordingDir",
-										"id": 147
+										"id": 149
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 155,
+									"line": 163,
 									"character": 19
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.setRecordingDir",
-								"id": 207
+								"id": 214
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.setRecordingDir",
-								"id": 146
+								"id": 148
 							}
 						},
 						{
-							"id": 398,
+							"id": 413,
 							"name": "snapPicture",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9432,7 +9859,7 @@
 							},
 							"signatures": [
 								{
-									"id": 399,
+									"id": 414,
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -9453,12 +9880,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.snapPicture",
-										"id": 212
+										"id": 219
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.snapPicture",
-										"id": 152
+										"id": 154
 									}
 								}
 							],
@@ -9472,16 +9899,16 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.snapPicture",
-								"id": 212
+								"id": 219
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.snapPicture",
-								"id": 151
+								"id": 153
 							}
 						},
 						{
-							"id": 404,
+							"id": 419,
 							"name": "testFtpServer",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9490,7 +9917,7 @@
 							},
 							"signatures": [
 								{
-									"id": 405,
+									"id": 420,
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -9512,12 +9939,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.testFtpServer",
-										"id": 218
+										"id": 228
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.testFtpServer",
-										"id": 159
+										"id": 164
 									}
 								}
 							],
@@ -9531,12 +9958,12 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.testFtpServer",
-								"id": 218
+								"id": 228
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.testFtpServer",
-								"id": 158
+								"id": 163
 							}
 						}
 					],
@@ -9545,41 +9972,43 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								391
+								406
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								411,
-								432,
-								390
+								426,
+								452,
+								405
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								408,
-								406,
-								426,
-								400,
-								439,
-								421,
-								437,
-								414,
-								433,
-								435,
-								412,
-								395,
-								416,
-								428,
 								423,
-								402,
-								418,
-								398,
-								404
+								421,
+								446,
+								415,
+								459,
+								438,
+								457,
+								429,
+								453,
+								455,
+								433,
+								427,
+								410,
+								431,
+								440,
+								448,
+								443,
+								417,
+								435,
+								413,
+								419
 							]
 						}
 					],
@@ -9594,7 +10023,7 @@
 						{
 							"type": "reference",
 							"name": "AbstractCamera",
-							"id": 191
+							"id": 196
 						}
 					],
 					"implementedTypes": [
@@ -9616,7 +10045,7 @@
 					]
 				},
 				{
-					"id": 441,
+					"id": 461,
 					"name": "armCmd",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9637,7 +10066,7 @@
 					"defaultValue": "\"\""
 				},
 				{
-					"id": 443,
+					"id": 463,
 					"name": "sensitivity",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9658,7 +10087,7 @@
 					"defaultValue": "\"1\""
 				},
 				{
-					"id": 442,
+					"id": 462,
 					"name": "snapInterval",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9679,7 +10108,7 @@
 					"defaultValue": "1"
 				},
 				{
-					"id": 444,
+					"id": 464,
 					"name": "linkage",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -9688,7 +10117,7 @@
 					},
 					"children": [
 						{
-							"id": 445,
+							"id": 465,
 							"name": "audio",
 							"kind": 32,
 							"kindString": "Variable",
@@ -9707,7 +10136,7 @@
 							"defaultValue": "1"
 						},
 						{
-							"id": 446,
+							"id": 466,
 							"name": "mail",
 							"kind": 32,
 							"kindString": "Variable",
@@ -9726,7 +10155,7 @@
 							"defaultValue": "2"
 						},
 						{
-							"id": 447,
+							"id": 467,
 							"name": "pic",
 							"kind": 32,
 							"kindString": "Variable",
@@ -9745,7 +10174,7 @@
 							"defaultValue": "4"
 						},
 						{
-							"id": 448,
+							"id": 468,
 							"name": "video",
 							"kind": 32,
 							"kindString": "Variable",
@@ -9769,10 +10198,10 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								445,
-								446,
-								447,
-								448
+								465,
+								466,
+								467,
+								468
 							]
 						}
 					],
@@ -9794,23 +10223,23 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						389
+						404
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						441,
-						443,
-						442
+						461,
+						463,
+						462
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						444
+						464
 					]
 				}
 			],
@@ -9823,7 +10252,7 @@
 			]
 		},
 		{
-			"id": 449,
+			"id": 469,
 			"name": "\"node/device/WansView\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -9833,7 +10262,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/device/WansView.ts",
 			"children": [
 				{
-					"id": 450,
+					"id": 470,
 					"name": "WansView",
 					"kind": 128,
 					"kindString": "Class",
@@ -9842,7 +10271,7 @@
 					},
 					"children": [
 						{
-							"id": 452,
+							"id": 472,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -9851,14 +10280,14 @@
 							},
 							"signatures": [
 								{
-									"id": 453,
+									"id": 473,
 									"name": "new WansView",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 454,
+											"id": 474,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9870,7 +10299,7 @@
 											}
 										},
 										{
-											"id": 455,
+											"id": 475,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9885,30 +10314,30 @@
 									"type": {
 										"type": "reference",
 										"name": "WansView",
-										"id": 450
+										"id": 470
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.__constructor",
-										"id": 194
+										"id": 199
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 18,
+									"line": 55,
 									"character": 24
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.__constructor",
-								"id": 194
+								"id": 199
 							}
 						},
 						{
-							"id": 480,
+							"id": 503,
 							"name": "armed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -9919,7 +10348,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 133,
+									"line": 140,
 									"character": 19
 								}
 							],
@@ -9931,11 +10360,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.armed",
-								"id": 193
+								"id": 198
 							}
 						},
 						{
-							"id": 501,
+							"id": 526,
 							"name": "log",
 							"kind": 1024,
 							"kindString": "Property",
@@ -9946,7 +10375,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 106,
+									"line": 113,
 									"character": 17
 								}
 							],
@@ -9957,11 +10386,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.log",
-								"id": 171
+								"id": 176
 							}
 						},
 						{
-							"id": 451,
+							"id": 471,
 							"name": "path",
 							"kind": 1024,
 							"kindString": "Property",
@@ -9972,7 +10401,7 @@
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 18,
+									"line": 55,
 									"character": 18
 								}
 							],
@@ -9983,7 +10412,7 @@
 							"defaultValue": "\"\""
 						},
 						{
-							"id": 477,
+							"id": 500,
 							"name": "arm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9992,7 +10421,7 @@
 							},
 							"signatures": [
 								{
-									"id": 478,
+									"id": 501,
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10003,7 +10432,7 @@
 									},
 									"parameters": [
 										{
-											"id": 479,
+											"id": 502,
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10027,7 +10456,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.arm",
-										"id": 222
+										"id": 232
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10039,14 +10468,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 156,
+									"line": 203,
 									"character": 7
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.arm",
-								"id": 222
+								"id": 232
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10055,7 +10484,7 @@
 							}
 						},
 						{
-							"id": 475,
+							"id": 498,
 							"name": "armStatus",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10064,7 +10493,7 @@
 							},
 							"signatures": [
 								{
-									"id": 476,
+									"id": 499,
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10086,7 +10515,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.armStatus",
-										"id": 220
+										"id": 230
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10098,14 +10527,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 138,
+									"line": 185,
 									"character": 13
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.armStatus",
-								"id": 220
+								"id": 230
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10114,7 +10543,7 @@
 							}
 						},
 						{
-							"id": 495,
+							"id": 520,
 							"name": "getAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10123,7 +10552,7 @@
 							},
 							"signatures": [
 								{
-									"id": 496,
+									"id": 521,
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10135,7 +10564,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.getAudible",
-										"id": 228
+										"id": 238
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10147,14 +10576,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 215,
+									"line": 230,
 									"character": 14
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.getAudible",
-								"id": 228
+								"id": 238
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10163,7 +10592,7 @@
 							}
 						},
 						{
-							"id": 469,
+							"id": 492,
 							"name": "getFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10172,7 +10601,7 @@
 							},
 							"signatures": [
 								{
-									"id": 470,
+									"id": 493,
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10193,35 +10622,35 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.getFtpCfg",
-										"id": 214
+										"id": 224
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.getFtpCfg",
-										"id": 154
+										"id": 156
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 81,
+									"line": 128,
 									"character": 13
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.getFtpCfg",
-								"id": 214
+								"id": 224
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.getFtpCfg",
-								"id": 153
+								"id": 155
 							}
 						},
 						{
-							"id": 508,
+							"id": 533,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10230,7 +10659,7 @@
 							},
 							"signatures": [
 								{
-									"id": 509,
+									"id": 534,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10242,7 +10671,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.getName",
-										"id": 189
+										"id": 194
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10254,14 +10683,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 125,
+									"line": 132,
 									"character": 11
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.getName",
-								"id": 189
+								"id": 194
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10270,7 +10699,7 @@
 							}
 						},
 						{
-							"id": 490,
+							"id": 515,
 							"name": "getRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10279,7 +10708,7 @@
 							},
 							"signatures": [
 								{
-									"id": 491,
+									"id": 516,
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10297,35 +10726,35 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.getRecordingDir",
-										"id": 210
+										"id": 217
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.getRecordingDir",
-										"id": 150
+										"id": 152
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 163,
+									"line": 171,
 									"character": 19
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.getRecordingDir",
-								"id": 210
+								"id": 217
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.getRecordingDir",
-								"id": 149
+								"id": 151
 							}
 						},
 						{
-							"id": 506,
+							"id": 531,
 							"name": "getSettings",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10334,7 +10763,7 @@
 							},
 							"signatures": [
 								{
-									"id": 507,
+									"id": 532,
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10347,7 +10776,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.getSettings",
-										"id": 187
+										"id": 192
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10359,14 +10788,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 121,
+									"line": 128,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.getSettings",
-								"id": 187
+								"id": 192
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10375,7 +10804,7 @@
 							}
 						},
 						{
-							"id": 483,
+							"id": 506,
 							"name": "hasAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10384,7 +10813,7 @@
 							},
 							"signatures": [
 								{
-									"id": 484,
+									"id": 507,
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10396,12 +10825,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.hasAlarm",
-										"id": 176
+										"id": 181
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.hasAlarm",
-										"id": 203
+										"id": 208
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10413,19 +10842,19 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 147,
+									"line": 154,
 									"character": 12
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.hasAlarm",
-								"id": 176
+								"id": 181
 							},
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.hasAlarm",
-								"id": 203
+								"id": 208
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10434,7 +10863,7 @@
 							}
 						},
 						{
-							"id": 502,
+							"id": 527,
 							"name": "hasAudio",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10443,7 +10872,7 @@
 							},
 							"signatures": [
 								{
-									"id": 503,
+									"id": 528,
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10455,7 +10884,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.hasAudio",
-										"id": 174
+										"id": 179
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10467,14 +10896,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 109,
+									"line": 116,
 									"character": 12
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.hasAudio",
-								"id": 174
+								"id": 179
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10483,7 +10912,7 @@
 							}
 						},
 						{
-							"id": 504,
+							"id": 529,
 							"name": "hasMotionAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10492,7 +10921,7 @@
 							},
 							"signatures": [
 								{
-									"id": 505,
+									"id": 530,
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10504,25 +10933,74 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractDevice.hasMotionAlarm",
-										"id": 178
+										"id": 183
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 111,
+									"line": 118,
 									"character": 18
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractDevice.hasMotionAlarm",
-								"id": 178
+								"id": 183
 							}
 						},
 						{
-							"id": 481,
+							"id": 510,
+							"name": "hasPTZ",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 511,
+									"name": "hasPTZ",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "AbstractCamera.hasPTZ",
+										"id": 212
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Camera.hasPTZ",
+										"id": 147
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/Device.ts",
+									"line": 156,
+									"character": 10
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "AbstractCamera.hasPTZ",
+								"id": 212
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "Camera.hasPTZ",
+								"id": 146
+							}
+						},
+						{
+							"id": 504,
 							"name": "hasVideo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10531,7 +11009,7 @@
 							},
 							"signatures": [
 								{
-									"id": 482,
+									"id": 505,
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10543,12 +11021,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractDevice.hasVideo",
-										"id": 172
+										"id": 177
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.hasVideo",
-										"id": 201
+										"id": 206
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10560,19 +11038,19 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 146,
+									"line": 153,
 									"character": 12
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractDevice.hasVideo",
-								"id": 172
+								"id": 177
 							},
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.hasVideo",
-								"id": 201
+								"id": 206
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10581,7 +11059,7 @@
 							}
 						},
 						{
-							"id": 456,
+							"id": 476,
 							"name": "initDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10590,14 +11068,14 @@
 							},
 							"signatures": [
 								{
-									"id": 457,
+									"id": 477,
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 458,
+											"id": 478,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10616,7 +11094,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.initDevice",
-										"id": 198
+										"id": 203
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10628,14 +11106,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 26,
+									"line": 63,
 									"character": 14
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.initDevice",
-								"id": 198
+								"id": 203
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10644,7 +11122,7 @@
 							}
 						},
 						{
-							"id": 485,
+							"id": 508,
 							"name": "isArmed",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10653,7 +11131,7 @@
 							},
 							"signatures": [
 								{
-									"id": 486,
+									"id": 509,
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10665,7 +11143,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.isArmed",
-										"id": 205
+										"id": 210
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10677,14 +11155,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 148,
+									"line": 155,
 									"character": 11
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.isArmed",
-								"id": 205
+								"id": 210
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10693,7 +11171,81 @@
 							}
 						},
 						{
-							"id": 497,
+							"id": 489,
+							"name": "ptzPreset",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 490,
+									"name": "ptzPreset",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Moves the camera to a preset position.\nThis default implementation returns an empty promise."
+									},
+									"parameters": [
+										{
+											"id": 491,
+											"name": "index",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "the preset position index to move to\n"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Promise",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										]
+									},
+									"overwrites": {
+										"type": "reference",
+										"name": "AbstractCamera.ptzPreset",
+										"id": 221
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Camera.ptzPreset",
+										"id": 158
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/WansView.ts",
+									"line": 118,
+									"character": 13
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"name": "AbstractCamera.ptzPreset",
+								"id": 221
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "Camera.ptzPreset",
+								"id": 157
+							}
+						},
+						{
+							"id": 522,
 							"name": "sendCommandToDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10703,7 +11255,7 @@
 							},
 							"signatures": [
 								{
-									"id": 498,
+									"id": 523,
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10713,7 +11265,7 @@
 									},
 									"parameters": [
 										{
-											"id": 499,
+											"id": 524,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10727,7 +11279,7 @@
 											}
 										},
 										{
-											"id": 500,
+											"id": 525,
 											"name": "referer",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10753,25 +11305,25 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.sendCommandToDevice",
-										"id": 230
+										"id": 240
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 224,
+									"line": 239,
 									"character": 33
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.sendCommandToDevice",
-								"id": 230
+								"id": 240
 							}
 						},
 						{
-							"id": 492,
+							"id": 517,
 							"name": "setAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10780,7 +11332,7 @@
 							},
 							"signatures": [
 								{
-									"id": 493,
+									"id": 518,
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10791,7 +11343,7 @@
 									},
 									"parameters": [
 										{
-											"id": 494,
+											"id": 519,
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10818,7 +11370,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.setAudible",
-										"id": 225
+										"id": 235
 									},
 									"implementationOf": {
 										"type": "reference",
@@ -10830,14 +11382,14 @@
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 209,
+									"line": 224,
 									"character": 14
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.setAudible",
-								"id": 225
+								"id": 235
 							},
 							"implementationOf": {
 								"type": "reference",
@@ -10846,7 +11398,7 @@
 							}
 						},
 						{
-							"id": 471,
+							"id": 494,
 							"name": "setFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10855,7 +11407,7 @@
 							},
 							"signatures": [
 								{
-									"id": 472,
+									"id": 495,
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10877,30 +11429,30 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.setFtpCfg",
-										"id": 216
+										"id": 226
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 102,
+									"line": 149,
 									"character": 13
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.setFtpCfg",
-								"id": 216
+								"id": 226
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.setFtpCfg",
-								"id": 155
+								"id": 160
 							}
 						},
 						{
-							"id": 465,
+							"id": 485,
 							"name": "setOverlayText",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10909,7 +11461,7 @@
 							},
 							"signatures": [
 								{
-									"id": 466,
+									"id": 486,
 									"name": "setOverlayText",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10929,13 +11481,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 55,
+									"line": 92,
 									"character": 18
 								}
 							]
 						},
 						{
-							"id": 487,
+							"id": 512,
 							"name": "setRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10944,7 +11496,7 @@
 							},
 							"signatures": [
 								{
-									"id": 488,
+									"id": 513,
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -10955,7 +11507,7 @@
 									},
 									"parameters": [
 										{
-											"id": 489,
+											"id": 514,
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10982,35 +11534,35 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "AbstractCamera.setRecordingDir",
-										"id": 207
+										"id": 214
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.setRecordingDir",
-										"id": 147
+										"id": 149
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/Device.ts",
-									"line": 155,
+									"line": 163,
 									"character": 19
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AbstractCamera.setRecordingDir",
-								"id": 207
+								"id": 214
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.setRecordingDir",
-								"id": 146
+								"id": 148
 							}
 						},
 						{
-							"id": 463,
+							"id": 483,
 							"name": "setTime",
 							"kind": 2048,
 							"kindString": "Method",
@@ -11019,7 +11571,7 @@
 							},
 							"signatures": [
 								{
-									"id": 464,
+									"id": 484,
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -11039,13 +11591,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 50,
+									"line": 87,
 									"character": 11
 								}
 							]
 						},
 						{
-							"id": 467,
+							"id": 487,
 							"name": "snapPicture",
 							"kind": 2048,
 							"kindString": "Method",
@@ -11054,7 +11606,7 @@
 							},
 							"signatures": [
 								{
-									"id": 468,
+									"id": 488,
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -11075,35 +11627,35 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.snapPicture",
-										"id": 212
+										"id": 219
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.snapPicture",
-										"id": 152
+										"id": 154
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 64,
+									"line": 101,
 									"character": 15
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.snapPicture",
-								"id": 212
+								"id": 219
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.snapPicture",
-								"id": 151
+								"id": 153
 							}
 						},
 						{
-							"id": 459,
+							"id": 479,
 							"name": "standardSend",
 							"kind": 2048,
 							"kindString": "Method",
@@ -11112,14 +11664,14 @@
 							},
 							"signatures": [
 								{
-									"id": 460,
+									"id": 480,
 									"name": "standardSend",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 461,
+											"id": 481,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -11130,7 +11682,7 @@
 											}
 										},
 										{
-											"id": 462,
+											"id": 482,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -11156,13 +11708,13 @@
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 32,
+									"line": 69,
 									"character": 16
 								}
 							]
 						},
 						{
-							"id": 473,
+							"id": 496,
 							"name": "testFtpServer",
 							"kind": 2048,
 							"kindString": "Method",
@@ -11171,7 +11723,7 @@
 							},
 							"signatures": [
 								{
-									"id": 474,
+									"id": 497,
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -11193,31 +11745,31 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "AbstractCamera.testFtpServer",
-										"id": 218
+										"id": 228
 									},
 									"implementationOf": {
 										"type": "reference",
 										"name": "Camera.testFtpServer",
-										"id": 159
+										"id": 164
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "node/device/WansView.ts",
-									"line": 114,
+									"line": 161,
 									"character": 17
 								}
 							],
 							"overwrites": {
 								"type": "reference",
 								"name": "AbstractCamera.testFtpServer",
-								"id": 218
+								"id": 228
 							},
 							"implementationOf": {
 								"type": "reference",
 								"name": "Camera.testFtpServer",
-								"id": 158
+								"id": 163
 							}
 						}
 					],
@@ -11226,51 +11778,53 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								452
+								472
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								480,
-								501,
-								451
+								503,
+								526,
+								471
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								477,
-								475,
-								495,
-								469,
-								508,
-								490,
-								506,
-								483,
-								502,
-								504,
-								481,
-								456,
-								485,
-								497,
+								500,
+								498,
+								520,
 								492,
-								471,
-								465,
+								533,
+								515,
+								531,
+								506,
+								527,
+								529,
+								510,
+								504,
+								476,
+								508,
+								489,
+								522,
+								517,
+								494,
+								485,
+								512,
+								483,
 								487,
-								463,
-								467,
-								459,
-								473
+								479,
+								496
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "node/device/WansView.ts",
-							"line": 17,
+							"line": 54,
 							"character": 21
 						}
 					],
@@ -11278,7 +11832,7 @@
 						{
 							"type": "reference",
 							"name": "AbstractCamera",
-							"id": 191
+							"id": 196
 						}
 					],
 					"implementedTypes": [
@@ -11300,7 +11854,7 @@
 					]
 				},
 				{
-					"id": 510,
+					"id": 535,
 					"name": "audioSensitivity",
 					"kind": 32,
 					"kindString": "Variable",
@@ -11321,7 +11875,7 @@
 					"defaultValue": "5"
 				},
 				{
-					"id": 511,
+					"id": 536,
 					"name": "videoSensitivity",
 					"kind": 32,
 					"kindString": "Variable",
@@ -11340,6 +11894,503 @@
 						"name": "95"
 					},
 					"defaultValue": "95"
+				},
+				{
+					"id": 537,
+					"name": "commands",
+					"kind": 2097152,
+					"kindString": "Object literal",
+					"flags": {
+						"isConst": true
+					},
+					"children": [
+						{
+							"id": 538,
+							"name": "alarm",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 539,
+									"name": "cgi",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 18,
+											"character": 16
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"alarm.cgi?\""
+								},
+								{
+									"id": 540,
+									"name": "cmds",
+									"kind": 64,
+									"kindString": "Function",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 541,
+											"name": "cmds",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 542,
+													"name": "arm",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												},
+												{
+													"id": 543,
+													"name": "audio",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 18,
+											"character": 36
+										}
+									]
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										539
+									]
+								},
+								{
+									"title": "Functions",
+									"kind": 64,
+									"children": [
+										540
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/WansView.ts",
+									"line": 18,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 556,
+							"name": "device",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 557,
+									"name": "cgi",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 48,
+											"character": 17
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"device.cgi?\""
+								},
+								{
+									"id": 558,
+									"name": "cmds",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 48,
+											"character": 38
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									},
+									"defaultValue": " [\n        /* ind. lights */ `cmd=setlightattr&statuslight=on&wifilight=on`,\n        /* ind. lights */ `cmd=getlightattr`,                   // returns var statuslight='on'; var wifilight='on'; \n    ]"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										557,
+										558
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/WansView.ts",
+									"line": 48,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 547,
+							"name": "net",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 548,
+									"name": "cgi",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 36,
+											"character": 14
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"net.cgi?\""
+								},
+								{
+									"id": 549,
+									"name": "cmds",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 36,
+											"character": 32
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									},
+									"defaultValue": " [\n        /* mac address */ `cmd=getmacaddr`,                     // returns var wifimacaddr='14:6B:9C:D3:59:D7'; var macaddr=''; \n    ]"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										548,
+										549
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/WansView.ts",
+									"line": 36,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 553,
+							"name": "ptz",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 554,
+									"name": "cgi",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 42,
+											"character": 14
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"ptz.cgi?\""
+								},
+								{
+									"id": 555,
+									"name": "cmds",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 42,
+											"character": 32
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									},
+									"defaultValue": " [\n        /* ptz info    */ `cmd=getmotorattr`,                   // returns var panscan=1; var tiltscan=1; var panspeed=3; var tiltspeed=3; var selfdet='on'; var movehome='on'; var ptzalarmmask='on'; var homegopos=1; \n        /* ptz info    */ `cmd=getptztour`,                     // returns var tour_enable=0; var tour_index=''; var tour_interval='';  \n        /* ptz info    */ `cmd=getrealtimeptzpos`,              // returns var realTimeposenable=0; \n        /* ptz preset  */ `cmd=preset&act=goto&number=`,\n    ]"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										554,
+										555
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/WansView.ts",
+									"line": 42,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 544,
+							"name": "status",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 545,
+									"name": "cgi",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 33,
+											"character": 17
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"status.cgi?\""
+								},
+								{
+									"id": 546,
+									"name": "cmds",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 33,
+											"character": 38
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									},
+									"defaultValue": " [\n        /* dev status  */ `cmd=getdevstatus`,                   // returns var MAC='14:6B:9C:D3:59:D7'; var networktype=1; var rtspclientnum=1; \n    ]"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										545,
+										546
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/WansView.ts",
+									"line": 33,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 550,
+							"name": "user",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 551,
+									"name": "cgi",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 39,
+											"character": 15
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"user.cgi?\""
+								},
+								{
+									"id": 552,
+									"name": "cmds",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "node/device/WansView.ts",
+											"line": 39,
+											"character": 34
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									},
+									"defaultValue": " [\n        /* usr info    */ `cmd=checkuserinfo&ck_password=0`,    // returns var userid='10001' var username='hauke'; var rolename='admin'; \n    ]"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										551,
+										552
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "node/device/WansView.ts",
+									"line": 39,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Object literals",
+							"kind": 2097152,
+							"children": [
+								538,
+								556,
+								547,
+								553,
+								544,
+								550
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "node/device/WansView.ts",
+							"line": 17,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "object"
+					}
 				}
 			],
 			"groups": [
@@ -11347,15 +12398,22 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						450
+						470
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						510,
-						511
+						535,
+						536
+					]
+				},
+				{
+					"title": "Object literals",
+					"kind": 2097152,
+					"children": [
+						537
 					]
 				}
 			],
@@ -11368,7 +12426,7 @@
 			]
 		},
 		{
-			"id": 541,
+			"id": 588,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -11397,16 +12455,16 @@
 				1,
 				2,
 				51,
-				372,
-				254,
-				307,
-				512,
+				387,
+				264,
+				322,
+				559,
 				76,
-				528,
+				575,
 				89,
-				388,
-				449,
-				541
+				403,
+				469,
+				588
 			]
 		}
 	]

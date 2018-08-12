@@ -3,6 +3,7 @@ import { FtpSrv }   from 'ftp-srv';
 import { Log }      from 'hsnode';  const log = new Log('ftpSrv');
 import { fs }       from 'hsnode'; 
 import { users, message}   from './UserComm';
+import * as path    from 'path';
 
 export interface FtpSettings {
     host: string;
@@ -33,7 +34,12 @@ function login(data:any, resolve:any, reject:any) {
         if (error) { log.error(`writing '${filePath}': ${error}`); }
         else { 
             log.warn(`motion alarm: writing '${filePath}'`);
-            message([users.userByName()], 'snapshot', [filePath]);
+            const ext = path.extname(filePath);
+            if (ext === 'jpg' || ext === 'png') {
+                message([users.userByName()], 'alarm', [filePath]);
+            // } else {
+            //     message([users.userByName()], 'alarm', [filePath]);
+            }
         }
     }); 
     log.debug(`ftp login received: resolving for root "${settings.root}"`);

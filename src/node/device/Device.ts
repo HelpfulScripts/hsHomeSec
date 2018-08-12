@@ -65,6 +65,7 @@ export interface AlarmDevice extends Device {
 export interface Camera extends Device {
     hasVideo():boolean;
     hasAudio():boolean;
+    hasPTZ():boolean;
 
     /**
      * sets the global snapshot directory.
@@ -87,6 +88,12 @@ export interface Camera extends Device {
      * @param function cb the function to call with the result
      */
     getFtpCfg():Promise<any>;
+
+    /**
+     * moves the camera to a preset position
+     * @param index the preset position index to move to
+     */
+    ptzPreset(index:number):Promise<any>;
 
     /**
      * promises to set the device's ftp confguration. 
@@ -146,6 +153,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     hasVideo():boolean  { return true; } 
     hasAlarm():boolean  { return true; }
     isArmed():boolean   { return this.armed; }
+    hasPTZ():boolean    { return false; }
 
     /**
      * sets the global snapshot directory.
@@ -168,6 +176,13 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
      * captures a snapshot from the device and saves it to `snapshotDir`
      */
     abstract snapPicture():Promise<any>;
+
+    /**
+     * Moves the camera to a preset position. 
+     * This default implementation returns an empty promise.
+     * @param index the preset position index to move to
+     */
+    ptzPreset(index:number):Promise<any> { return Promise.resolve(); }
 
     /**
      * gets the device's ftp confguration and calls `cb`. 
