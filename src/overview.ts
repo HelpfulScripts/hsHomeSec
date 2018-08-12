@@ -10,7 +10,8 @@
  *     - Foscam C1
  * - creates its own ftp server and configures devices to send snapshots and videos there
  * - communicates with users via email and OSX services Messages, and Facetime 
- * - simple and universal UI: receives remote user commands via email
+ * - simple and universal UI: receives remote user commands via email.
+ * 
  *
  * For installallation and Setup, see the [README](https://github.com/HelpfulScripts/hsHomeSec) file
  * 
