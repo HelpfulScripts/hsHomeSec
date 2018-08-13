@@ -364,12 +364,13 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
 
         this.files.map(f => {
             let content = ''+fs.readFileSync(f.src[0]);
-            console.log(`${lib}: ${f.src[0]}`);
+            // console.log(`${lib}: ${f.src[0]}`);
             content = replaceFooter(content);
             content = addLibName(content);
             fs.writeFileSync(f.src[0], content);
         });
-    }
+        console.log(`cleaned ${this.files.length} files`);
+        }
 
     function writeIndexJson() {
         grunt.file.write('docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
