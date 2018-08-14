@@ -1,9 +1,7 @@
-//import { FtpSrv }   from '../../../ftp-srv';
-import { FtpSrv }   from 'ftp-srv';
-import { Log }      from 'hsnode';  const log = new Log('ftpSrv');
-import { fs }       from 'hsnode'; 
-import { users, message}   from './UserComm';
-import * as path    from 'path';
+import { FtpSrv }       from 'ftp-srv';
+import { Log }          from 'hsnode';  const log = new Log('ftpSrv');
+import { fs }           from 'hsnode'; 
+import { raiseAlarm }   from '../core/alarm';
 
 export interface FtpSettings {
     host: string;
@@ -31,15 +29,9 @@ function login(data:any, resolve:any, reject:any) {
               else { log.warn(`reading '${filePath}'`);}
     }); 
     data.connection.on('STOR', (error:string, filePath:string) => { 
+        raiseAlarm(filePath);
         if (error) { log.error(`writing '${filePath}': ${error}`); }
         else { 
-            log.warn(`motion alarm: writing '${filePath}'`);
-            const ext = path.extname(filePath);
-            if (ext === 'jpg' || ext === 'png') {
-                message([users.userByName()], 'alarm', [filePath]);
-            // } else {
-            //     message([users.userByName()], 'alarm', [filePath]);
-            }
         }
     }); 
     log.debug(`ftp login received: resolving for root "${settings.root}"`);
