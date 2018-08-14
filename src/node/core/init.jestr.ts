@@ -1,1 +1,0 @@
-test('dummy test', () => expect("hey!").toBe("hey!"));
