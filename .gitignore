@@ -1,5 +1,6 @@
 _coverage
 _example
+bin
 node_modules
 lcov-report
 .DS_Store
