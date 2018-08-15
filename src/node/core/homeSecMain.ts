@@ -8,7 +8,7 @@
 
 /** */
 
-import { Log }      from 'hsnode';   const log = new Log('hsMain');
+import { Log }      from 'hsnode';   const log = Log('hsMain');
 import { fs }       from 'hsnode';
 import * as init    from './Init';
 import { Settings } from './Settings';
@@ -54,7 +54,7 @@ try {
     .then(httpInit)
     .then(init.startSecuritySystem)
     .then(init.initDevices)
-    .catch(log.error.bind(log)); 
+    .catch(log.error); 
 
     process.on('exit', (code:string) => {
         log.info(`About to exit with code: ${code}`);

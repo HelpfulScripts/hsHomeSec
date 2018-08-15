@@ -1,7 +1,7 @@
 /**
  * uses a http server to listens for commands via http requests
  */
-import { Log }          from 'hsnode';   const log = new Log('hsCmdRec');
+import { Log }          from 'hsnode';   const log = Log('hsCmdRec');
 import * as Exec        from './CommandExecution';
 import { User, users }  from '../comm/UserComm';
 import { getEmail }     from '../comm/UserComm';

@@ -1,7 +1,7 @@
 
-import { URL }          from 'url';
-import { Log }          from 'hsnode'; const log = new Log('Device');
-import { http }         from 'hsnode';
+import { URL }  from 'url';
+import { Log }  from 'hsnode'; let log = Log('Device');
+import { http }     from 'hsnode';
 
 import { fs }           from 'hsnode'; 
 import { Settings }     from '../core/Settings';
@@ -110,7 +110,7 @@ export interface Camera extends Device {
 
 export abstract class AbstractDevice implements Device {
     private settings: DeviceSettings;
-    protected log:Log;
+    protected log: typeof log;
 
     hasVideo():boolean          { return false; }
     hasAudio():boolean          { return false; }
@@ -120,7 +120,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:Settings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
-        this.log = new Log(`${deviceSettings.type} ${deviceSettings.name}`);
+        this.log = Log(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 
     initDevice(settings:Settings) {}

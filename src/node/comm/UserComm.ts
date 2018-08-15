@@ -2,7 +2,7 @@
 import { User }         from './UserComm';
 import { osaCommands }  from 'hsosaes6';
 
-//import { Log } from 'hsnode'; const log = new Log('hsUser');
+//import { Log } from 'hsnode'; const log = Log('hsUser');
 
 export interface User {
     name:       string;         // name of the recipient

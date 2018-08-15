@@ -23,7 +23,7 @@
 <span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span><br>
 <span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span><comment>/**&nbsp;*/</comment><br>
 <span id=10 class="line">&nbsp;&nbsp;10</span><br>
-<span id=11 class="line">&nbsp;&nbsp;11</span>import&nbsp;{&nbsp;Log&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log('hsMain');<br>
+<span id=11 class="line">&nbsp;&nbsp;11</span>import&nbsp;{&nbsp;Log&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;Log('hsMain');<br>
 <span id=12 class="line">&nbsp;&nbsp;12</span>import&nbsp;{&nbsp;fs&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';<br>
 <span id=13 class="line">&nbsp;&nbsp;13</span>import&nbsp;*&nbsp;as&nbsp;init&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'./Init';<br>
 <span id=14 class="line">&nbsp;&nbsp;14</span>import&nbsp;{&nbsp;Settings&nbsp;}&nbsp;from&nbsp;'./Settings';<br>
@@ -69,7 +69,7 @@
 <span id=54 class="line">&nbsp;&nbsp;54</span>&nbsp;&nbsp;&nbsp;&nbsp;.then(httpInit)<br>
 <span id=55 class="line">&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;.then(init.startSecuritySystem)<br>
 <span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;.then(init.initDevices)<br>
-<span id=57 class="line">&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;.catch(log.error.bind(log));&nbsp;<br>
+<span id=57 class="line">&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;.catch(log.error);&nbsp;<br>
 <span id=58 class="line">&nbsp;&nbsp;58</span><br>
 <span id=59 class="line">&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;process.on('exit',&nbsp;(code:string)&nbsp;=>&nbsp;{<br>
 <span id=60 class="line">&nbsp;&nbsp;60</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.info(`About&nbsp;to&nbsp;exit&nbsp;with&nbsp;code:&nbsp;${code}`);<br>

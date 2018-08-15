@@ -1,4 +1,4 @@
-import { Log }      from 'hsnode';  const log = new Log('alarm');
+import { Log }      from 'hsnode';  const log = Log('alarm');
 import { users, message}   from '../comm/UserComm';
 import * as path    from 'path';
 

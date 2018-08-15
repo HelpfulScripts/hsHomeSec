@@ -19,7 +19,7 @@
 <span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>&nbsp;*&nbsp;@description&nbsp;Defines&nbsp;the&nbsp;action&nbsp;for&nbsp;external&nbsp;commands&nbsp;received<br>
 <span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>&nbsp;*/</comment><br>
 <span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span><br>
-<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>import&nbsp;{&nbsp;Log,&nbsp;fs}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log('hsCmdExec');<br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>import&nbsp;{&nbsp;Log,&nbsp;fs}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;Log('hsCmdExec');<br>
 <span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>import&nbsp;{&nbsp;timeout,&nbsp;delay&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsutil';<br>
 <span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>import&nbsp;{&nbsp;osaCommands&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsosaes6';<br>
 <span id=10 class="line">&nbsp;&nbsp;10</span>import&nbsp;{&nbsp;users&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/UserComm';<br>
@@ -157,7 +157,7 @@
 <span id=142 class="line">&nbsp;142</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`devices&nbsp;armed:&nbsp;${log.inspect(results)}`);<br>
 <span id=143 class="line">&nbsp;143</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{message:&nbsp;results.join('\n')};<br>
 <span id=144 class="line">&nbsp;144</span>&nbsp;&nbsp;&nbsp;&nbsp;})<br>
-<span id=145 class="line">&nbsp;145</span>&nbsp;&nbsp;&nbsp;&nbsp;.catch(log.error.bind(log));<br>
+<span id=145 class="line">&nbsp;145</span>&nbsp;&nbsp;&nbsp;&nbsp;.catch(log.error);<br>
 <span id=146 class="line">&nbsp;146</span>};<br>
 <span id=147 class="line">&nbsp;147</span><br>
 <span id=148 class="line">&nbsp;148</span>export&nbsp;const&nbsp;disarmFn&nbsp;=&nbsp;():Promise<{message:string}>&nbsp;=>&nbsp;{<br>
@@ -173,7 +173,7 @@
 <span id=158 class="line">&nbsp;158</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.info(`devices&nbsp;disarmed:&nbsp;${log.inspect(results)}`);<br>
 <span id=159 class="line">&nbsp;159</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{message:&nbsp;results.join('\n')};<br>
 <span id=160 class="line">&nbsp;160</span>&nbsp;&nbsp;&nbsp;&nbsp;})<br>
-<span id=161 class="line">&nbsp;161</span>&nbsp;&nbsp;&nbsp;&nbsp;.catch(log.error.bind(log));<br>
+<span id=161 class="line">&nbsp;161</span>&nbsp;&nbsp;&nbsp;&nbsp;.catch(log.error);<br>
 <span id=162 class="line">&nbsp;162</span>};<br>
 <span id=163 class="line">&nbsp;163</span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
 <span id=164 class="line">&nbsp;164</span>export&nbsp;const&nbsp;armingStatusFn&nbsp;=&nbsp;():Promise<{message:{[x:string]:boolean}[]}>&nbsp;=>&nbsp;{<br>

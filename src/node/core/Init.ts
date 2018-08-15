@@ -1,4 +1,4 @@
-import { Log }              from 'hsnode';  const log = new Log('Init');
+import { Log }              from 'hsnode';  const log = Log('Init');
 import { Foscam }           from '../device/Foscam';
 import { WansView }         from '../device/WansView';
 import * as Comm            from './CommandReceiver';

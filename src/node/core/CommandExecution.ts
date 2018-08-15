@@ -4,7 +4,7 @@
  * @description Defines the action for external commands received
  */
 
-import { Log, fs}         from 'hsnode';   const log = new Log('hsCmdExec');
+import { Log, fs}         from 'hsnode';   const log = Log('hsCmdExec');
 import { timeout, delay }        from 'hsutil';
 import { osaCommands }    from 'hsosaes6';
 import { users }          from '../comm/UserComm';
@@ -142,7 +142,7 @@ export const armFn = (param:string[]):Promise<{message:string}> => {
         log.debug(`devices armed: ${log.inspect(results)}`);
         return {message: results.join('\n')};
     })
-    .catch(log.error.bind(log));
+    .catch(log.error);
 };
 
 export const disarmFn = ():Promise<{message:string}> => {
@@ -158,7 +158,7 @@ export const disarmFn = ():Promise<{message:string}> => {
         log.info(`devices disarmed: ${log.inspect(results)}`);
         return {message: results.join('\n')};
     })
-    .catch(log.error.bind(log));
+    .catch(log.error);
 };
     
 export const armingStatusFn = ():Promise<{message:{[x:string]:boolean}[]}> => {

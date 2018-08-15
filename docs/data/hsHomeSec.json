@@ -1056,10 +1056,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('ftpSrv')"
+					"defaultValue": " Log('ftpSrv')"
 				},
 				{
 					"id": 70,
@@ -1452,10 +1452,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('httpSrv')"
+					"defaultValue": " Log('httpSrv')"
 				},
 				{
 					"id": 404,
@@ -1701,10 +1701,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('hsCmdExec')"
+					"defaultValue": " Log('hsCmdExec')"
 				},
 				{
 					"id": 306,
@@ -3692,10 +3692,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('hsCmdRec')"
+					"defaultValue": " Log('hsCmdRec')"
 				},
 				{
 					"id": 385,
@@ -4104,10 +4104,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('Init')"
+					"defaultValue": " Log('Init')"
 				},
 				{
 					"id": 566,
@@ -4664,10 +4664,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('alarm')"
+					"defaultValue": " Log('alarm')"
 				},
 				{
 					"id": 53,
@@ -4765,10 +4765,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('hsMain')"
+					"defaultValue": " Log('hsMain')"
 				},
 				{
 					"id": 584,
@@ -5134,8 +5134,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "Log"
+								"type": "intrinsic",
+								"name": "any"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -6398,8 +6398,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "Log"
+								"type": "intrinsic",
+								"name": "any"
 							}
 						},
 						{
@@ -8621,20 +8621,20 @@
 					"kind": 32,
 					"kindString": "Variable",
 					"flags": {
-						"isConst": true
+						"isLet": true
 					},
 					"sources": [
 						{
 							"fileName": "node/device/Device.ts",
 							"line": 3,
-							"character": 48
+							"character": 38
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "Log"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " new Log('Device')"
+					"defaultValue": " Log('Device')"
 				}
 			],
 			"groups": [
@@ -8802,8 +8802,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "Log"
+								"type": "intrinsic",
+								"name": "any"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -10478,8 +10478,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "Log"
+								"type": "intrinsic",
+								"name": "any"
 							},
 							"inheritedFrom": {
 								"type": "reference",
