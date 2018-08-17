@@ -56,7 +56,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('once',      ['make']);	
     grunt.registerTask('default',   ['watch']);	
     grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
-    grunt.registerTask('travis',    ['build', 'test']);	
+    grunt.registerTask('travis',    ['build', 'doc', 'test', 'coveralls']);	
 
     grunt.registerMultiTask('sourceCode', translateSources);  
     grunt.registerMultiTask('cleanupCoverage', removeTimestampFromCoverage);  
