@@ -7,4 +7,10 @@ jobs:
       script: grunt travis
 cache:
   directories:
-    - "node_modules2"
+    - "node_modules"
+notifications:
+  email:
+    recipients: 
+    - helpfulscripts@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always
