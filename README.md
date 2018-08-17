@@ -1,3 +1,13 @@
+hsHomeSec 
+========
+[![npm version](https://badge.fury.io/js/hshomesec.svg)](https://badge.fury.io/js/hshomesec)
+[![Build Status](https://travis-ci.org/HelpfulScripts/hsHomeSec.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsHomeSec)
+[![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsHomeSec/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsHomeSec?branch=master)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
+[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hshomesec)
+
+Helpful Scripts simple home security system.
+
 # Home Security System
 A simple homebrew alarm system for OSX High Sierra
 
@@ -9,7 +19,7 @@ Written in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).
 - communicates with users via email and OSX services Messages, and Facetime 
 - simple and universal UI: receives remote user commands via email
 
-See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/index.html#!/api/hsHomeSec/0)
+See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#!/api/hsHomeSec/0)
 
 ## Installation
 1. Inside your `~/Documents` folder, create a `homeses` folder and move there:<br>
