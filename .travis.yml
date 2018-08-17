@@ -7,4 +7,4 @@ jobs:
       script: grunt travis
 cache:
   directories:
-    - "node_modules"
+    - "node_modules2"
