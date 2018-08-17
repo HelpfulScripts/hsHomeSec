@@ -249,6 +249,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 dest:''
             }
         },
+        coveralls: {
+            src: `docs/data/src/${lib}/coverage/lcov.info`,
+            options: { force: false }
+        },
 
         watch: {
             dependencies: {
