@@ -36,7 +36,7 @@
     "devDependencies": {
         "@types/node": "^7.0.66",
         "@types/request": "^2.47.1",
-        "@types/request-promise-native": "^1.0.15"
+        "@types/request-promise-native": "^1.0.15",
         "grunt-coveralls": "^2.0.0",
         "jest": "^23.4.2",
         "ts-jest": "^23.0.1",
