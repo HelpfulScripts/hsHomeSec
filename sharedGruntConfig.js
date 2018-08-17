@@ -28,6 +28,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks('jest');
+    grunt.loadNpmTasks('grunt-coveralls');
 
     //------ Add Doc Tasks
     grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
