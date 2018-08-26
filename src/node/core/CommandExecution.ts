@@ -4,8 +4,8 @@
  * @description Defines the action for external commands received
  */
 
-import { Log, fs}         from 'hsnode';   const log = Log('hsCmdExec');
-import { timeout, delay }        from 'hsutil';
+import { newLog, fs}      from 'hsnode';   const log = newLog('CmdExec');
+import { timeout, delay } from 'hsutil';
 import { osaCommands }    from 'hsosaes6';
 import { users }          from '../comm/UserComm';
 import { DeviceList }     from '../device/Device';
@@ -57,8 +57,7 @@ export const restartFn = ():Promise<{message:boolean}> => {
     .then(result => {
         log.info('restarting...'+result); 
         if (!result || result === true) { 
-            process.exit(0); 
-            return {message: true};
+            return process.exit(0);    // exits synchronously and never returns; return statement provided for testing purposes
         } else {
             return {message: false};
         }
@@ -68,11 +67,11 @@ export const restartFn = ():Promise<{message:boolean}> => {
 /**
  * request to snap a picture. If a device name is specified, a snapshot from that device will be requested.
  * If no name is specified, a snapshot from each available camera will be requested.
- * @param params : `[<deviceName>]`
+ * @param params : `[<deviceName>]` optional list of device names to get snapshots from
  * @return promise to provide the file name if successful
  */
-export const snapFn = (params:string[]):Promise<{attachments:string[]}> => {
-    const getSnap = (dev:Camera): Promise<string> =>
+export const snapFn = (params?:string[]):Promise<{attachments:string[]}> => {
+    const getSnap = (dev:Camera): Promise<string> => 
         !dev.hasVideo()? Promise.resolve(undefined) :
             dev.snapPicture()
             .then(picData => {
@@ -80,16 +79,16 @@ export const snapFn = (params:string[]):Promise<{attachments:string[]}> => {
                 log.info(`saving snapshot from ${dev.getName()} at ${fileName}`);
                 return fs.writeStream(fileName, picData.data);
             });
-
-    return Promise.all((!params || params[0] === '')?
-         DeviceList.getDevices().map(getSnap)               // get snapshot from all devices
-      : [getSnap(<Camera>DeviceList.getDevice(params[0]))])  // get snapshot from specific device
-         .then((files) => { return {attachments:files}; }); // send result(s) back to user
+        log.debug(`snap '${params?params[0]:''}': ${DeviceList.getDevices().map(d=>d.getName()).join(', ')}`);
+        return Promise.all(                 // get snapshot from all devices    :  get snapshot from specific device
+        (!params || !params[0] || params[0] === '')? DeviceList.getDevices().map(getSnap) : [getSnap(<Camera>DeviceList.getDevice(params[0]))]
+    ).then((files) => { 
+        return {attachments:files}; }); // send result(s) back to user
 };
 
 /**
  * instrruct a PTZ device to move to a preset, then returns a snapshot
- * @param params : `<deviceName>, <positionIndex>`
+ * @param params : `[<deviceName>, <positionIndex>]`
  * @return promise to provide the snapshot file name if successful
  */
 export const camPreset = (params:string[]):Promise<{attachments:string[]}> => {
@@ -125,10 +124,10 @@ export const sayFn = (msg:string[]):Promise<{message:string}> => {
 
 /**
  * arms all armable devices. If `away` is specified, it also sets the device's audible alarm repsonses 
- * @param param `[away]`
+ * @param param `[away]` optional parameter; 'away' also sets audible alarm
  */
-export const armFn = (param:string[]):Promise<{message:string}> => {
-    const audible = (param[0] === 'away');
+export const armFn = (param?:string[]):Promise<{message:string}> => {
+    const audible = (param && param[0] === 'away');
     const devices = DeviceList.getDevices().filter(d => d.hasAlarm());
 
     return Promise.all(
@@ -141,8 +140,7 @@ export const armFn = (param:string[]):Promise<{message:string}> => {
     .then((results:string[]) => {
         log.debug(`devices armed: ${log.inspect(results)}`);
         return {message: results.join('\n')};
-    })
-    .catch(log.error);
+    });
 };
 
 export const disarmFn = ():Promise<{message:string}> => {
@@ -157,12 +155,16 @@ export const disarmFn = ():Promise<{message:string}> => {
     .then((results:string[]) => {
         log.info(`devices disarmed: ${log.inspect(results)}`);
         return {message: results.join('\n')};
-    })
-    .catch(log.error);
+    });
 };
     
-export const armingStatusFn = ():Promise<{message:{[x:string]:boolean}[]}> => {
-    const alarmDevices = DeviceList.getDevices()
+/**
+ * requests the status of attached sensors.
+ * @param param [<deviceName>] optional device name list. If missing, status for all sensors will be requested
+ * @return a literal {<deviceName>: <boolean>}
+ */
+export const armingStatusFn = (param?:string[]):Promise<{message:{[x:string]:boolean}[]}> => {
+    const alarmDevices = (param? param.map(d => DeviceList.getDevice(d)) : DeviceList.getDevices())
         .filter((dev:Device) => dev.hasAlarm());
     return armingCall(alarmDevices.map((dev:AlarmDevice) => dev.armStatus()))
     .then(() => { return { message: alarmDevices.map((dev:AlarmDevice) => { return {[dev.getName()]: dev.isArmed()};})};});

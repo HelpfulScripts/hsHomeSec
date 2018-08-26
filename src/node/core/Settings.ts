@@ -4,8 +4,9 @@ import { FtpSettings }    from '../comm/ftpSrv';
 
 export interface Settings { 
     homeSecDir: string;         // base directory for all home security files
+    alarmText:  string;         // text to speak upon alarm
     ftp:        FtpSettings;
-    devices:    [DeviceSettings];
+    devices:    DeviceSettings[];
     recDir:     string;         // where to store A/V recordings, relative to homeSecDir
     logDir:     string;         // where to store log entries, relative to homeSecDir
     logFile:    string;         // template name for logfiles

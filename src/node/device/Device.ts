@@ -1,24 +1,20 @@
 
-import { URL }  from 'url';
-import { Log }  from 'hsnode'; let log = Log('Device');
-import { http }     from 'hsnode';
-
-import { fs }           from 'hsnode'; 
-import { Settings }     from '../core/Settings';
-import { FtpSettings }  from '../comm/ftpSrv';
+import { URL }              from 'url';
+import { newLog, LogType }  from 'hsnode'; let log = newLog('Device');
+import { http }             from 'hsnode';
+import { fs }               from 'hsnode'; 
+import { Settings }         from '../core/Settings';
+import { FtpSettings }      from '../comm/ftpSrv';
 
 export interface DeviceSettings {
     id:         string;         // unique device name
     name:       string;         // colloquial device name
     type:       string;         // 'foscam', 'wansview'
     host:       string;         // IP number of device
-    prot:       string;         // http or https
+    prot?:      string;         // http or https
     port:       number;         // port number on device
     useAlarm?:  boolean;        // whether to include when arming, default: true
     recDir?:    string;         // where to store device recordings, absolute path
-//    devices:    Device[];       // list of all registered devices
-//    cameras:    Camera[];       // list of all camera devices registered
-//    alarmDevs:  AlarmDevice[];  // list of all alarm raising devices
     user?:      string;
     passwd?:    string;
 }
@@ -110,7 +106,7 @@ export interface Camera extends Device {
 
 export abstract class AbstractDevice implements Device {
     private settings: DeviceSettings;
-    protected log: typeof log;
+    protected log: LogType;
 
     hasVideo():boolean          { return false; }
     hasAudio():boolean          { return false; }
@@ -120,7 +116,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:Settings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
-        this.log = Log(`${deviceSettings.type} ${deviceSettings.name}`);
+        this.log = newLog(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 
     initDevice(settings:Settings) {}
@@ -260,9 +256,11 @@ export class DeviceList {
         if (!settings.name) { log.error('device name missing'); }
         if (!settings.host) { log.error('device host missing'); }
         if (!settings.port) { log.error('device port missing'); }
+        log.debug(`adding device '${device.getName()}'`);
         DeviceList.list.push(device);
         // reference device by both short name and unique ID
         DeviceList.list[settings.name] = device;
+        if (!isNaN(<any>settings.id)) { settings.id = 'dev_' + settings.id;}
         DeviceList.list[settings.id]   = device;
     }
 

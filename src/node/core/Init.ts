@@ -1,4 +1,4 @@
-import { Log }              from 'hsnode';  const log = Log('Init');
+import { newLog }              from 'hsnode';  const log = newLog('Init');
 import { Foscam }           from '../device/Foscam';
 import { WansView }         from '../device/WansView';
 import * as Comm            from './CommandReceiver';
@@ -51,10 +51,11 @@ export const startSecuritySystemTestMode = (settings:Settings):Settings => {
     return settings;
 };
 
-export const initDevices = (settings:Settings) => {
+export const initDevices = (settings:Settings):Settings => {
     Exec.setSnapshotDir(`${settings.homeSecDir}/${settings.recDir}/`);
     DeviceList.getDevices().map((dev:Device) => dev.initDevice(settings));
     log.info(`devices initialized: ${DeviceList.getDevices().map(d=>d.getName()).join(', ')}`);
+    return settings;
 };
 
 

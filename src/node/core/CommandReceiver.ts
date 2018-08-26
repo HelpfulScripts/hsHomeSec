@@ -1,7 +1,7 @@
 /**
  * uses a http server to listens for commands via http requests
  */
-import { Log }          from 'hsnode';   const log = Log('hsCmdRec');
+import { newLog }          from 'hsnode';   const log = newLog('hsCmdRec');
 import * as Exec        from './CommandExecution';
 import { User, users }  from '../comm/UserComm';
 import { getEmail }     from '../comm/UserComm';
@@ -68,16 +68,11 @@ function informSender(cmd:string, content:Content, from:User): Promise<any> {
 }
 
 export function processCommand(cmd:string, from:User):Promise<any> {
-    if (from) {
-        const completeCmd = cmd.split(' ');
-        cmd = completeCmd[0];
-        completeCmd.shift();
-        return interpretCommand(cmd, completeCmd, from)
+    const completeCmd = cmd.split(' ');
+    cmd = completeCmd[0];
+    completeCmd.shift();
+    return interpretCommand(cmd, completeCmd, from)
         .then((content:Content) => informSender(cmd, content, from));
-    } else {
-        log.warn(`no valid sender found`);
-        return Promise.resolve();
-    }
 }
 
 /**

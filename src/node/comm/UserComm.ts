@@ -2,7 +2,7 @@
 import { User }         from './UserComm';
 import { osaCommands }  from 'hsosaes6';
 
-//import { Log } from 'hsnode'; const log = Log('hsUser');
+//import { newLog } from 'hsnode'; const log = newLog('hsUser');
 
 export interface User {
     name:       string;         // name of the recipient
@@ -18,7 +18,7 @@ class UserList {
     emails = <{string: User}>{};
 
     constructor() {
-        this.users.list = [];
+        this.users.list = <User[]>[];
     }
 
     addUser(user:User) {
@@ -27,6 +27,10 @@ class UserList {
         if (user.email) {
             user.email.forEach(e => this.emails[e] = user);
         }   // else: group
+    }
+
+    getUserNames():string[] {
+        return this.users.list.map((u:User) => u.name);
     }
 
     userByEmail(email:string):User {

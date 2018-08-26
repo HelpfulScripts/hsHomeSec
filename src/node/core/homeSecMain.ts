@@ -8,12 +8,13 @@
 
 /** */
 
-import { Log }      from 'hsnode';   const log = Log('hsMain');
+import { newLog }      from 'hsnode';   const log = newLog('hsMain');
 import { fs }       from 'hsnode';
 import * as init    from './Init';
 import { Settings } from './Settings';
 import * as ftp     from '../comm/ftpSrv';
 import * as httpSrv from '../comm/httpSrv';
+import { setAlarmText}  from './alarm';
 
 const cliParams = {
     ftpServer: false
@@ -54,6 +55,7 @@ try {
     .then(httpInit)
     .then(init.startSecuritySystem)
     .then(init.initDevices)
+    .then(setAlarmText)
     .catch(log.error); 
 
     process.on('exit', (code:string) => {

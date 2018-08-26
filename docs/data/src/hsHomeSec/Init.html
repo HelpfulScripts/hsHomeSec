@@ -13,7 +13,7 @@
             }
             code { padding: 5px 0;}</style></html><body>
                 <h1>src/node/core/Init.ts</h1>
-                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span>import&nbsp;{&nbsp;Log&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;Log('Init');<br>
+                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span>import&nbsp;{&nbsp;newLog&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;newLog('Init');<br>
 <span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;Foscam&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../device/Foscam';<br>
 <span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;WansView&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../device/WansView';<br>
 <span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>import&nbsp;*&nbsp;as&nbsp;Comm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'./CommandReceiver';<br>
@@ -66,13 +66,14 @@
 <span id=51 class="line">&nbsp;&nbsp;51</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;settings;<br>
 <span id=52 class="line">&nbsp;&nbsp;52</span>};<br>
 <span id=53 class="line">&nbsp;&nbsp;53</span><br>
-<span id=54 class="line">&nbsp;&nbsp;54</span>export&nbsp;const&nbsp;initDevices&nbsp;=&nbsp;(settings:Settings)&nbsp;=>&nbsp;{<br>
+<span id=54 class="line">&nbsp;&nbsp;54</span>export&nbsp;const&nbsp;initDevices&nbsp;=&nbsp;(settings:Settings):Settings&nbsp;=>&nbsp;{<br>
 <span id=55 class="line">&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;Exec.setSnapshotDir(`${settings.homeSecDir}/${settings.recDir}/`);<br>
 <span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;DeviceList.getDevices().map((dev:Device)&nbsp;=>&nbsp;dev.initDevice(settings));<br>
 <span id=57 class="line">&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;log.info(`devices&nbsp;initialized:&nbsp;${DeviceList.getDevices().map(d=>d.getName()).join(',&nbsp;')}`);<br>
-<span id=58 class="line">&nbsp;&nbsp;58</span>};<br>
-<span id=59 class="line">&nbsp;&nbsp;59</span><br>
+<span id=58 class="line">&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;settings;<br>
+<span id=59 class="line">&nbsp;&nbsp;59</span>};<br>
 <span id=60 class="line">&nbsp;&nbsp;60</span><br>
-<span id=61 class="line">&nbsp;&nbsp;61</span><br></code></div>
+<span id=61 class="line">&nbsp;&nbsp;61</span><br>
+<span id=62 class="line">&nbsp;&nbsp;62</span><br></code></div>
                 </body>
             

@@ -1,14 +1,14 @@
 import { FtpSrv }       from 'ftp-srv';
-import { Log }          from 'hsnode';  const log = Log('ftpSrv');
+import { newLog }          from 'hsnode';  const log = newLog('ftpSrv');
 import { fs }           from 'hsnode'; 
 import { raiseAlarm }   from '../core/alarm';
 
 export interface FtpSettings {
     host: string;
-    port: number;
+    port?: number;
     root: string;
-    user: string;
-    pwd:  string;
+    user?: string;
+    pwd?:  string;
 }
 
 const settings:FtpSettings = {
