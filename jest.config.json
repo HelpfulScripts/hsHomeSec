@@ -5,7 +5,7 @@
     "coveragePathIgnorePatterns": ["./osaCalls.ts"],
     "rootDir": "./",
     "roots":["./src"],
-    "testMatch": ["**/*.jest.ts"],
+    "testMatch": ["**/*.jest.ts","**/*.test.ts"],
     "moduleFileExtensions": [
         "ts",
         "tsx",
