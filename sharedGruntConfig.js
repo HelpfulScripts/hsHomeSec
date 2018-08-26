@@ -55,7 +55,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('make',      ['build', 'doc', 'test', 'stage']);
     grunt.registerTask('makeShort', ['build', 'stage']);
     grunt.registerTask('once',      ['make']);	
-    grunt.registerTask('default',   ['watch']);	
+    grunt.registerTask('default',   ['make']);	
     grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
     grunt.registerTask('travis',    ['build', 'doc', 'test', 'coveralls']);	
 
@@ -306,8 +306,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     }
 
     function printHelp() {
-        grunt.log.writeln(`  grunt: \t make, then watch`);
-        grunt.log.writeln(`  grunt once: \t make only, don't watch`);
+        grunt.log.writeln(`  grunt: \t make once, don't watch`);
+        grunt.log.writeln(`  grunt watch: \t watch for changes, don't make yet`);
         grunt.log.writeln(`  grunt make: \t build, test, doc, and stage`);
         grunt.log.writeln(`  grunt product: make optimized, don't watch; relevant for apps only`);
     }
