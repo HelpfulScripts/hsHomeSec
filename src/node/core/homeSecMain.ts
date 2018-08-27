@@ -8,7 +8,7 @@
 
 /** */
 
-import { newLog }      from 'hsnode';   const log = newLog('hsMain');
+import { log as gLog }  from 'hsnode';  const log = gLog('hsMain');
 import { fs }       from 'hsnode';
 import * as init    from './Init';
 import { Settings } from './Settings';

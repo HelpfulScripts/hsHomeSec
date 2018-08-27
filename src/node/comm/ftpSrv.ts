@@ -1,5 +1,5 @@
 import { FtpSrv }       from 'ftp-srv';
-import { newLog }          from 'hsnode';  const log = newLog('ftpSrv');
+import { log as gLog }  from 'hsnode';  const log = gLog('ftpSrv');
 import { fs }           from 'hsnode'; 
 import { raiseAlarm }   from '../core/alarm';
 

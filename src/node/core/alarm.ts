@@ -1,9 +1,9 @@
-import { newLog }      from 'hsnode';  const log = newLog('alarm');
-import { users}     from '../comm/UserComm';
-import { message}   from '../comm/UserComm';
-import { sayFn }    from './CommandExecution';
-import * as path    from 'path';
-import { Settings } from './Settings';
+import { log as gLog }  from 'hsnode';  const log = gLog('alarm');
+import { users}         from '../comm/UserComm';
+import { message}       from '../comm/UserComm';
+import { sayFn }        from './CommandExecution';
+import * as path        from 'path';
+import { Settings }     from './Settings';
 
 let alarmText = '';
 

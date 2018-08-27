@@ -2,8 +2,6 @@
 import { User }         from './UserComm';
 import { osaCommands }  from 'hsosaes6';
 
-//import { newLog } from 'hsnode'; const log = newLog('hsUser');
-
 export interface User {
     name:       string;         // name of the recipient
     email:      string[];       // list of valid email addresses.

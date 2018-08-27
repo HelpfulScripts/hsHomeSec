@@ -16,7 +16,7 @@ Written in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).
     - WansView Q3S, K3
     - Foscam C1
 - creates its own ftp server and configures devices to send snapshots and videos there
-- communicates with users via email and OSX services Messages, and Facetime 
+- communicates with users via OSX services `Mail`, `Messages`, and `Facetime`
 - simple and universal UI: receives remote user commands via email
 
 See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#!/api/hsHomeSec/0)
@@ -36,7 +36,8 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#
     `> cp src/config/homeCfg-template.json src/config/homeCfg.json`
 3. configure homeCfg.json with server IPs and available cameras
    - *hint*: it may be a good idea to also configure your DHCP server to assign fixed addresses to the computer running the homeSec server, as well as to connected devices.
-4. Optional: Setup your Mac as follows
+4. Configure a valid mail account in `Mail`
+5. Optional: Setup your Mac as follows
     - select `Desktop & Screen Saver`, set `Start after:` to `never`
     - select `Energy Saver`; set `Computer Sleep` to `never`; deselect `Put hard disk to sleep`
     - install voice `Allison`
@@ -45,7 +46,7 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#
         Voice will be downloaded automatically.
     - `Terminal->Preferences->Profiles->Shell`:
         - `When the shell exits: Close the window`
-        - `Ask befor closing: Never`
+        - `Ask before closing: Never`
 
 ## Run
 - From `~/Documents/homeSec`, call<br>
@@ -54,12 +55,12 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#
 - Or call<br>
     `> sudo node node_modules/.bin/hsHomeSec ftp`<br>
     to start the system with its own ftp server.
-    > You can try the calls without `sudo`, though it is likely needed since we start a webserver (and, if selected, an ftp server). 
+    > You can try the calls without `sudo`, though it is likely needed since we start an ftp server (if selected). 
     The webserver lets Mail (via Applescript) tell the system about incoming user commands.
 
 ## Operations
-- send an email to the mail account configured above.
+- send an email to the mail account configured in step 4 above.
 - ensure that the mail address you send it from is configured as `User` in `homeCfg.json`. A `403` error will be returned if not.
 - issue commands via the mail's subject field. For example:
-   - `snap` will return a snapshot from each attacherd camera
+   - `snap` will return a snapshot from each attached camera
    - `help` will return a list of available commands.

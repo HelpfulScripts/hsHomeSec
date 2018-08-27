@@ -1,6 +1,6 @@
 
 import { URL }              from 'url';
-import { newLog, LogType }  from 'hsnode'; let log = newLog('Device');
+import { log as gLog }  from 'hsnode';  const log = gLog('Device');
 import { http }             from 'hsnode';
 import { fs }               from 'hsnode'; 
 import { Settings }         from '../core/Settings';
@@ -116,7 +116,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:Settings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
-        this.log = newLog(`${deviceSettings.type} ${deviceSettings.name}`);
+        this.log = gLog(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 
     initDevice(settings:Settings) {}
