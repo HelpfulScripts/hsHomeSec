@@ -600,7 +600,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 import { URL }              from 'url';
-import { newLog, LogType }  from 'hsnode'; let log = newLog('Device');
+import { log as gLog }  from 'hsnode';  const log = gLog('Device');
 import { http }             from 'hsnode';
 import { fs }               from 'hsnode'; 
 import { Settings }         from '../core/Settings';
@@ -706,7 +706,7 @@ export interface Camera extends Device {
 &nbsp;
 export abstract class AbstractDevice implements Device {
     private settings: DeviceSettings;
-    protected log: LogType;
+    protected log: typeof log;
 &nbsp;
 <span class="fstat-no" title="function not covered" >    hasVideo</span>():boolean          { <span class="cstat-no" title="statement not covered" >return false; </span>}
 <span class="fstat-no" title="function not covered" >    hasAudio</span>():boolean          { <span class="cstat-no" title="statement not covered" >return false; </span>}
@@ -716,7 +716,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:Settings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
-        this.log = newLog(`${deviceSettings.type} ${deviceSettings.name}`);
+        this.log = gLog(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    initDevice</span>(settings:Settings) {}

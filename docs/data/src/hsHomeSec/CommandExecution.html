@@ -19,7 +19,7 @@
 <span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>&nbsp;*&nbsp;@description&nbsp;Defines&nbsp;the&nbsp;action&nbsp;for&nbsp;external&nbsp;commands&nbsp;received<br>
 <span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>&nbsp;*/</comment><br>
 <span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span><br>
-<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>import&nbsp;{&nbsp;newLog,&nbsp;fs}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;newLog('CmdExec');<br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>import&nbsp;{&nbsp;log&nbsp;as&nbsp;gLog,&nbsp;fs&nbsp;}from&nbsp;'hsnode';&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;gLog('CmdExec');<br>
 <span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>import&nbsp;{&nbsp;timeout,&nbsp;delay&nbsp;}&nbsp;from&nbsp;'hsutil';<br>
 <span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>import&nbsp;{&nbsp;osaCommands&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsosaes6';<br>
 <span id=10 class="line">&nbsp;&nbsp;10</span>import&nbsp;{&nbsp;users&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/UserComm';<br>

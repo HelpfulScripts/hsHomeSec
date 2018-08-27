@@ -15,7 +15,7 @@
                 <h1>src/node/device/Device.ts</h1>
                 <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span><br>
 <span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;URL&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'url';<br>
-<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;newLog,&nbsp;LogType&nbsp;}&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;let&nbsp;log&nbsp;=&nbsp;newLog('Device');<br>
+<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;log&nbsp;as&nbsp;gLog&nbsp;}&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;gLog('Device');<br>
 <span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>import&nbsp;{&nbsp;http&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';<br>
 <span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>import&nbsp;{&nbsp;fs&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hsnode';&nbsp;<br>
 <span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span>import&nbsp;{&nbsp;Settings&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../core/Settings';<br>
@@ -121,7 +121,7 @@
 <span id=106 class="line">&nbsp;106</span><br>
 <span id=107 class="line">&nbsp;107</span>export&nbsp;abstract&nbsp;class&nbsp;AbstractDevice&nbsp;implements&nbsp;Device&nbsp;{<br>
 <span id=108 class="line">&nbsp;108</span>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;settings:&nbsp;DeviceSettings;<br>
-<span id=109 class="line">&nbsp;109</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;log:&nbsp;LogType;<br>
+<span id=109 class="line">&nbsp;109</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;log:&nbsp;typeof&nbsp;log;<br>
 <span id=110 class="line">&nbsp;110</span><br>
 <span id=111 class="line">&nbsp;111</span>&nbsp;&nbsp;&nbsp;&nbsp;hasVideo():boolean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;false;&nbsp;}<br>
 <span id=112 class="line">&nbsp;112</span>&nbsp;&nbsp;&nbsp;&nbsp;hasAudio():boolean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;false;&nbsp;}<br>
@@ -131,7 +131,7 @@
 <span id=116 class="line">&nbsp;116</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(deviceSettings:&nbsp;DeviceSettings,&nbsp;settings:Settings)&nbsp;{<br>
 <span id=117 class="line">&nbsp;117</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.settings&nbsp;=&nbsp;deviceSettings;<br>
 <span id=118 class="line">&nbsp;118</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeviceList.addDevice(this);<br>
-<span id=119 class="line">&nbsp;119</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.log&nbsp;=&nbsp;newLog(`${deviceSettings.type}&nbsp;${deviceSettings.name}`);<br>
+<span id=119 class="line">&nbsp;119</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.log&nbsp;=&nbsp;gLog(`${deviceSettings.type}&nbsp;${deviceSettings.name}`);<br>
 <span id=120 class="line">&nbsp;120</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 <span id=121 class="line">&nbsp;121</span><br>
 <span id=122 class="line">&nbsp;122</span>&nbsp;&nbsp;&nbsp;&nbsp;initDevice(settings:Settings)&nbsp;{}<br>

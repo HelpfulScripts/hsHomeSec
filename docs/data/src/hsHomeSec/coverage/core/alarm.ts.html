@@ -92,12 +92,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { newLog }      from 'hsnode';  const log = newLog('alarm');
-import { users}     from '../comm/UserComm';
-import { message}   from '../comm/UserComm';
-import { sayFn }    from './CommandExecution';
-import * as path    from 'path';
-import { Settings } from './Settings';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { log as gLog }  from 'hsnode';  const log = gLog('alarm');
+import { users}         from '../comm/UserComm';
+import { message}       from '../comm/UserComm';
+import { sayFn }        from './CommandExecution';
+import * as path        from 'path';
+import { Settings }     from './Settings';
 &nbsp;
 let alarmText = '';
 &nbsp;

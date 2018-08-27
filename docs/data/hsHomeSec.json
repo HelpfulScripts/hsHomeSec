@@ -61,7 +61,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 18,
+									"line": 16,
 									"character": 32
 								}
 							]
@@ -75,7 +75,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 17,
+									"line": 15,
 									"character": 20
 								}
 							],
@@ -94,7 +94,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 18,
+									"line": 16,
 									"character": 10
 								}
 							],
@@ -116,7 +116,7 @@
 											"sources": [
 												{
 													"fileName": "node/comm/UserComm.ts",
-													"line": 18,
+													"line": 16,
 													"character": 21
 												}
 											],
@@ -149,7 +149,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 16,
+									"line": 14,
 									"character": 9
 								}
 							],
@@ -194,7 +194,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 24,
+									"line": 22,
 									"character": 11
 								}
 							]
@@ -224,7 +224,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 32,
+									"line": 30,
 									"character": 16
 								}
 							]
@@ -254,7 +254,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 44,
+									"line": 42,
 									"character": 19
 								}
 							]
@@ -295,7 +295,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 48,
+									"line": 46,
 									"character": 23
 								}
 							]
@@ -336,7 +336,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 36,
+									"line": 34,
 									"character": 15
 								}
 							]
@@ -379,7 +379,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 40,
+									"line": 38,
 									"character": 14
 								}
 							]
@@ -418,7 +418,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 15,
+							"line": 13,
 							"character": 14
 						}
 					]
@@ -444,7 +444,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 11,
+									"line": 9,
 									"character": 11
 								}
 							],
@@ -464,7 +464,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 9,
+									"line": 7,
 									"character": 9
 								}
 							],
@@ -488,7 +488,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 12,
+									"line": 10,
 									"character": 9
 								}
 							],
@@ -513,7 +513,7 @@
 							"sources": [
 								{
 									"fileName": "node/comm/UserComm.ts",
-									"line": 8,
+									"line": 6,
 									"character": 8
 								}
 							],
@@ -538,7 +538,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 7,
+							"line": 5,
 							"character": 21
 						}
 					]
@@ -555,7 +555,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 53,
+							"line": 51,
 							"character": 18
 						}
 					],
@@ -613,7 +613,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 63,
+							"line": 61,
 							"character": 25
 						}
 					]
@@ -661,7 +661,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 71,
+							"line": 69,
 							"character": 24
 						}
 					]
@@ -740,7 +740,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 55,
+							"line": 53,
 							"character": 23
 						}
 					]
@@ -830,7 +830,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 67,
+							"line": 65,
 							"character": 25
 						}
 					]
@@ -882,7 +882,7 @@
 					"sources": [
 						{
 							"fileName": "node/comm/UserComm.ts",
-							"line": 59,
+							"line": 57,
 							"character": 25
 						}
 					]
@@ -1086,14 +1086,14 @@
 						{
 							"fileName": "node/comm/ftpSrv.ts",
 							"line": 2,
-							"character": 52
+							"character": 49
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('ftpSrv')"
+					"defaultValue": " gLog('ftpSrv')"
 				},
 				{
 					"id": 389,
@@ -1482,14 +1482,14 @@
 						{
 							"fileName": "node/comm/httpSrv.ts",
 							"line": 3,
-							"character": 55
+							"character": 53
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('httpSrv')"
+					"defaultValue": " gLog('httpSrv')"
 				},
 				{
 					"id": 412,
@@ -1731,14 +1731,14 @@
 						{
 							"fileName": "node/core/CommandExecution.ts",
 							"line": 7,
-							"character": 52
+							"character": 51
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('CmdExec')"
+					"defaultValue": " gLog('CmdExec')"
 				},
 				{
 					"id": 344,
@@ -3755,14 +3755,14 @@
 						{
 							"fileName": "node/core/CommandReceiver.ts",
 							"line": 4,
-							"character": 53
+							"character": 49
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('hsCmdRec')"
+					"defaultValue": " gLog('hsCmdRec')"
 				},
 				{
 					"id": 300,
@@ -4167,14 +4167,14 @@
 						{
 							"fileName": "node/core/Init.ts",
 							"line": 1,
-							"character": 56
+							"character": 53
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('Init')"
+					"defaultValue": " gLog('Init')"
 				},
 				{
 					"id": 574,
@@ -4768,14 +4768,14 @@
 						{
 							"fileName": "node/core/alarm.ts",
 							"line": 1,
-							"character": 48
+							"character": 49
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('alarm')"
+					"defaultValue": " gLog('alarm')"
 				},
 				{
 					"id": 372,
@@ -4919,10 +4919,10 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('hsMain')"
+					"defaultValue": " gLog('hsMain')"
 				},
 				{
 					"id": 592,
@@ -5288,8 +5288,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "intrinsic",
+								"name": "any"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -6552,8 +6552,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "intrinsic",
+								"name": "any"
 							}
 						},
 						{
@@ -8776,20 +8776,20 @@
 					"kind": 32,
 					"kindString": "Variable",
 					"flags": {
-						"isLet": true
+						"isConst": true
 					},
 					"sources": [
 						{
 							"fileName": "node/device/Device.ts",
 							"line": 3,
-							"character": 50
+							"character": 49
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "LogType"
+						"type": "intrinsic",
+						"name": "any"
 					},
-					"defaultValue": " newLog('Device')"
+					"defaultValue": " gLog('Device')"
 				}
 			],
 			"groups": [
@@ -8957,8 +8957,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "intrinsic",
+								"name": "any"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -10633,8 +10633,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "intrinsic",
+								"name": "any"
 							},
 							"inheritedFrom": {
 								"type": "reference",

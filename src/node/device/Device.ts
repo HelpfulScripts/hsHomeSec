@@ -106,7 +106,7 @@ export interface Camera extends Device {
 
 export abstract class AbstractDevice implements Device {
     private settings: DeviceSettings;
-    protected log: LogType;
+    protected log: typeof log;
 
     hasVideo():boolean          { return false; }
     hasAudio():boolean          { return false; }
