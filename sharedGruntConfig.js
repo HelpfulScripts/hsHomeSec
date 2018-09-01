@@ -31,7 +31,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('grunt-coveralls');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
+    grunt.registerTask('doc', ['clean:docs', 'copy:html', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
@@ -92,7 +92,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     src:['*.md', 'package.json'], dest:'bin' 
                 }
             ]},
-            htmlGH: { files: [
+            html: { files: [
                 { expand:true, cwd: devPath+'/staging/',    // index.html
                     src:['index.html'], dest:'docs' 
                 }
