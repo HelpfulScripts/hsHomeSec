@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">21.79% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>17/68</span>
+        <span class='fraction'>17/78</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/20</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">5.88% </span>
+        <span class="strong">5.56% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/17</span>
+        <span class='fraction'>1/18</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.08% </span>
+        <span class="strong">20% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/65</span>
+        <span class='fraction'>15/75</span>
       </div>
     </div>
     <p class="quiet">
@@ -211,7 +211,21 @@
 <a name='L163'></a><a href='#L163'>163</a>
 <a name='L164'></a><a href='#L164'>164</a>
 <a name='L165'></a><a href='#L165'>165</a>
-<a name='L166'></a><a href='#L166'>166</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -250,6 +264,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -384,7 +412,7 @@
 import { http }             from 'hsnode';
 import { DeviceSettings }   from './Device';
 import { AbstractCamera }   from './Device';
-import { Settings }         from '../core/Settings';
+import { CfgSettings }      from '../core/CfgSettings';
 import * as ftp             from '../comm/ftpSrv';
 &nbsp;
 let   armCmd       = '';
@@ -403,7 +431,7 @@ const linkage = {
 export class Foscam extends AbstractCamera {  
     protected path = '';
 &nbsp;
-    constructor(device: DeviceSettings, settings:Settings) {
+    constructor(device: DeviceSettings, settings:CfgSettings) {
         super(device, settings);
 // this.log.level(this.log.DEBUG);
         this.path = `/cgi-bin/CGIProxy.fcgi?usr=${device.user}&amp;pwd=${device.passwd}&amp;cmd=`;
@@ -414,8 +442,22 @@ export class Foscam extends AbstractCamera {
         armCmd = `setMotionDetectConfig${schedule}${area}`;    
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    initDevice</span>(settings:Settings) {
+    async <span class="fstat-no" title="function not covered" >initDevice</span>(settings:CfgSettings) {
 <span class="cstat-no" title="statement not covered" >        super.initDevice(settings);</span>
+    }
+&nbsp;
+    async <span class="fstat-no" title="function not covered" >setTime</span>() {
+        // timeFormat: 0:YYYY-MM-DD, 1:DD/MM/YYYY, 2:MM/DD/YYYY
+        const date = <span class="cstat-no" title="statement not covered" >new Date();</span>
+        const tz = <span class="cstat-no" title="statement not covered" >0;</span> // date.getTimezoneOffset()*60; set local time
+        const yr = <span class="cstat-no" title="statement not covered" >date.getFullYear();</span>
+        const m  = <span class="cstat-no" title="statement not covered" >date.getMonth()+1;</span>
+        const d  = <span class="cstat-no" title="statement not covered" >date.getDate();</span>
+        const h  = <span class="cstat-no" title="statement not covered" >date.getHours();</span>
+        const min = <span class="cstat-no" title="statement not covered" >date.getMinutes();</span>
+        const sec = <span class="cstat-no" title="statement not covered" >date.getSeconds();</span>
+        const cmd = <span class="cstat-no" title="statement not covered" >`${this.path}setSystemTime&amp;timeSource=1&amp;date Format=0&amp;timeFormat=1&amp;timeZone=${tz}&amp;isDst=0&amp;dst=1&amp;year=${yr}&amp;mon=${m}&amp; day=${d}&amp;hour=${h}&amp;minute=${min}&amp;sec=${sec}`;</span>
+<span class="cstat-no" title="statement not covered" >        await this.sendCommandToDevice(cmd);</span>
     }
 &nbsp;
     /**

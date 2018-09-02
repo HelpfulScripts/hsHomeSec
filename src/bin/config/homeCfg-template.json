@@ -1,5 +1,7 @@
 {
     "homeSecDir":   "/<absolute path to homeSec dir>..../node_modules/hshomesec",
+    "wifiNetwork": "<optional SSID of the WiFi netpowrk to join; if present, homesec will attempt to reconnect if connection drops>",
+    "wifiPasswd": "<optional passwd; if present, homesec will attempt to reconnect if connection drops>",
     "ftp": {
         "root": "<path relative to homeSecDir>",
         "host": "x.x.x.x <IP address of ftp server>"

@@ -6,7 +6,7 @@
 import { http }             from 'hsnode';
 import { DeviceSettings }   from './Device';
 import { AbstractCamera }   from './Device';
-import { Settings }         from '../core/Settings';
+import { CfgSettings }      from '../core/CfgSettings';
 import * as ftp             from '../comm/ftpSrv';
 
 let   armCmd       = '';
@@ -25,7 +25,7 @@ const linkage = {
 export class Foscam extends AbstractCamera {  
     protected path = '';
 
-    constructor(device: DeviceSettings, settings:Settings) {
+    constructor(device: DeviceSettings, settings:CfgSettings) {
         super(device, settings);
 // this.log.level(this.log.DEBUG);
         this.path = `/cgi-bin/CGIProxy.fcgi?usr=${device.user}&pwd=${device.passwd}&cmd=`;
@@ -36,8 +36,22 @@ export class Foscam extends AbstractCamera {
         armCmd = `setMotionDetectConfig${schedule}${area}`;    
     }
 
-    initDevice(settings:Settings) {
+    async initDevice(settings:CfgSettings) {
         super.initDevice(settings);
+    }
+
+    async setTime() {
+        // timeFormat: 0:YYYY-MM-DD, 1:DD/MM/YYYY, 2:MM/DD/YYYY
+        const date = new Date();
+        const tz = 0; // date.getTimezoneOffset()*60; set local time
+        const yr = date.getFullYear();
+        const m  = date.getMonth()+1;
+        const d  = date.getDate();
+        const h  = date.getHours();
+        const min = date.getMinutes();
+        const sec = date.getSeconds();
+        const cmd = `${this.path}setSystemTime&timeSource=1&date Format=0&timeFormat=1&timeZone=${tz}&isDst=0&dst=1&year=${yr}&mon=${m}& day=${d}&hour=${h}&minute=${min}&sec=${sec}`;
+        await this.sendCommandToDevice(cmd);
     }
 
     /**

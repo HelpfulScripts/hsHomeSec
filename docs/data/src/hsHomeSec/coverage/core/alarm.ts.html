@@ -97,11 +97,11 @@ import { users}         from '../comm/UserComm';
 import { message}       from '../comm/UserComm';
 import { sayFn }        from './CommandExecution';
 import * as path        from 'path';
-import { Settings }     from './Settings';
+import { CfgSettings }  from './CfgSettings';
 &nbsp;
 let alarmText = '';
 &nbsp;
-export function setAlarmText(settings:Settings):Settings {
+export function setAlarmText(settings:CfgSettings):CfgSettings {
     alarmText = settings.alarmText;
     return settings;
 }

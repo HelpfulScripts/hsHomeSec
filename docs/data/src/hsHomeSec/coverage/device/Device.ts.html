@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60.94% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>39/64</span>
+        <span class='fraction'>39/65</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>14/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">62.07% </span>
+        <span class="strong">61.02% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>36/58</span>
+        <span class='fraction'>36/59</span>
       </div>
     </div>
     <p class="quiet">
@@ -322,11 +322,15 @@
 <a name='L274'></a><a href='#L274'>274</a>
 <a name='L275'></a><a href='#L275'>275</a>
 <a name='L276'></a><a href='#L276'>276</a>
-<a name='L277'></a><a href='#L277'>277</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a>
+<a name='L279'></a><a href='#L279'>279</a>
+<a name='L280'></a><a href='#L280'>280</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -436,6 +440,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -465,6 +470,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -603,7 +609,7 @@ import { URL }              from 'url';
 import { log as gLog }  from 'hsnode';  const log = gLog('Device');
 import { http }             from 'hsnode';
 import { fs }               from 'hsnode'; 
-import { Settings }         from '../core/Settings';
+import { CfgSettings }      from '../core/CfgSettings';
 import { FtpSettings }      from '../comm/ftpSrv';
 &nbsp;
 export interface DeviceSettings {
@@ -620,7 +626,8 @@ export interface DeviceSettings {
 }
 &nbsp;
 export interface Device {
-    initDevice(settings:Settings):void;
+    initDevice(settings:CfgSettings):Promise&lt;void&gt;;
+    setTime():Promise&lt;void&gt;;
     getSettings():DeviceSettings;
     getName():string;
     hasVideo():boolean;
@@ -712,14 +719,15 @@ export abstract class AbstractDevice implements Device {
 <span class="fstat-no" title="function not covered" >    hasAudio</span>():boolean          { <span class="cstat-no" title="statement not covered" >return false; </span>}
 <span class="fstat-no" title="function not covered" >    hasAlarm</span>():boolean          { <span class="cstat-no" title="statement not covered" >return false; </span>}
 <span class="fstat-no" title="function not covered" >    hasMotionAlarm</span>():boolean    { <span class="cstat-no" title="statement not covered" >return false; </span>}
+    abstract async setTime():Promise&lt;void&gt;
 &nbsp;
-    constructor(deviceSettings: DeviceSettings, settings:Settings) {
+    constructor(deviceSettings: DeviceSettings, settings:CfgSettings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
         this.log = gLog(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    initDevice</span>(settings:Settings) {}
+    async <span class="fstat-no" title="function not covered" >initDevice</span>(settings:CfgSettings) {}
 &nbsp;
     getSettings():DeviceSettings {
         return this.settings;
@@ -735,15 +743,16 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     private audible     = false;
     protected armed     = false;
 &nbsp;
-    constructor(device: DeviceSettings, settings:Settings) {
+    constructor(device: DeviceSettings, settings:CfgSettings) {
         super(device, settings);
         if (device.useAlarm === undefined) { device.useAlarm = true; }
     }
     
-<span class="fstat-no" title="function not covered" >    initDevice</span>(settings:Settings) {
-<span class="cstat-no" title="statement not covered" >        super.initDevice(settings);</span>
-<span class="cstat-no" title="statement not covered" >        this.setRecordingDir(`${settings.homeSecDir}/${settings.recDir || ''}`);</span>
-<span class="cstat-no" title="statement not covered" >        this.setFtpCfg();</span>
+    async <span class="fstat-no" title="function not covered" >initDevice</span>(settings:CfgSettings) {
+<span class="cstat-no" title="statement not covered" >        await super.initDevice(settings);</span>
+<span class="cstat-no" title="statement not covered" >        await this.setRecordingDir(`${settings.homeSecDir}/${settings.recDir || ''}`);</span>
+<span class="cstat-no" title="statement not covered" >        await this.setFtpCfg();</span>
+<span class="cstat-no" title="statement not covered" >        await this.setTime();</span>
     }
 &nbsp;
     hasVideo():boolean  { return true; } 

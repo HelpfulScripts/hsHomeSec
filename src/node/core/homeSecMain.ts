@@ -9,11 +9,11 @@
 /** */
 
 import { log as gLog }  from 'hsnode';  const log = gLog('hsMain');
-import { fs }       from 'hsnode';
-import * as init    from './Init';
-import { Settings } from './Settings';
-import * as ftp     from '../comm/ftpSrv';
-import * as httpSrv from '../comm/httpSrv';
+import { fs }           from 'hsnode';
+import * as init        from './Init';
+import { CfgSettings }  from './CfgSettings';
+import * as ftp         from '../comm/ftpSrv';
+import * as httpSrv     from '../comm/httpSrv';
 import { setAlarmText}  from './alarm';
 
 const cliParams = {
@@ -36,12 +36,12 @@ function cli(args:string[]): Promise<void> {
     return Promise.resolve();
 }
 
-function ftpInit(settings: Settings):Settings {
+function ftpInit(settings: CfgSettings):CfgSettings {
     if (cliParams.ftpServer) { ftp.start(settings.homeSecDir, settings.ftp); }
     return settings;
 }
 
-function httpInit(settings: Settings):Settings {
+function httpInit(settings: CfgSettings):CfgSettings {
     httpSrv.start(); 
     return settings;
 }
@@ -56,6 +56,7 @@ try {
     .then(init.startSecuritySystem)
     .then(init.initDevices)
     .then(setAlarmText)
+    .then(init.startScheduledTasks)
     .catch(log.error); 
 
     process.on('exit', (code:string) => {

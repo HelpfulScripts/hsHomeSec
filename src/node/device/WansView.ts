@@ -1,15 +1,14 @@
 /**
  * functions to interface with WansView devices.
  */
-import { http }             from 'hsnode';
-//import { fs  }              from 'hsnode';
-import { inspect }          from 'util';
-//import { date }             from 'hsutil';
-import { DeviceSettings }   from './Device';
-import { Settings }         from '../core/Settings';
-import { AbstractCamera }   from './Device';
-import * as ftp             from '../comm/ftpSrv';
-import { date }             from 'hsutil';
+import { http, log as gLog }    from 'hsnode';    const log = gLog('WansView');
+//import { fs  }                from 'hsnode';
+//import { date }               from 'hsutil';
+import { DeviceSettings }       from './Device';
+import { CfgSettings }          from '../core/CfgSettings';
+import { AbstractCamera }       from './Device';
+import * as ftp                 from '../comm/ftpSrv';
+import { date }                 from 'hsutil';
 
 const audioSensitivity = 5;     // 1 - 10
 const videoSensitivity = 95;    // 1 - 100 ??
@@ -54,27 +53,27 @@ const commands = {
 export class WansView extends AbstractCamera {
     protected path = '';
 
-    constructor(device: DeviceSettings, settings:Settings) {
+    constructor(device: DeviceSettings, settings:CfgSettings) {
         super(device, settings); 
         this.path = `/hy-cgi/`;
 
     }
 
-    initDevice(settings:Settings) {
-        super.initDevice(settings);
-        this.setOverlayText()
-        .then(()=>this.setTime());
+    async initDevice(settings:CfgSettings) {
+        await super.initDevice(settings);
+        await this.setOverlayText();
+        await this.setTime();
     }
 
     standardSend(cmd:string, name:string) {
         return this.sendCommandToDevice(cmd)
             .then((receivedData:http.HttpResponse) => { 
-                this.log.debug(`standardSend '${cmd}' result:\n${this.log.inspect(receivedData.body, null)}`);
+                this.log.debug(`standardSend '${cmd}' result:\n${log.inspect(receivedData.body, null)}`);
                 if ((typeof receivedData.body === 'string') && (receivedData.body.match(/Success/))) {
                     this.log.info(`${name} success`);
                     return true;
                 } else {
-                    this.log.info(`${name} failure: ${this.log.inspect(receivedData.body, null)}`);
+                    this.log.info(`${name} failure: ${log.inspect(receivedData.body, null)}`);
                     return false;
                 }
             })
@@ -84,9 +83,11 @@ export class WansView extends AbstractCamera {
             });
     }
 
-    setTime(): Promise<any> {
-        const cmd = `${this.path}device.cgi?cmd=setsystime&stime=${date('%YYYY-%MM-%DD;%hh:%mm:%ss')}&timezone=7`;
-        return this.standardSend(cmd, 'setTime');
+    async setTime() {
+        const d = new Date();
+        const tz = d.getTimezoneOffset()/60;
+        const cmd = `${this.path}device.cgi?cmd=setsystime&stime=${date('%YYYY-%MM-%DD;%hh:%mm:%ss')}&timezone=${tz}`;
+        await this.standardSend(cmd, 'setTime');
     }
 
     setOverlayText():Promise<any> {
@@ -130,10 +131,10 @@ export class WansView extends AbstractCamera {
         this.log.info(`setting FTP config`);
         return this.sendCommandToDevice(cmd)
             .then((receivedData:http.HttpResponse) => { 
-                this.log.debug('get ftp config:' + inspect(receivedData.body));
+                this.log.debug('get ftp config:' + log.inspect(receivedData.body));
                 const result = {};
                 receivedData.body.replace(/var /g, '').replace(/\n/g, '').split(';').map((p:any) => { p = p.split('='); if (p[1]) { result[p[0]] = p[1].replace(/\'/g, ''); }});
-                this.log.info(`ftp config: \n${this.log.inspect(result, null)}`);
+                this.log.info(`ftp config: \n${log.inspect(result, null)}`);
                 return result;
             })
             .catch(err => {
@@ -163,13 +164,13 @@ export class WansView extends AbstractCamera {
         const cmd2 = `${this.path}ftp.cgi?cmd=testftpresult`;
         return this.sendCommandToDevice(cmd1)
             .then((receivedData:any) => { 
-                this.log.debug('ftp server test1:' + receivedData.url + '\n' + inspect(receivedData));
+                this.log.debug('ftp server test1:' + receivedData.url + '\n' + log.inspect(receivedData));
                 if (receivedData.testResult !== '0') { throw new Error('testFtpServer failed: ' + receivedData.testResult);}
                 return receivedData;
             })
             .then(() => this.sendCommandToDevice(cmd2))
             .then((receivedData:any) => { 
-                this.log.debug('ftp server test2:' + receivedData.url + '\n' + inspect(receivedData));
+                this.log.debug('ftp server test2:' + receivedData.url + '\n' + log.inspect(receivedData));
                 if (receivedData.testResult !== '0') { throw new Error('testFtpServer failed: ' + receivedData.testResult);}
                 return receivedData;
             })
@@ -213,11 +214,11 @@ export class WansView extends AbstractCamera {
             .then((result) => {
                 const successes = result.data.split('\n');
                 let success = successes[0] === 'Success';
-                this.log.debug(`individual arm results: (${typeof result.data}) ${this.log.inspect(result.data)}`);
+                this.log.debug(`individual arm results: (${typeof result.data}) ${log.inspect(result.data)}`);
                 successes.forEach((s:string, i:number) => { if(s && s!=='Success') { this.log.warn(`Command '${commands.alarm.cmds[i]}' reported error '${s}'`); }});
                 this.log.debug(`arm result: ${success? 'successful' : 'error'}`);
                 if (success!==true) {
-                    this.log.warn(`received data: ${this.log.inspect(result.data, null)}`);
+                    this.log.warn(`received data: ${log.inspect(result.data, null)}`);
                     success = result.data.indexOf('Success') === 0;
                     if (success!==true) {
                         this.log.error(`setting motion detect not successful`);

@@ -3,7 +3,7 @@ import { URL }              from 'url';
 import { log as gLog }  from 'hsnode';  const log = gLog('Device');
 import { http }             from 'hsnode';
 import { fs }               from 'hsnode'; 
-import { Settings }         from '../core/Settings';
+import { CfgSettings }      from '../core/CfgSettings';
 import { FtpSettings }      from '../comm/ftpSrv';
 
 export interface DeviceSettings {
@@ -20,7 +20,8 @@ export interface DeviceSettings {
 }
 
 export interface Device {
-    initDevice(settings:Settings):void;
+    initDevice(settings:CfgSettings):Promise<void>;
+    setTime():Promise<void>;
     getSettings():DeviceSettings;
     getName():string;
     hasVideo():boolean;
@@ -112,14 +113,15 @@ export abstract class AbstractDevice implements Device {
     hasAudio():boolean          { return false; }
     hasAlarm():boolean          { return false; }
     hasMotionAlarm():boolean    { return false; }
+    abstract async setTime():Promise<void>
 
-    constructor(deviceSettings: DeviceSettings, settings:Settings) {
+    constructor(deviceSettings: DeviceSettings, settings:CfgSettings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
         this.log = gLog(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 
-    initDevice(settings:Settings) {}
+    async initDevice(settings:CfgSettings) {}
 
     getSettings():DeviceSettings {
         return this.settings;
@@ -135,15 +137,16 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     private audible     = false;
     protected armed     = false;
 
-    constructor(device: DeviceSettings, settings:Settings) {
+    constructor(device: DeviceSettings, settings:CfgSettings) {
         super(device, settings);
         if (device.useAlarm === undefined) { device.useAlarm = true; }
     }
     
-    initDevice(settings:Settings) {
-        super.initDevice(settings);
-        this.setRecordingDir(`${settings.homeSecDir}/${settings.recDir || ''}`);
-        this.setFtpCfg();
+    async initDevice(settings:CfgSettings) {
+        await super.initDevice(settings);
+        await this.setRecordingDir(`${settings.homeSecDir}/${settings.recDir || ''}`);
+        await this.setFtpCfg();
+        await this.setTime();
     }
 
     hasVideo():boolean  { return true; } 
