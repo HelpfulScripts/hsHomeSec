@@ -46,19 +46,21 @@ function httpInit(settings: CfgSettings):CfgSettings {
     return settings;
 }
 
-try {
+async function start() {
     log.debug('Starting Home Security System');
     log.level(log.INFO);
-    cli(process.argv)
-    .then(() => fs.readJsonFile(__dirname+'/../../config/homeCfg.json'))
-    .then(ftpInit)
-    .then(httpInit)
-    .then(init.startSecuritySystem)
-    .then(init.initDevices)
-    .then(setAlarmText)
-    .then(init.startScheduledTasks)
-    .catch(log.error); 
+    await cli(process.argv);
+    const cfg = await fs.readJsonFile(__dirname+'/../../config/homeCfg.json');
+    await ftpInit(cfg);
+    await httpInit(cfg);
+    await init.startSecuritySystem(cfg);
+    await init.initDevices(cfg);
+    await setAlarmText(cfg);
+    await init.startScheduledTasks(cfg);
+}
 
+try {
+    start().catch(log.error);
     process.on('exit', (code:string) => {
         log.info(`About to exit with code: ${code}`);
         httpSrv.stop();
