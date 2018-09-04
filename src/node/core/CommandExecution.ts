@@ -181,3 +181,11 @@ export const lightFn = (param:string[]):Promise<{message:boolean}> => {
     return Promise.resolve({message: false});
 };
 
+/**
+ * 
+ */
+export const getlog = async ():Promise<{attachments:string[]}> => {
+    log.info('get log ');
+    return {attachments:[await log.logFile()]};
+};
+

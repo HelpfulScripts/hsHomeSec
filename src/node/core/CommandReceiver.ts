@@ -5,8 +5,8 @@ import { log as gLog }  from 'hsnode';  const log = gLog('hsCmdRec');
 import * as Exec        from './CommandExecution';
 import { User, users }  from '../comm/UserComm';
 import { getEmail }     from '../comm/UserComm';
-import { message }  from '../comm/UserComm';
-import { sendEmail }from '../comm/UserComm';
+import { message }      from '../comm/UserComm';
+import { sendEmail }    from '../comm/UserComm';
 
 
 export interface Command {

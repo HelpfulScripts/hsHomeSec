@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.07% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>38/69</span>
+        <span class='fraction'>31/62</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">40% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>4/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">37.5% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/15</span>
+        <span class='fraction'>6/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.74% </span>
+        <span class="strong">49.06% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>34/61</span>
+        <span class='fraction'>26/53</span>
       </div>
     </div>
     <p class="quiet">
@@ -139,7 +139,11 @@
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -150,18 +154,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -243,18 +251,22 @@ import { DeviceSettings,
          DeviceList,
          Device }       from '../device/Device';
 &nbsp;
+export const cmdList:[any, string, ...string[]][] = [
+    [Exec.helpFn,        'help'],
+    [Exec.facetimeFn,    'facetime'],
+    [Exec.armFn,         'arm',      '[away]'],
+    [Exec.disarmFn,      'disarm'],
+    [Exec.disarmFn,      'relax'],
+    [Exec.armingStatusFn,'status'],
+    [Exec.snapFn,        'snap',     '[%name%]'],
+    [Exec.lightFn,       'light',    'on|off'],
+    [Exec.restartFn,     'restart'],
+    [Exec.camPreset,     'preset',   '%name%',   '%index%'],
+    [Exec.getlog,        'log']
+];
 &nbsp;
 function addCommands() {
-    Comm.addCommand(Exec.helpFn,        'help');
-    Comm.addCommand(Exec.facetimeFn,    'facetime');
-    Comm.addCommand(Exec.armFn,         'arm',      '[away]');
-    Comm.addCommand(Exec.disarmFn,      'disarm');
-    Comm.addCommand(Exec.disarmFn,      'relax');
-    Comm.addCommand(Exec.armingStatusFn,'status');
-    Comm.addCommand(Exec.snapFn,        'snap',     '[%name%]');
-    Comm.addCommand(Exec.lightFn,       'light',    'on|off');
-    Comm.addCommand(Exec.restartFn,     'restart');
-    Comm.addCommand(Exec.camPreset,     'preset',   '%name%',   '%index%');
+    cmdList.map(c =&gt; Comm.addCommand(c[0], c[1], ...c.slice(2)));
     log.debug(`added ${Comm.getCommands().length} commands`);
 }
 &nbsp;
@@ -267,7 +279,7 @@ function createDevices(settings:CfgSettings) {
 }
 &nbsp;
 &nbsp;
-<span class="fstat-no" title="function not covered" >function wifiCheck(</span>settings:CfgSettings) {
+function <span class="fstat-no" title="function not covered" >wifiCheck(</span>settings:CfgSettings) {
     const ssid = <span class="cstat-no" title="statement not covered" >settings.wifiNetwork;</span>
     const pwd  = <span class="cstat-no" title="statement not covered" >settings.wifiPasswd;</span>
 <span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >async () </span>=&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
@@ -287,7 +299,7 @@ function createDevices(settings:CfgSettings) {
     };
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function setDevicesTime() {</span>
+function <span class="fstat-no" title="function not covered" >setDevicesTime(</span>) {
 <span class="cstat-no" title="statement not covered" >    DeviceList.getDevices().map(<span class="fstat-no" title="function not covered" >(d</span>ev:Device) =&gt; <span class="cstat-no" title="statement not covered" >dev.setTime())</span>;</span>
 }
 &nbsp;
@@ -317,7 +329,7 @@ export const initDevices = <span class="fstat-no" title="function not covered" >
 <span class="cstat-no" title="statement not covered" >    return settings;</span>
 };
 &nbsp;
-<span class="fstat-no" title="function not covered" >export function startScheduledTasks(</span>settings:CfgSettings) {
+export function <span class="fstat-no" title="function not covered" >startScheduledTasks(</span>settings:CfgSettings) {
     const WifiCheckHours = <span class="cstat-no" title="statement not covered" >1;</span>
     const SetTimeHours = <span class="cstat-no" title="statement not covered" >12;</span>
 <span class="cstat-no" title="statement not covered" >    if (settings.wifiNetwork &amp;&amp; settings.wifiPasswd) {</span>

@@ -1,6 +1,6 @@
-import { Settings }             from './Settings';
-import { startSecuritySystem }  from './Init';
-import { http } from 'hsnode'; if(http) {}
+import { CfgSettings }          from './CfgSettings';
+import * as init                from './Init';
+import { http }                 from 'hsnode'; if(http) {}
 // import { DeviceSettings }       from '../device/Device';
 import { DeviceList }           from '../device/Device';
 // import { Device }               from '../device/Device';
@@ -8,7 +8,7 @@ import { users }                from '../comm/UserComm';
 import * as Comm                from './CommandReceiver';
 
 
-const settings:Settings = {
+const settings:CfgSettings = {
     "homeSecDir":   "./hshomesec/",
     "alarmText": "Stop!",
     "ftp": {
@@ -55,9 +55,9 @@ beforeEach(() => {
 });
   
 describe('init', () => {
-    beforeAll(()=>startSecuritySystem(settings));
+    beforeAll(()=>init.startSecuritySystem(settings));
     test('commands should be defined', () => {
-        expect(Comm.getCommands().length).toBe(10);
+        expect(Comm.getCommands().length).toBe(init.cmdList.length);
     });
     test('devices should be defined', () => {
         expect(DeviceList.getDevices().length).toBe(2);

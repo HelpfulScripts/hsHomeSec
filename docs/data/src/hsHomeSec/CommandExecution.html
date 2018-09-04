@@ -196,6 +196,14 @@
 <span id=181 class="line">&nbsp;181</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Promise.resolve({message:&nbsp;false});<br>
 <span id=182 class="line">&nbsp;182</span>};<br>
 <span id=183 class="line">&nbsp;183</span><br>
-<span id=184 class="line">&nbsp;184</span><br></code></div>
+<span id=184 class="line">&nbsp;184</span><comment>/**<br>
+<span id=185 class="line">&nbsp;185</span>&nbsp;*&nbsp;<br>
+<span id=186 class="line">&nbsp;186</span>&nbsp;*/</comment><br>
+<span id=187 class="line">&nbsp;187</span>export&nbsp;const&nbsp;getlog&nbsp;=&nbsp;async&nbsp;():Promise<{attachments:string[]}>&nbsp;=>&nbsp;{<br>
+<span id=188 class="line">&nbsp;188</span>&nbsp;&nbsp;&nbsp;&nbsp;log.info('get&nbsp;log&nbsp;');<br>
+<span id=189 class="line">&nbsp;189</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{attachments:[await&nbsp;log.logFile()]};<br>
+<span id=190 class="line">&nbsp;190</span>};<br>
+<span id=191 class="line">&nbsp;191</span><br>
+<span id=192 class="line">&nbsp;192</span><br></code></div>
                 </body>
             

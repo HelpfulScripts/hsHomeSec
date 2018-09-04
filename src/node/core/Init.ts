@@ -9,18 +9,22 @@ import { DeviceSettings,
          DeviceList,
          Device }       from '../device/Device';
 
+export const cmdList:[any, string, ...string[]][] = [
+    [Exec.helpFn,        'help'],
+    [Exec.facetimeFn,    'facetime'],
+    [Exec.armFn,         'arm',      '[away]'],
+    [Exec.disarmFn,      'disarm'],
+    [Exec.disarmFn,      'relax'],
+    [Exec.armingStatusFn,'status'],
+    [Exec.snapFn,        'snap',     '[%name%]'],
+    [Exec.lightFn,       'light',    'on|off'],
+    [Exec.restartFn,     'restart'],
+    [Exec.camPreset,     'preset',   '%name%',   '%index%'],
+    [Exec.getlog,        'log']
+];
 
 function addCommands() {
-    Comm.addCommand(Exec.helpFn,        'help');
-    Comm.addCommand(Exec.facetimeFn,    'facetime');
-    Comm.addCommand(Exec.armFn,         'arm',      '[away]');
-    Comm.addCommand(Exec.disarmFn,      'disarm');
-    Comm.addCommand(Exec.disarmFn,      'relax');
-    Comm.addCommand(Exec.armingStatusFn,'status');
-    Comm.addCommand(Exec.snapFn,        'snap',     '[%name%]');
-    Comm.addCommand(Exec.lightFn,       'light',    'on|off');
-    Comm.addCommand(Exec.restartFn,     'restart');
-    Comm.addCommand(Exec.camPreset,     'preset',   '%name%',   '%index%');
+    cmdList.map(c => Comm.addCommand(c[0], c[1], ...c.slice(2)));
     log.debug(`added ${Comm.getCommands().length} commands`);
 }
 

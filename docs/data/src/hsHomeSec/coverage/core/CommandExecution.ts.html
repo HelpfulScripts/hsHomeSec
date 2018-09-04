@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">93.9% </span>
+        <span class="strong">90.7% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>77/82</span>
+        <span class='fraction'>78/86</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">69.57% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>16/23</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">94.59% </span>
+        <span class="strong">89.74% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>35/37</span>
+        <span class='fraction'>35/39</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">94.59% </span>
+        <span class="strong">92.21% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>70/74</span>
+        <span class='fraction'>71/77</span>
       </div>
     </div>
     <p class="quiet">
@@ -229,7 +229,15 @@
 <a name='L181'></a><a href='#L181'>181</a>
 <a name='L182'></a><a href='#L182'>182</a>
 <a name='L183'></a><a href='#L183'>183</a>
-<a name='L184'></a><a href='#L184'>184</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -410,6 +418,14 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -593,6 +609,14 @@ export const lightFn = (param:string[]):Promise&lt;{message:boolean}&gt; =&gt; {
     log.info('lights on/off ' + opt);
 //    return osaCommands.email((opt==='on')? IFTTT_On : IFTTT_Off, IFTTT_Address);
     return Promise.resolve({message: false});
+};
+&nbsp;
+/**
+ * 
+ */
+export const getlog = <span class="fstat-no" title="function not covered" >async ():Promise&lt;{attachments:string[]}&gt; </span>=&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span>
+<span class="cstat-no" title="statement not covered" >    log.info('get log ');</span>
+<span class="cstat-no" title="statement not covered" >    return {attachments:[await log.logFile()]};</span>
 };
 &nbsp;
 &nbsp;</pre></td></tr>
