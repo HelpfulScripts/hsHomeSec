@@ -287,7 +287,7 @@ function <span class="fstat-no" title="function not covered" >wifiCheck(</span>s
 <span class="cstat-no" title="statement not covered" >        log.debug(`wifi stdout:'${result.stdout}'`);</span>
 <span class="cstat-no" title="statement not covered" >        log.debug(`wifi stderr:'${result.stderr}'`);</span>
 <span class="cstat-no" title="statement not covered" >        if (result.stdout.match(ssid)) {</span>
-<span class="cstat-no" title="statement not covered" >            log.info(`wifi network connected to ${ssid}`);</span>
+<span class="cstat-no" title="statement not covered" >            log.debug(`wifi network connected to ${ssid}`);</span>
         } else {
 <span class="cstat-no" title="statement not covered" >            log.warn(`wifi not connected to ${ssid}; attempting reconnect`);</span>
 <span class="cstat-no" title="statement not covered" >            log.warn(`wifi stdout:'${result.stdout}'`);</span>

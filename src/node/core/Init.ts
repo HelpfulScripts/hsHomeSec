@@ -45,7 +45,7 @@ function wifiCheck(settings:CfgSettings) {
         log.debug(`wifi stdout:'${result.stdout}'`);
         log.debug(`wifi stderr:'${result.stderr}'`);
         if (result.stdout.match(ssid)) {
-            log.info(`wifi network connected to ${ssid}`);
+            log.debug(`wifi network connected to ${ssid}`);
         } else {
             log.warn(`wifi not connected to ${ssid}; attempting reconnect`);
             log.warn(`wifi stdout:'${result.stdout}'`);
