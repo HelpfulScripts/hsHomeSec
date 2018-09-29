@@ -13,7 +13,7 @@ import { fs }           from 'hsnode';
 import * as init        from './Init';
 import { CfgSettings }  from './CfgSettings';
 import * as ftp         from '../comm/ftpSrv';
-import * as httpSrv     from '../comm/httpSrv';
+// import * as httpSrv     from '../comm/httpSrv';
 import { setAlarmText}  from './alarm';
 
 const cliParams = {
@@ -41,10 +41,10 @@ function ftpInit(settings: CfgSettings):CfgSettings {
     return settings;
 }
 
-function httpInit(settings: CfgSettings):CfgSettings {
-    httpSrv.start(); 
-    return settings;
-}
+// function httpInit(settings: CfgSettings):CfgSettings {
+//     httpSrv.start(); 
+//     return settings;
+// }
 
 async function start() {
     log.debug('Starting Home Security System');
@@ -52,7 +52,7 @@ async function start() {
     await cli(process.argv);
     const cfg = await fs.readJsonFile(__dirname+'/../../config/homeCfg.json');
     await ftpInit(cfg);
-    await httpInit(cfg);
+    // await httpInit(cfg);
     await init.startSecuritySystem(cfg);
     await init.initDevices(cfg);
     await setAlarmText(cfg);
@@ -63,7 +63,7 @@ try {
     start().catch(log.error);
     process.on('exit', (code:string) => {
         log.info(`About to exit with code: ${code}`);
-        httpSrv.stop();
+        // httpSrv.stop();
     });
 }
 catch(err) { log.error(err); }

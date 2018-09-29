@@ -205,11 +205,11 @@ const settings:FtpSettings = {
     pwd:  'two'
 };
 &nbsp;
-<span class="fstat-no" title="function not covered" >export function getSettings():FtpSettings {</span>
+export function <span class="fstat-no" title="function not covered" >getSettings(</span>):FtpSettings {
 <span class="cstat-no" title="statement not covered" >    return settings;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function login(</span>data:any, resolve:any, reject:any) {
+function <span class="fstat-no" title="function not covered" >login(</span>data:any, resolve:any, reject:any) {
 <span class="cstat-no" title="statement not covered" >    data.connection.on('RETR', <span class="fstat-no" title="function not covered" >(e</span>rror:string, filePath:string) =&gt; { </span>
 <span class="cstat-no" title="statement not covered" >        if (error) { <span class="cstat-no" title="statement not covered" >log.error(`reading '${filePath}': ${error}`); </span>}</span>
               else { <span class="cstat-no" title="statement not covered" >log.warn(`reading '${filePath}'`);}</span>
@@ -229,7 +229,7 @@ const settings:FtpSettings = {
 <span class="cstat-no" title="statement not covered" >    resolve({root:settings.root, cwd:'./'});</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >export function start(</span>baseDir:string, s:FtpSettings): Promise&lt;void&gt; { 
+export function <span class="fstat-no" title="function not covered" >start(</span>baseDir:string, s:FtpSettings): Promise&lt;void&gt; { 
 <span class="cstat-no" title="statement not covered" >    settings.host = s.host;</span>
 //    settings.port = Math.floor(Math.random()*2000 + 1000);
     const ftpServer = <span class="cstat-no" title="statement not covered" >new FtpSrv(`ftp://${settings.host}:${settings.port}`);</span>

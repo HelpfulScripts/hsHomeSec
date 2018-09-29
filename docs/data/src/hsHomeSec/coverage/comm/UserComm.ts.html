@@ -242,11 +242,11 @@ export function message(users:User[], message:string, attachments?:string[]):Pro
     return osaCommands.sendMessage(users.map(u =&gt; u.AppleID), message, attachments);
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >export function videoChat(</span>users:User[]):Promise&lt;boolean&gt; {
+export function <span class="fstat-no" title="function not covered" >videoChat(</span>users:User[]):Promise&lt;boolean&gt; {
 <span class="cstat-no" title="statement not covered" >    return osaCommands.facetime(users[0].AppleID);</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >export function audioChat(</span>users:User[]):Promise&lt;boolean&gt; {
+export function <span class="fstat-no" title="function not covered" >audioChat(</span>users:User[]):Promise&lt;boolean&gt; {
 <span class="cstat-no" title="statement not covered" >    return Promise.resolve(false);</span>
 }
 &nbsp;
@@ -254,7 +254,7 @@ export function sendEmail(subject:string, to:User[], content: string, attachment
     return osaCommands.sendEmail(subject, to.map(u=&gt;u.email[0]), content, attachments);
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >export function getEmail(</span>date:Date):Promise&lt;any&gt; {
+export function <span class="fstat-no" title="function not covered" >getEmail(</span>date:Date):Promise&lt;any&gt; {
 <span class="cstat-no" title="statement not covered" >    return osaCommands.getEmail(date);</span>
 }</pre></td></tr>
 </table></pre>

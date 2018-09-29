@@ -22,19 +22,15 @@ Written in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).
 See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#!/api/hsHomeSec/0)
 
 ## Installation
-1. Inside your `~/Documents` folder, create a `homeses` folder and move there:<br>
-`> mkdir homeSec`<br>
-`> cd homeSec`<br>
-   > if you choose a different installation folder, be sure to update the Applescript file `respondToMailAs.scpt` below.
-2. Cone the project:<br>
+1. Create an *install home folder*, `cd` there, and clone the project:<br>
 `> npm i hshomesec`<br>
 
 ## Setup
 1. Move to the installation folder:<br>
 `> cd node_modules/hshomesec`
 2. create homeCfg.json from the template:<br>
-    `> cp src/config/homeCfg-template.json src/config/homeCfg.json`
-3. configure homeCfg.json with server IPs and available cameras
+`> cp src/config/homeCfg-template.json src/config/homeCfg.json`
+3. configure `homeCfg.json` with server IPs and available devices (cameras, etc.)
    - *hint*: it may be a good idea to also configure your DHCP server to assign fixed addresses to the computer running the homeSec server, as well as to connected devices.
 4. Configure a valid mail account in `Mail`
 5. Optional: Setup your Mac as follows
@@ -49,12 +45,14 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#
         - `Ask before closing: Never`
 
 ## Run
-- From `~/Documents/homeSec`, call<br>
+- From the *install home folder*, call<br>
     `> sudo node node_modules/.bin/hsHomeSec`<br>
     to start the system without starting an ftp server
 - Or call<br>
     `> sudo node node_modules/.bin/hsHomeSec ftp`<br>
-    to start the system with its own ftp server.
+    to start the system with its own ftp server. The ftp server is needed 
+    by some devices to store snaphots and recordings in case an alarm is 
+    detected.
     > You can try the calls without `sudo`, though it is likely needed since we start an ftp server (if selected). 
     The webserver lets Mail (via Applescript) tell the system about incoming user commands.
 

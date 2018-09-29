@@ -28,7 +28,7 @@
 <span id=13 class="line">&nbsp;&nbsp;13</span>import&nbsp;*&nbsp;as&nbsp;init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'./Init';<br>
 <span id=14 class="line">&nbsp;&nbsp;14</span>import&nbsp;{&nbsp;CfgSettings&nbsp;}&nbsp;&nbsp;from&nbsp;'./CfgSettings';<br>
 <span id=15 class="line">&nbsp;&nbsp;15</span>import&nbsp;*&nbsp;as&nbsp;ftp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/ftpSrv';<br>
-<span id=16 class="line">&nbsp;&nbsp;16</span>import&nbsp;*&nbsp;as&nbsp;httpSrv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/httpSrv';<br>
+<span id=16 class="line">&nbsp;&nbsp;16</span>//&nbsp;import&nbsp;*&nbsp;as&nbsp;httpSrv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'../comm/httpSrv';<br>
 <span id=17 class="line">&nbsp;&nbsp;17</span>import&nbsp;{&nbsp;setAlarmText}&nbsp;&nbsp;from&nbsp;'./alarm';<br>
 <span id=18 class="line">&nbsp;&nbsp;18</span><br>
 <span id=19 class="line">&nbsp;&nbsp;19</span>const&nbsp;cliParams&nbsp;=&nbsp;{<br>
@@ -56,10 +56,10 @@
 <span id=41 class="line">&nbsp;&nbsp;41</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;settings;<br>
 <span id=42 class="line">&nbsp;&nbsp;42</span>}<br>
 <span id=43 class="line">&nbsp;&nbsp;43</span><br>
-<span id=44 class="line">&nbsp;&nbsp;44</span>function&nbsp;httpInit(settings:&nbsp;CfgSettings):CfgSettings&nbsp;{<br>
-<span id=45 class="line">&nbsp;&nbsp;45</span>&nbsp;&nbsp;&nbsp;&nbsp;httpSrv.start();&nbsp;<br>
-<span id=46 class="line">&nbsp;&nbsp;46</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;settings;<br>
-<span id=47 class="line">&nbsp;&nbsp;47</span>}<br>
+<span id=44 class="line">&nbsp;&nbsp;44</span>//&nbsp;function&nbsp;httpInit(settings:&nbsp;CfgSettings):CfgSettings&nbsp;{<br>
+<span id=45 class="line">&nbsp;&nbsp;45</span>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpSrv.start();&nbsp;<br>
+<span id=46 class="line">&nbsp;&nbsp;46</span>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;settings;<br>
+<span id=47 class="line">&nbsp;&nbsp;47</span>//&nbsp;}<br>
 <span id=48 class="line">&nbsp;&nbsp;48</span><br>
 <span id=49 class="line">&nbsp;&nbsp;49</span>async&nbsp;function&nbsp;start()&nbsp;{<br>
 <span id=50 class="line">&nbsp;&nbsp;50</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug('Starting&nbsp;Home&nbsp;Security&nbsp;System');<br>
@@ -67,7 +67,7 @@
 <span id=52 class="line">&nbsp;&nbsp;52</span>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;cli(process.argv);<br>
 <span id=53 class="line">&nbsp;&nbsp;53</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;cfg&nbsp;=&nbsp;await&nbsp;fs.readJsonFile(__dirname+'/../../config/homeCfg.json');<br>
 <span id=54 class="line">&nbsp;&nbsp;54</span>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;ftpInit(cfg);<br>
-<span id=55 class="line">&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;httpInit(cfg);<br>
+<span id=55 class="line">&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;await&nbsp;httpInit(cfg);<br>
 <span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;init.startSecuritySystem(cfg);<br>
 <span id=57 class="line">&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;init.initDevices(cfg);<br>
 <span id=58 class="line">&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;setAlarmText(cfg);<br>
@@ -78,7 +78,7 @@
 <span id=63 class="line">&nbsp;&nbsp;63</span>&nbsp;&nbsp;&nbsp;&nbsp;start().catch(log.error);<br>
 <span id=64 class="line">&nbsp;&nbsp;64</span>&nbsp;&nbsp;&nbsp;&nbsp;process.on('exit',&nbsp;(code:string)&nbsp;=>&nbsp;{<br>
 <span id=65 class="line">&nbsp;&nbsp;65</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.info(`About&nbsp;to&nbsp;exit&nbsp;with&nbsp;code:&nbsp;${code}`);<br>
-<span id=66 class="line">&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httpSrv.stop();<br>
+<span id=66 class="line">&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;httpSrv.stop();<br>
 <span id=67 class="line">&nbsp;&nbsp;67</span>&nbsp;&nbsp;&nbsp;&nbsp;});<br>
 <span id=68 class="line">&nbsp;&nbsp;68</span>}<br>
 <span id=69 class="line">&nbsp;&nbsp;69</span>catch(err)&nbsp;{&nbsp;log.error(err);&nbsp;}<br>

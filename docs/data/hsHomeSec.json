@@ -11129,55 +11129,13 @@
 				},
 				{
 					"id": 1328,
-					"name": "httpInit",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {},
-					"signatures": [
-						{
-							"id": 1329,
-							"name": "httpInit",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"parameters": [
-								{
-									"id": 1330,
-									"name": "settings",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "reference",
-										"name": "CfgSettings",
-										"id": 54
-									}
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "CfgSettings",
-								"id": 54
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "node/core/homeSecMain.ts",
-							"line": 44,
-							"character": 17
-						}
-					]
-				},
-				{
-					"id": 1331,
 					"name": "start",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1332,
+							"id": 1329,
 							"name": "start",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11267,8 +11225,7 @@
 					"children": [
 						1322,
 						1325,
-						1328,
-						1331
+						1328
 					]
 				},
 				{
@@ -24223,7 +24180,7 @@
 			]
 		},
 		{
-			"id": 1333,
+			"id": 1330,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -24262,7 +24219,7 @@
 				69,
 				864,
 				986,
-				1333
+				1330
 			]
 		}
 	]
