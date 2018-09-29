@@ -31,7 +31,7 @@ See [documentation for more details](http://helpfulscripts.github.io/hsHomeSec/#
 2. create homeCfg.json from the template:<br>
 `> cp src/config/homeCfg-template.json src/config/homeCfg.json`
 3. configure `homeCfg.json` with server IPs and available devices (cameras, etc.)
-   - *hint*: it may be a good idea to also configure your DHCP server to assign fixed addresses to the computer running the homeSec server, as well as to connected devices.
+   > It may be a good idea to also configure your DHCP server to assign fixed addresses to the computer running the homeSec server, as well as to connected devices.
 4. Configure a valid mail account in `Mail`
 5. Optional: Setup your Mac as follows
     - select `Desktop & Screen Saver`, set `Start after:` to `never`
