@@ -1,5 +1,5 @@
 import * as cmds            from './CommandExecution';
-import { Settings }         from './Settings';
+import { CfgSettings }         from './CfgSettings';
 import * as user            from '../comm/UserComm';
 import { DeviceSettings }   from '../device/Device';
 import { DeviceList }       from '../device/Device';
@@ -9,7 +9,7 @@ import { log, fs }          from 'hsnode';
 
 jest.mock('hsosaes6');
 
-const settings:Settings = {
+const settings:CfgSettings = {
     "homeSecDir":   "./hshomesec/",
     "alarmText": "Stop!",
     "ftp": {
@@ -51,10 +51,11 @@ const settings:Settings = {
 };
 
 export class TestCamera extends AbstractCamera {
-    constructor(device: DeviceSettings, settings:Settings) {
+    constructor(device: DeviceSettings, settings:CfgSettings) {
         super(device, settings);
         if (device.useAlarm === undefined) { device.useAlarm = true; }
     }
+    setTime():Promise<void> { return Promise.resolve(); }
     snapPicture():Promise<any> { return Promise.resolve({data:'1234'}); }
     getFtpCfg():Promise<FtpSettings> { return Promise.resolve({host:'127.0.0.1', root:'./'}); }
     setFtpCfg():Promise<boolean> { return Promise.resolve(true); }
