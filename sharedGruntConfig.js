@@ -343,11 +343,15 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
             p { margin:0; padding-top:5px; }
             br  { margin:0; padding:0; }
-            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
+            .line { 
+                display:inline-block;
+                margin: 0 5px 0 0; padding-right: 5px; height:16px; 
+                color:#999; background-color:#eef;  
+            }
             comment { color: #080;} module { color: #804;}
             .listing { margin: 10px; border: 1px solid #ccc; 
                     font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-                    font-size: 14px; line-height: 1.2em; 
+                    font-size: 14px;  
                     overflow:scroll;
                     height:90%;
             }
