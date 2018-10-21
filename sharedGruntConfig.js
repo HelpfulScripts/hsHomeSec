@@ -59,7 +59,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
     grunt.registerTask('travis',    ['build', 'doc', 'test', 'coveralls']);	
 
-    grunt.registerMultiTask('sourceCode', translateSources);  
+    grunt.registerMultiTask('sourceCode', translateSourcesToHTML);  
     grunt.registerMultiTask('cleanupCoverage', removeTimestampFromCoverage);  
 
     //------ Add general help 
@@ -93,7 +93,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 }
             ]},
             html: { files: [
-                { expand:true, cwd: devPath+'/staging/',    // index.html
+                { expand:true, cwd: devPath+'/staging/',    // docs index.html from staging
                     src:['index.html'], dest:'docs' 
                 }
             ]},
@@ -118,10 +118,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:['**/*'], dest:`node_modules/${libPath}/` },
                 { expand:true, cwd: 'bin',                  // copy everything from bin
-                    src:['**/*', '!package.json'], dest:`docs` },
-                { expand:true, cwd: 'docs/data',            // copy source htmls to hsDocs
-                    src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` },
-                { expand:true, cwd: devPath+'/staging/',    // index.html and indexGH.html
+                    src:[`**/${lib}.*`], dest:`docs` },
+                { expand:true, cwd: devPath+'/staging/',    // index.html
                     src:['index.html'], dest:`node_modules/${libPath}/` }
             ]},
             docs2NPM:   { files: [                      // copy the module's docs to npm  
@@ -204,7 +202,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 entry: './bin/index.js',
                 output: {
                     filename: `${lib}.min.js`,
-                    chunkFilename: '[name].bundle.js',
+                    // chunkFilename: '[name].bundle.js',
                     path: path.resolve(dir, './bin')
                 },
                 plugins: [
@@ -239,7 +237,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 cwd: 'src/', 
                 src: ['**/*.ts', '!**/*.jest.ts', '!**/*.test.ts', '!**/*.spec.ts'], 
                 dest: `docs/data/src/${lib}/`,
-                rename: (dest, src) => dest + src.slice(src.lastIndexOf('/')+1).replace('.ts','.html')
+                rename: (dest, src) => dest + src.replace('.ts','.html')
             }
         },
         cleanupCoverage: { 
@@ -312,10 +310,9 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         grunt.log.writeln(`  grunt product: make optimized, don't watch; relevant for apps only`);
     }
 
-    function translateSources() {  
+    function translateSourcesToHTML() {  
         // returns a 4-character, right aligned. line number
         function lineNum(num) { return ('    '+(num)).substr(-4).replace(/( )/g, '&nbsp;'); }
-//        function destFile(file, destDir) { return destDir+file.replace('.ts', '.html'); }
         function wrapLine(line, i) {  
             return `<span id=${i+1} class="line">${lineNum(i+1)}</span>${line}<br>`;
         }
@@ -332,6 +329,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 .replace(/(\/\/.*?)<\/code>/g, comment) // color code some syntax
                 .replace(/\/\*[\s\S]*?\*\//g, comment) // color code some syntax
                 ;
+            grunt.log.writeln(`   ${srcFile} --> ${destDir}`);    
             grunt.file.write(destDir, `
                 ${intro}
                 <h1>${file}</h1>
