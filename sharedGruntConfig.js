@@ -314,20 +314,29 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         // returns a 4-character, right aligned. line number
         function lineNum(num) { return ('    '+(num)).substr(-4).replace(/( )/g, '&nbsp;'); }
         function wrapLine(line, i) {  
-            return `<span id=${i+1} class="line">${lineNum(i+1)}</span>${line}<br>`;
+            return `<p id=${i+1} class="line"><span>${lineNum(i+1)}</span>${line}</p>`;
         }
-        function comment(content) { return `<comment>${content}</comment>`; }
+        function quote(content) { return `<quote>${content}</quote>`; }
+        function comment(content) { 
+            return content
+                .split('\n')
+                .map(l => `<comment>${l}</comment>`)
+                .join('\n');
+        }
         function module(content) { return `<module>${content}</module>`; }
         function processFile(srcFile, destDir) {
             let i = srcFile.lastIndexOf('/');
             let file = (i>=0)? srcFile.slice(i+1) : srcFile;
             let content = grunt.file.read(srcFile)
                 .replace(/( )/g, '&nbsp;')              // preserve whitespaces
+                .replace(/(\/\/.*?)<\/code>/g, comment) // color code // comments
+                .replace(/\/\/.*?\n/g, comment)         // color code // comments
+                .replace(/\/\*[\s\S]*?\*\//g, comment)  // color code /*...*/ comments
+                .replace(/'[^']*?'/g, quote)            // color code '...' strings 
+                .replace(/"[^"]*?"/g, quote)            // color code "..." strings 
                 .split('\n')                            // array of lines
                 .map(wrapLine)                          // wrap each line into some formatting
                 .join('\n')                             // join lines into a complete string
-                .replace(/(\/\/.*?)<\/code>/g, comment) // color code some syntax
-                .replace(/\/\*[\s\S]*?\*\//g, comment) // color code some syntax
                 ;
             grunt.log.writeln(`   ${srcFile} --> ${destDir}`);    
             grunt.file.write(destDir, `
@@ -341,14 +350,18 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         const style = `
             body { overflow:hidden;}
             h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
-            p { margin:0; padding-top:5px; }
+            p { margin:0; padding:0; }
             br  { margin:0; padding:0; }
             .line { 
-                display:inline-block;
-                margin: 0 5px 0 0; padding-right: 5px; height:16px; 
-                color:#999; background-color:#eef;  
+                white-space: nowrap;
+                height:16px; 
             }
-            comment { color: #080;} module { color: #804;}
+            .line>span { 
+                display:inline-block; background-color:#eef; height:100%; 
+                margin: 0 5px 0 0; padding-right: 5px; color:#999;   
+            }
+            comment {color: #080;} module {color: #804;} 
+            quote {color: #008;} comment>quote {color: #080;}
             .listing { margin: 10px; border: 1px solid #ccc; 
                     font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
                     font-size: 14px;  
