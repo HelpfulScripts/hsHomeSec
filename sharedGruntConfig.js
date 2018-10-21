@@ -111,8 +111,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             lib2NPM: { files: [
                 { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:['**/*'], dest:`node_modules/${libPath}/` },
-                { expand:true, cwd: 'docs/data',            // copy source htmls to hsDocs
-                    src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` }
+                // { expand:true, cwd: 'docs/data',            // copy source htmls to hsDocs
+                //     src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` }
             ]},
             app2NPM: { files: [ 
                 { expand:true, cwd: 'bin',                  // copy everything from bin
