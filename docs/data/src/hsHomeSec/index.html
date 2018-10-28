@@ -1,20 +1,28 @@
 
                 <html><style>body { overflow:hidden;}
             h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
-            p { margin:0; padding-top:5px; }
+            p { margin:0; padding:0; }
             br  { margin:0; padding:0; }
-            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
-            comment { color: #080;} module { color: #804;}
+            .line { 
+                white-space: nowrap;
+                height:16px; 
+            }
+            .line>span { 
+                display:inline-block; background-color:#eef; height:100%; 
+                margin: 0 5px 0 0; padding-right: 5px; color:#999;   
+            }
+            comment {color: #080;} module {color: #804;} 
+            quote {color: #008;} comment>quote {color: #080;}
             .listing { margin: 10px; border: 1px solid #ccc; 
                     font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-                    font-size: 14px; line-height: 1.2em; 
+                    font-size: 14px;  
                     overflow:scroll;
                     height:90%;
             }
             code { padding: 5px 0;}</style></html><body>
                 <h1>src/index.ts</h1>
-                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span>#!/usr/local/bin/node<br>
-<span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>require("./node/core/homeSecMain");<br>
-<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span><br></code></div>
+                <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span>#!/usr/local/bin/node</p>
+<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span>require(<quote>"./node/core/homeSecMain"</quote>);</p>
+<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span></p></code></div>
                 </body>
             
