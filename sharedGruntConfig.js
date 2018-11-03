@@ -256,7 +256,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         watch: {
             dependencies: {
                 files: dependencies.map(d => `./node_modules/${d.toLowerCase()}/index.js`),
-				tasks: ['make']
+				tasks: ['makeShort']
             },
 			gruntfile: {
                 files: ['Gruntfile.js', __dirname+'/sharedGruntConfig.js'], 
