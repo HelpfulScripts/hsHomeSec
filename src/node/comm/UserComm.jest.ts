@@ -2,7 +2,7 @@ import * as user from './UserComm';
 
 
 describe('UserComm', () => {
-    let u;
+    let u:any;
     beforeAll(() => {
         u = {name:'Dude', email:['me@dude.com']};
         user.users.addUser(u);

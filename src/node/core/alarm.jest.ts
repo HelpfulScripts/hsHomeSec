@@ -1,7 +1,7 @@
 import * as al from './alarm';
-import { Settings }     from './Settings';
+import { CfgSettings }     from './CfgSettings';
 
-const settings:Settings = {
+const settings:CfgSettings = {
     "homeSecDir":   "./hshomesec/",
     "alarmText": "Stop!",
     "ftp": {
