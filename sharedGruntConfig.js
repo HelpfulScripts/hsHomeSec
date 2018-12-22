@@ -53,7 +53,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
    
     //------ Add other MultiTasks
     grunt.registerTask('make',      ['build', 'doc', 'test', 'stage']);
-    grunt.registerTask('makeShort', ['build', 'stage']);
+    grunt.registerTask('makeShort', ['build', 'doc', 'stage']);
     grunt.registerTask('once',      ['make']);	
     grunt.registerTask('default',   ['make']);	
     grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
@@ -132,10 +132,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 sourceMap: true
             },
             css: {
-                files: {
-                    'bin/<%= lib %>.css': 'src/css/<%= pkg.name %>.less'
-                }
-            },
+                files: [{
+                    cwd: './', src: 'src/css/<%= pkg.name %>.less', dest: '<%= lib %>.css'
+                }]
+             },
             example: {
                 files: {
                     'docs/example/<%= pkg.name %>.css': `src/example/${libPath}.less`
