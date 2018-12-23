@@ -133,7 +133,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             },
             css: {
                 files: [{
-                    cwd: './', src: 'src/css/<%= pkg.name %>.less', dest: '<%= lib %>.css'
+                    cwd: './', src: 'src/css/<%= pkg.name %>.less', dest: 'bin/<%= lib %>.css'
                 }]
              },
             example: {
