@@ -16,7 +16,13 @@ function cli(args:string[]): boolean {
     let i = 2;
     while (i<args.length) {
         switch (args[i++]) {
-            case '-c': settings.root = args[i++]; break;
+            case '-c':  let path = args[i++]; 
+                        if (path.indexOf('/')===0) { 
+                            settings.root = path; 
+                        } else {
+                            settings.root = `${__dirname}/${path}`; 
+                        }
+                        break;
             case '-r': switch(args[i++]) { 
                 case 'info':    log.level(log.INFO, true); break;
                 case 'debug':   log.level(log.DEBUG, true); break;
@@ -29,7 +35,7 @@ function cli(args:string[]): boolean {
     return true;
 }
 
-log.info(process.argv.join('|'));
 if (cli(process.argv)) {
+    log.info(`${log.inspect(settings)}`);
     ftp.start('', settings);
 }
