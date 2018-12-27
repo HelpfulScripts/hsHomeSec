@@ -13,7 +13,7 @@ Starts an ftp server with following options:
 `;
 
 function cli(args:string[]): boolean {
-    let i = 1;
+    let i = 2;
     while (i<args.length) {
         switch (args[i++]) {
             case '-c': settings.root = args[i++]; break;
@@ -23,14 +23,13 @@ function cli(args:string[]): boolean {
                 case 'warning': log.level(log.WARN, true); break;
                 default: log.level(log.INFO, true); break;
             } break;    
-            case '-h': 
-            default:    log.info(helpText);  
-                        return false;       
+            case '-h': log.info(helpText);  return false;       
         }
     }
     return true;
 }
 
+log.info(process.argv.join('|'));
 if (cli(process.argv)) {
     ftp.start('', settings);
 }
