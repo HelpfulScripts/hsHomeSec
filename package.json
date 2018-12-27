@@ -1,6 +1,6 @@
 {
     "name": "hshomesec",
-    "version": "1.4.9",
+    "version": "1.4.10",
     "main": "./index.js",
     "bin": {
         "hsHomeSec": "./index.js",
