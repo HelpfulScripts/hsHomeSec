@@ -12,6 +12,8 @@ Starts an ftp server with following options:
 -h this help text
 `;
 
+settings.host = '127.0.0.1';
+
 function cli(args:string[]): boolean {
     let i = 2;
     while (i<args.length) {
