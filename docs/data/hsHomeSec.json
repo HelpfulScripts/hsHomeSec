@@ -959,33 +959,6 @@
 							"character": 12
 						}
 					]
-				},
-				{
-					"id": 854,
-					"name": "ftpInit",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {},
-					"signatures": [
-						{
-							"id": 855,
-							"name": "ftpInit",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "hsFTP.ts",
-							"line": 32,
-							"character": 16
-						}
-					]
 				}
 			],
 			"groups": [
@@ -1002,8 +975,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						851,
-						854
+						851
 					]
 				}
 			],
@@ -1016,7 +988,7 @@
 			]
 		},
 		{
-			"id": 856,
+			"id": 854,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3274,7 +3246,7 @@
 			]
 		},
 		{
-			"id": 857,
+			"id": 855,
 			"name": "\"node/comm/httpSrv\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3284,7 +3256,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/comm/httpSrv.ts",
 			"children": [
 				{
-					"id": 914,
+					"id": 912,
 					"name": "commandPort",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3306,7 +3278,7 @@
 					"defaultValue": "999"
 				},
 				{
-					"id": 913,
+					"id": 911,
 					"name": "gServer",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3326,7 +3298,7 @@
 					}
 				},
 				{
-					"id": 858,
+					"id": 856,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3343,21 +3315,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 859,
+							"id": 857,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 860,
+									"id": 858,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 861,
+											"id": 859,
 											"name": "_prefix",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3368,7 +3340,7 @@
 											}
 										},
 										{
-											"id": 862,
+											"id": 860,
 											"name": "logToFile",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3381,7 +3353,7 @@
 											}
 										},
 										{
-											"id": 863,
+											"id": 861,
 											"name": "pathExists",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3402,7 +3374,7 @@
 							],
 							"children": [
 								{
-									"id": 864,
+									"id": 862,
 									"name": "DEBUG",
 									"kind": 32,
 									"kindString": "Variable",
@@ -3420,7 +3392,7 @@
 									}
 								},
 								{
-									"id": 867,
+									"id": 865,
 									"name": "ERROR",
 									"kind": 32,
 									"kindString": "Variable",
@@ -3438,7 +3410,7 @@
 									}
 								},
 								{
-									"id": 865,
+									"id": 863,
 									"name": "INFO",
 									"kind": 32,
 									"kindString": "Variable",
@@ -3456,7 +3428,7 @@
 									}
 								},
 								{
-									"id": 866,
+									"id": 864,
 									"name": "WARN",
 									"kind": 32,
 									"kindString": "Variable",
@@ -3474,21 +3446,21 @@
 									}
 								},
 								{
-									"id": 902,
+									"id": 900,
 									"name": "config",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 903,
+											"id": 901,
 											"name": "config",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 904,
+													"id": 902,
 													"name": "cfg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3496,14 +3468,14 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 905,
+															"id": 903,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"children": [
 																{
-																	"id": 906,
+																	"id": 904,
 																	"name": "colors",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -3523,7 +3495,7 @@
 																	}
 																},
 																{
-																	"id": 907,
+																	"id": 905,
 																	"name": "format",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -3543,7 +3515,7 @@
 																	}
 																},
 																{
-																	"id": 908,
+																	"id": 906,
 																	"name": "level",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -3568,9 +3540,9 @@
 																	"title": "Variables",
 																	"kind": 32,
 																	"children": [
-																		906,
-																		907,
-																		908
+																		904,
+																		905,
+																		906
 																	]
 																}
 															],
@@ -3600,21 +3572,21 @@
 									]
 								},
 								{
-									"id": 872,
+									"id": 870,
 									"name": "debug",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 873,
+											"id": 871,
 											"name": "debug",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 874,
+													"id": 872,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3625,7 +3597,7 @@
 													}
 												},
 												{
-													"id": 875,
+													"id": 873,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3659,21 +3631,21 @@
 									]
 								},
 								{
-									"id": 884,
+									"id": 882,
 									"name": "error",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 885,
+											"id": 883,
 											"name": "error",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 886,
+													"id": 884,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3684,7 +3656,7 @@
 													}
 												},
 												{
-													"id": 887,
+													"id": 885,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3718,21 +3690,21 @@
 									]
 								},
 								{
-									"id": 896,
+									"id": 894,
 									"name": "format",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 897,
+											"id": 895,
 											"name": "format",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 898,
+													"id": 896,
 													"name": "fmtStr",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3760,21 +3732,21 @@
 									]
 								},
 								{
-									"id": 876,
+									"id": 874,
 									"name": "info",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 877,
+											"id": 875,
 											"name": "info",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 878,
+													"id": 876,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3785,7 +3757,7 @@
 													}
 												},
 												{
-													"id": 879,
+													"id": 877,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3819,21 +3791,21 @@
 									]
 								},
 								{
-									"id": 909,
+									"id": 907,
 									"name": "inspect",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 910,
+											"id": 908,
 											"name": "inspect",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 911,
+													"id": 909,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3844,7 +3816,7 @@
 													}
 												},
 												{
-													"id": 912,
+													"id": 910,
 													"name": "depth",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3872,21 +3844,21 @@
 									]
 								},
 								{
-									"id": 868,
+									"id": 866,
 									"name": "level",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 869,
+											"id": 867,
 											"name": "level",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 870,
+													"id": 868,
 													"name": "newLevelSym",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3899,7 +3871,7 @@
 													}
 												},
 												{
-													"id": 871,
+													"id": 869,
 													"name": "setGlobalLevel",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3927,21 +3899,21 @@
 									]
 								},
 								{
-									"id": 893,
+									"id": 891,
 									"name": "logFile",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 894,
+											"id": 892,
 											"name": "logFile",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 895,
+													"id": 893,
 													"name": "file",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3975,21 +3947,21 @@
 									]
 								},
 								{
-									"id": 888,
+									"id": 886,
 									"name": "out",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 889,
+											"id": 887,
 											"name": "out",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 890,
+													"id": 888,
 													"name": "lvl",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -4000,7 +3972,7 @@
 													}
 												},
 												{
-													"id": 891,
+													"id": 889,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -4011,7 +3983,7 @@
 													}
 												},
 												{
-													"id": 892,
+													"id": 890,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -4045,21 +4017,21 @@
 									]
 								},
 								{
-									"id": 899,
+									"id": 897,
 									"name": "prefix",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 900,
+											"id": 898,
 											"name": "prefix",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 901,
+													"id": 899,
 													"name": "prf",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -4087,21 +4059,21 @@
 									]
 								},
 								{
-									"id": 880,
+									"id": 878,
 									"name": "warn",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 881,
+											"id": 879,
 											"name": "warn",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 882,
+													"id": 880,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -4112,7 +4084,7 @@
 													}
 												},
 												{
-													"id": 883,
+													"id": 881,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -4151,27 +4123,27 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										864,
-										867,
+										862,
 										865,
-										866
+										863,
+										864
 									]
 								},
 								{
 									"title": "Functions",
 									"kind": 64,
 									"children": [
-										902,
-										872,
-										884,
-										896,
-										876,
-										909,
-										868,
-										893,
-										888,
-										899,
-										880
+										900,
+										870,
+										882,
+										894,
+										874,
+										907,
+										866,
+										891,
+										886,
+										897,
+										878
 									]
 								}
 							]
@@ -4180,14 +4152,14 @@
 					"defaultValue": " gLog('httpSrv')"
 				},
 				{
-					"id": 923,
+					"id": 921,
 					"name": "onRequest",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 924,
+							"id": 922,
 							"name": "onRequest",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4197,7 +4169,7 @@
 							},
 							"parameters": [
 								{
-									"id": 925,
+									"id": 923,
 									"name": "request",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4209,7 +4181,7 @@
 									}
 								},
 								{
-									"id": 926,
+									"id": 924,
 									"name": "response",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4238,7 +4210,7 @@
 					]
 				},
 				{
-					"id": 915,
+					"id": 913,
 					"name": "start",
 					"kind": 64,
 					"kindString": "Function",
@@ -4247,7 +4219,7 @@
 					},
 					"signatures": [
 						{
-							"id": 916,
+							"id": 914,
 							"name": "start",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4267,7 +4239,7 @@
 					]
 				},
 				{
-					"id": 917,
+					"id": 915,
 					"name": "stop",
 					"kind": 64,
 					"kindString": "Function",
@@ -4276,7 +4248,7 @@
 					},
 					"signatures": [
 						{
-							"id": 918,
+							"id": 916,
 							"name": "stop",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4296,21 +4268,21 @@
 					]
 				},
 				{
-					"id": 919,
+					"id": 917,
 					"name": "writeHeader",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 920,
+							"id": 918,
 							"name": "writeHeader",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 921,
+									"id": 919,
 									"name": "response",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4321,7 +4293,7 @@
 									}
 								},
 								{
-									"id": 922,
+									"id": 920,
 									"name": "allowed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4352,19 +4324,19 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						914,
-						913,
-						858
+						912,
+						911,
+						856
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						923,
+						921,
+						913,
 						915,
-						917,
-						919
+						917
 					]
 				}
 			],
@@ -8945,7 +8917,7 @@
 			]
 		},
 		{
-			"id": 1248,
+			"id": 1246,
 			"name": "\"node/core/Init\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -8955,7 +8927,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/Init.ts",
 			"children": [
 				{
-					"id": 1304,
+					"id": 1302,
 					"name": "cmdList",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8993,7 +8965,7 @@
 					"defaultValue": " [\n    [Exec.helpFn,        'help'],\n    [Exec.facetimeFn,    'facetime'],\n    [Exec.armFn,         'arm',      '[away]'],\n    [Exec.disarmFn,      'disarm'],\n    [Exec.disarmFn,      'relax'],\n    [Exec.armingStatusFn,'status'],\n    [Exec.snapFn,        'snap',     '[%name%]'],\n    [Exec.lightFn,       'light',    'on|off'],\n    [Exec.restartFn,     'restart'],\n    [Exec.camPreset,     'preset',   '%name%',   '%index%'],\n    [Exec.getlog,        'log']\n]"
 				},
 				{
-					"id": 1249,
+					"id": 1247,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9010,21 +8982,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 1250,
+							"id": 1248,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1251,
+									"id": 1249,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1252,
+											"id": 1250,
 											"name": "_prefix",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9035,7 +9007,7 @@
 											}
 										},
 										{
-											"id": 1253,
+											"id": 1251,
 											"name": "logToFile",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9048,7 +9020,7 @@
 											}
 										},
 										{
-											"id": 1254,
+											"id": 1252,
 											"name": "pathExists",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9069,7 +9041,7 @@
 							],
 							"children": [
 								{
-									"id": 1255,
+									"id": 1253,
 									"name": "DEBUG",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9087,7 +9059,7 @@
 									}
 								},
 								{
-									"id": 1258,
+									"id": 1256,
 									"name": "ERROR",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9105,7 +9077,7 @@
 									}
 								},
 								{
-									"id": 1256,
+									"id": 1254,
 									"name": "INFO",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9123,7 +9095,7 @@
 									}
 								},
 								{
-									"id": 1257,
+									"id": 1255,
 									"name": "WARN",
 									"kind": 32,
 									"kindString": "Variable",
@@ -9141,21 +9113,21 @@
 									}
 								},
 								{
-									"id": 1293,
+									"id": 1291,
 									"name": "config",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1294,
+											"id": 1292,
 											"name": "config",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1295,
+													"id": 1293,
 													"name": "cfg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9163,14 +9135,14 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 1296,
+															"id": 1294,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"children": [
 																{
-																	"id": 1297,
+																	"id": 1295,
 																	"name": "colors",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -9190,7 +9162,7 @@
 																	}
 																},
 																{
-																	"id": 1298,
+																	"id": 1296,
 																	"name": "format",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -9210,7 +9182,7 @@
 																	}
 																},
 																{
-																	"id": 1299,
+																	"id": 1297,
 																	"name": "level",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -9235,9 +9207,9 @@
 																	"title": "Variables",
 																	"kind": 32,
 																	"children": [
-																		1297,
-																		1298,
-																		1299
+																		1295,
+																		1296,
+																		1297
 																	]
 																}
 															],
@@ -9267,21 +9239,21 @@
 									]
 								},
 								{
-									"id": 1263,
+									"id": 1261,
 									"name": "debug",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1264,
+											"id": 1262,
 											"name": "debug",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1265,
+													"id": 1263,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9292,7 +9264,7 @@
 													}
 												},
 												{
-													"id": 1266,
+													"id": 1264,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9326,21 +9298,21 @@
 									]
 								},
 								{
-									"id": 1275,
+									"id": 1273,
 									"name": "error",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1276,
+											"id": 1274,
 											"name": "error",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1277,
+													"id": 1275,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9351,7 +9323,7 @@
 													}
 												},
 												{
-													"id": 1278,
+													"id": 1276,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9385,21 +9357,21 @@
 									]
 								},
 								{
-									"id": 1287,
+									"id": 1285,
 									"name": "format",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1288,
+											"id": 1286,
 											"name": "format",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1289,
+													"id": 1287,
 													"name": "fmtStr",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9427,21 +9399,21 @@
 									]
 								},
 								{
-									"id": 1267,
+									"id": 1265,
 									"name": "info",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1268,
+											"id": 1266,
 											"name": "info",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1269,
+													"id": 1267,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9452,7 +9424,7 @@
 													}
 												},
 												{
-													"id": 1270,
+													"id": 1268,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9486,21 +9458,21 @@
 									]
 								},
 								{
-									"id": 1300,
+									"id": 1298,
 									"name": "inspect",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1301,
+											"id": 1299,
 											"name": "inspect",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1302,
+													"id": 1300,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9511,7 +9483,7 @@
 													}
 												},
 												{
-													"id": 1303,
+													"id": 1301,
 													"name": "depth",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9539,21 +9511,21 @@
 									]
 								},
 								{
-									"id": 1259,
+									"id": 1257,
 									"name": "level",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1260,
+											"id": 1258,
 											"name": "level",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1261,
+													"id": 1259,
 													"name": "newLevelSym",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9566,7 +9538,7 @@
 													}
 												},
 												{
-													"id": 1262,
+													"id": 1260,
 													"name": "setGlobalLevel",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9594,21 +9566,21 @@
 									]
 								},
 								{
-									"id": 1284,
+									"id": 1282,
 									"name": "logFile",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1285,
+											"id": 1283,
 											"name": "logFile",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1286,
+													"id": 1284,
 													"name": "file",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9642,21 +9614,21 @@
 									]
 								},
 								{
-									"id": 1279,
+									"id": 1277,
 									"name": "out",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1280,
+											"id": 1278,
 											"name": "out",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1281,
+													"id": 1279,
 													"name": "lvl",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9667,7 +9639,7 @@
 													}
 												},
 												{
-													"id": 1282,
+													"id": 1280,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9678,7 +9650,7 @@
 													}
 												},
 												{
-													"id": 1283,
+													"id": 1281,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9712,21 +9684,21 @@
 									]
 								},
 								{
-									"id": 1290,
+									"id": 1288,
 									"name": "prefix",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1291,
+											"id": 1289,
 											"name": "prefix",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1292,
+													"id": 1290,
 													"name": "prf",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9754,21 +9726,21 @@
 									]
 								},
 								{
-									"id": 1271,
+									"id": 1269,
 									"name": "warn",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1272,
+											"id": 1270,
 											"name": "warn",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1273,
+													"id": 1271,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9779,7 +9751,7 @@
 													}
 												},
 												{
-													"id": 1274,
+													"id": 1272,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -9818,27 +9790,27 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1255,
-										1258,
+										1253,
 										1256,
-										1257
+										1254,
+										1255
 									]
 								},
 								{
 									"title": "Functions",
 									"kind": 64,
 									"children": [
-										1293,
-										1263,
-										1275,
-										1287,
-										1267,
-										1300,
-										1259,
-										1284,
-										1279,
-										1290,
-										1271
+										1291,
+										1261,
+										1273,
+										1285,
+										1265,
+										1298,
+										1257,
+										1282,
+										1277,
+										1288,
+										1269
 									]
 								}
 							]
@@ -9847,14 +9819,14 @@
 					"defaultValue": " node.log('Init')"
 				},
 				{
-					"id": 1305,
+					"id": 1303,
 					"name": "addCommands",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1306,
+							"id": 1304,
 							"name": "addCommands",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9874,21 +9846,21 @@
 					]
 				},
 				{
-					"id": 1307,
+					"id": 1305,
 					"name": "createDevices",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1308,
+							"id": 1306,
 							"name": "createDevices",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1309,
+									"id": 1307,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9915,7 +9887,7 @@
 					]
 				},
 				{
-					"id": 1321,
+					"id": 1319,
 					"name": "initDevices",
 					"kind": 64,
 					"kindString": "Function",
@@ -9925,14 +9897,14 @@
 					},
 					"signatures": [
 						{
-							"id": 1322,
+							"id": 1320,
 							"name": "initDevices",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1323,
+									"id": 1321,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9960,14 +9932,14 @@
 					]
 				},
 				{
-					"id": 1313,
+					"id": 1311,
 					"name": "setDevicesTime",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1314,
+							"id": 1312,
 							"name": "setDevicesTime",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9987,7 +9959,7 @@
 					]
 				},
 				{
-					"id": 1324,
+					"id": 1322,
 					"name": "startScheduledTasks",
 					"kind": 64,
 					"kindString": "Function",
@@ -9996,14 +9968,14 @@
 					},
 					"signatures": [
 						{
-							"id": 1325,
+							"id": 1323,
 							"name": "startScheduledTasks",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1326,
+									"id": 1324,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10030,7 +10002,7 @@
 					]
 				},
 				{
-					"id": 1315,
+					"id": 1313,
 					"name": "startSecuritySystem",
 					"kind": 64,
 					"kindString": "Function",
@@ -10040,14 +10012,14 @@
 					},
 					"signatures": [
 						{
-							"id": 1316,
+							"id": 1314,
 							"name": "startSecuritySystem",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1317,
+									"id": 1315,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10075,7 +10047,7 @@
 					]
 				},
 				{
-					"id": 1318,
+					"id": 1316,
 					"name": "startSecuritySystemTestMode",
 					"kind": 64,
 					"kindString": "Function",
@@ -10085,14 +10057,14 @@
 					},
 					"signatures": [
 						{
-							"id": 1319,
+							"id": 1317,
 							"name": "startSecuritySystemTestMode",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1320,
+									"id": 1318,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10120,21 +10092,21 @@
 					]
 				},
 				{
-					"id": 1310,
+					"id": 1308,
 					"name": "wifiCheck",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1311,
+							"id": 1309,
 							"name": "wifiCheck",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1312,
+									"id": 1310,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10166,22 +10138,22 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1304,
-						1249
+						1302,
+						1247
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
+						1303,
 						1305,
-						1307,
-						1321,
+						1319,
+						1311,
+						1322,
 						1313,
-						1324,
-						1315,
-						1318,
-						1310
+						1316,
+						1308
 					]
 				}
 			],
@@ -11192,7 +11164,7 @@
 			]
 		},
 		{
-			"id": 1327,
+			"id": 1325,
 			"name": "\"node/core/homeSecMain\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -11205,7 +11177,7 @@
 			},
 			"children": [
 				{
-					"id": 1328,
+					"id": 1326,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -11222,21 +11194,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 1329,
+							"id": 1327,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1330,
+									"id": 1328,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1331,
+											"id": 1329,
 											"name": "_prefix",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -11247,7 +11219,7 @@
 											}
 										},
 										{
-											"id": 1332,
+											"id": 1330,
 											"name": "logToFile",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -11260,7 +11232,7 @@
 											}
 										},
 										{
-											"id": 1333,
+											"id": 1331,
 											"name": "pathExists",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -11281,7 +11253,7 @@
 							],
 							"children": [
 								{
-									"id": 1334,
+									"id": 1332,
 									"name": "DEBUG",
 									"kind": 32,
 									"kindString": "Variable",
@@ -11299,7 +11271,7 @@
 									}
 								},
 								{
-									"id": 1337,
+									"id": 1335,
 									"name": "ERROR",
 									"kind": 32,
 									"kindString": "Variable",
@@ -11317,7 +11289,7 @@
 									}
 								},
 								{
-									"id": 1335,
+									"id": 1333,
 									"name": "INFO",
 									"kind": 32,
 									"kindString": "Variable",
@@ -11335,7 +11307,7 @@
 									}
 								},
 								{
-									"id": 1336,
+									"id": 1334,
 									"name": "WARN",
 									"kind": 32,
 									"kindString": "Variable",
@@ -11353,21 +11325,21 @@
 									}
 								},
 								{
-									"id": 1372,
+									"id": 1370,
 									"name": "config",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1373,
+											"id": 1371,
 											"name": "config",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1374,
+													"id": 1372,
 													"name": "cfg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11375,14 +11347,14 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 1375,
+															"id": 1373,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"children": [
 																{
-																	"id": 1376,
+																	"id": 1374,
 																	"name": "colors",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -11402,7 +11374,7 @@
 																	}
 																},
 																{
-																	"id": 1377,
+																	"id": 1375,
 																	"name": "format",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -11422,7 +11394,7 @@
 																	}
 																},
 																{
-																	"id": 1378,
+																	"id": 1376,
 																	"name": "level",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -11447,9 +11419,9 @@
 																	"title": "Variables",
 																	"kind": 32,
 																	"children": [
-																		1376,
-																		1377,
-																		1378
+																		1374,
+																		1375,
+																		1376
 																	]
 																}
 															],
@@ -11479,21 +11451,21 @@
 									]
 								},
 								{
-									"id": 1342,
+									"id": 1340,
 									"name": "debug",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1343,
+											"id": 1341,
 											"name": "debug",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1344,
+													"id": 1342,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11504,7 +11476,7 @@
 													}
 												},
 												{
-													"id": 1345,
+													"id": 1343,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11538,21 +11510,21 @@
 									]
 								},
 								{
-									"id": 1354,
+									"id": 1352,
 									"name": "error",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1355,
+											"id": 1353,
 											"name": "error",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1356,
+													"id": 1354,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11563,7 +11535,7 @@
 													}
 												},
 												{
-													"id": 1357,
+													"id": 1355,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11597,21 +11569,21 @@
 									]
 								},
 								{
-									"id": 1366,
+									"id": 1364,
 									"name": "format",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1367,
+											"id": 1365,
 											"name": "format",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1368,
+													"id": 1366,
 													"name": "fmtStr",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11639,21 +11611,21 @@
 									]
 								},
 								{
-									"id": 1346,
+									"id": 1344,
 									"name": "info",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1347,
+											"id": 1345,
 											"name": "info",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1348,
+													"id": 1346,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11664,7 +11636,7 @@
 													}
 												},
 												{
-													"id": 1349,
+													"id": 1347,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11698,21 +11670,21 @@
 									]
 								},
 								{
-									"id": 1379,
+									"id": 1377,
 									"name": "inspect",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1380,
+											"id": 1378,
 											"name": "inspect",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1381,
+													"id": 1379,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11723,7 +11695,7 @@
 													}
 												},
 												{
-													"id": 1382,
+													"id": 1380,
 													"name": "depth",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11751,21 +11723,21 @@
 									]
 								},
 								{
-									"id": 1338,
+									"id": 1336,
 									"name": "level",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1339,
+											"id": 1337,
 											"name": "level",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1340,
+													"id": 1338,
 													"name": "newLevelSym",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11778,7 +11750,7 @@
 													}
 												},
 												{
-													"id": 1341,
+													"id": 1339,
 													"name": "setGlobalLevel",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11806,21 +11778,21 @@
 									]
 								},
 								{
-									"id": 1363,
+									"id": 1361,
 									"name": "logFile",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1364,
+											"id": 1362,
 											"name": "logFile",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1365,
+													"id": 1363,
 													"name": "file",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11854,21 +11826,21 @@
 									]
 								},
 								{
-									"id": 1358,
+									"id": 1356,
 									"name": "out",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1359,
+											"id": 1357,
 											"name": "out",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1360,
+													"id": 1358,
 													"name": "lvl",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11879,7 +11851,7 @@
 													}
 												},
 												{
-													"id": 1361,
+													"id": 1359,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11890,7 +11862,7 @@
 													}
 												},
 												{
-													"id": 1362,
+													"id": 1360,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11924,21 +11896,21 @@
 									]
 								},
 								{
-									"id": 1369,
+									"id": 1367,
 									"name": "prefix",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1370,
+											"id": 1368,
 											"name": "prefix",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1371,
+													"id": 1369,
 													"name": "prf",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11966,21 +11938,21 @@
 									]
 								},
 								{
-									"id": 1350,
+									"id": 1348,
 									"name": "warn",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1351,
+											"id": 1349,
 											"name": "warn",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1352,
+													"id": 1350,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -11991,7 +11963,7 @@
 													}
 												},
 												{
-													"id": 1353,
+													"id": 1351,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -12030,27 +12002,27 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1334,
-										1337,
+										1332,
 										1335,
-										1336
+										1333,
+										1334
 									]
 								},
 								{
 									"title": "Functions",
 									"kind": 64,
 									"children": [
-										1372,
-										1342,
-										1354,
-										1366,
-										1346,
-										1379,
-										1338,
-										1363,
-										1358,
-										1369,
-										1350
+										1370,
+										1340,
+										1352,
+										1364,
+										1344,
+										1377,
+										1336,
+										1361,
+										1356,
+										1367,
+										1348
 									]
 								}
 							]
@@ -12059,21 +12031,21 @@
 					"defaultValue": " gLog('hsMain')"
 				},
 				{
-					"id": 1385,
+					"id": 1383,
 					"name": "cli",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1386,
+							"id": 1384,
 							"name": "cli",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1387,
+									"id": 1385,
 									"name": "args",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12108,21 +12080,21 @@
 					]
 				},
 				{
-					"id": 1388,
+					"id": 1386,
 					"name": "ftpInit",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1389,
+							"id": 1387,
 							"name": "ftpInit",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1390,
+									"id": 1388,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12150,14 +12122,14 @@
 					]
 				},
 				{
-					"id": 1391,
+					"id": 1389,
 					"name": "start",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1392,
+							"id": 1390,
 							"name": "start",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12183,7 +12155,7 @@
 					]
 				},
 				{
-					"id": 1383,
+					"id": 1381,
 					"name": "cliParams",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -12192,7 +12164,7 @@
 					},
 					"children": [
 						{
-							"id": 1384,
+							"id": 1382,
 							"name": "ftpServer",
 							"kind": 32,
 							"kindString": "Variable",
@@ -12216,7 +12188,7 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								1384
+								1382
 							]
 						}
 					],
@@ -12238,23 +12210,23 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1328
+						1326
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1385,
-						1388,
-						1391
+						1383,
+						1386,
+						1389
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						1383
+						1381
 					]
 				}
 			],
@@ -14471,12 +14443,12 @@
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 928
+							"id": 926
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 1050
+							"id": 1048
 						}
 					],
 					"implementedTypes": [
@@ -16581,12 +16553,12 @@
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 928
+							"id": 926
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 1050
+							"id": 1048
 						}
 					]
 				},
@@ -17290,12 +17262,12 @@
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 928
+							"id": 926
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 1050
+							"id": 1048
 						}
 					]
 				},
@@ -17587,12 +17559,12 @@
 						{
 							"type": "reference",
 							"name": "Foscam",
-							"id": 928
+							"id": 926
 						},
 						{
 							"type": "reference",
 							"name": "WansView",
-							"id": 1050
+							"id": 1048
 						}
 					]
 				},
@@ -18729,7 +18701,7 @@
 			]
 		},
 		{
-			"id": 927,
+			"id": 925,
 			"name": "\"node/device/Foscam\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -18739,7 +18711,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/device/Foscam.ts",
 			"children": [
 				{
-					"id": 928,
+					"id": 926,
 					"name": "Foscam",
 					"kind": 128,
 					"kindString": "Class",
@@ -18748,7 +18720,7 @@
 					},
 					"children": [
 						{
-							"id": 930,
+							"id": 928,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -18757,14 +18729,14 @@
 							},
 							"signatures": [
 								{
-									"id": 931,
+									"id": 929,
 									"name": "new Foscam",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 932,
+											"id": 930,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18776,7 +18748,7 @@
 											}
 										},
 										{
-											"id": 933,
+											"id": 931,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18791,7 +18763,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Foscam",
-										"id": 928
+										"id": 926
 									},
 									"overwrites": {
 										"type": "reference",
@@ -18814,7 +18786,7 @@
 							}
 						},
 						{
-							"id": 952,
+							"id": 950,
 							"name": "armed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -18841,7 +18813,7 @@
 							}
 						},
 						{
-							"id": 978,
+							"id": 976,
 							"name": "log",
 							"kind": 1024,
 							"kindString": "Property",
@@ -18859,21 +18831,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 979,
+									"id": 977,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 980,
+											"id": 978,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 981,
+													"id": 979,
 													"name": "_prefix",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -18884,7 +18856,7 @@
 													}
 												},
 												{
-													"id": 982,
+													"id": 980,
 													"name": "logToFile",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -18897,7 +18869,7 @@
 													}
 												},
 												{
-													"id": 983,
+													"id": 981,
 													"name": "pathExists",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -18918,7 +18890,7 @@
 									],
 									"children": [
 										{
-											"id": 984,
+											"id": 982,
 											"name": "DEBUG",
 											"kind": 32,
 											"kindString": "Variable",
@@ -18936,7 +18908,7 @@
 											}
 										},
 										{
-											"id": 987,
+											"id": 985,
 											"name": "ERROR",
 											"kind": 32,
 											"kindString": "Variable",
@@ -18954,7 +18926,7 @@
 											}
 										},
 										{
-											"id": 985,
+											"id": 983,
 											"name": "INFO",
 											"kind": 32,
 											"kindString": "Variable",
@@ -18972,7 +18944,7 @@
 											}
 										},
 										{
-											"id": 986,
+											"id": 984,
 											"name": "WARN",
 											"kind": 32,
 											"kindString": "Variable",
@@ -18990,21 +18962,21 @@
 											}
 										},
 										{
-											"id": 1022,
+											"id": 1020,
 											"name": "config",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1023,
+													"id": 1021,
 													"name": "config",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1024,
+															"id": 1022,
 															"name": "cfg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19012,14 +18984,14 @@
 															"type": {
 																"type": "reflection",
 																"declaration": {
-																	"id": 1025,
+																	"id": 1023,
 																	"name": "__type",
 																	"kind": 65536,
 																	"kindString": "Type literal",
 																	"flags": {},
 																	"children": [
 																		{
-																			"id": 1026,
+																			"id": 1024,
 																			"name": "colors",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -19039,7 +19011,7 @@
 																			}
 																		},
 																		{
-																			"id": 1027,
+																			"id": 1025,
 																			"name": "format",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -19059,7 +19031,7 @@
 																			}
 																		},
 																		{
-																			"id": 1028,
+																			"id": 1026,
 																			"name": "level",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -19084,9 +19056,9 @@
 																			"title": "Variables",
 																			"kind": 32,
 																			"children": [
-																				1026,
-																				1027,
-																				1028
+																				1024,
+																				1025,
+																				1026
 																			]
 																		}
 																	],
@@ -19116,21 +19088,21 @@
 											]
 										},
 										{
-											"id": 992,
+											"id": 990,
 											"name": "debug",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 993,
+													"id": 991,
 													"name": "debug",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 994,
+															"id": 992,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19141,7 +19113,7 @@
 															}
 														},
 														{
-															"id": 995,
+															"id": 993,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19175,21 +19147,21 @@
 											]
 										},
 										{
-											"id": 1004,
+											"id": 1002,
 											"name": "error",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1005,
+													"id": 1003,
 													"name": "error",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1006,
+															"id": 1004,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19200,7 +19172,7 @@
 															}
 														},
 														{
-															"id": 1007,
+															"id": 1005,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19234,21 +19206,21 @@
 											]
 										},
 										{
-											"id": 1016,
+											"id": 1014,
 											"name": "format",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1017,
+													"id": 1015,
 													"name": "format",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1018,
+															"id": 1016,
 															"name": "fmtStr",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19276,21 +19248,21 @@
 											]
 										},
 										{
-											"id": 996,
+											"id": 994,
 											"name": "info",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 997,
+													"id": 995,
 													"name": "info",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 998,
+															"id": 996,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19301,7 +19273,7 @@
 															}
 														},
 														{
-															"id": 999,
+															"id": 997,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19335,21 +19307,21 @@
 											]
 										},
 										{
-											"id": 1029,
+											"id": 1027,
 											"name": "inspect",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1030,
+													"id": 1028,
 													"name": "inspect",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1031,
+															"id": 1029,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19360,7 +19332,7 @@
 															}
 														},
 														{
-															"id": 1032,
+															"id": 1030,
 															"name": "depth",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19388,21 +19360,21 @@
 											]
 										},
 										{
-											"id": 988,
+											"id": 986,
 											"name": "level",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 989,
+													"id": 987,
 													"name": "level",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 990,
+															"id": 988,
 															"name": "newLevelSym",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19415,7 +19387,7 @@
 															}
 														},
 														{
-															"id": 991,
+															"id": 989,
 															"name": "setGlobalLevel",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19443,21 +19415,21 @@
 											]
 										},
 										{
-											"id": 1013,
+											"id": 1011,
 											"name": "logFile",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1014,
+													"id": 1012,
 													"name": "logFile",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1015,
+															"id": 1013,
 															"name": "file",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19491,21 +19463,21 @@
 											]
 										},
 										{
-											"id": 1008,
+											"id": 1006,
 											"name": "out",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1009,
+													"id": 1007,
 													"name": "out",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1010,
+															"id": 1008,
 															"name": "lvl",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19516,7 +19488,7 @@
 															}
 														},
 														{
-															"id": 1011,
+															"id": 1009,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19527,7 +19499,7 @@
 															}
 														},
 														{
-															"id": 1012,
+															"id": 1010,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19561,21 +19533,21 @@
 											]
 										},
 										{
-											"id": 1019,
+											"id": 1017,
 											"name": "prefix",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1020,
+													"id": 1018,
 													"name": "prefix",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1021,
+															"id": 1019,
 															"name": "prf",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19603,21 +19575,21 @@
 											]
 										},
 										{
-											"id": 1000,
+											"id": 998,
 											"name": "warn",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1001,
+													"id": 999,
 													"name": "warn",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1002,
+															"id": 1000,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19628,7 +19600,7 @@
 															}
 														},
 														{
-															"id": 1003,
+															"id": 1001,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -19667,27 +19639,27 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												984,
-												987,
+												982,
 												985,
-												986
+												983,
+												984
 											]
 										},
 										{
 											"title": "Functions",
 											"kind": 64,
 											"children": [
-												1022,
-												992,
-												1004,
-												1016,
-												996,
-												1029,
-												988,
-												1013,
-												1008,
-												1019,
-												1000
+												1020,
+												990,
+												1002,
+												1014,
+												994,
+												1027,
+												986,
+												1011,
+												1006,
+												1017,
+												998
 											]
 										}
 									],
@@ -19707,7 +19679,7 @@
 							}
 						},
 						{
-							"id": 929,
+							"id": 927,
 							"name": "path",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19729,7 +19701,7 @@
 							"defaultValue": "\"\""
 						},
 						{
-							"id": 949,
+							"id": 947,
 							"name": "arm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -19738,7 +19710,7 @@
 							},
 							"signatures": [
 								{
-									"id": 950,
+									"id": 948,
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -19749,7 +19721,7 @@
 									},
 									"parameters": [
 										{
-											"id": 951,
+											"id": 949,
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19801,7 +19773,7 @@
 							}
 						},
 						{
-							"id": 947,
+							"id": 945,
 							"name": "armStatus",
 							"kind": 2048,
 							"kindString": "Method",
@@ -19810,7 +19782,7 @@
 							},
 							"signatures": [
 								{
-									"id": 948,
+									"id": 946,
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -19860,7 +19832,7 @@
 							}
 						},
 						{
-							"id": 972,
+							"id": 970,
 							"name": "getAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -19869,7 +19841,7 @@
 							},
 							"signatures": [
 								{
-									"id": 973,
+									"id": 971,
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -19909,7 +19881,7 @@
 							}
 						},
 						{
-							"id": 941,
+							"id": 939,
 							"name": "getFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -19918,7 +19890,7 @@
 							},
 							"signatures": [
 								{
-									"id": 942,
+									"id": 940,
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -19967,7 +19939,7 @@
 							}
 						},
 						{
-							"id": 1039,
+							"id": 1037,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -19976,7 +19948,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1040,
+									"id": 1038,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20016,7 +19988,7 @@
 							}
 						},
 						{
-							"id": 964,
+							"id": 962,
 							"name": "getRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20025,7 +19997,7 @@
 							},
 							"signatures": [
 								{
-									"id": 965,
+									"id": 963,
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20071,7 +20043,7 @@
 							}
 						},
 						{
-							"id": 1037,
+							"id": 1035,
 							"name": "getSettings",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20080,7 +20052,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1038,
+									"id": 1036,
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20121,7 +20093,7 @@
 							}
 						},
 						{
-							"id": 955,
+							"id": 953,
 							"name": "hasAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20130,7 +20102,7 @@
 							},
 							"signatures": [
 								{
-									"id": 956,
+									"id": 954,
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20180,7 +20152,7 @@
 							}
 						},
 						{
-							"id": 1033,
+							"id": 1031,
 							"name": "hasAudio",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20189,7 +20161,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1034,
+									"id": 1032,
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20229,7 +20201,7 @@
 							}
 						},
 						{
-							"id": 1035,
+							"id": 1033,
 							"name": "hasMotionAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20238,7 +20210,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1036,
+									"id": 1034,
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20268,7 +20240,7 @@
 							}
 						},
 						{
-							"id": 959,
+							"id": 957,
 							"name": "hasPTZ",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20277,7 +20249,7 @@
 							},
 							"signatures": [
 								{
-									"id": 960,
+									"id": 958,
 									"name": "hasPTZ",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20317,7 +20289,7 @@
 							}
 						},
 						{
-							"id": 953,
+							"id": 951,
 							"name": "hasVideo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20326,7 +20298,7 @@
 							},
 							"signatures": [
 								{
-									"id": 954,
+									"id": 952,
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20376,7 +20348,7 @@
 							}
 						},
 						{
-							"id": 934,
+							"id": 932,
 							"name": "initDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20385,14 +20357,14 @@
 							},
 							"signatures": [
 								{
-									"id": 935,
+									"id": 933,
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 936,
+											"id": 934,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -20445,7 +20417,7 @@
 							}
 						},
 						{
-							"id": 957,
+							"id": 955,
 							"name": "isArmed",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20454,7 +20426,7 @@
 							},
 							"signatures": [
 								{
-									"id": 958,
+									"id": 956,
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20494,7 +20466,7 @@
 							}
 						},
 						{
-							"id": 966,
+							"id": 964,
 							"name": "ptzPreset",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20503,7 +20475,7 @@
 							},
 							"signatures": [
 								{
-									"id": 967,
+									"id": 965,
 									"name": "ptzPreset",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20513,7 +20485,7 @@
 									},
 									"parameters": [
 										{
-											"id": 968,
+											"id": 966,
 											"name": "index",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -20568,7 +20540,7 @@
 							}
 						},
 						{
-							"id": 974,
+							"id": 972,
 							"name": "sendCommandToDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20578,7 +20550,7 @@
 							},
 							"signatures": [
 								{
-									"id": 975,
+									"id": 973,
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20588,7 +20560,7 @@
 									},
 									"parameters": [
 										{
-											"id": 976,
+											"id": 974,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -20602,7 +20574,7 @@
 											}
 										},
 										{
-											"id": 977,
+											"id": 975,
 											"name": "referer",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -20646,7 +20618,7 @@
 							}
 						},
 						{
-							"id": 969,
+							"id": 967,
 							"name": "setAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20655,7 +20627,7 @@
 							},
 							"signatures": [
 								{
-									"id": 970,
+									"id": 968,
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20666,7 +20638,7 @@
 									},
 									"parameters": [
 										{
-											"id": 971,
+											"id": 969,
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -20721,7 +20693,7 @@
 							}
 						},
 						{
-							"id": 943,
+							"id": 941,
 							"name": "setFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20730,7 +20702,7 @@
 							},
 							"signatures": [
 								{
-									"id": 944,
+									"id": 942,
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20774,7 +20746,7 @@
 							}
 						},
 						{
-							"id": 961,
+							"id": 959,
 							"name": "setRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20783,7 +20755,7 @@
 							},
 							"signatures": [
 								{
-									"id": 962,
+									"id": 960,
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20794,7 +20766,7 @@
 									},
 									"parameters": [
 										{
-											"id": 963,
+											"id": 961,
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -20849,7 +20821,7 @@
 							}
 						},
 						{
-							"id": 937,
+							"id": 935,
 							"name": "setTime",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20858,7 +20830,7 @@
 							},
 							"signatures": [
 								{
-									"id": 938,
+									"id": 936,
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20904,7 +20876,7 @@
 							}
 						},
 						{
-							"id": 939,
+							"id": 937,
 							"name": "snapPicture",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20913,7 +20885,7 @@
 							},
 							"signatures": [
 								{
-									"id": 940,
+									"id": 938,
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -20962,7 +20934,7 @@
 							}
 						},
 						{
-							"id": 945,
+							"id": 943,
 							"name": "testFtpServer",
 							"kind": 2048,
 							"kindString": "Method",
@@ -20971,7 +20943,7 @@
 							},
 							"signatures": [
 								{
-									"id": 946,
+									"id": 944,
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -21026,44 +20998,44 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								930
+								928
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								952,
-								978,
-								929
+								950,
+								976,
+								927
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								949,
 								947,
-								972,
-								941,
-								1039,
-								964,
-								1037,
-								955,
-								1033,
-								1035,
-								959,
-								953,
-								934,
-								957,
-								966,
-								974,
-								969,
-								943,
-								961,
-								937,
+								945,
+								970,
 								939,
-								945
+								1037,
+								962,
+								1035,
+								953,
+								1031,
+								1033,
+								957,
+								951,
+								932,
+								955,
+								964,
+								972,
+								967,
+								941,
+								959,
+								935,
+								937,
+								943
 							]
 						}
 					],
@@ -21100,7 +21072,7 @@
 					]
 				},
 				{
-					"id": 1041,
+					"id": 1039,
 					"name": "armCmd",
 					"kind": 32,
 					"kindString": "Variable",
@@ -21121,7 +21093,7 @@
 					"defaultValue": "\"\""
 				},
 				{
-					"id": 1043,
+					"id": 1041,
 					"name": "sensitivity",
 					"kind": 32,
 					"kindString": "Variable",
@@ -21142,7 +21114,7 @@
 					"defaultValue": "\"1\""
 				},
 				{
-					"id": 1042,
+					"id": 1040,
 					"name": "snapInterval",
 					"kind": 32,
 					"kindString": "Variable",
@@ -21163,7 +21135,7 @@
 					"defaultValue": "1"
 				},
 				{
-					"id": 1044,
+					"id": 1042,
 					"name": "linkage",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -21172,7 +21144,7 @@
 					},
 					"children": [
 						{
-							"id": 1045,
+							"id": 1043,
 							"name": "audio",
 							"kind": 32,
 							"kindString": "Variable",
@@ -21191,7 +21163,7 @@
 							"defaultValue": "1"
 						},
 						{
-							"id": 1046,
+							"id": 1044,
 							"name": "mail",
 							"kind": 32,
 							"kindString": "Variable",
@@ -21210,7 +21182,7 @@
 							"defaultValue": "2"
 						},
 						{
-							"id": 1047,
+							"id": 1045,
 							"name": "pic",
 							"kind": 32,
 							"kindString": "Variable",
@@ -21229,7 +21201,7 @@
 							"defaultValue": "4"
 						},
 						{
-							"id": 1048,
+							"id": 1046,
 							"name": "video",
 							"kind": 32,
 							"kindString": "Variable",
@@ -21253,10 +21225,10 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
+								1043,
+								1044,
 								1045,
-								1046,
-								1047,
-								1048
+								1046
 							]
 						}
 					],
@@ -21278,23 +21250,23 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						928
+						926
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
+						1039,
 						1041,
-						1043,
-						1042
+						1040
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						1044
+						1042
 					]
 				}
 			],
@@ -21307,7 +21279,7 @@
 			]
 		},
 		{
-			"id": 1049,
+			"id": 1047,
 			"name": "\"node/device/WansView\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -21317,7 +21289,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/device/WansView.ts",
 			"children": [
 				{
-					"id": 1050,
+					"id": 1048,
 					"name": "WansView",
 					"kind": 128,
 					"kindString": "Class",
@@ -21326,7 +21298,7 @@
 					},
 					"children": [
 						{
-							"id": 1052,
+							"id": 1050,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -21335,14 +21307,14 @@
 							},
 							"signatures": [
 								{
-									"id": 1053,
+									"id": 1051,
 									"name": "new WansView",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1054,
+											"id": 1052,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -21354,7 +21326,7 @@
 											}
 										},
 										{
-											"id": 1055,
+											"id": 1053,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -21369,7 +21341,7 @@
 									"type": {
 										"type": "reference",
 										"name": "WansView",
-										"id": 1050
+										"id": 1048
 									},
 									"overwrites": {
 										"type": "reference",
@@ -21392,7 +21364,7 @@
 							}
 						},
 						{
-							"id": 1083,
+							"id": 1081,
 							"name": "armed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21419,7 +21391,7 @@
 							}
 						},
 						{
-							"id": 1106,
+							"id": 1104,
 							"name": "log",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21437,21 +21409,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 1107,
+									"id": 1105,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1108,
+											"id": 1106,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1109,
+													"id": 1107,
 													"name": "_prefix",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -21462,7 +21434,7 @@
 													}
 												},
 												{
-													"id": 1110,
+													"id": 1108,
 													"name": "logToFile",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -21475,7 +21447,7 @@
 													}
 												},
 												{
-													"id": 1111,
+													"id": 1109,
 													"name": "pathExists",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -21496,7 +21468,7 @@
 									],
 									"children": [
 										{
-											"id": 1112,
+											"id": 1110,
 											"name": "DEBUG",
 											"kind": 32,
 											"kindString": "Variable",
@@ -21514,7 +21486,7 @@
 											}
 										},
 										{
-											"id": 1115,
+											"id": 1113,
 											"name": "ERROR",
 											"kind": 32,
 											"kindString": "Variable",
@@ -21532,7 +21504,7 @@
 											}
 										},
 										{
-											"id": 1113,
+											"id": 1111,
 											"name": "INFO",
 											"kind": 32,
 											"kindString": "Variable",
@@ -21550,7 +21522,7 @@
 											}
 										},
 										{
-											"id": 1114,
+											"id": 1112,
 											"name": "WARN",
 											"kind": 32,
 											"kindString": "Variable",
@@ -21568,21 +21540,21 @@
 											}
 										},
 										{
-											"id": 1150,
+											"id": 1148,
 											"name": "config",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1151,
+													"id": 1149,
 													"name": "config",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1152,
+															"id": 1150,
 															"name": "cfg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21590,14 +21562,14 @@
 															"type": {
 																"type": "reflection",
 																"declaration": {
-																	"id": 1153,
+																	"id": 1151,
 																	"name": "__type",
 																	"kind": 65536,
 																	"kindString": "Type literal",
 																	"flags": {},
 																	"children": [
 																		{
-																			"id": 1154,
+																			"id": 1152,
 																			"name": "colors",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -21617,7 +21589,7 @@
 																			}
 																		},
 																		{
-																			"id": 1155,
+																			"id": 1153,
 																			"name": "format",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -21637,7 +21609,7 @@
 																			}
 																		},
 																		{
-																			"id": 1156,
+																			"id": 1154,
 																			"name": "level",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -21662,9 +21634,9 @@
 																			"title": "Variables",
 																			"kind": 32,
 																			"children": [
-																				1154,
-																				1155,
-																				1156
+																				1152,
+																				1153,
+																				1154
 																			]
 																		}
 																	],
@@ -21694,21 +21666,21 @@
 											]
 										},
 										{
-											"id": 1120,
+											"id": 1118,
 											"name": "debug",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1121,
+													"id": 1119,
 													"name": "debug",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1122,
+															"id": 1120,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21719,7 +21691,7 @@
 															}
 														},
 														{
-															"id": 1123,
+															"id": 1121,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21753,21 +21725,21 @@
 											]
 										},
 										{
-											"id": 1132,
+											"id": 1130,
 											"name": "error",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1133,
+													"id": 1131,
 													"name": "error",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1134,
+															"id": 1132,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21778,7 +21750,7 @@
 															}
 														},
 														{
-															"id": 1135,
+															"id": 1133,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21812,21 +21784,21 @@
 											]
 										},
 										{
-											"id": 1144,
+											"id": 1142,
 											"name": "format",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1145,
+													"id": 1143,
 													"name": "format",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1146,
+															"id": 1144,
 															"name": "fmtStr",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21854,21 +21826,21 @@
 											]
 										},
 										{
-											"id": 1124,
+											"id": 1122,
 											"name": "info",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1125,
+													"id": 1123,
 													"name": "info",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1126,
+															"id": 1124,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21879,7 +21851,7 @@
 															}
 														},
 														{
-															"id": 1127,
+															"id": 1125,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21913,21 +21885,21 @@
 											]
 										},
 										{
-											"id": 1157,
+											"id": 1155,
 											"name": "inspect",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1158,
+													"id": 1156,
 													"name": "inspect",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1159,
+															"id": 1157,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21938,7 +21910,7 @@
 															}
 														},
 														{
-															"id": 1160,
+															"id": 1158,
 															"name": "depth",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21966,21 +21938,21 @@
 											]
 										},
 										{
-											"id": 1116,
+											"id": 1114,
 											"name": "level",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1117,
+													"id": 1115,
 													"name": "level",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1118,
+															"id": 1116,
 															"name": "newLevelSym",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -21993,7 +21965,7 @@
 															}
 														},
 														{
-															"id": 1119,
+															"id": 1117,
 															"name": "setGlobalLevel",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22021,21 +21993,21 @@
 											]
 										},
 										{
-											"id": 1141,
+											"id": 1139,
 											"name": "logFile",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1142,
+													"id": 1140,
 													"name": "logFile",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1143,
+															"id": 1141,
 															"name": "file",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22069,21 +22041,21 @@
 											]
 										},
 										{
-											"id": 1136,
+											"id": 1134,
 											"name": "out",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1137,
+													"id": 1135,
 													"name": "out",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1138,
+															"id": 1136,
 															"name": "lvl",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22094,7 +22066,7 @@
 															}
 														},
 														{
-															"id": 1139,
+															"id": 1137,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22105,7 +22077,7 @@
 															}
 														},
 														{
-															"id": 1140,
+															"id": 1138,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22139,21 +22111,21 @@
 											]
 										},
 										{
-											"id": 1147,
+											"id": 1145,
 											"name": "prefix",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1148,
+													"id": 1146,
 													"name": "prefix",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1149,
+															"id": 1147,
 															"name": "prf",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22181,21 +22153,21 @@
 											]
 										},
 										{
-											"id": 1128,
+											"id": 1126,
 											"name": "warn",
 											"kind": 64,
 											"kindString": "Function",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 1129,
+													"id": 1127,
 													"name": "warn",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 1130,
+															"id": 1128,
 															"name": "msg",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22206,7 +22178,7 @@
 															}
 														},
 														{
-															"id": 1131,
+															"id": 1129,
 															"name": "log",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -22245,27 +22217,27 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												1112,
-												1115,
+												1110,
 												1113,
-												1114
+												1111,
+												1112
 											]
 										},
 										{
 											"title": "Functions",
 											"kind": 64,
 											"children": [
-												1150,
-												1120,
-												1132,
-												1144,
-												1124,
-												1157,
-												1116,
-												1141,
-												1136,
-												1147,
-												1128
+												1148,
+												1118,
+												1130,
+												1142,
+												1122,
+												1155,
+												1114,
+												1139,
+												1134,
+												1145,
+												1126
 											]
 										}
 									],
@@ -22285,7 +22257,7 @@
 							}
 						},
 						{
-							"id": 1051,
+							"id": 1049,
 							"name": "path",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22307,7 +22279,7 @@
 							"defaultValue": "\"\""
 						},
 						{
-							"id": 1080,
+							"id": 1078,
 							"name": "arm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22316,7 +22288,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1081,
+									"id": 1079,
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22327,7 +22299,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1082,
+											"id": 1080,
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -22379,7 +22351,7 @@
 							}
 						},
 						{
-							"id": 1078,
+							"id": 1076,
 							"name": "armStatus",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22388,7 +22360,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1079,
+									"id": 1077,
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22438,7 +22410,7 @@
 							}
 						},
 						{
-							"id": 1100,
+							"id": 1098,
 							"name": "getAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22447,7 +22419,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1101,
+									"id": 1099,
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22487,7 +22459,7 @@
 							}
 						},
 						{
-							"id": 1072,
+							"id": 1070,
 							"name": "getFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22496,7 +22468,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1073,
+									"id": 1071,
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22545,7 +22517,7 @@
 							}
 						},
 						{
-							"id": 1167,
+							"id": 1165,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22554,7 +22526,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1168,
+									"id": 1166,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22594,7 +22566,7 @@
 							}
 						},
 						{
-							"id": 1095,
+							"id": 1093,
 							"name": "getRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22603,7 +22575,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1096,
+									"id": 1094,
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22649,7 +22621,7 @@
 							}
 						},
 						{
-							"id": 1165,
+							"id": 1163,
 							"name": "getSettings",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22658,7 +22630,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1166,
+									"id": 1164,
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22699,7 +22671,7 @@
 							}
 						},
 						{
-							"id": 1086,
+							"id": 1084,
 							"name": "hasAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22708,7 +22680,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1087,
+									"id": 1085,
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22758,7 +22730,7 @@
 							}
 						},
 						{
-							"id": 1161,
+							"id": 1159,
 							"name": "hasAudio",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22767,7 +22739,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1162,
+									"id": 1160,
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22807,7 +22779,7 @@
 							}
 						},
 						{
-							"id": 1163,
+							"id": 1161,
 							"name": "hasMotionAlarm",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22816,7 +22788,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1164,
+									"id": 1162,
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22846,7 +22818,7 @@
 							}
 						},
 						{
-							"id": 1090,
+							"id": 1088,
 							"name": "hasPTZ",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22855,7 +22827,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1091,
+									"id": 1089,
 									"name": "hasPTZ",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22895,7 +22867,7 @@
 							}
 						},
 						{
-							"id": 1084,
+							"id": 1082,
 							"name": "hasVideo",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22904,7 +22876,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1085,
+									"id": 1083,
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22954,7 +22926,7 @@
 							}
 						},
 						{
-							"id": 1056,
+							"id": 1054,
 							"name": "initDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22963,14 +22935,14 @@
 							},
 							"signatures": [
 								{
-									"id": 1057,
+									"id": 1055,
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1058,
+											"id": 1056,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23023,7 +22995,7 @@
 							}
 						},
 						{
-							"id": 1088,
+							"id": 1086,
 							"name": "isArmed",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23032,7 +23004,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1089,
+									"id": 1087,
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23072,7 +23044,7 @@
 							}
 						},
 						{
-							"id": 1069,
+							"id": 1067,
 							"name": "ptzPreset",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23081,7 +23053,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1070,
+									"id": 1068,
 									"name": "ptzPreset",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23091,7 +23063,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1071,
+											"id": 1069,
 											"name": "index",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23146,7 +23118,7 @@
 							}
 						},
 						{
-							"id": 1102,
+							"id": 1100,
 							"name": "sendCommandToDevice",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23156,7 +23128,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1103,
+									"id": 1101,
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23166,7 +23138,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1104,
+											"id": 1102,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23180,7 +23152,7 @@
 											}
 										},
 										{
-											"id": 1105,
+											"id": 1103,
 											"name": "referer",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23224,7 +23196,7 @@
 							}
 						},
 						{
-							"id": 1097,
+							"id": 1095,
 							"name": "setAudible",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23233,7 +23205,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1098,
+									"id": 1096,
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23244,7 +23216,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1099,
+											"id": 1097,
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23299,7 +23271,7 @@
 							}
 						},
 						{
-							"id": 1074,
+							"id": 1072,
 							"name": "setFtpCfg",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23308,7 +23280,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1075,
+									"id": 1073,
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23353,7 +23325,7 @@
 							}
 						},
 						{
-							"id": 1065,
+							"id": 1063,
 							"name": "setOverlayText",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23362,7 +23334,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1066,
+									"id": 1064,
 									"name": "setOverlayText",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23388,7 +23360,7 @@
 							]
 						},
 						{
-							"id": 1092,
+							"id": 1090,
 							"name": "setRecordingDir",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23397,7 +23369,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1093,
+									"id": 1091,
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23408,7 +23380,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1094,
+											"id": 1092,
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23463,7 +23435,7 @@
 							}
 						},
 						{
-							"id": 1063,
+							"id": 1061,
 							"name": "setTime",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23472,7 +23444,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1064,
+									"id": 1062,
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23518,7 +23490,7 @@
 							}
 						},
 						{
-							"id": 1067,
+							"id": 1065,
 							"name": "snapPicture",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23527,7 +23499,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1068,
+									"id": 1066,
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23576,7 +23548,7 @@
 							}
 						},
 						{
-							"id": 1059,
+							"id": 1057,
 							"name": "standardSend",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23585,14 +23557,14 @@
 							},
 							"signatures": [
 								{
-									"id": 1060,
+									"id": 1058,
 									"name": "standardSend",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1061,
+											"id": 1059,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23603,7 +23575,7 @@
 											}
 										},
 										{
-											"id": 1062,
+											"id": 1060,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23635,7 +23607,7 @@
 							]
 						},
 						{
-							"id": 1076,
+							"id": 1074,
 							"name": "testFtpServer",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23644,7 +23616,7 @@
 							},
 							"signatures": [
 								{
-									"id": 1077,
+									"id": 1075,
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23699,46 +23671,46 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1052
+								1050
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1083,
-								1106,
-								1051
+								1081,
+								1104,
+								1049
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								1080,
 								1078,
-								1100,
-								1072,
-								1167,
-								1095,
+								1076,
+								1098,
+								1070,
 								1165,
-								1086,
-								1161,
+								1093,
 								1163,
-								1090,
 								1084,
-								1056,
+								1159,
+								1161,
 								1088,
-								1069,
-								1102,
-								1097,
-								1074,
-								1065,
-								1092,
-								1063,
+								1082,
+								1054,
+								1086,
 								1067,
-								1059,
-								1076
+								1100,
+								1095,
+								1072,
+								1063,
+								1090,
+								1061,
+								1065,
+								1057,
+								1074
 							]
 						}
 					],
@@ -23775,7 +23747,7 @@
 					]
 				},
 				{
-					"id": 1224,
+					"id": 1222,
 					"name": "audioSensitivity",
 					"kind": 32,
 					"kindString": "Variable",
@@ -23796,7 +23768,7 @@
 					"defaultValue": "5"
 				},
 				{
-					"id": 1169,
+					"id": 1167,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -23813,21 +23785,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 1170,
+							"id": 1168,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1171,
+									"id": 1169,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1172,
+											"id": 1170,
 											"name": "_prefix",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23838,7 +23810,7 @@
 											}
 										},
 										{
-											"id": 1173,
+											"id": 1171,
 											"name": "logToFile",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23851,7 +23823,7 @@
 											}
 										},
 										{
-											"id": 1174,
+											"id": 1172,
 											"name": "pathExists",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23872,7 +23844,7 @@
 							],
 							"children": [
 								{
-									"id": 1175,
+									"id": 1173,
 									"name": "DEBUG",
 									"kind": 32,
 									"kindString": "Variable",
@@ -23890,7 +23862,7 @@
 									}
 								},
 								{
-									"id": 1178,
+									"id": 1176,
 									"name": "ERROR",
 									"kind": 32,
 									"kindString": "Variable",
@@ -23908,7 +23880,7 @@
 									}
 								},
 								{
-									"id": 1176,
+									"id": 1174,
 									"name": "INFO",
 									"kind": 32,
 									"kindString": "Variable",
@@ -23926,7 +23898,7 @@
 									}
 								},
 								{
-									"id": 1177,
+									"id": 1175,
 									"name": "WARN",
 									"kind": 32,
 									"kindString": "Variable",
@@ -23944,21 +23916,21 @@
 									}
 								},
 								{
-									"id": 1213,
+									"id": 1211,
 									"name": "config",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1214,
+											"id": 1212,
 											"name": "config",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1215,
+													"id": 1213,
 													"name": "cfg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -23966,14 +23938,14 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 1216,
+															"id": 1214,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"children": [
 																{
-																	"id": 1217,
+																	"id": 1215,
 																	"name": "colors",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -23993,7 +23965,7 @@
 																	}
 																},
 																{
-																	"id": 1218,
+																	"id": 1216,
 																	"name": "format",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -24013,7 +23985,7 @@
 																	}
 																},
 																{
-																	"id": 1219,
+																	"id": 1217,
 																	"name": "level",
 																	"kind": 32,
 																	"kindString": "Variable",
@@ -24038,9 +24010,9 @@
 																	"title": "Variables",
 																	"kind": 32,
 																	"children": [
-																		1217,
-																		1218,
-																		1219
+																		1215,
+																		1216,
+																		1217
 																	]
 																}
 															],
@@ -24070,21 +24042,21 @@
 									]
 								},
 								{
-									"id": 1183,
+									"id": 1181,
 									"name": "debug",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1184,
+											"id": 1182,
 											"name": "debug",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1185,
+													"id": 1183,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24095,7 +24067,7 @@
 													}
 												},
 												{
-													"id": 1186,
+													"id": 1184,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24129,21 +24101,21 @@
 									]
 								},
 								{
-									"id": 1195,
+									"id": 1193,
 									"name": "error",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1196,
+											"id": 1194,
 											"name": "error",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1197,
+													"id": 1195,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24154,7 +24126,7 @@
 													}
 												},
 												{
-													"id": 1198,
+													"id": 1196,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24188,21 +24160,21 @@
 									]
 								},
 								{
-									"id": 1207,
+									"id": 1205,
 									"name": "format",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1208,
+											"id": 1206,
 											"name": "format",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1209,
+													"id": 1207,
 													"name": "fmtStr",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24230,21 +24202,21 @@
 									]
 								},
 								{
-									"id": 1187,
+									"id": 1185,
 									"name": "info",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1188,
+											"id": 1186,
 											"name": "info",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1189,
+													"id": 1187,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24255,7 +24227,7 @@
 													}
 												},
 												{
-													"id": 1190,
+													"id": 1188,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24289,21 +24261,21 @@
 									]
 								},
 								{
-									"id": 1220,
+									"id": 1218,
 									"name": "inspect",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1221,
+											"id": 1219,
 											"name": "inspect",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1222,
+													"id": 1220,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24314,7 +24286,7 @@
 													}
 												},
 												{
-													"id": 1223,
+													"id": 1221,
 													"name": "depth",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24342,21 +24314,21 @@
 									]
 								},
 								{
-									"id": 1179,
+									"id": 1177,
 									"name": "level",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1180,
+											"id": 1178,
 											"name": "level",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1181,
+													"id": 1179,
 													"name": "newLevelSym",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24369,7 +24341,7 @@
 													}
 												},
 												{
-													"id": 1182,
+													"id": 1180,
 													"name": "setGlobalLevel",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24397,21 +24369,21 @@
 									]
 								},
 								{
-									"id": 1204,
+									"id": 1202,
 									"name": "logFile",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1205,
+											"id": 1203,
 											"name": "logFile",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1206,
+													"id": 1204,
 													"name": "file",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24445,21 +24417,21 @@
 									]
 								},
 								{
-									"id": 1199,
+									"id": 1197,
 									"name": "out",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1200,
+											"id": 1198,
 											"name": "out",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1201,
+													"id": 1199,
 													"name": "lvl",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24470,7 +24442,7 @@
 													}
 												},
 												{
-													"id": 1202,
+													"id": 1200,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24481,7 +24453,7 @@
 													}
 												},
 												{
-													"id": 1203,
+													"id": 1201,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24515,21 +24487,21 @@
 									]
 								},
 								{
-									"id": 1210,
+									"id": 1208,
 									"name": "prefix",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1211,
+											"id": 1209,
 											"name": "prefix",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1212,
+													"id": 1210,
 													"name": "prf",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24557,21 +24529,21 @@
 									]
 								},
 								{
-									"id": 1191,
+									"id": 1189,
 									"name": "warn",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1192,
+											"id": 1190,
 											"name": "warn",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1193,
+													"id": 1191,
 													"name": "msg",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24582,7 +24554,7 @@
 													}
 												},
 												{
-													"id": 1194,
+													"id": 1192,
 													"name": "log",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24621,27 +24593,27 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1175,
-										1178,
+										1173,
 										1176,
-										1177
+										1174,
+										1175
 									]
 								},
 								{
 									"title": "Functions",
 									"kind": 64,
 									"children": [
-										1213,
-										1183,
-										1195,
-										1207,
-										1187,
-										1220,
-										1179,
-										1204,
-										1199,
-										1210,
-										1191
+										1211,
+										1181,
+										1193,
+										1205,
+										1185,
+										1218,
+										1177,
+										1202,
+										1197,
+										1208,
+										1189
 									]
 								}
 							]
@@ -24650,7 +24622,7 @@
 					"defaultValue": " gLog('WansView')"
 				},
 				{
-					"id": 1225,
+					"id": 1223,
 					"name": "videoSensitivity",
 					"kind": 32,
 					"kindString": "Variable",
@@ -24671,7 +24643,7 @@
 					"defaultValue": "95"
 				},
 				{
-					"id": 1226,
+					"id": 1224,
 					"name": "commands",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -24680,14 +24652,14 @@
 					},
 					"children": [
 						{
-							"id": 1227,
+							"id": 1225,
 							"name": "alarm",
 							"kind": 2097152,
 							"kindString": "Object literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 1228,
+									"id": 1226,
 									"name": "cgi",
 									"kind": 32,
 									"kindString": "Variable",
@@ -24706,21 +24678,21 @@
 									"defaultValue": "\"alarm.cgi?\""
 								},
 								{
-									"id": 1229,
+									"id": 1227,
 									"name": "cmds",
 									"kind": 64,
 									"kindString": "Function",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 1230,
+											"id": 1228,
 											"name": "cmds",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 1231,
+													"id": 1229,
 													"name": "arm",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24731,7 +24703,7 @@
 													}
 												},
 												{
-													"id": 1232,
+													"id": 1230,
 													"name": "audio",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -24762,14 +24734,14 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1228
+										1226
 									]
 								},
 								{
 									"title": "Functions",
 									"kind": 64,
 									"children": [
-										1229
+										1227
 									]
 								}
 							],
@@ -24786,14 +24758,14 @@
 							}
 						},
 						{
-							"id": 1245,
+							"id": 1243,
 							"name": "device",
 							"kind": 2097152,
 							"kindString": "Object literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 1246,
+									"id": 1244,
 									"name": "cgi",
 									"kind": 32,
 									"kindString": "Variable",
@@ -24812,7 +24784,7 @@
 									"defaultValue": "\"device.cgi?\""
 								},
 								{
-									"id": 1247,
+									"id": 1245,
 									"name": "cmds",
 									"kind": 32,
 									"kindString": "Variable",
@@ -24839,8 +24811,8 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1246,
-										1247
+										1244,
+										1245
 									]
 								}
 							],
@@ -24857,14 +24829,14 @@
 							}
 						},
 						{
-							"id": 1236,
+							"id": 1234,
 							"name": "net",
 							"kind": 2097152,
 							"kindString": "Object literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 1237,
+									"id": 1235,
 									"name": "cgi",
 									"kind": 32,
 									"kindString": "Variable",
@@ -24883,7 +24855,7 @@
 									"defaultValue": "\"net.cgi?\""
 								},
 								{
-									"id": 1238,
+									"id": 1236,
 									"name": "cmds",
 									"kind": 32,
 									"kindString": "Variable",
@@ -24910,8 +24882,8 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1237,
-										1238
+										1235,
+										1236
 									]
 								}
 							],
@@ -24928,14 +24900,14 @@
 							}
 						},
 						{
-							"id": 1242,
+							"id": 1240,
 							"name": "ptz",
 							"kind": 2097152,
 							"kindString": "Object literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 1243,
+									"id": 1241,
 									"name": "cgi",
 									"kind": 32,
 									"kindString": "Variable",
@@ -24954,7 +24926,7 @@
 									"defaultValue": "\"ptz.cgi?\""
 								},
 								{
-									"id": 1244,
+									"id": 1242,
 									"name": "cmds",
 									"kind": 32,
 									"kindString": "Variable",
@@ -24981,8 +24953,8 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1243,
-										1244
+										1241,
+										1242
 									]
 								}
 							],
@@ -24999,14 +24971,14 @@
 							}
 						},
 						{
-							"id": 1233,
+							"id": 1231,
 							"name": "status",
 							"kind": 2097152,
 							"kindString": "Object literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 1234,
+									"id": 1232,
 									"name": "cgi",
 									"kind": 32,
 									"kindString": "Variable",
@@ -25025,7 +24997,7 @@
 									"defaultValue": "\"status.cgi?\""
 								},
 								{
-									"id": 1235,
+									"id": 1233,
 									"name": "cmds",
 									"kind": 32,
 									"kindString": "Variable",
@@ -25052,8 +25024,8 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1234,
-										1235
+										1232,
+										1233
 									]
 								}
 							],
@@ -25070,14 +25042,14 @@
 							}
 						},
 						{
-							"id": 1239,
+							"id": 1237,
 							"name": "user",
 							"kind": 2097152,
 							"kindString": "Object literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 1240,
+									"id": 1238,
 									"name": "cgi",
 									"kind": 32,
 									"kindString": "Variable",
@@ -25096,7 +25068,7 @@
 									"defaultValue": "\"user.cgi?\""
 								},
 								{
-									"id": 1241,
+									"id": 1239,
 									"name": "cmds",
 									"kind": 32,
 									"kindString": "Variable",
@@ -25123,8 +25095,8 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										1240,
-										1241
+										1238,
+										1239
 									]
 								}
 							],
@@ -25146,12 +25118,12 @@
 							"title": "Object literals",
 							"kind": 2097152,
 							"children": [
-								1227,
-								1245,
-								1236,
-								1242,
-								1233,
-								1239
+								1225,
+								1243,
+								1234,
+								1240,
+								1231,
+								1237
 							]
 						}
 					],
@@ -25173,23 +25145,23 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1050
+						1048
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1224,
-						1169,
-						1225
+						1222,
+						1167,
+						1223
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						1226
+						1224
 					]
 				}
 			],
@@ -25202,7 +25174,7 @@
 			]
 		},
 		{
-			"id": 1393,
+			"id": 1391,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -25229,20 +25201,20 @@
 			"kind": 1,
 			"children": [
 				793,
-				856,
+				854,
 				1,
 				714,
-				857,
+				855,
 				52,
 				534,
 				415,
-				1248,
+				1246,
 				651,
-				1327,
+				1325,
 				68,
-				927,
-				1049,
-				1393
+				925,
+				1047,
+				1391
 			]
 		}
 	]

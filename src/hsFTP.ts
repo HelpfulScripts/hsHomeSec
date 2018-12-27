@@ -12,7 +12,7 @@ Starts an ftp server with following options:
 -h this help text
 `;
 
-function cli(args:string[]): Promise<void> {
+function cli(args:string[]): boolean {
     args.forEach((arg:string, i:number) => {
         switch (args[i]) {
             case '-c': settings.root = args[i+1]; break;
@@ -23,11 +23,13 @@ function cli(args:string[]): Promise<void> {
                 default: log.level(log.INFO, true); break;
             } break;    
             case '-h': 
-            default:    log.info(helpText);         
+            default:    log.info(helpText);  
+                        return false;       
         }
     });
-    return Promise.resolve();
+    return true;
 }
 
-cli(process.argv);
-ftp.start('', settings);
+if (cli(process.argv)) {
+    ftp.start('', settings);
+}
