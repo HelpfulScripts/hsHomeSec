@@ -13,10 +13,11 @@ Starts an ftp server with following options:
 `;
 
 function cli(args:string[]): boolean {
-    args.forEach((arg:string, i:number) => {
+    let i = 0
+    while (i++<args.length) {
         switch (args[i]) {
-            case '-c': settings.root = args[i+1]; break;
-            case '-r': switch(args[i+1]) { 
+            case '-c': settings.root = args[i++]; break;
+            case '-r': switch(args[i++]) { 
                 case 'info':    log.level(log.INFO, true); break;
                 case 'debug':   log.level(log.DEBUG, true); break;
                 case 'warning': log.level(log.WARN, true); break;

@@ -941,14 +941,8 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "Promise",
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "void"
-									}
-								]
+								"type": "intrinsic",
+								"name": "boolean"
 							}
 						}
 					],
