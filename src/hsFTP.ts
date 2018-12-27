@@ -27,7 +27,7 @@ function cli(args:string[]): boolean {
             default:    log.info(helpText);  
                         return false;       
         }
-    });
+    }
     return true;
 }
 
