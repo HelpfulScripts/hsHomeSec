@@ -11,7 +11,7 @@ export interface FtpSettings {
     pwd?:  string;
 }
 
-const settings:FtpSettings = {
+export const settings:FtpSettings = {
     host: '0.0.0.0',    // will be set during start via cfg file
     port:  21,          
     root: '',           // will be set during start()

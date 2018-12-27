@@ -3,7 +3,8 @@
     "version": "1.4.4",
     "main": "./index.js",
     "bin": {
-        "hsHomeSec": "./index.js"
+        "hsHomeSec": "./index.js",
+        "hsFTP": "./hsFTP.js"
     },
     "keywords": [
         "home security",
