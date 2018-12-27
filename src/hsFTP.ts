@@ -14,8 +14,8 @@ Starts an ftp server with following options:
 
 function cli(args:string[]): boolean {
     let i = 0;
-    while (i++<args.length) {
-        switch (args[i]) {
+    while (i<args.length) {
+        switch (args[i++]) {
             case '-c': settings.root = args[i++]; break;
             case '-r': switch(args[i++]) { 
                 case 'info':    log.level(log.INFO, true); break;
