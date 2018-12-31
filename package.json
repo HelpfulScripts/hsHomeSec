@@ -55,7 +55,7 @@
         "hsnode": "*",
         "hsutil": "*",
         "hsosaes6": "*",
-        "jest": "^23.4.2",
+        "jest": "^23.6.0",
         "ts-jest": "^23.0.1",
         "tslint": "^4.5.1",
         "typedoc": "^0.12.0",
