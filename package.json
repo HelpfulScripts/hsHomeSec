@@ -31,7 +31,7 @@
         "url": "https://github.com/HelpfulScripts/hsHomeSec.git"
     },
     "engines": {
-        "node": "^8.11.0"
+        "node": ">= 10.14.0"
     },
     "plugins": [],
     "devDependencies": {
