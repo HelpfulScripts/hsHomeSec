@@ -229,7 +229,7 @@ function <span class="fstat-no" title="function not covered" >login(</span>data:
 export function <span class="fstat-no" title="function not covered" >start(</span>baseDir:string, s:FtpSettings): Promise&lt;void&gt; { 
 <span class="cstat-no" title="statement not covered" >    settings.host = s.host;</span>
 //    settings.port = Math.floor(Math.random()*2000 + 1000);
-    const ftpServer = <span class="cstat-no" title="statement not covered" >new FtpSrv(`ftp://${settings.host}:${settings.port}`);</span>
+    const ftpServer = <span class="cstat-no" title="statement not covered" >new FtpSrv({url:`ftp://${settings.host}:${settings.port}`});</span>
     const root = <span class="cstat-no" title="statement not covered" >`${baseDir}/${s.root}`;</span>
 <span class="cstat-no" title="statement not covered" >    log.debug(`testing ftp server root '${root}'`);</span>
 <span class="cstat-no" title="statement not covered" >    return fs.realPath(root)</span>

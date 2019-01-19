@@ -69,7 +69,7 @@
 <p id=46 class="line"><span>&nbsp;&nbsp;46</span>export&nbsp;function&nbsp;start(baseDir:string,&nbsp;s:FtpSettings):&nbsp;Promise<void>&nbsp;{&nbsp;</p>
 <p id=47 class="line"><span>&nbsp;&nbsp;47</span>&nbsp;&nbsp;&nbsp;&nbsp;settings.host&nbsp;=&nbsp;s.host;</p>
 <p id=48 class="line"><span>&nbsp;&nbsp;48</span><comment>//&nbsp;&nbsp;&nbsp;&nbsp;settings.port&nbsp;=&nbsp;Math.floor(Math.random()*2000&nbsp;+&nbsp;1000);</comment></p>
-<p id=49 class="line"><span>&nbsp;&nbsp;49</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;ftpServer&nbsp;=&nbsp;new&nbsp;FtpSrv(`ftp:<comment>//${settings.host}:${settings.port}`);</comment></p>
+<p id=49 class="line"><span>&nbsp;&nbsp;49</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;ftpServer&nbsp;=&nbsp;new&nbsp;FtpSrv({url:`ftp:<comment>//${settings.host}:${settings.port}`});</comment></p>
 <p id=50 class="line"><span>&nbsp;&nbsp;50</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;root&nbsp;=&nbsp;`${baseDir}/${s.root}`;</p>
 <p id=51 class="line"><span>&nbsp;&nbsp;51</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`testing&nbsp;ftp&nbsp;server&nbsp;root&nbsp;<quote>'${root}'</quote>`);</p>
 <p id=52 class="line"><span>&nbsp;&nbsp;52</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fs.realPath(root)</p>

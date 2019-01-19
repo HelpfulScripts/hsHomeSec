@@ -67,6 +67,6 @@
         "hsnode": "*",
         "hsutil": "*",
         "hsosaes6": "*",
-        "ftp-srv": "^2.19.2"
+        "ftp-srv": "^3.0.5"
     }
 }

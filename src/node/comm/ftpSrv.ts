@@ -46,7 +46,7 @@ function login(data:any, resolve:any, reject:any) {
 export function start(baseDir:string, s:FtpSettings): Promise<void> { 
     settings.host = s.host;
 //    settings.port = Math.floor(Math.random()*2000 + 1000);
-    const ftpServer = new FtpSrv(`ftp://${settings.host}:${settings.port}`);
+    const ftpServer = new FtpSrv({url:`ftp://${settings.host}:${settings.port}`});
     const root = `${baseDir}/${s.root}`;
     log.debug(`testing ftp server root '${root}'`);
     return fs.realPath(root)
