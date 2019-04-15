@@ -93,7 +93,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 }
             ]},
             html: { files: [
-                { expand:true, cwd: devPath+'/staging/',    // docs index.html from staging
+                { expand:true, cwd: devPath+'/local/',    // docs index.html from staging
                     src:['index.html'], dest:'docs' 
                 }
             ]},
