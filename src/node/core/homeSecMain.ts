@@ -62,10 +62,10 @@ async function start() {
 
 try {
     start().catch(log.error);
-    process.on('exit', (code:string) => {
-        log.info(`About to exit with code: ${code}`);
-        // httpSrv.stop();
-    });
+    // process.on('exit', (code:string) => {
+    //     console.log(`About to exit with code: ${code}`);
+    //     // httpSrv.stop();
+    // });
 }
 catch(err) { log.error(err); }
 
