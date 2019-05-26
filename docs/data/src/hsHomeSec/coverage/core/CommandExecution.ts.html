@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90.7% </span>
+        <span class="strong">90.8% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>78/86</span>
+        <span class='fraction'>79/87</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">69.57% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>35/39</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.21% </span>
+        <span class="strong">92.31% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>71/77</span>
+        <span class='fraction'>72/78</span>
       </div>
     </div>
   </div>
@@ -234,7 +234,9 @@
 189
 190
 191
-192</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+192
+193
+194</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,6 +251,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -431,7 +435,7 @@
  * @description Defines the action for external commands received
  */
 &nbsp;
-import { log as gLog, fs }from 'hsnode';  const log = gLog('CmdExec');
+import * as node  from 'hsnode';  const log = node.log('CmdExc');
 import { timeout, delay } from 'hsutil';
 import { osaCommands }    from 'hsosaes6';
 import { users }          from '../comm/UserComm';
@@ -441,6 +445,8 @@ import { AlarmDevice }    from '../device/Device';
 import { getCommands  }   from './CommandReceiver';
 import { date }           from 'hsutil';
 import * as path          from 'path';
+&nbsp;
+const fs = node.node.fs;
 &nbsp;
 // const IFTTT_On        = '#tbon';
 // const IFTTT_Off       = '#tboff';

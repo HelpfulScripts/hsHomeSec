@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">50.79% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>31/62</span>
+        <span class='fraction'>32/63</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">40% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>6/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">49.06% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>26/53</span>
+        <span class='fraction'>27/54</span>
       </div>
     </div>
   </div>
@@ -140,7 +140,9 @@
 95
 96
 97
-98</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+98
+99
+100</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -150,6 +152,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -248,6 +252,8 @@ import { DeviceSettings,
          DeviceList,
          Device }       from '../device/Device';
 &nbsp;
+const exec = node.node.child_process.exec;
+&nbsp;
 export const cmdList:[any, string, ...string[]][] = [
     [Exec.helpFn,        'help'],
     [Exec.facetimeFn,    'facetime'],
@@ -280,7 +286,7 @@ function <span class="fstat-no" title="function not covered" >wifiCheck(</span>s
     const ssid = <span class="cstat-no" title="statement not covered" >settings.wifiNetwork;</span>
     const pwd  = <span class="cstat-no" title="statement not covered" >settings.wifiPasswd;</span>
 <span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >async () </span>=&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
-        const result = <span class="cstat-no" title="statement not covered" >await node.exec('networksetup -getairportnetwork en0');</span>
+        const result = <span class="cstat-no" title="statement not covered" >await exec('networksetup -getairportnetwork en0');</span>
 <span class="cstat-no" title="statement not covered" >        log.debug(`wifi stdout:'${result.stdout}'`);</span>
 <span class="cstat-no" title="statement not covered" >        log.debug(`wifi stderr:'${result.stderr}'`);</span>
 <span class="cstat-no" title="statement not covered" >        if (result.stdout.match(ssid)) {</span>
@@ -289,7 +295,7 @@ function <span class="fstat-no" title="function not covered" >wifiCheck(</span>s
 <span class="cstat-no" title="statement not covered" >            log.warn(`wifi not connected to ${ssid}; attempting reconnect`);</span>
 <span class="cstat-no" title="statement not covered" >            log.warn(`wifi stdout:'${result.stdout}'`);</span>
 <span class="cstat-no" title="statement not covered" >            log.warn(`wifi stderr:'${result.stderr}'`);</span>
-            const nwResult = <span class="cstat-no" title="statement not covered" >await node.exec(`networksetup -setairportnetwork en0 ${ssid} ${pwd}`);</span>
+            const nwResult = <span class="cstat-no" title="statement not covered" >await exec(`networksetup -setairportnetwork en0 ${ssid} ${pwd}`);</span>
 <span class="cstat-no" title="statement not covered" >            log.warn(`reconnect stdout:'${nwResult.stdout}'`);</span>
 <span class="cstat-no" title="statement not covered" >            log.warn(`reconnect stderr:'${nwResult.stderr}'`);</span>
         }

@@ -1,10 +1,11 @@
 
 import { URL }              from 'url';
-import { log as gLog }  from 'hsnode';  const log = gLog('Device');
+import * as node  from 'hsnode';  const log = node.log('Device');
 import { http }             from 'hsnode';
-import { fs }               from 'hsnode'; 
 import { CfgSettings }      from '../core/CfgSettings';
 import { FtpSettings }      from '../comm/ftpSrv';
+
+const fs = node.node.fs;
 
 export interface DeviceSettings {
     id:         string;         // unique device name
@@ -118,7 +119,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:CfgSettings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
-        this.log = gLog(`${deviceSettings.type} ${deviceSettings.name}`);
+        this.log = node.log(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 
     async initDevice(settings:CfgSettings) {}

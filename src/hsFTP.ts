@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { log as gLog }  from 'hsnode';  const log = gLog('hsFTP');
+import * as node  from 'hsnode';  const log = node.log('hsFTP');
 import * as ftp         from './node/comm/ftpSrv';
 
 const settings:ftp.FtpSettings = ftp.getSettings();

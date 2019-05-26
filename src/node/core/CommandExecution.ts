@@ -4,7 +4,7 @@
  * @description Defines the action for external commands received
  */
 
-import { log as gLog, fs }from 'hsnode';  const log = gLog('CmdExec');
+import * as node  from 'hsnode';  const log = node.log('CmdExc');
 import { timeout, delay } from 'hsutil';
 import { osaCommands }    from 'hsosaes6';
 import { users }          from '../comm/UserComm';
@@ -14,6 +14,8 @@ import { AlarmDevice }    from '../device/Device';
 import { getCommands  }   from './CommandReceiver';
 import { date }           from 'hsutil';
 import * as path          from 'path';
+
+const fs = node.node.fs;
 
 // const IFTTT_On        = '#tbon';
 // const IFTTT_Off       = '#tboff';

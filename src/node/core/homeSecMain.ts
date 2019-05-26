@@ -8,13 +8,14 @@
 
 /** */
 
-import { log as gLog }  from 'hsnode';  const log = gLog('hsMain');
-import { fs }           from 'hsnode';
+import * as node  from 'hsnode';  const log = node.log('hsMain');
 import * as init        from './Init';
 import { CfgSettings }  from './CfgSettings';
 import * as ftp         from '../comm/ftpSrv';
 // import * as httpSrv     from '../comm/httpSrv';
 import { setAlarmText}  from './alarm';
+
+const fs = node.node.fs;
 
 const cliParams = {
     ftpServer: false

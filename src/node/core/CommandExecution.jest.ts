@@ -5,7 +5,9 @@ import { DeviceSettings }   from '../device/Device';
 import { DeviceList }       from '../device/Device';
 import { AbstractCamera }   from '../device/Device';
 import { FtpSettings }      from '../comm/ftpSrv';
-import { log, fs }          from 'hsnode';
+import * as node  from 'hsnode';  const log = node.log('CmdExcJest');
+
+const fs = node.node.fs;
 
 jest.mock('hsosaes6');
 
@@ -88,7 +90,7 @@ describe('CommandExecution', ()=> {
         );
     });
     describe('restartFn', () => {
-        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => <never>undefined );  // never exits
         it('should restart', () => cmds.restartFn().then((res) => {
             expect(mockExit).toHaveBeenCalled();
             expect(res).toEqual(undefined);

@@ -23,7 +23,7 @@
                 <h1>src/hsFTP.ts</h1>
                 <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span>#!/usr/bin/env&nbsp;node</p>
 <p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span></p>
-<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;log&nbsp;as&nbsp;gLog&nbsp;}&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;gLog(<quote>'hsFTP'</quote>);</p>
+<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span>import&nbsp;*&nbsp;as&nbsp;node&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;node.log(<quote>'hsFTP'</quote>);</p>
 <p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span>import&nbsp;*&nbsp;as&nbsp;ftp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'./node/comm/ftpSrv'</quote>;</p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span></p>
 <p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span>const&nbsp;settings:ftp.FtpSettings&nbsp;=&nbsp;ftp.getSettings();</p>

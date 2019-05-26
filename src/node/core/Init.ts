@@ -9,6 +9,8 @@ import { DeviceSettings,
          DeviceList,
          Device }       from '../device/Device';
 
+const exec = node.node.child_process.exec;
+
 export const cmdList:[any, string, ...string[]][] = [
     [Exec.helpFn,        'help'],
     [Exec.facetimeFn,    'facetime'],
@@ -41,7 +43,7 @@ function wifiCheck(settings:CfgSettings) {
     const ssid = settings.wifiNetwork;
     const pwd  = settings.wifiPasswd;
     return async () => {
-        const result = await node.exec('networksetup -getairportnetwork en0');
+        const result = await exec('networksetup -getairportnetwork en0');
         log.debug(`wifi stdout:'${result.stdout}'`);
         log.debug(`wifi stderr:'${result.stderr}'`);
         if (result.stdout.match(ssid)) {
@@ -50,7 +52,7 @@ function wifiCheck(settings:CfgSettings) {
             log.warn(`wifi not connected to ${ssid}; attempting reconnect`);
             log.warn(`wifi stdout:'${result.stdout}'`);
             log.warn(`wifi stderr:'${result.stderr}'`);
-            const nwResult = await node.exec(`networksetup -setairportnetwork en0 ${ssid} ${pwd}`);
+            const nwResult = await exec(`networksetup -setairportnetwork en0 ${ssid} ${pwd}`);
             log.warn(`reconnect stdout:'${nwResult.stdout}'`);
             log.warn(`reconnect stderr:'${nwResult.stderr}'`);
         }

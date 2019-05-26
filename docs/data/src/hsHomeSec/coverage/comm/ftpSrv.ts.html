@@ -112,9 +112,11 @@
 67
 68
 69
-70</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+70
+71</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,9 +184,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FtpSrv }       from 'ftp-srv';
-import { log as gLog }  from 'hsnode';  const log = gLog('ftpSrv');
-import { fs }           from 'hsnode'; 
+import * as node  from 'hsnode';  const log = node.log('ftpsrv');
 import { raiseAlarm }   from '../core/alarm';
+&nbsp;
+const fs = node.node.fs;
 &nbsp;
 export interface FtpSettings {
     host: string;
