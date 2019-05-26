@@ -47,7 +47,7 @@
         "grunt-contrib-less": "*",
         "grunt-contrib-uglify": "*",
         "grunt-contrib-watch": "*",
-        "grunt-ts": "*",
+        "grunt-ts": "^6.0.0-beta.22",
         "grunt-tslint": "*",
         "grunt-typedoc": "*",
         "grunt-webpack": "*",
