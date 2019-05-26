@@ -5696,7 +5696,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 131,
+															"line": 130,
 															"character": 55
 														}
 													],
@@ -5718,7 +5718,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 131,
+													"line": 130,
 													"character": 47
 												}
 											]
@@ -5731,7 +5731,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 131,
+							"line": 130,
 							"character": 18
 						}
 					]
@@ -5858,7 +5858,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 168,
+															"line": 167,
 															"character": 64
 														}
 													],
@@ -5899,7 +5899,7 @@
 																"sources": [
 																	{
 																		"fileName": "node/core/CommandExecution.ts",
-																		"line": 168,
+																		"line": 167,
 																		"character": 65
 																	}
 																]
@@ -5920,7 +5920,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 168,
+													"line": 167,
 													"character": 56
 												}
 											]
@@ -5933,7 +5933,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 168,
+							"line": 167,
 							"character": 27
 						}
 					]
@@ -6003,7 +6003,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 96,
+															"line": 95,
 															"character": 63
 														}
 													],
@@ -6028,7 +6028,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 96,
+													"line": 95,
 													"character": 51
 												}
 											]
@@ -6041,7 +6041,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 96,
+							"line": 95,
 							"character": 22
 						}
 					]
@@ -6084,7 +6084,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 148,
+															"line": 147,
 															"character": 43
 														}
 													],
@@ -6106,7 +6106,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 148,
+													"line": 147,
 													"character": 35
 												}
 											]
@@ -6119,7 +6119,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 148,
+							"line": 147,
 							"character": 21
 						}
 					]
@@ -6189,7 +6189,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 110,
+															"line": 109,
 															"character": 62
 														}
 													],
@@ -6211,7 +6211,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 110,
+													"line": 109,
 													"character": 54
 												}
 											]
@@ -6224,7 +6224,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 110,
+							"line": 109,
 							"character": 23
 						}
 					]
@@ -6269,7 +6269,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 189,
+															"line": 188,
 															"character": 51
 														}
 													],
@@ -6294,7 +6294,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 189,
+													"line": 188,
 													"character": 39
 												}
 											]
@@ -6307,7 +6307,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 189,
+							"line": 188,
 							"character": 19
 						}
 					]
@@ -6449,7 +6449,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 179,
+															"line": 178,
 															"character": 56
 														}
 													],
@@ -6471,7 +6471,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 179,
+													"line": 178,
 													"character": 48
 												}
 											]
@@ -6484,7 +6484,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 179,
+							"line": 178,
 							"character": 20
 						}
 					]
@@ -6629,7 +6629,7 @@
 													"sources": [
 														{
 															"fileName": "node/core/CommandExecution.ts",
-															"line": 122,
+															"line": 121,
 															"character": 52
 														}
 													],
@@ -6651,7 +6651,7 @@
 											"sources": [
 												{
 													"fileName": "node/core/CommandExecution.ts",
-													"line": 122,
+													"line": 121,
 													"character": 44
 												}
 											]
@@ -6664,7 +6664,7 @@
 					"sources": [
 						{
 							"fileName": "node/core/CommandExecution.ts",
-							"line": 122,
+							"line": 121,
 							"character": 18
 						}
 					]
@@ -6717,12 +6717,7 @@
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
-						"isExported": true,
-						"isConst": true
-					},
-					"comment": {
-						"shortText": "request to snap a picture. If a device name is specified, a snapshot from that device will be requested.\nIf no name is specified, a snapshot from each available camera will be requested.",
-						"returns": "promise to provide the file name if successful\n"
+						"isExported": true
 					},
 					"signatures": [
 						{
@@ -6745,7 +6740,7 @@
 										"isOptional": true
 									},
 									"comment": {
-										"shortText": ": `[<deviceName>]` optional list of device names to get snapshots from"
+										"text": ": `[<deviceName>]` optional list of device names to get snapshots from"
 									},
 									"type": {
 										"type": "array",
@@ -6779,7 +6774,7 @@
 														{
 															"fileName": "node/core/CommandExecution.ts",
 															"line": 75,
-															"character": 61
+															"character": 67
 														}
 													],
 													"type": {
@@ -6804,7 +6799,7 @@
 												{
 													"fileName": "node/core/CommandExecution.ts",
 													"line": 75,
-													"character": 49
+													"character": 55
 												}
 											]
 										}
@@ -6817,7 +6812,7 @@
 						{
 							"fileName": "node/core/CommandExecution.ts",
 							"line": 75,
-							"character": 19
+							"character": 28
 						}
 					]
 				}

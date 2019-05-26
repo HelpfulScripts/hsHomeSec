@@ -72,7 +72,7 @@ export const restartFn = ():Promise<{message:boolean}> => {
  * @param params : `[<deviceName>]` optional list of device names to get snapshots from
  * @return promise to provide the file name if successful
  */
-export const snapFn = (params?:string[]):Promise<{attachments:string[]}> => {
+export const snapFn = async (params?:string[]):Promise<{attachments:string[]}> => {
     const getSnap = (dev:Camera): Promise<string> => 
         !dev.hasVideo()? Promise.resolve(undefined) :
             dev.snapPicture()
@@ -82,10 +82,9 @@ export const snapFn = (params?:string[]):Promise<{attachments:string[]}> => {
                 return fs.writeStream(fileName, picData.data);
             });
         log.debug(`snap '${params?params[0]:''}': ${DeviceList.getDevices().map(d=>d.getName()).join(', ')}`);
-        return Promise.all(                 // get snapshot from all devices    :  get snapshot from specific device
-        (!params || !params[0] || params[0] === '')? DeviceList.getDevices().map(getSnap) : [getSnap(<Camera>DeviceList.getDevice(params[0]))]
-    ).then((files) => { 
-        return {attachments:files}; }); // send result(s) back to user
+        const files = await Promise.all(// get snapshot from all devices    :  get snapshot from specific device
+        (!params || !params[0] || params[0] === '') ? DeviceList.getDevices().map(getSnap) : [getSnap((<Camera>DeviceList.getDevice(params[0])))]);
+    return { attachments: files }; // send result(s) back to user
 };
 
 /**

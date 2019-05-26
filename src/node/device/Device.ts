@@ -114,7 +114,7 @@ export abstract class AbstractDevice implements Device {
     hasAudio():boolean          { return false; }
     hasAlarm():boolean          { return false; }
     hasMotionAlarm():boolean    { return false; }
-    abstract async setTime():Promise<void>
+    abstract async setTime():Promise<void>;
 
     constructor(deviceSettings: DeviceSettings, settings:CfgSettings) {
         this.settings = deviceSettings;

@@ -30,9 +30,9 @@
         <span class='fraction'>16/23</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">89.74% </span>
+        <span class="strong">89.47% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>35/39</span>
+        <span class='fraction'>34/38</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">92.31% </span>
@@ -235,8 +235,7 @@
 190
 191
 192
-193
-194</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+193</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -321,7 +320,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -503,7 +501,7 @@ export const restartFn = ():Promise&lt;{message:boolean}&gt; =&gt; {
  * @param params : `[&lt;deviceName&gt;]` optional list of device names to get snapshots from
  * @return promise to provide the file name if successful
  */
-export const snapFn = (params?:string[]):Promise&lt;{attachments:string[]}&gt; =&gt; {
+export async function snapFn(params?:string[]):Promise&lt;{attachments:string[]}&gt; {
     const getSnap = (dev:Camera): Promise&lt;string&gt; =&gt; 
         !dev.hasVideo()? <span class="branch-0 cbranch-no" title="branch not covered" >Promise.resolve(undefined) </span>:
             dev.snapPicture()
@@ -513,11 +511,10 @@ export const snapFn = (params?:string[]):Promise&lt;{attachments:string[]}&gt; =
                 return fs.writeStream(fileName, picData.data);
             });
         log.debug(`snap '${params?params[0]:''}': ${DeviceList.getDevices().map(d=&gt;d.getName()).join(', ')}`);
-        return Promise.all(                 // get snapshot from all devices    :  get snapshot from specific device
-        (!params || !params[0] || params[0] === '')? DeviceList.getDevices().map(getSnap) : [getSnap(&lt;Camera&gt;DeviceList.getDevice(params[0]))]
-    ).then((files) =&gt; { 
-        return {attachments:files}; }); // send result(s) back to user
-};
+        const files = await Promise.all(// get snapshot from all devices    :  get snapshot from specific device
+        (!params || !params[0] || params[0] === '') ? DeviceList.getDevices().map(getSnap) : [getSnap((&lt;Camera&gt;DeviceList.getDevice(params[0])))]);
+    return { attachments: files }; // send result(s) back to user
+}
 &nbsp;
 /**
  * instrruct a PTZ device to move to a preset, then returns a snapshot

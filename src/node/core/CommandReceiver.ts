@@ -105,7 +105,7 @@ interface Message {
     subject:        string;
     received:       string;
     id:             number;
-};
+}
 
 interface Account {
     account:        string;
