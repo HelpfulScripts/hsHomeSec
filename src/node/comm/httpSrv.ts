@@ -46,12 +46,12 @@ function writeHeader(response:any, allowed:boolean) {
  */
 function onRequest(request:any, response:any) {
     let user:User;
-    const query = url.parse(request.url, true).query;
+    const query:any = url.parse(request.url, true).query;
     request.setEncoding("utf8");
 
     if (query.cmd) {
-        const cmd = query.cmd;
-        const sender:string = query.sender;
+        const cmd:string = <string>query.cmd;
+        const sender:string = <string>query.sender;
         log.debug(`received message '${cmd}' from '${sender}'`);
 
         user = users.userByEmail(sender);
