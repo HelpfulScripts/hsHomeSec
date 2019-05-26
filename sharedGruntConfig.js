@@ -105,8 +105,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 //     src:['**/*'], dest:'bin' }
             ]},
             coverage: {files: [
-                { expand:true, cwd: '_coverage',            // copy coervage into docs
+                { expand:true, cwd: '_coverage',            // copy coverage into docs
                     src:['**/*'], dest:`docs/data/src/${lib}/coverage` },
+                { expand:true, cwd: '_coverage',            // copy dummy file to docs/data/src to avoid 'src/lib' entry in github
+                    src:['lcov.info'], dest:`docs/data/src` },
             ]},
             lib2NPM: { files: [
                 { expand:true, cwd: 'bin',                  // copy everything from bin

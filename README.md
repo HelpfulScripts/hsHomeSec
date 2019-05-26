@@ -1,6 +1,9 @@
 hsHomeSec 
 ========
 [![npm version](https://badge.fury.io/js/hshomesec.svg)](https://badge.fury.io/js/hshomesec)
+[![GitHub](https://img.shields.io/badge/GitHub-hsHomeSec-blue.svg)](https://github.com/helpfulscripts/hsHomeSec)
+[![docs](https://img.shields.io/badge/hsDocs-hsHomeSec-blue.svg)](https://helpfulscripts.github.io/hsHomeSec/#!/api/hsHomeSec/0)
+[![npm version](https://badge.fury.io/js/hshomesec.svg)](https://badge.fury.io/js/hshomesec)
 [![Build Status](https://travis-ci.org/HelpfulScripts/hsHomeSec.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsHomeSec)
 [![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsHomeSec/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsHomeSec?branch=master)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
