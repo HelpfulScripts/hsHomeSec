@@ -95,7 +95,7 @@
 <p id=72 class="line"><span>&nbsp;&nbsp;72</span><comment>&nbsp;*&nbsp;@param&nbsp;params&nbsp;:&nbsp;`[<deviceName>]`&nbsp;optional&nbsp;list&nbsp;of&nbsp;device&nbsp;names&nbsp;to&nbsp;get&nbsp;snapshots&nbsp;from</comment></p>
 <p id=73 class="line"><span>&nbsp;&nbsp;73</span><comment>&nbsp;*&nbsp;@return&nbsp;promise&nbsp;to&nbsp;provide&nbsp;the&nbsp;file&nbsp;name&nbsp;if&nbsp;successful</comment></p>
 <p id=74 class="line"><span>&nbsp;&nbsp;74</span><comment>&nbsp;*/</comment></p>
-<p id=75 class="line"><span>&nbsp;&nbsp;75</span>export&nbsp;async&nbsp;function&nbsp;snapFn(params?:string[]):Promise<{attachments:string[]}>&nbsp;{</p>
+<p id=75 class="line"><span>&nbsp;&nbsp;75</span>export&nbsp;const&nbsp;snapFn&nbsp;=&nbsp;async&nbsp;(params?:string[]):Promise<{attachments:string[]}>&nbsp;=>&nbsp;{</p>
 <p id=76 class="line"><span>&nbsp;&nbsp;76</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;getSnap&nbsp;=&nbsp;(dev:Camera):&nbsp;Promise<string>&nbsp;=>&nbsp;</p>
 <p id=77 class="line"><span>&nbsp;&nbsp;77</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!dev.hasVideo()?&nbsp;Promise.resolve(undefined)&nbsp;:</p>
 <p id=78 class="line"><span>&nbsp;&nbsp;78</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dev.snapPicture()</p>
@@ -108,7 +108,7 @@
 <p id=85 class="line"><span>&nbsp;&nbsp;85</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;files&nbsp;=&nbsp;await&nbsp;Promise.all(<comment>//&nbsp;get&nbsp;snapshot&nbsp;from&nbsp;all&nbsp;devices&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;get&nbsp;snapshot&nbsp;from&nbsp;specific&nbsp;device</comment></p>
 <p id=86 class="line"><span>&nbsp;&nbsp;86</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(!params&nbsp;||&nbsp;!params[0]&nbsp;||&nbsp;params[0]&nbsp;===&nbsp;<quote>''</quote>)&nbsp;?&nbsp;DeviceList.getDevices().map(getSnap)&nbsp;:&nbsp;[getSnap((<Camera>DeviceList.getDevice(params[0])))]);</p>
 <p id=87 class="line"><span>&nbsp;&nbsp;87</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{&nbsp;attachments:&nbsp;files&nbsp;};&nbsp;<comment>//&nbsp;send&nbsp;result(s)&nbsp;back&nbsp;to&nbsp;user</comment></p>
-<p id=88 class="line"><span>&nbsp;&nbsp;88</span><comment></comment>}</p>
+<p id=88 class="line"><span>&nbsp;&nbsp;88</span><comment></comment>};</p>
 <p id=89 class="line"><span>&nbsp;&nbsp;89</span></p>
 <p id=90 class="line"><span>&nbsp;&nbsp;90</span><comment>/**</comment></p>
 <p id=91 class="line"><span>&nbsp;&nbsp;91</span><comment>&nbsp;*&nbsp;instrruct&nbsp;a&nbsp;PTZ&nbsp;device&nbsp;to&nbsp;move&nbsp;to&nbsp;a&nbsp;preset,&nbsp;then&nbsp;returns&nbsp;a&nbsp;snapshot</comment></p>

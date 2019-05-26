@@ -719,7 +719,7 @@ export abstract class AbstractDevice implements Device {
 <span class="fstat-no" title="function not covered" >    hasAudio</span>():boolean          { <span class="cstat-no" title="statement not covered" >return false; </span>}
 <span class="fstat-no" title="function not covered" >    hasAlarm</span>():boolean          { <span class="cstat-no" title="statement not covered" >return false; </span>}
 <span class="fstat-no" title="function not covered" >    hasMotionAlarm</span>():boolean    { <span class="cstat-no" title="statement not covered" >return false; </span>}
-    abstract async setTime():Promise&lt;void&gt;
+    abstract async setTime():Promise&lt;void&gt;;
 &nbsp;
     constructor(deviceSettings: DeviceSettings, settings:CfgSettings) {
         this.settings = deviceSettings;

@@ -6717,7 +6717,12 @@
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isConst": true
+					},
+					"comment": {
+						"shortText": "request to snap a picture. If a device name is specified, a snapshot from that device will be requested.\nIf no name is specified, a snapshot from each available camera will be requested.",
+						"returns": "promise to provide the file name if successful\n"
 					},
 					"signatures": [
 						{
@@ -6740,7 +6745,7 @@
 										"isOptional": true
 									},
 									"comment": {
-										"text": ": `[<deviceName>]` optional list of device names to get snapshots from"
+										"shortText": ": `[<deviceName>]` optional list of device names to get snapshots from"
 									},
 									"type": {
 										"type": "array",
@@ -6812,7 +6817,7 @@
 						{
 							"fileName": "node/core/CommandExecution.ts",
 							"line": 75,
-							"character": 28
+							"character": 19
 						}
 					]
 				}
@@ -14720,7 +14725,7 @@
 								{
 									"fileName": "node/device/Device.ts",
 									"line": 117,
-									"character": 42
+									"character": 43
 								}
 							]
 						},
