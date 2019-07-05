@@ -113,6 +113,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             lib2NPM: { files: [
                 { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:['**/*'], dest:`node_modules/${libPath}/` },
+                { expand:true, cwd: './',                  // copy css and map
+                    src:['*.css*'], dest:`node_modules/${libPath}/` },
                 // { expand:true, cwd: 'docs/data',            // copy source htmls to hsDocs
                 //     src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` }
             ]},
@@ -135,7 +137,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             },
             css: {
                 files: [{
-                    cwd: './', src: 'src/css/<%= pkg.name %>.less', dest: 'bin/<%= lib %>.css'
+                    cwd: './', src: './src/css/<%= pkg.name %>.less', dest: './<%= lib %>.css'
                 }]
              },
             example: {
@@ -205,7 +207,12 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 output: {
                     filename: `${lib}.min.js`,
                     // chunkFilename: '[name].bundle.js',
-                    path: path.resolve(dir, './bin')
+                    path: path.resolve(dir, './bin'),
+                    library: lib
+                },
+                externals: {
+                    d3: 'd3',
+                    d3Axis: 'd3-axis'
                 },
                 plugins: [
                     new UglifyJsPlugin({
@@ -222,7 +229,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 devtool: "inline-source-map",
                 output: {
                     filename: `${lib}.js`,
-                    path: path.resolve(dir, './bin')
+                    path: path.resolve(dir, './bin'),
+                    library: lib
                 }
             // },
             // test: {
@@ -297,8 +305,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             case 'node': 
             case 'util':    
             case 'lib': 
-            default:        buildProduct = buildTasks.concat(['build-jsMin', 'copy:libStage']);
-                            buildTasks   = buildTasks.concat(['build-js', 'copy:libStage']); 
+            default:        buildProduct = buildTasks.concat(['build-jsMin', 'webpack:appDev', 'webpack:appProd', 'copy:libStage']);
+                            buildTasks   = buildTasks.concat(['build-js', 'webpack:appDev', 'webpack:appProd', 'copy:libStage']); 
                             break;
         }
         grunt.registerTask('build', buildTasks);
