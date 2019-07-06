@@ -10,6 +10,15 @@ function hsCamelCase(name) {
     return name;
 }
 
+const webpackExternals = {
+    fs:             'fs',           // node.fs
+    path:           'path',         // node.path
+    url:            'url',          // node.url
+    http:           'http',         // node.http
+    crypto:         'crypto',       // node.crypto
+    child_process:  'child_process' // node.child_process
+};
+
 module.exports = (grunt, dir, dependencies, type, lib) => {
     const devPath = dir.slice(0, dir.indexOf('/dev/')+5);
     const pkg = grunt.file.readJSON(dir+'/package.json');
@@ -31,7 +40,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('grunt-coveralls');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['clean:docs', 'copy:html', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
+    grunt.registerTask('doc', ['clean:docs', 'copy:docs', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
@@ -41,29 +50,33 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json', '-i'], {stdio: 'inherit'}); });
     grunt.registerTask('test', ['clean:cov', 'jest', 'copy:coverage', 'cleanupCoverage']); 
     
-    //------ Add Build Tasks
+    //------ Support Tasks
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
     // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
-    grunt.registerTask('build-jsMin',   ['ts:srcMin']);
     // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
+    grunt.registerTask('build-base',    ['clean:dist', 'build-html', 'build-css', 'copy:bin', 'copy:example']);
+    grunt.registerTask('buildMin',      ['build-base', 'build-js', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'coveralls']);
+    grunt.registerTask('buildDev',      ['build-base', 'build-js', 'webpack:appDev']);
 
-    registerBuildTasks(type);
-   
-    //------ Add other MultiTasks
-    grunt.registerTask('make',      ['build', 'doc', 'test', 'stage']);
-    grunt.registerTask('makeShort', ['build', 'doc', 'stage']);
-    grunt.registerTask('once',      ['make']);	
-    grunt.registerTask('default',   ['make']);	
-    grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
-    grunt.registerTask('travis',    ['build', 'doc', 'test', 'coveralls']);	
+    //------ Entry-point MultiTasks
+    grunt.registerTask('default',       ['product']);	
+    grunt.registerTask('dev',           ['buildDev', 'stage']);
+    grunt.registerTask('product',       ['buildMin', 'stage']);	
+    grunt.registerTask('travis',        ['build-base', 'build-js', 'webpack:appDev', 'webpack:appProd', 'test']);	
+    grunt.registerTask('help',          ['h']);	
 
     grunt.registerMultiTask('sourceCode', translateSourcesToHTML);  
     grunt.registerMultiTask('cleanupCoverage', removeTimestampFromCoverage);  
 
     //------ Add general help 
-    grunt.registerTask('h', 'help on grunt options', printHelp); 	
+    grunt.registerTask('h', 'help on grunt options', () => {
+        grunt.log.writeln(`  grunt: \t make once, don't watch`);
+        grunt.log.writeln(`  grunt watch: \t watch for changes, don't make yet`);
+        grunt.log.writeln(`  grunt make: \t build, test, doc, and stage`);
+        grunt.log.writeln(`  grunt product: make optimized, don't watch; relevant for apps only`);
+    }); 	
 
     //------ Add Task Configurations
     return {
@@ -92,18 +105,24 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     src:['*.md', 'package.json'], dest:'bin' 
                 }
             ]},
-            html: { files: [
-                { expand:true, cwd: devPath+'/local/',    // docs index.html from staging
-                    src:['index.html'], dest:'docs' 
+            // create docs/html files
+            docs: { files: [
+                { expand:true, cwd: devPath+'/local/',  // default docs index.html from 'local' admin project 
+                    src:['index*.html'], dest:'docs' 
+                },
+                { expand:true, cwd: './src/docs',       // project-specific docs index*.html
+                    src:['index*.html'], dest:'docs' 
+                },
+                { expand:true, cwd: './',               // project-specific docs css files
+                    src:[`${lib}.css*`], dest:'docs' 
+                },
+                { expand:true, cwd: './bin',            // project-specific docs css files
+                    src:[`${lib}.js`, `${lib}.min.js`], dest:'docs' 
                 }
             ]},
             example:{ expand:true, cwd: 'src/example', 
                 src:['**/*', '!**/*.ts'], dest:'docs/example' 
             },
-            libStage: { files: [
-                // { expand:true, cwd: 'bin/',              // copy everything from bin/src to bin
-                //     src:['**/*'], dest:'bin' }
-            ]},
             coverage: {files: [
                 { expand:true, cwd: '_coverage',            // copy coverage into docs
                     src:['**/*'], dest:`docs/data/src/${lib}/coverage` },
@@ -115,8 +134,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     src:['**/*'], dest:`node_modules/${libPath}/` },
                 { expand:true, cwd: './',                  // copy css and map
                     src:['*.css*'], dest:`node_modules/${libPath}/` },
-                // { expand:true, cwd: 'docs/data',            // copy source htmls to hsDocs
-                //     src:['**/*', '!index.json'], dest:`${devPath}/hsApps/hsDocs/docs/data` }
             ]},
             app2NPM: { files: [ 
                 { expand:true, cwd: 'bin',                  // copy everything from bin
@@ -175,10 +192,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 outDir:     "bin",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
-            srcMin : {
-                outDir:     "bin",
-                src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
-            },
             example : {
                 outDir:     "docs/example",
                 src: ["src/example/*.ts"],
@@ -208,12 +221,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     filename: `${lib}.min.js`,
                     // chunkFilename: '[name].bundle.js',
                     path: path.resolve(dir, './bin'),
-                    library: lib
+                    library: lib,
+                    libraryTarget: "this"
                 },
-                externals: {
-                    d3: 'd3',
-                    d3Axis: 'd3-axis'
-                },
+                externals: webpackExternals,
                 plugins: [
                     new UglifyJsPlugin({
                         uglifyOptions: {
@@ -230,8 +241,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 output: {
                     filename: `${lib}.js`,
                     path: path.resolve(dir, './bin'),
-                    library: lib
-                }
+                    library: lib,
+                    libraryTarget: "this"
+                },
+                externals: webpackExternals,
             // },
             // test: {
             //     entry: './bin/index.js',
@@ -260,21 +273,21 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         },
         coveralls: {
             src: `docs/data/src/${lib}/coverage/lcov.info`,
-            options: { force: false }
+            options: { force: true }
         },
 
         watch: {
             dependencies: {
                 files: dependencies.map(d => `./node_modules/${d.toLowerCase()}/index.js`),
-				tasks: ['makeShort']
+				tasks: ['dev']
             },
 			gruntfile: {
                 files: ['Gruntfile.js', __dirname+'/sharedGruntConfig.js'], 
-				tasks: ['make']
+				tasks: ['dev']
 			},
 			js: {
 				files: ['src/**/*.ts', '!src/**/*.spec.ts', '!src/**/*.jest.ts', '!src/**/*.less'],
-				tasks: ['makeShort']
+				tasks: ['dev']
 			},
 			less: {
 				files: ['src/**/*.less'],
@@ -293,31 +306,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
 				tasks: ['jest']
 			}
 		}
-    }
-
-    function registerBuildTasks(type) { 
-        let buildTasks = ['clean:dist', 'build-html', 'build-css', 'copy:bin', 'copy:example'];
-        let buildProduct;
-        switch (type) {
-            case 'app':     buildProduct = buildTasks.concat(['build-jsMin', 'webpack:appProd']);
-                            buildTasks   = buildTasks.concat(['build-js', 'webpack:appDev', 'webpack:appProd']); 
-                            break;
-            case 'node': 
-            case 'util':    
-            case 'lib': 
-            default:        buildProduct = buildTasks.concat(['build-jsMin', 'webpack:appDev', 'webpack:appProd', 'copy:libStage']);
-                            buildTasks   = buildTasks.concat(['build-js', 'webpack:appDev', 'webpack:appProd', 'copy:libStage']); 
-                            break;
-        }
-        grunt.registerTask('build', buildTasks);
-        grunt.registerTask('buildMin', buildProduct);
-    }
-
-    function printHelp() {
-        grunt.log.writeln(`  grunt: \t make once, don't watch`);
-        grunt.log.writeln(`  grunt watch: \t watch for changes, don't make yet`);
-        grunt.log.writeln(`  grunt make: \t build, test, doc, and stage`);
-        grunt.log.writeln(`  grunt product: make optimized, don't watch; relevant for apps only`);
     }
 
     function translateSourcesToHTML() {  
