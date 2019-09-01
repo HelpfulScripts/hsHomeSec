@@ -2,6 +2,7 @@ const path = require('path');
 const fs   = require('fs');
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 function hsCamelCase(name) {
     if (name.indexOf('hs') === 0) {
@@ -228,12 +229,19 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 },
                 externals: webpackExternals,
                 plugins: [
-                    new UglifyJsPlugin({
-                        uglifyOptions: {
-                            ecma: 6,
-                            mangle:false
-                        }
-                    })
+                    new TerserPlugin({terserOptions: {
+                        ecma: 6,
+                        module: true,
+                        mangle: false
+                    },
+                    parallel: true
+                })
+                    // new UglifyJsPlugin({
+                    //     uglifyOptions: {
+                    //         ecma: 6,
+                    //         mangle:false
+                    //     }
+                    // })
                 ]
             },
             appDev: {
