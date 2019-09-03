@@ -56,7 +56,7 @@ export const helpFn = ():Promise<{message:string}> => {
 
 export const restartFn = ():Promise<{message:boolean}> => {
     return osaCommands.restart()
-    .then(result => {
+    .then((result:boolean) => {
         log.info('restarting...'+result); 
         if (!result || result === true) { 
             return process.exit(0);    // exits synchronously and never returns; return statement provided for testing purposes
@@ -110,7 +110,7 @@ export const facetimeFn = (username:string[]):Promise<{message:string}> => {
     const user = users.userByName(username[0]);
     log.info('trying facetime call to ' + user.name); 
     return osaCommands.facetime(user.AppleID)
-    .then((result) => { return {message: result}; });
+    .then((result:any) => { return {message: result}; });
 };
 
 /**
@@ -120,7 +120,7 @@ export const facetimeFn = (username:string[]):Promise<{message:string}> => {
  */
 export const sayFn = (msg:string[]):Promise<{message:string}> => { 
     return osaCommands.say(msg[0])
-    .then((result) => { return {message: result}; });
+    .then((result:any) => { return {message: result}; });
 };
 
 /**

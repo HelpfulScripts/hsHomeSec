@@ -60,6 +60,7 @@
     },
     "dependencies": {
         "ftp-srv": "^4.1.1",
-        "hsnode":   "*"
+        "hsnode":   "*",
+        "hsosaes6": "*"
     }
 }
