@@ -41,7 +41,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('grunt-coveralls');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['clean:docs', 'copy:docs', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
+    grunt.registerTask('doc', ['copy:docs', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
@@ -57,7 +57,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
     // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
-    grunt.registerTask('build-base',    ['clean:dist', 'build-html', 'build-css', 'copy:bin', 'copy:example']);
+    grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example']);
     grunt.registerTask('buildMin',      (type === 'node')?['build-base', 'build-js', 'doc', 'test', 'coveralls'] : 
                                                           ['build-base', 'build-js', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'coveralls']);
     grunt.registerTask('buildDev',      ['build-base', 'build-js', 'webpack:appDev']);
@@ -98,7 +98,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         },
         copy: {
             buildHTML:  { expand:true, cwd:'src/', 
-                src:['*.html'], dest:'bin/' 
+                src:['*.html', '*.json'], dest:'bin/' 
             },
             bin:{ files: [
                 { expand:true, cwd: 'src/bin',              // if present, scaffolding for bin distribution
@@ -157,7 +157,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             },
             css: {
                 files: [{
-                    cwd: './', src: './src/css/<%= pkg.name %>.less', dest: './<%= lib %>.css'
+                    cwd: './', src: './src/css/<%= pkg.name %>.less', dest: './bin/<%= lib %>.css'
                 }]
              },
             example: {
