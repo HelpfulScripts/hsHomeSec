@@ -1,8 +1,8 @@
 /**
  * # Home Security Setup
  * A simple homebrew alarm system for OSX High Sierra
- * [`[Github page]`](https://github.com/HelpfulScripts/hsHomeSec)
- * [`[Coverage Info]`](./data/src/hsHomeSec/coverage/)
+ * <a href="https://github.com/HelpfulScripts/hsHomeSec" target="_blank">[Github page]</a>
+ * <a href="./data/src/hsHomeSec/coverage/" target="_blank">[Coverage Info]</a>
  * ___
  * Written in [Typescript](typescriptlang.org) to run on [Node](nodejs.org).
  * - supports cameras with built-in web api. Currently tested
