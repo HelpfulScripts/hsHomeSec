@@ -119,7 +119,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 { expand:true, cwd: './',               // project-specific docs css files
                     src:[`${lib}.css*`], dest:'docs' 
                 },
-                { expand:true, cwd: './bin',            // project-specific docs css files
+                { expand:true, cwd: './bin',            // project-specific docs files: libraries and configurations (*.json)
                     src:[`${lib}.js`, `${lib}.min.js`, `*.json`], dest:'docs' 
                 }
             ]},
