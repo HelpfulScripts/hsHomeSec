@@ -1,7 +1,7 @@
 const path = require('path');
 const fs   = require('fs');
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 function hsCamelCase(name) {
@@ -52,14 +52,15 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('test', ['clean:cov', 'jest', 'copy:coverage', 'cleanupCoverage']); 
     
     //------ Support Tasks
+    grunt.registerTask('run-coveralls', [/*'coveralls:main'*/]);
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
     // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
     // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
     grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example']);
-    grunt.registerTask('buildMin',      (type === 'node')?['build-base', 'build-js', 'doc', 'test', 'coveralls'] : 
-                                                          ['build-base', 'build-js', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'coveralls']);
+    grunt.registerTask('buildMin',      (type === 'node')?['build-base', 'build-js', 'doc', 'test', 'run-coveralls'] : 
+                                                          ['build-base', 'build-js', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'run-coveralls']);
     grunt.registerTask('buildDev',      ['build-base', 'build-js', 'webpack:appDev']);
 
     //------ Entry-point MultiTasks
@@ -220,29 +221,32 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             },
             appProd: { 
                 mode: 'production',
-                entry: './bin/index.js',
+                entry: {
+                    main: './bin/index.js'
+                },
+                // optimization: {
+                //     splitChunks: {
+                //         chunks: 'all'
+                //     },
+                // },
                 output: {
+                    //filename: `[name].bundle.js`,
                     filename: `${lib}.min.js`,
-                    // chunkFilename: '[name].bundle.js',
+                    //chunkFilename: '[name].bundle.js',
                     path: path.resolve(dir, './bin'),
                     library: lib,
                     libraryTarget: "this"
                 },
                 externals: webpackExternals,
                 plugins: [
-                    new TerserPlugin({terserOptions: {
-                        ecma: 6,
-                        module: true,
-                        mangle: false
-                    },
-                    parallel: true
-                })
-                    // new UglifyJsPlugin({
-                    //     uglifyOptions: {
-                    //         ecma: 6,
-                    //         mangle:false
-                    //     }
-                    // })
+                    new TerserPlugin({
+                        terserOptions: {
+                            ecma: 6,
+                            module: true,
+                            mangle: false
+                        },
+                        parallel: true
+                    })
                 ]
             },
             appDev: {
@@ -256,13 +260,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     libraryTarget: "this"
                 },
                 externals: webpackExternals,
-            // },
-            // test: {
-            //     entry: './bin/index.js',
-            //     output: {
-            //         filename: `${lib}.js`,
-            //         path: path.resolve(dir, './bin')
-            //     }
             }
         },
         sourceCode: { 
@@ -283,8 +280,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             }
         },
         coveralls: {
-            src: `docs/data/src/${lib}/coverage/lcov.info`,
-            options: { force: true }
+            options: { force: true },
+            main: {
+                src: `docs/data/src/${lib}/coverage/lcov.info`
+            }
         },
 
         watch: {

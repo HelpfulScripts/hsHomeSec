@@ -3,6 +3,8 @@ _example
 bin
 node_modules
 lcov-report
+lcov.info
+coverage-final.json
 .DS_Store
 .tscache
 src/config/homeCfg.json
