@@ -1,7 +1,6 @@
 const path = require('path');
 const fs   = require('fs');
 
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 function hsCamelCase(name) {
@@ -61,7 +60,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example']);
     grunt.registerTask('buildMin',      (type === 'node')?['build-base', 'build-js', 'doc', 'test', 'run-coveralls'] : 
                                                           ['build-base', 'build-js', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'run-coveralls']);
-    grunt.registerTask('buildDev',      ['build-base', 'build-js', 'webpack:appDev']);
+    grunt.registerTask('buildDev',      (type === 'node')?['build-base', 'build-js'] : 
+                                                          ['build-base', 'build-js', 'webpack:appDev']);
 
     //------ Entry-point MultiTasks
     grunt.registerTask('default',       ['product']);	
