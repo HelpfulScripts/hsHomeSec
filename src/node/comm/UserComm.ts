@@ -1,5 +1,5 @@
 
-import { User }         from './UserComm';
+// import { User }         from './UserComm';
 import { osaCommands }  from 'hsosaes6';
 
 export interface User {

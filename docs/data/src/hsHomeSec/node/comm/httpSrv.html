@@ -69,12 +69,12 @@
 <p id=46 class="line"><span>&nbsp;&nbsp;46</span><comment>&nbsp;*/</comment></p>
 <p id=47 class="line"><span>&nbsp;&nbsp;47</span>function&nbsp;onRequest(request:any,&nbsp;response:any)&nbsp;{</p>
 <p id=48 class="line"><span>&nbsp;&nbsp;48</span>&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;user:User;</p>
-<p id=49 class="line"><span>&nbsp;&nbsp;49</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;query&nbsp;=&nbsp;url.parse(request.url,&nbsp;true).query;</p>
+<p id=49 class="line"><span>&nbsp;&nbsp;49</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;query:any&nbsp;=&nbsp;url.parse(request.url,&nbsp;true).query;</p>
 <p id=50 class="line"><span>&nbsp;&nbsp;50</span>&nbsp;&nbsp;&nbsp;&nbsp;request.setEncoding(<quote>"utf8"</quote>);</p>
 <p id=51 class="line"><span>&nbsp;&nbsp;51</span></p>
 <p id=52 class="line"><span>&nbsp;&nbsp;52</span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(query.cmd)&nbsp;{</p>
-<p id=53 class="line"><span>&nbsp;&nbsp;53</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;cmd&nbsp;=&nbsp;query.cmd;</p>
-<p id=54 class="line"><span>&nbsp;&nbsp;54</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;sender:string&nbsp;=&nbsp;query.sender;</p>
+<p id=53 class="line"><span>&nbsp;&nbsp;53</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;cmd:string&nbsp;=&nbsp;<string>query.cmd;</p>
+<p id=54 class="line"><span>&nbsp;&nbsp;54</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;sender:string&nbsp;=&nbsp;<string>query.sender;</p>
 <p id=55 class="line"><span>&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`received&nbsp;message&nbsp;<quote>'${cmd}'</quote>&nbsp;from&nbsp;<quote>'${sender}'</quote>`);</p>
 <p id=56 class="line"><span>&nbsp;&nbsp;56</span></p>
 <p id=57 class="line"><span>&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;=&nbsp;users.userByEmail(sender);</p>

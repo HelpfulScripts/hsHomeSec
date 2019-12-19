@@ -79,7 +79,7 @@
 <p id=56 class="line"><span>&nbsp;&nbsp;56</span></p>
 <p id=57 class="line"><span>&nbsp;&nbsp;57</span>export&nbsp;const&nbsp;restartFn&nbsp;=&nbsp;():Promise<{message:boolean}>&nbsp;=>&nbsp;{</p>
 <p id=58 class="line"><span>&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.restart()</p>
-<p id=59 class="line"><span>&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;.then(result&nbsp;=>&nbsp;{</p>
+<p id=59 class="line"><span>&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((result:boolean)&nbsp;=>&nbsp;{</p>
 <p id=60 class="line"><span>&nbsp;&nbsp;60</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.info(<quote>'restarting...'</quote>+result);&nbsp;</p>
 <p id=61 class="line"><span>&nbsp;&nbsp;61</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!result&nbsp;||&nbsp;result&nbsp;===&nbsp;true)&nbsp;{&nbsp;</p>
 <p id=62 class="line"><span>&nbsp;&nbsp;62</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;process.exit(0);&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;exits&nbsp;synchronously&nbsp;and&nbsp;never&nbsp;returns;&nbsp;return&nbsp;statement&nbsp;provided&nbsp;for&nbsp;testing&nbsp;purposes</comment></p>
@@ -133,7 +133,7 @@
 <p id=110 class="line"><span>&nbsp;110</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;user&nbsp;=&nbsp;users.userByName(username[0]);</p>
 <p id=111 class="line"><span>&nbsp;111</span>&nbsp;&nbsp;&nbsp;&nbsp;log.info(<quote>'trying&nbsp;facetime&nbsp;call&nbsp;to&nbsp;'</quote>&nbsp;+&nbsp;user.name);&nbsp;</p>
 <p id=112 class="line"><span>&nbsp;112</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.facetime(user.AppleID)</p>
-<p id=113 class="line"><span>&nbsp;113</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((result)&nbsp;=>&nbsp;{&nbsp;return&nbsp;{message:&nbsp;result};&nbsp;});</p>
+<p id=113 class="line"><span>&nbsp;113</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((result:any)&nbsp;=>&nbsp;{&nbsp;return&nbsp;{message:&nbsp;result};&nbsp;});</p>
 <p id=114 class="line"><span>&nbsp;114</span>};</p>
 <p id=115 class="line"><span>&nbsp;115</span></p>
 <p id=116 class="line"><span>&nbsp;116</span><comment>/**</comment></p>
@@ -143,7 +143,7 @@
 <p id=120 class="line"><span>&nbsp;120</span><comment>&nbsp;*/</comment></p>
 <p id=121 class="line"><span>&nbsp;121</span>export&nbsp;const&nbsp;sayFn&nbsp;=&nbsp;(msg:string[]):Promise<{message:string}>&nbsp;=>&nbsp;{&nbsp;</p>
 <p id=122 class="line"><span>&nbsp;122</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;osaCommands.say(msg[0])</p>
-<p id=123 class="line"><span>&nbsp;123</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((result)&nbsp;=>&nbsp;{&nbsp;return&nbsp;{message:&nbsp;result};&nbsp;});</p>
+<p id=123 class="line"><span>&nbsp;123</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((result:any)&nbsp;=>&nbsp;{&nbsp;return&nbsp;{message:&nbsp;result};&nbsp;});</p>
 <p id=124 class="line"><span>&nbsp;124</span>};</p>
 <p id=125 class="line"><span>&nbsp;125</span></p>
 <p id=126 class="line"><span>&nbsp;126</span><comment>/**</comment></p>
