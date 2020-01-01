@@ -40,7 +40,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('grunt-coveralls');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['copy:docs', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
+    grunt.registerTask('noTask', []);
+    grunt.registerTask('doc', ['copy:docs', 'typedoc', 'sourceCode', `${(type === 'app')? 'copy:docs2NPM' : 'noTask'}`]);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
@@ -135,13 +136,13 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             ]},
             lib2NPM: { files: [
                 { expand:true, cwd: 'bin',                  // copy everything from bin
-                    src:['**/*'], dest:`node_modules/${libPath}/` },
+                    src:['**/*.*', '!cache/**.*.*'], dest:`node_modules/${libPath}/` },
                 { expand:true, cwd: './',                  // copy css and map
                     src:['*.css*'], dest:`node_modules/${libPath}/` },
             ]},
             app2NPM: { files: [ 
                 { expand:true, cwd: 'bin',                  // copy everything from bin
-                    src:['**/*'], dest:`node_modules/${libPath}/` },
+                    src:['**/*.*'], dest:`node_modules/${libPath}/` },
                 { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:[`**/${lib}.*`], dest:`docs` },
                 { expand:true, cwd: devPath+'/staging/',    // index.html
@@ -187,6 +188,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 module: "CommonJS",
                 rootDir: "./src",
                 moduleResolution: "node",
+                esModuleInterop: true,
                 inlineSourceMap: true,
                 removeComments: true,
                 noImplicitAny: true,
@@ -208,6 +210,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     target: 'es6',
                     module: 'commonjs',
                     moduleResolution: "node",
+                    esModuleInterop: true,
                     json:   `docs/data/${lib}.json`,
                     mode:   'modules',
                     name:   `${lib}`,
