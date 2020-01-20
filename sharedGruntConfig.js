@@ -11,6 +11,9 @@ function hsCamelCase(name) {
 }
 
 const webpackExternals = {
+    // hsutil:         'hsutil',
+    // hslayout:       'hslayout',
+    // hswidget:       'hswidget',
     fs:             'fs',           // node.fs
     path:           'path',         // node.path
     url:            'url',          // node.url
