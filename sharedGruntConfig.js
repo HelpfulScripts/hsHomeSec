@@ -61,18 +61,24 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
     // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
-    grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example']);
-    grunt.registerTask('buildMin',      (type === 'node')?['build-base', 'build-js', 'doc', 'test', 'run-coveralls'] : 
-                                                          ['build-base', 'build-js', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'run-coveralls']);
-    grunt.registerTask('buildDev',      (type === 'node')?['build-base', 'build-js'] : 
-                                                          ['build-base', 'build-js', 'webpack:appDev']);
+    grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example', 'build-js']);
+    switch(type) {
+        case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test', 'run-coveralls']);
+                    grunt.registerTask('buildDev', ['build-base']);
+                    break;
+        case 'lib': grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'run-coveralls']);
+                    grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
+                    break;
+        default:    grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'run-coveralls']);
+                    grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
+    }
 
     //------ Entry-point MultiTasks
     grunt.registerTask('default',       ['product']);	
     grunt.registerTask('dev',           ['buildDev', 'stage']);
     grunt.registerTask('product',       ['buildMin', 'stage']);	
-    // grunt.registerTask('travis',        ['build-base', 'build-js', (type === 'node')?'':'webpack:appProd', 'test']); // exlude node-apps from webPack to avoid webpack error
-    grunt.registerTask('travis',        ['build-base', 'build-js', 'test']); // exlude node-apps from webPack to avoid webpack error
+    // grunt.registerTask('travis',        ['build-base', (type === 'node')?'':'webpack:appProd', 'test']); // exlude node-apps from webPack to avoid webpack error
+    grunt.registerTask('travis',        ['build-base', 'test']); // exlude node-apps from webPack to avoid webpack error
     grunt.registerTask('help',          ['h']);	
 
     grunt.registerMultiTask('sourceCode', translateSourcesToHTML);  
@@ -337,10 +343,11 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 .map(l => `<comment>${l}</comment>`)
                 .join('\n');
         }
-        function module(content) { return `<module>${content}</module>`; }
+        // function module(content) { return `<module>${content}</module>`; }
         function processFile(srcFile, destDir) {
-            let i = srcFile.lastIndexOf('/');
-            let file = (i>=0)? srcFile.slice(i+1) : srcFile;
+            const src = ''+srcFile;
+            const i = src.lastIndexOf('/');
+            const file = (i>=0)? src.slice(i+1) : src;
             let content = grunt.file.read(srcFile)
                 .replace(/( )/g, '&nbsp;')              // preserve whitespaces
                 .replace(/(\/\/.*?)<\/code>/g, comment) // color code // comments
