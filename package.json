@@ -1,1 +1,66 @@
-{"name":"hshomesec","version":"1.4.20","main":"./index.js","bin":{"hsHomeSec":"./index.js","hsFTP":"./hsFTP.js"},"keywords":["home security","javascript","es6","foscam","wansview","osa","applescript"],"description":"Helpful Scripts home security solution","author":{"name":"masterscripter","email":"helpfulscripts@gmail.com"},"license":"MIT","scripts":{"build":"grunt build","test":"grunt test","start":"node ./index.js"},"repository":{"type":"git","url":"https://github.com/HelpfulScripts/hsHomeSec.git"},"engines":{"node":">= 10.14.0"},"plugins":[],"devDependencies":{"@types/node":"^12.12.21","@types/jest":"^24.0.24","@types/request":"^2.48.2","coveralls":"^3.0.9","grunt":"^1.0.4","grunt-contrib-clean":"^2.0.0","grunt-contrib-concat":"^1.0.1","grunt-contrib-copy":"^1.0.0","grunt-contrib-less":"^2.0.0","grunt-contrib-uglify":"^4.0.0","grunt-contrib-watch":"^1.1.0","grunt-ts":"^6.0.0-beta.22","grunt-tslint":"^5.0.2","grunt-webpack":"^3.1.3","grunt-coveralls":"^2.0.0","jest":"^24.9.0","ts-jest":"^24.2.0","tslint":"^5.20.1","typedoc":"^0.15.5","typescript":"^3.7.3","terser-webpack-plugin":"^2.3.1","webpack":"^4.41.3"},"dependencies":{"ftp-srv":"^4.1.1","hsnode":"^2.13.1","hsosaes6":"*"}}
+{
+    "name": "hshomesec",
+    "version": "1.4.20",
+    "main": "./index.js",
+    "bin": {
+        "hsHomeSec": "./index.js",
+        "hsFTP": "./hsFTP.js"
+    },
+    "keywords": [
+        "home security",
+        "javascript",
+        "es6",
+        "foscam",
+        "wansview",
+        "osa",
+        "applescript"
+    ],
+    "description": "Helpful Scripts home security solution",
+    "author": {
+        "name": "masterscripter",
+        "email": "helpfulscripts@gmail.com"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "grunt build",
+        "test": "grunt test",
+        "start": "node ./index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HelpfulScripts/hsHomeSec.git"
+    },
+    "engines": {
+        "node": ">= 10.14.0"
+    },
+    "plugins": [],
+    "devDependencies": {
+        "@types/node": "^12.12.21",
+        "@types/jest": "^24.0.24",
+        "@types/request": "^2.48.2",
+        "coveralls": "^3.0.9",
+        "grunt": "^1.0.4",
+        "grunt-contrib-clean": "^2.0.0",
+        "grunt-contrib-concat": "^1.0.1",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-less": "^2.0.0",
+        "grunt-contrib-uglify": "^4.0.0",
+        "grunt-contrib-watch": "^1.1.0",
+        "grunt-ts": "^6.0.0-beta.22",
+        "grunt-tslint": "^5.0.2",
+        "grunt-webpack": "^3.1.3",
+        "grunt-coveralls": "^2.0.0",
+        "jest": "^24.9.0",
+        "ts-jest": "^24.2.0",
+        "tslint": "^5.20.1",
+        "typedoc": "^0.15.5",
+        "typescript": "^3.7.3",
+        "terser-webpack-plugin": "^2.3.1",
+        "webpack": "^4.41.3"
+    },
+    "dependencies": {
+        "ftp-srv": "^4.1.1",
+        "hsnode": "^2.13.2",
+        "hsosaes6": "^1.3.7"
+    }
+}
