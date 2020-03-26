@@ -61,6 +61,6 @@
     "dependencies": {
         "ftp-srv": "^4.1.1",
         "hsnode": "^2.13.2",
-        "hsosaes6": "^1.3.7"
+        "hsosaes6": "^1.3.6"
     }
 }
