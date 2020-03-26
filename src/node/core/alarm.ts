@@ -1,4 +1,4 @@
-import { log as gLog }  from 'hsnode';  const log = gLog('alarm');
+import { Log }          from 'hsnode';  const log = new Log('alarm');
 import { users}         from '../comm/UserComm';
 import { message}       from '../comm/UserComm';
 import { sayFn }        from './CommandExecution';

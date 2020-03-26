@@ -5,9 +5,9 @@ import { DeviceSettings }   from '../device/Device';
 import { DeviceList }       from '../device/Device';
 import { AbstractCamera }   from '../device/Device';
 import { FtpSettings }      from '../comm/ftpSrv';
-import * as node  from 'hsnode';  const log = node.log('CmdExcJest');
+import { Log, node }        from 'hsnode';  const log = new Log('CmdExcJest');
 
-const fs = node.node.fs;
+const fs = node.fs;
 
 jest.mock('hsosaes6');
 

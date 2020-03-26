@@ -1,6 +1,6 @@
 
 import { URL }              from 'url';
-import * as node  from 'hsnode';  const log = node.log('Device');
+import * as node  from 'hsnode';  const log = new node.Log('Device');
 import { http }             from 'hsnode';
 import { CfgSettings }      from '../core/CfgSettings';
 import { FtpSettings }      from '../comm/ftpSrv';
@@ -119,7 +119,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:CfgSettings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
-        this.log = node.log(`${deviceSettings.type} ${deviceSettings.name}`);
+        this.log = new node.Log(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 
     async initDevice(settings:CfgSettings) {}

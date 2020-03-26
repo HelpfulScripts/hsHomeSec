@@ -20,14 +20,14 @@
                     height:90%;
             }
             code { padding: 5px 0;}</style></html><body>
-                <h1>src/node/core/CommandExecution.ts</h1>
+                <h1>CommandExecution.ts</h1>
                 <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span><comment>/**</comment></p>
 <p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span><comment>&nbsp;*&nbsp;@ngdoc&nbsp;object</comment></p>
 <p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span><comment>&nbsp;*&nbsp;@name&nbsp;hsAlarmServer.hsCommandExecution</comment></p>
 <p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span><comment>&nbsp;*&nbsp;@description&nbsp;Defines&nbsp;the&nbsp;action&nbsp;for&nbsp;external&nbsp;commands&nbsp;received</comment></p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span><comment>&nbsp;*/</comment></p>
 <p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span></p>
-<p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span>import&nbsp;*&nbsp;as&nbsp;node&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;node.log(<quote>'CmdExc'</quote>);</p>
+<p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span>import&nbsp;*&nbsp;as&nbsp;node&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;node.Log(<quote>'CmdExc'</quote>);</p>
 <p id=8 class="line"><span>&nbsp;&nbsp;&nbsp;8</span>import&nbsp;{&nbsp;timeout,&nbsp;delay&nbsp;}&nbsp;from&nbsp;<quote>'hsutil'</quote>;</p>
 <p id=9 class="line"><span>&nbsp;&nbsp;&nbsp;9</span>import&nbsp;{&nbsp;osaCommands&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'hsosaes6'</quote>;</p>
 <p id=10 class="line"><span>&nbsp;&nbsp;10</span>import&nbsp;{&nbsp;users&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'../comm/UserComm'</quote>;</p>

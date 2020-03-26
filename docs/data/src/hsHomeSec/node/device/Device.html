@@ -20,10 +20,10 @@
                     height:90%;
             }
             code { padding: 5px 0;}</style></html><body>
-                <h1>src/node/device/Device.ts</h1>
+                <h1>Device.ts</h1>
                 <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span></p>
 <p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;URL&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'url'</quote>;</p>
-<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span>import&nbsp;*&nbsp;as&nbsp;node&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;node.log(<quote>'Device'</quote>);</p>
+<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span>import&nbsp;*&nbsp;as&nbsp;node&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;node.Log(<quote>'Device'</quote>);</p>
 <p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span>import&nbsp;{&nbsp;http&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;</p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span>import&nbsp;{&nbsp;CfgSettings&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'../core/CfgSettings'</quote>;</p>
 <p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span>import&nbsp;{&nbsp;FtpSettings&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'../comm/ftpSrv'</quote>;</p>
@@ -142,7 +142,7 @@
 <p id=119 class="line"><span>&nbsp;119</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(deviceSettings:&nbsp;DeviceSettings,&nbsp;settings:CfgSettings)&nbsp;{</p>
 <p id=120 class="line"><span>&nbsp;120</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.settings&nbsp;=&nbsp;deviceSettings;</p>
 <p id=121 class="line"><span>&nbsp;121</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeviceList.addDevice(this);</p>
-<p id=122 class="line"><span>&nbsp;122</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.log&nbsp;=&nbsp;node.log(`${deviceSettings.type}&nbsp;${deviceSettings.name}`);</p>
+<p id=122 class="line"><span>&nbsp;122</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.log&nbsp;=&nbsp;new&nbsp;node.Log(`${deviceSettings.type}&nbsp;${deviceSettings.name}`);</p>
 <p id=123 class="line"><span>&nbsp;123</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=124 class="line"><span>&nbsp;124</span></p>
 <p id=125 class="line"><span>&nbsp;125</span>&nbsp;&nbsp;&nbsp;&nbsp;async&nbsp;initDevice(settings:CfgSettings)&nbsp;{}</p>

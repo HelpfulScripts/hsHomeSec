@@ -8,7 +8,7 @@
 
 /** */
 
-import * as node  from 'hsnode';  const log = node.log('hsMain');
+import * as node  from 'hsnode';  const log = new node.Log('hsMain');
 import * as init        from './Init';
 import { CfgSettings }  from './CfgSettings';
 import * as ftp         from '../comm/ftpSrv';
@@ -29,9 +29,9 @@ const cliParams = {
 function cli(args:string[]): Promise<void> {
     args.forEach((arg:string) => {
         const cmd = arg.split('=');
-        if (cmd[0] === 'debug')    { log.level(log.DEBUG, true); }
-        if (cmd[0] === 'info')     { log.level(log.INFO, true); }
-        if (cmd[0] === 'warning')  { log.level(log.WARN, true); }
+        if (cmd[0] === 'debug')    { log.level(node.Log.DEBUG, true); }
+        if (cmd[0] === 'info')     { log.level(node.Log.INFO, true); }
+        if (cmd[0] === 'warning')  { log.level(node.Log.WARN, true); }
         if (cmd[0] === 'ftp')      { cliParams.ftpServer = true; }
     });
     return Promise.resolve();
@@ -49,7 +49,7 @@ function ftpInit(settings: CfgSettings):CfgSettings {
 
 async function start() {
     log.debug('Starting Home Security System');
-    log.level(log.INFO);
+    log.level(node.Log.INFO);
     await cli(process.argv);
     const cfg = await fs.readJsonFile(__dirname+'/../../config/homeCfg.json');
     await ftpInit(cfg);

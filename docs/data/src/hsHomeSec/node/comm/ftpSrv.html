@@ -20,9 +20,9 @@
                     height:90%;
             }
             code { padding: 5px 0;}</style></html><body>
-                <h1>src/node/comm/ftpSrv.ts</h1>
+                <h1>ftpSrv.ts</h1>
                 <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span>import&nbsp;{&nbsp;FtpSrv&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'ftp-srv'</quote>;</p>
-<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span>import&nbsp;*&nbsp;as&nbsp;node&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;node.log(<quote>'ftpsrv'</quote>);</p>
+<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span>import&nbsp;*&nbsp;as&nbsp;node&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;node.Log(<quote>'ftpsrv'</quote>);</p>
 <p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;raiseAlarm&nbsp;}&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'../core/alarm'</quote>;</p>
 <p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span></p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span>const&nbsp;fs&nbsp;=&nbsp;node.node.fs;</p>

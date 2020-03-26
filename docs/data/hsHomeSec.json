@@ -33,7 +33,7 @@
 						"type": "stringLiteral",
 						"value": "\nStarts an ftp server with following options:\n-c root directory, defaults to './'\n-r reporting level, 'debug'|info'|'warning', defaults to 'info'\n-h this help text\n"
 					},
-					"defaultValue": " `\nStarts an ftp server with following options:\n-c root directory, defaults to './'\n-r reporting level, 'debug'|info'|'warning', defaults to 'info'\n-h this help text\n`"
+					"defaultValue": "`\nStarts an ftp server with following options:\n-c root directory, defaults to './'\n-r reporting level, 'debug'|info'|'warning', defaults to 'info'\n-h this help text\n`"
 				},
 				{
 					"id": 419,
@@ -52,9 +52,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " node.log('hsFTP')"
+					"defaultValue": "new node.Log('hsFTP')"
 				},
 				{
 					"id": 420,
@@ -73,10 +73,10 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "FtpSettings",
-						"id": 393
+						"id": 393,
+						"name": "FtpSettings"
 					},
-					"defaultValue": " ftp.getSettings()"
+					"defaultValue": "ftp.getSettings()"
 				},
 				{
 					"id": 422,
@@ -197,8 +197,8 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "UserList",
-										"id": 7
+										"id": 7,
+										"name": "UserList"
 									}
 								}
 							],
@@ -225,8 +225,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "User",
-								"id": 2
+								"id": 2,
+								"name": "User"
 							}
 						},
 						{
@@ -266,8 +266,8 @@
 											],
 											"type": {
 												"type": "reference",
-												"name": "User",
-												"id": 2
+												"id": 2,
+												"name": "User"
 											}
 										}
 									],
@@ -282,7 +282,7 @@
 									]
 								}
 							},
-							"defaultValue": " <{string: User}>{}"
+							"defaultValue": "<{string: User}>{}"
 						},
 						{
 							"id": 8,
@@ -324,8 +324,8 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"name": "User",
-												"id": 2
+												"id": 2,
+												"name": "User"
 											}
 										}
 									],
@@ -431,8 +431,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "User",
-										"id": 2
+										"id": 2,
+										"name": "User"
 									}
 								}
 							],
@@ -472,8 +472,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "User",
-										"id": 2
+										"id": 2,
+										"name": "User"
 									}
 								}
 							],
@@ -515,8 +515,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "User",
-										"id": 2
+										"id": 2,
+										"name": "User"
 									}
 								}
 							],
@@ -705,10 +705,10 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "UserList",
-						"id": 7
+						"id": 7,
+						"name": "UserList"
 					},
-					"defaultValue": " new UserList()"
+					"defaultValue": "new UserList()"
 				},
 				{
 					"id": 40,
@@ -724,33 +724,37 @@
 							"name": "audioChat",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 42,
 									"name": "users",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "User",
-											"id": 2
+											"id": 2,
+											"name": "User"
 										}
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "boolean"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -776,14 +780,18 @@
 							"name": "getEmail",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 51,
 									"name": "date",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
 										"name": "Date"
@@ -792,13 +800,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "any"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -824,20 +832,24 @@
 							"name": "message",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 34,
 									"name": "users",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "User",
-											"id": 2
+											"id": 2,
+											"name": "User"
 										}
 									}
 								},
@@ -846,7 +858,9 @@
 									"name": "message",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -858,6 +872,7 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
+										"isExported": true,
 										"isOptional": true
 									},
 									"type": {
@@ -871,13 +886,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "boolean"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -903,14 +918,18 @@
 							"name": "sendEmail",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 45,
 									"name": "subject",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -921,13 +940,15 @@
 									"name": "to",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "User",
-											"id": 2
+											"id": 2,
+											"name": "User"
 										}
 									}
 								},
@@ -936,7 +957,9 @@
 									"name": "content",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -948,6 +971,7 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
+										"isExported": true,
 										"isOptional": true
 									},
 									"type": {
@@ -961,13 +985,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "boolean"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -993,33 +1017,37 @@
 							"name": "videoChat",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 39,
 									"name": "users",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "User",
-											"id": 2
+											"id": 2,
+											"name": "User"
 										}
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "boolean"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -1237,7 +1265,7 @@
 						"type": "reference",
 						"name": "\"/Users/Shared/Sites/staging/apps/hsDocs/node_modules/hsnode/fsUtil\""
 					},
-					"defaultValue": " node.node.fs"
+					"defaultValue": "node.node.fs"
 				},
 				{
 					"id": 399,
@@ -1256,9 +1284,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " node.log('ftpsrv')"
+					"defaultValue": "new node.Log('ftpsrv')"
 				},
 				{
 					"id": 407,
@@ -1274,11 +1302,13 @@
 							"name": "getSettings",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"type": {
 								"type": "reference",
-								"name": "FtpSettings",
-								"id": 393
+								"id": 393,
+								"name": "FtpSettings"
 							}
 						}
 					],
@@ -1366,14 +1396,18 @@
 							"name": "start",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 416,
 									"name": "baseDir",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -1384,23 +1418,25 @@
 									"name": "s",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "FtpSettings",
-										"id": 393
+										"id": 393,
+										"name": "FtpSettings"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "void"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -1664,9 +1700,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " gLog('httpSrv')"
+					"defaultValue": "new Log('httpSrv')"
 				},
 				{
 					"id": 438,
@@ -1740,7 +1776,9 @@
 							"name": "start",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"type": {
 								"type": "intrinsic",
 								"name": "void"
@@ -1769,7 +1807,9 @@
 							"name": "stop",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"type": {
 								"type": "intrinsic",
 								"name": "void"
@@ -1963,8 +2003,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "DeviceSettings",
-									"id": 69
+									"id": 69,
+									"name": "DeviceSettings"
 								}
 							}
 						},
@@ -1985,8 +2025,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "FtpSettings",
-								"id": 393
+								"id": 393,
+								"name": "FtpSettings"
 							}
 						},
 						{
@@ -2130,8 +2170,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "User",
-									"id": 2
+									"id": 2,
+									"name": "User"
 								}
 							}
 						},
@@ -2255,7 +2295,7 @@
 						"type": "reference",
 						"name": "\"/Users/Shared/Sites/staging/apps/hsDocs/node_modules/hsnode/fsUtil\""
 					},
-					"defaultValue": " node.node.fs"
+					"defaultValue": "node.node.fs"
 				},
 				{
 					"id": 322,
@@ -2295,9 +2335,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " node.log('CmdExc')"
+					"defaultValue": "new node.Log('CmdExc')"
 				},
 				{
 					"id": 357,
@@ -2317,7 +2357,9 @@
 							"name": "armFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "arms all armable devices. If `away` is specified, it also sets the device's audible alarm repsonses"
 							},
@@ -2328,6 +2370,7 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
+										"isExported": true,
 										"isOptional": true
 									},
 									"comment": {
@@ -2344,7 +2387,6 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -2353,14 +2395,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 361,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -2392,7 +2438,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -2428,26 +2475,26 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "Promise",
 											"typeArguments": [
 												{
 													"type": "intrinsic",
 													"name": "boolean"
 												}
-											]
+											],
+											"name": "Promise"
 										}
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "void"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -2478,7 +2525,9 @@
 							"name": "armingStatusFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "requests the status of attached sensors.",
 								"returns": "a literal {<deviceName>: <boolean>}\n"
@@ -2490,6 +2539,7 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
+										"isExported": true,
 										"isOptional": true
 									},
 									"comment": {
@@ -2506,7 +2556,6 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -2515,14 +2564,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 370,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -2539,21 +2592,27 @@
 																"name": "__type",
 																"kind": 65536,
 																"kindString": "Type literal",
-																"flags": {},
+																"flags": {
+																	"isExported": true
+																},
 																"indexSignature": [
 																	{
 																		"id": 372,
 																		"name": "__index",
 																		"kind": 8192,
 																		"kindString": "Index signature",
-																		"flags": {},
+																		"flags": {
+																			"isExported": true
+																		},
 																		"parameters": [
 																			{
 																				"id": 373,
 																				"name": "x",
 																				"kind": 32768,
 																				"kindString": "Parameter",
-																				"flags": {},
+																				"flags": {
+																					"isExported": true
+																				},
 																				"type": {
 																					"type": "intrinsic",
 																					"name": "string"
@@ -2596,7 +2655,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -2627,7 +2687,9 @@
 							"name": "camPreset",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "instrruct a PTZ device to move to a preset, then returns a snapshot",
 								"returns": "promise to provide the snapshot file name if successful\n"
@@ -2638,7 +2700,9 @@
 									"name": "params",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": ": `[<deviceName>, <positionIndex>]`"
 									},
@@ -2653,7 +2717,6 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -2662,14 +2725,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 346,
 													"name": "attachments",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -2704,7 +2771,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -2731,10 +2799,11 @@
 							"name": "disarmFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -2743,14 +2812,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 365,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -2782,7 +2855,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -2813,7 +2887,9 @@
 							"name": "facetimeFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "request to start a facetime call with user.",
 								"returns": "promise to provide the file name if successful\n"
@@ -2824,7 +2900,9 @@
 									"name": "username",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": ": `[<name>]` of user to call"
 									},
@@ -2839,7 +2917,6 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -2848,14 +2925,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 351,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -2887,7 +2968,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -2915,11 +2997,12 @@
 							"name": "getlog",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {},
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -2928,14 +3011,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 382,
 													"name": "attachments",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -2970,7 +3057,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -2997,10 +3085,11 @@
 							"name": "helpFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -3009,14 +3098,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 332,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -3048,7 +3141,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -3076,7 +3170,9 @@
 							"name": "lightFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {},
 							"parameters": [
 								{
@@ -3084,7 +3180,9 @@
 									"name": "param",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "`[on|off]`\n"
 									},
@@ -3099,7 +3197,6 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -3108,14 +3205,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 378,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -3147,7 +3248,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -3174,10 +3276,11 @@
 							"name": "restartFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -3186,14 +3289,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 336,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -3225,7 +3332,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -3256,7 +3364,9 @@
 							"name": "sayFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "request to say a string of text.",
 								"returns": "promise to provide the result if successful\n"
@@ -3267,7 +3377,9 @@
 									"name": "msg",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "array",
 										"elementType": {
@@ -3279,7 +3391,6 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -3288,14 +3399,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 356,
 													"name": "message",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -3327,7 +3442,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -3353,14 +3469,18 @@
 							"name": "setSnapshotDir",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 328,
 									"name": "dir",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -3400,7 +3520,9 @@
 							"name": "snapFn",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "request to snap a picture. If a device name is specified, a snapshot from that device will be requested.\nIf no name is specified, a snapshot from each available camera will be requested.",
 								"returns": "promise to provide the file name if successful\n"
@@ -3412,6 +3534,7 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
+										"isExported": true,
 										"isOptional": true
 									},
 									"comment": {
@@ -3428,7 +3551,6 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "reflection",
@@ -3437,14 +3559,18 @@
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"children": [
 												{
 													"id": 341,
 													"name": "attachments",
 													"kind": 32,
 													"kindString": "Variable",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandExecution.ts",
@@ -3479,7 +3605,8 @@
 											]
 										}
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -3563,14 +3690,18 @@
 									"name": "new EmailPolling",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 288,
 											"name": "ms",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -3579,8 +3710,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "EmailPolling",
-										"id": 280
+										"id": 280,
+										"name": "EmailPolling"
 									}
 								}
 							],
@@ -3661,14 +3792,18 @@
 										"name": "__type",
 										"kind": 65536,
 										"kindString": "Type literal",
-										"flags": {},
+										"flags": {
+											"isExported": true
+										},
 										"children": [
 											{
 												"id": 283,
 												"name": "string",
 												"kind": 32,
 												"kindString": "Variable",
-												"flags": {},
+												"flags": {
+													"isExported": true
+												},
 												"sources": [
 													{
 														"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/core/CommandReceiver.ts",
@@ -3694,7 +3829,7 @@
 									}
 								}
 							},
-							"defaultValue": " <{string:number}[]>[]"
+							"defaultValue": "<{string:number}[]>[]"
 						},
 						{
 							"id": 294,
@@ -3711,7 +3846,9 @@
 									"name": "cleanupProcessed",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "void"
@@ -3741,7 +3878,9 @@
 									"name": "poll",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "void"
@@ -3771,14 +3910,18 @@
 									"name": "processMails",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 293,
 											"name": "accounts",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "any"
@@ -3913,8 +4056,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "Message",
-									"id": 268
+									"id": 268,
+									"name": "Message"
 								}
 							}
 						},
@@ -4034,21 +4177,27 @@
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"signatures": [
 										{
 											"id": 258,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"parameters": [
 												{
 													"id": 259,
 													"name": "query",
 													"kind": 32768,
 													"kindString": "Parameter",
-													"flags": {},
+													"flags": {
+														"isExported": true
+													},
 													"type": {
 														"type": "array",
 														"elementType": {
@@ -4060,13 +4209,13 @@
 											],
 											"type": {
 												"type": "reference",
-												"name": "Promise",
 												"typeArguments": [
 													{
 														"type": "intrinsic",
 														"name": "any"
 													}
-												]
+												],
+												"name": "Promise"
 											}
 										}
 									],
@@ -4383,11 +4532,11 @@
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"name": "Command",
-							"id": 255
+							"id": 255,
+							"name": "Command"
 						}
 					},
-					"defaultValue": " <Command[]>[]"
+					"defaultValue": "<Command[]>[]"
 				},
 				{
 					"id": 296,
@@ -4406,9 +4555,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " gLog('hsCmdRec')"
+					"defaultValue": "new Log('hsCmdRec')"
 				},
 				{
 					"id": 312,
@@ -4428,7 +4577,9 @@
 							"name": "addCommand",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "adds a command and a corresponding callback function to the list of\nregistered commands."
 							},
@@ -4438,7 +4589,9 @@
 									"name": "cmdFn",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "the function to call when the command is received."
 									},
@@ -4452,7 +4605,9 @@
 									"name": "cmd",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "the command to add."
 									},
@@ -4467,6 +4622,7 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
+										"isExported": true,
 										"isRest": true
 									},
 									"comment": {
@@ -4514,7 +4670,9 @@
 							"name": "getCommands",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "adds a command and a corresponding callback function to the list of\nregistered commands.",
 								"returns": "an array of command strings\n"
@@ -4569,8 +4727,8 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "Content",
-										"id": 265
+										"id": 265,
+										"name": "Content"
 									}
 								},
 								{
@@ -4581,20 +4739,20 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "User",
-										"id": 2
+										"id": 2,
+										"name": "User"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "any"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -4658,20 +4816,20 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "User",
-										"id": 2
+										"id": 2,
+										"name": "User"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "any"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -4697,14 +4855,18 @@
 							"name": "processCommand",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 310,
 									"name": "cmd",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -4715,23 +4877,25 @@
 									"name": "from",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "User",
-										"id": 2
+										"id": 2,
+										"name": "User"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "any"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -4837,7 +5001,7 @@
 							]
 						}
 					},
-					"defaultValue": " [\n    [Exec.helpFn,        'help'],\n    [Exec.facetimeFn,    'facetime'],\n    [Exec.armFn,         'arm',      '[away]'],\n    [Exec.disarmFn,      'disarm'],\n    [Exec.disarmFn,      'relax'],\n    [Exec.armingStatusFn,'status'],\n    [Exec.snapFn,        'snap',     '[%name%]'],\n    [Exec.lightFn,       'light',    'on|off'],\n    [Exec.restartFn,     'restart'],\n    [Exec.camPreset,     'preset',   '%name%',   '%index%'],\n    [Exec.getlog,        'log']\n]"
+					"defaultValue": "[\n    [Exec.helpFn,        'help'],\n    [Exec.facetimeFn,    'facetime'],\n    [Exec.armFn,         'arm',      '[away]'],\n    [Exec.disarmFn,      'disarm'],\n    [Exec.disarmFn,      'relax'],\n    [Exec.armingStatusFn,'status'],\n    [Exec.snapFn,        'snap',     '[%name%]'],\n    [Exec.lightFn,       'light',    'on|off'],\n    [Exec.restartFn,     'restart'],\n    [Exec.camPreset,     'preset',   '%name%',   '%index%'],\n    [Exec.getlog,        'log']\n]"
 				},
 				{
 					"id": 603,
@@ -4897,7 +5061,6 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "reflection",
@@ -4964,13 +5127,14 @@
 													]
 												}
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							]
 						}
 					},
-					"defaultValue": " node.node.child_process.exec"
+					"defaultValue": "node.node.child_process.exec"
 				},
 				{
 					"id": 602,
@@ -4989,9 +5153,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " node.log('Init')"
+					"defaultValue": "new node.Log('Init')"
 				},
 				{
 					"id": 612,
@@ -5042,8 +5206,8 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
@@ -5076,25 +5240,29 @@
 							"name": "initDevices",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 630,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "CfgSettings",
-								"id": 53
+								"id": 53,
+								"name": "CfgSettings"
 							}
 						}
 					],
@@ -5147,18 +5315,22 @@
 							"name": "startScheduledTasks",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 633,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
@@ -5191,25 +5363,29 @@
 							"name": "startSecuritySystem",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 624,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "CfgSettings",
-								"id": 53
+								"id": 53,
+								"name": "CfgSettings"
 							}
 						}
 					],
@@ -5236,25 +5412,29 @@
 							"name": "startSecuritySystemTestMode",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 627,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "CfgSettings",
-								"id": 53
+								"id": 53,
+								"name": "CfgSettings"
 							}
 						}
 					],
@@ -5288,8 +5468,8 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
@@ -5389,9 +5569,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " gLog('alarm')"
+					"defaultValue": "new Log('alarm')"
 				},
 				{
 					"id": 389,
@@ -5407,14 +5587,18 @@
 							"name": "raiseAlarm",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 391,
 									"name": "filePath",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -5449,25 +5633,29 @@
 							"name": "setAlarmText",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 388,
 									"name": "settings",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "CfgSettings",
-								"id": 53
+								"id": 53,
+								"name": "CfgSettings"
 							}
 						}
 					],
@@ -5538,7 +5726,7 @@
 						"type": "reference",
 						"name": "\"/Users/Shared/Sites/staging/apps/hsDocs/node_modules/hsnode/fsUtil\""
 					},
-					"defaultValue": " node.node.fs"
+					"defaultValue": "node.node.fs"
 				},
 				{
 					"id": 635,
@@ -5557,9 +5745,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " node.log('hsMain')"
+					"defaultValue": "new node.Log('hsMain')"
 				},
 				{
 					"id": 639,
@@ -5592,13 +5780,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "void"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -5632,15 +5820,15 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "CfgSettings",
-										"id": 53
+										"id": 53,
+										"name": "CfgSettings"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "CfgSettings",
-								"id": 53
+								"id": 53,
+								"name": "CfgSettings"
 							}
 						}
 					],
@@ -5667,13 +5855,13 @@
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"name": "Promise",
 								"typeArguments": [
 									{
 										"type": "intrinsic",
 										"name": "void"
 									}
-								]
+								],
+								"name": "Promise"
 							}
 						}
 					],
@@ -5804,18 +5992,22 @@
 									"name": "new AbstractCamera",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 188,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DeviceSettings",
-												"id": 69
+												"id": 69,
+												"name": "DeviceSettings"
 											}
 										},
 										{
@@ -5823,23 +6015,25 @@
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "AbstractCamera",
-										"id": 183
+										"id": 183,
+										"name": "AbstractCamera"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.__constructor",
-										"id": 172
+										"id": 172,
+										"name": "AbstractDevice.__constructor"
 									}
 								}
 							],
@@ -5852,8 +6046,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.__constructor",
-								"id": 172
+								"id": 172,
+								"name": "AbstractDevice.__constructor"
 							}
 						},
 						{
@@ -5917,13 +6111,17 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 252,
+									"name": "log"
+								}
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.log",
-								"id": 161
+								"id": 161,
+								"name": "AbstractDevice.log"
 							}
 						},
 						{
@@ -5941,7 +6139,9 @@
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns a promise to arm or disarm the device.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
@@ -5952,7 +6152,9 @@
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "`true` will arm, `false` will disarm the device."
 											},
@@ -5964,18 +6166,18 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.arm",
-										"id": 102
+										"id": 102,
+										"name": "AlarmDevice.arm"
 									}
 								}
 							],
@@ -5988,8 +6190,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.arm",
-								"id": 101
+								"id": 101,
+								"name": "AlarmDevice.arm"
 							}
 						},
 						{
@@ -6007,25 +6209,27 @@
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to check whether the device is armed or not.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.armStatus",
-										"id": 100
+										"id": 100,
+										"name": "AlarmDevice.armStatus"
 									}
 								}
 							],
@@ -6038,8 +6242,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.armStatus",
-								"id": 99
+								"id": 99,
+								"name": "AlarmDevice.armStatus"
 							}
 						},
 						{
@@ -6056,15 +6260,17 @@
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getAudible",
-										"id": 110
+										"id": 110,
+										"name": "AlarmDevice.getAudible"
 									}
 								}
 							],
@@ -6077,8 +6283,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getAudible",
-								"id": 109
+								"id": 109,
+								"name": "AlarmDevice.getAudible"
 							}
 						},
 						{
@@ -6096,25 +6302,27 @@
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`."
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "reference",
-												"name": "FtpSettings",
-												"id": 393
+												"id": 393,
+												"name": "FtpSettings"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.getFtpCfg",
-										"id": 139
+										"id": 139,
+										"name": "Camera.getFtpCfg"
 									}
 								}
 							],
@@ -6127,8 +6335,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.getFtpCfg",
-								"id": 138
+								"id": 138,
+								"name": "Camera.getFtpCfg"
 							}
 						},
 						{
@@ -6145,20 +6353,22 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.getName",
-										"id": 181
+										"id": 181,
+										"name": "AbstractDevice.getName"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getName",
-										"id": 119
+										"id": 119,
+										"name": "AlarmDevice.getName"
 									}
 								}
 							],
@@ -6171,13 +6381,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.getName",
-								"id": 181
+								"id": 181,
+								"name": "AbstractDevice.getName"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getName",
-								"id": 118
+								"id": 118,
+								"name": "AlarmDevice.getName"
 							}
 						},
 						{
@@ -6194,21 +6404,23 @@
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.getRecordingDir",
-										"id": 135
+										"id": 135,
+										"name": "Camera.getRecordingDir"
 									}
 								}
 							],
@@ -6221,8 +6433,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.getRecordingDir",
-								"id": 134
+								"id": 134,
+								"name": "Camera.getRecordingDir"
 							}
 						},
 						{
@@ -6239,21 +6451,23 @@
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "DeviceSettings",
-										"id": 69
+										"id": 69,
+										"name": "DeviceSettings"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.getSettings",
-										"id": 179
+										"id": 179,
+										"name": "AbstractDevice.getSettings"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getSettings",
-										"id": 117
+										"id": 117,
+										"name": "AlarmDevice.getSettings"
 									}
 								}
 							],
@@ -6266,13 +6480,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.getSettings",
-								"id": 179
+								"id": 179,
+								"name": "AbstractDevice.getSettings"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getSettings",
-								"id": 116
+								"id": 116,
+								"name": "AlarmDevice.getSettings"
 							}
 						},
 						{
@@ -6289,20 +6503,22 @@
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.hasAlarm",
-										"id": 166
+										"id": 166,
+										"name": "AbstractDevice.hasAlarm"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasAlarm",
-										"id": 98
+										"id": 98,
+										"name": "AlarmDevice.hasAlarm"
 									}
 								}
 							],
@@ -6315,13 +6531,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.hasAlarm",
-								"id": 166
+								"id": 166,
+								"name": "AbstractDevice.hasAlarm"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasAlarm",
-								"id": 97
+								"id": 97,
+								"name": "AlarmDevice.hasAlarm"
 							}
 						},
 						{
@@ -6338,20 +6554,22 @@
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.hasAudio",
-										"id": 164
+										"id": 164,
+										"name": "AbstractDevice.hasAudio"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasAudio",
-										"id": 123
+										"id": 123,
+										"name": "AlarmDevice.hasAudio"
 									}
 								}
 							],
@@ -6364,13 +6582,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.hasAudio",
-								"id": 164
+								"id": 164,
+								"name": "AbstractDevice.hasAudio"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasAudio",
-								"id": 122
+								"id": 122,
+								"name": "AlarmDevice.hasAudio"
 							}
 						},
 						{
@@ -6387,15 +6605,17 @@
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.hasMotionAlarm",
-										"id": 168
+										"id": 168,
+										"name": "AbstractDevice.hasMotionAlarm"
 									}
 								}
 							],
@@ -6408,8 +6628,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.hasMotionAlarm",
-								"id": 168
+								"id": 168,
+								"name": "AbstractDevice.hasMotionAlarm"
 							}
 						},
 						{
@@ -6426,15 +6646,17 @@
 									"name": "hasPTZ",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.hasPTZ",
-										"id": 130
+										"id": 130,
+										"name": "Camera.hasPTZ"
 									}
 								}
 							],
@@ -6447,8 +6669,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.hasPTZ",
-								"id": 129
+								"id": 129,
+								"name": "Camera.hasPTZ"
 							}
 						},
 						{
@@ -6465,20 +6687,22 @@
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.hasVideo",
-										"id": 162
+										"id": 162,
+										"name": "AbstractDevice.hasVideo"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasVideo",
-										"id": 121
+										"id": 121,
+										"name": "AlarmDevice.hasVideo"
 									}
 								}
 							],
@@ -6491,13 +6715,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.hasVideo",
-								"id": 162
+								"id": 162,
+								"name": "AbstractDevice.hasVideo"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasVideo",
-								"id": 120
+								"id": 120,
+								"name": "AlarmDevice.hasVideo"
 							}
 						},
 						{
@@ -6514,40 +6738,44 @@
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 192,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.initDevice",
-										"id": 176
+										"id": 176,
+										"name": "AbstractDevice.initDevice"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.initDevice",
-										"id": 112
+										"id": 112,
+										"name": "AlarmDevice.initDevice"
 									}
 								}
 							],
@@ -6560,13 +6788,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.initDevice",
-								"id": 176
+								"id": 176,
+								"name": "AbstractDevice.initDevice"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.initDevice",
-								"id": 111
+								"id": 111,
+								"name": "AlarmDevice.initDevice"
 							}
 						},
 						{
@@ -6583,15 +6811,17 @@
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.isArmed",
-										"id": 105
+										"id": 105,
+										"name": "AlarmDevice.isArmed"
 									}
 								}
 							],
@@ -6604,8 +6834,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.isArmed",
-								"id": 104
+								"id": 104,
+								"name": "AlarmDevice.isArmed"
 							}
 						},
 						{
@@ -6622,7 +6852,9 @@
 									"name": "ptzPreset",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Moves the camera to a preset position.\nThis default implementation returns an empty promise."
 									},
@@ -6632,7 +6864,9 @@
 											"name": "index",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the preset position index to move to\n"
 											},
@@ -6644,18 +6878,18 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.ptzPreset",
-										"id": 141
+										"id": 141,
+										"name": "Camera.ptzPreset"
 									}
 								}
 							],
@@ -6668,8 +6902,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.ptzPreset",
-								"id": 140
+								"id": 140,
+								"name": "Camera.ptzPreset"
 							}
 						},
 						{
@@ -6687,7 +6921,9 @@
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promised to send `cmd` to the foscam camera specified in `options`"
 									},
@@ -6697,7 +6933,9 @@
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the command string to send"
 											},
@@ -6712,6 +6950,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"type": {
@@ -6722,13 +6961,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -6754,7 +6993,9 @@
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global audible flag. If the flag is set to true,\ndevices will sound an audible alarm after the next time they are armed.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -6765,7 +7006,9 @@
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the name of the device"
 											},
@@ -6777,18 +7020,18 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.setAudible",
-										"id": 107
+										"id": 107,
+										"name": "AlarmDevice.setAudible"
 									}
 								}
 							],
@@ -6801,8 +7044,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.setAudible",
-								"id": 106
+								"id": 106,
+								"name": "AlarmDevice.setAudible"
 							}
 						},
 						{
@@ -6820,20 +7063,22 @@
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to set the device's ftp confguration.",
 										"returns": "Promise a promise that resolves to undefined.\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -6846,8 +7091,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.setFtpCfg",
-								"id": 143
+								"id": 143,
+								"name": "Camera.setFtpCfg"
 							}
 						},
 						{
@@ -6864,7 +7109,9 @@
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global snapshot directory.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -6875,7 +7122,9 @@
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "absolute path to write recordings to"
 											},
@@ -6887,18 +7136,18 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.setRecordingDir",
-										"id": 132
+										"id": 132,
+										"name": "Camera.setRecordingDir"
 									}
 								}
 							],
@@ -6911,8 +7160,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.setRecordingDir",
-								"id": 131
+								"id": 131,
+								"name": "Camera.setRecordingDir"
 							}
 						},
 						{
@@ -6930,26 +7179,28 @@
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.setTime",
-										"id": 170
+										"id": 170,
+										"name": "AbstractDevice.setTime"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.setTime",
-										"id": 115
+										"id": 115,
+										"name": "AlarmDevice.setTime"
 									}
 								}
 							],
@@ -6962,13 +7213,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.setTime",
-								"id": 170
+								"id": 170,
+								"name": "AbstractDevice.setTime"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.setTime",
-								"id": 114
+								"id": 114,
+								"name": "AlarmDevice.setTime"
 							}
 						},
 						{
@@ -6986,24 +7237,26 @@
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "captures a snapshot from the device and saves it to `snapshotDir`"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.snapPicture",
-										"id": 137
+										"id": 137,
+										"name": "Camera.snapPicture"
 									}
 								}
 							],
@@ -7016,8 +7269,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.snapPicture",
-								"id": 136
+								"id": 136,
+								"name": "Camera.snapPicture"
 							}
 						},
 						{
@@ -7035,25 +7288,27 @@
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`.",
 										"returns": "Promise a promise that resolves to the testResult: 0 = success, -1 = failure, -3 = unknown\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.testFtpServer",
-										"id": 147
+										"id": 147,
+										"name": "Camera.testFtpServer"
 									}
 								}
 							],
@@ -7066,8 +7321,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.testFtpServer",
-								"id": 146
+								"id": 146,
+								"name": "Camera.testFtpServer"
 							}
 						}
 					],
@@ -7127,37 +7382,37 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "AbstractDevice",
-							"id": 159
+							"id": 159,
+							"name": "AbstractDevice"
 						}
 					],
 					"extendedBy": [
 						{
 							"type": "reference",
-							"name": "Foscam",
-							"id": 443
+							"id": 443,
+							"name": "Foscam"
 						},
 						{
 							"type": "reference",
-							"name": "WansView",
-							"id": 511
+							"id": 511,
+							"name": "WansView"
 						}
 					],
 					"implementedTypes": [
 						{
 							"type": "reference",
-							"name": "Device",
-							"id": 80
+							"id": 80,
+							"name": "Device"
 						},
 						{
 							"type": "reference",
-							"name": "Camera",
-							"id": 124
+							"id": 124,
+							"name": "Camera"
 						},
 						{
 							"type": "reference",
-							"name": "AlarmDevice",
-							"id": 96
+							"id": 96,
+							"name": "AlarmDevice"
 						}
 					]
 				},
@@ -7185,18 +7440,22 @@
 									"name": "new AbstractDevice",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 174,
 											"name": "deviceSettings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DeviceSettings",
-												"id": 69
+												"id": 69,
+												"name": "DeviceSettings"
 											}
 										},
 										{
@@ -7204,18 +7463,20 @@
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "AbstractDevice",
-										"id": 159
+										"id": 159,
+										"name": "AbstractDevice"
 									}
 								}
 							],
@@ -7244,8 +7505,12 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 252,
+									"name": "log"
+								}
 							}
 						},
 						{
@@ -7266,8 +7531,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "DeviceSettings",
-								"id": 69
+								"id": 69,
+								"name": "DeviceSettings"
 							}
 						},
 						{
@@ -7284,15 +7549,17 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Device.getName",
-										"id": 89
+										"id": 89,
+										"name": "Device.getName"
 									}
 								}
 							],
@@ -7305,8 +7572,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Device.getName",
-								"id": 88
+								"id": 88,
+								"name": "Device.getName"
 							}
 						},
 						{
@@ -7323,16 +7590,18 @@
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "DeviceSettings",
-										"id": 69
+										"id": 69,
+										"name": "DeviceSettings"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Device.getSettings",
-										"id": 87
+										"id": 87,
+										"name": "Device.getSettings"
 									}
 								}
 							],
@@ -7345,8 +7614,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Device.getSettings",
-								"id": 86
+								"id": 86,
+								"name": "Device.getSettings"
 							}
 						},
 						{
@@ -7363,15 +7632,17 @@
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Device.hasAlarm",
-										"id": 95
+										"id": 95,
+										"name": "Device.hasAlarm"
 									}
 								}
 							],
@@ -7384,8 +7655,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Device.hasAlarm",
-								"id": 94
+								"id": 94,
+								"name": "Device.hasAlarm"
 							}
 						},
 						{
@@ -7402,15 +7673,17 @@
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Device.hasAudio",
-										"id": 93
+										"id": 93,
+										"name": "Device.hasAudio"
 									}
 								}
 							],
@@ -7423,8 +7696,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Device.hasAudio",
-								"id": 92
+								"id": 92,
+								"name": "Device.hasAudio"
 							}
 						},
 						{
@@ -7441,7 +7714,9 @@
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
@@ -7470,15 +7745,17 @@
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Device.hasVideo",
-										"id": 91
+										"id": 91,
+										"name": "Device.hasVideo"
 									}
 								}
 							],
@@ -7491,8 +7768,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Device.hasVideo",
-								"id": 90
+								"id": 90,
+								"name": "Device.hasVideo"
 							}
 						},
 						{
@@ -7509,35 +7786,39 @@
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 178,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Device.initDevice",
-										"id": 82
+										"id": 82,
+										"name": "Device.initDevice"
 									}
 								}
 							],
@@ -7550,8 +7831,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Device.initDevice",
-								"id": 81
+								"id": 81,
+								"name": "Device.initDevice"
 							}
 						},
 						{
@@ -7569,21 +7850,23 @@
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Device.setTime",
-										"id": 85
+										"id": 85,
+										"name": "Device.setTime"
 									}
 								}
 							],
@@ -7596,8 +7879,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Device.setTime",
-								"id": 84
+								"id": 84,
+								"name": "Device.setTime"
 							}
 						}
 					],
@@ -7642,15 +7925,15 @@
 					"extendedBy": [
 						{
 							"type": "reference",
-							"name": "AbstractCamera",
-							"id": 183
+							"id": 183,
+							"name": "AbstractCamera"
 						}
 					],
 					"implementedTypes": [
 						{
 							"type": "reference",
-							"name": "Device",
-							"id": 80
+							"id": 80,
+							"name": "Device"
 						}
 					]
 				},
@@ -7684,11 +7967,11 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "Device",
-									"id": 80
+									"id": 80,
+									"name": "Device"
 								}
 							},
-							"defaultValue": " <Device[]>[]"
+							"defaultValue": "<Device[]>[]"
 						},
 						{
 							"id": 244,
@@ -7705,18 +7988,22 @@
 									"name": "addDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 246,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "Device",
-												"id": 80
+												"id": 80,
+												"name": "Device"
 											}
 										}
 									],
@@ -7749,14 +8036,18 @@
 									"name": "getDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 249,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -7765,8 +8056,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Device",
-										"id": 80
+										"id": 80,
+										"name": "Device"
 									}
 								}
 							],
@@ -7793,7 +8084,9 @@
 									"name": "getDevices",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns a copy of the device list"
 									},
@@ -7801,8 +8094,8 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "Device",
-											"id": 80
+											"id": 80,
+											"name": "Device"
 										}
 									}
 								}
@@ -7865,7 +8158,9 @@
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns a promise to arm or disarm the device.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
@@ -7876,7 +8171,9 @@
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "`true` will arm, `false` will disarm the device."
 											},
@@ -7888,13 +8185,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -7920,20 +8217,22 @@
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to check whether the device is armed or not.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -7959,7 +8258,9 @@
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns the current value of the audible flag"
 									},
@@ -7991,15 +8292,17 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.getName",
-										"id": 88
+										"id": 88,
+										"name": "Device.getName"
 									}
 								}
 							],
@@ -8012,8 +8315,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.getName",
-								"id": 88
+								"id": 88,
+								"name": "Device.getName"
 							}
 						},
 						{
@@ -8030,16 +8333,18 @@
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "DeviceSettings",
-										"id": 69
+										"id": 69,
+										"name": "DeviceSettings"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.getSettings",
-										"id": 86
+										"id": 86,
+										"name": "Device.getSettings"
 									}
 								}
 							],
@@ -8052,8 +8357,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.getSettings",
-								"id": 86
+								"id": 86,
+								"name": "Device.getSettings"
 							}
 						},
 						{
@@ -8070,15 +8375,17 @@
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Device.hasAlarm",
-										"id": 94
+										"id": 94,
+										"name": "Device.hasAlarm"
 									}
 								}
 							],
@@ -8091,8 +8398,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Device.hasAlarm",
-								"id": 94
+								"id": 94,
+								"name": "Device.hasAlarm"
 							}
 						},
 						{
@@ -8109,15 +8416,17 @@
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.hasAudio",
-										"id": 92
+										"id": 92,
+										"name": "Device.hasAudio"
 									}
 								}
 							],
@@ -8130,8 +8439,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.hasAudio",
-								"id": 92
+								"id": 92,
+								"name": "Device.hasAudio"
 							}
 						},
 						{
@@ -8148,15 +8457,17 @@
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.hasVideo",
-										"id": 90
+										"id": 90,
+										"name": "Device.hasVideo"
 									}
 								}
 							],
@@ -8169,8 +8480,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.hasVideo",
-								"id": 90
+								"id": 90,
+								"name": "Device.hasVideo"
 							}
 						},
 						{
@@ -8187,35 +8498,39 @@
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 113,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.initDevice",
-										"id": 81
+										"id": 81,
+										"name": "Device.initDevice"
 									}
 								}
 							],
@@ -8228,8 +8543,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.initDevice",
-								"id": 81
+								"id": 81,
+								"name": "Device.initDevice"
 							}
 						},
 						{
@@ -8246,7 +8561,9 @@
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
@@ -8275,7 +8592,9 @@
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global audible flag. If the flag is set to true,\ndevices will sound an audible alarm after the next time they are armed.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -8286,7 +8605,9 @@
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the name of the device"
 											},
@@ -8298,13 +8619,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -8330,21 +8651,23 @@
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.setTime",
-										"id": 84
+										"id": 84,
+										"name": "Device.setTime"
 									}
 								}
 							],
@@ -8357,8 +8680,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.setTime",
-								"id": 84
+								"id": 84,
+								"name": "Device.setTime"
 							}
 						}
 					],
@@ -8392,25 +8715,25 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "Device",
-							"id": 80
+							"id": 80,
+							"name": "Device"
 						}
 					],
 					"implementedBy": [
 						{
 							"type": "reference",
-							"name": "AbstractCamera",
-							"id": 183
+							"id": 183,
+							"name": "AbstractCamera"
 						},
 						{
 							"type": "reference",
-							"name": "Foscam",
-							"id": 443
+							"id": 443,
+							"name": "Foscam"
 						},
 						{
 							"type": "reference",
-							"name": "WansView",
-							"id": 511
+							"id": 511,
+							"name": "WansView"
 						}
 					]
 				},
@@ -8437,19 +8760,21 @@
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`."
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -8475,15 +8800,17 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.getName",
-										"id": 88
+										"id": 88,
+										"name": "Device.getName"
 									}
 								}
 							],
@@ -8496,8 +8823,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.getName",
-								"id": 88
+								"id": 88,
+								"name": "Device.getName"
 							}
 						},
 						{
@@ -8514,19 +8841,21 @@
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "get absolute path on host system to where to store recordings"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -8552,16 +8881,18 @@
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "DeviceSettings",
-										"id": 69
+										"id": 69,
+										"name": "DeviceSettings"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.getSettings",
-										"id": 86
+										"id": 86,
+										"name": "Device.getSettings"
 									}
 								}
 							],
@@ -8574,8 +8905,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.getSettings",
-								"id": 86
+								"id": 86,
+								"name": "Device.getSettings"
 							}
 						},
 						{
@@ -8592,15 +8923,17 @@
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.hasAlarm",
-										"id": 94
+										"id": 94,
+										"name": "Device.hasAlarm"
 									}
 								}
 							],
@@ -8613,8 +8946,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.hasAlarm",
-								"id": 94
+								"id": 94,
+								"name": "Device.hasAlarm"
 							}
 						},
 						{
@@ -8631,15 +8964,17 @@
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Device.hasAudio",
-										"id": 92
+										"id": 92,
+										"name": "Device.hasAudio"
 									}
 								}
 							],
@@ -8652,8 +8987,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Device.hasAudio",
-								"id": 92
+								"id": 92,
+								"name": "Device.hasAudio"
 							}
 						},
 						{
@@ -8670,7 +9005,9 @@
 									"name": "hasPTZ",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
@@ -8699,15 +9036,17 @@
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Device.hasVideo",
-										"id": 90
+										"id": 90,
+										"name": "Device.hasVideo"
 									}
 								}
 							],
@@ -8720,8 +9059,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Device.hasVideo",
-								"id": 90
+								"id": 90,
+								"name": "Device.hasVideo"
 							}
 						},
 						{
@@ -8738,35 +9077,39 @@
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 150,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.initDevice",
-										"id": 81
+										"id": 81,
+										"name": "Device.initDevice"
 									}
 								}
 							],
@@ -8779,8 +9122,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.initDevice",
-								"id": 81
+								"id": 81,
+								"name": "Device.initDevice"
 							}
 						},
 						{
@@ -8797,7 +9140,9 @@
 									"name": "ptzPreset",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "moves the camera to a preset position"
 									},
@@ -8807,7 +9152,9 @@
 											"name": "index",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the preset position index to move to\n"
 											},
@@ -8819,13 +9166,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -8851,7 +9198,9 @@
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to set the device's ftp confguration.",
 										"returns": "Promise a promise that resolves to undefined.\n"
@@ -8862,23 +9211,25 @@
 											"name": "ftpSettings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "FtpSettings",
-												"id": 393
+												"id": 393,
+												"name": "FtpSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -8904,7 +9255,9 @@
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global snapshot directory.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -8915,7 +9268,9 @@
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "path to write snapshots to"
 											},
@@ -8927,13 +9282,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -8959,21 +9314,23 @@
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Device.setTime",
-										"id": 84
+										"id": 84,
+										"name": "Device.setTime"
 									}
 								}
 							],
@@ -8986,8 +9343,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Device.setTime",
-								"id": 84
+								"id": 84,
+								"name": "Device.setTime"
 							}
 						},
 						{
@@ -9004,19 +9361,21 @@
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "captures a snapshot from the device and saves it to `snapshotDir`"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -9042,20 +9401,22 @@
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`.",
 										"returns": "Promise a promise that resolves to the testResult: 0 = success, -1 = failure, -3 = unknown\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -9101,25 +9462,25 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "Device",
-							"id": 80
+							"id": 80,
+							"name": "Device"
 						}
 					],
 					"implementedBy": [
 						{
 							"type": "reference",
-							"name": "AbstractCamera",
-							"id": 183
+							"id": 183,
+							"name": "AbstractCamera"
 						},
 						{
 							"type": "reference",
-							"name": "Foscam",
-							"id": 443
+							"id": 443,
+							"name": "Foscam"
 						},
 						{
 							"type": "reference",
-							"name": "WansView",
-							"id": 511
+							"id": 511,
+							"name": "WansView"
 						}
 					]
 				},
@@ -9146,7 +9507,9 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -9175,11 +9538,13 @@
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "DeviceSettings",
-										"id": 69
+										"id": 69,
+										"name": "DeviceSettings"
 									}
 								}
 							],
@@ -9205,7 +9570,9 @@
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
@@ -9234,7 +9601,9 @@
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
@@ -9263,7 +9632,9 @@
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
@@ -9292,30 +9663,34 @@
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 83,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -9341,16 +9716,18 @@
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -9388,35 +9765,35 @@
 					"extendedBy": [
 						{
 							"type": "reference",
-							"name": "AlarmDevice",
-							"id": 96
+							"id": 96,
+							"name": "AlarmDevice"
 						},
 						{
 							"type": "reference",
-							"name": "Camera",
-							"id": 124
+							"id": 124,
+							"name": "Camera"
 						}
 					],
 					"implementedBy": [
 						{
 							"type": "reference",
-							"name": "AbstractCamera",
-							"id": 183
+							"id": 183,
+							"name": "AbstractCamera"
 						},
 						{
 							"type": "reference",
-							"name": "AbstractDevice",
-							"id": 159
+							"id": 159,
+							"name": "AbstractDevice"
 						},
 						{
 							"type": "reference",
-							"name": "Foscam",
-							"id": 443
+							"id": 443,
+							"name": "Foscam"
 						},
 						{
 							"type": "reference",
-							"name": "WansView",
-							"id": 511
+							"id": 511,
+							"name": "WansView"
 						}
 					]
 				},
@@ -9680,7 +10057,7 @@
 						"type": "reference",
 						"name": "\"/Users/Shared/Sites/staging/apps/hsDocs/node_modules/hsnode/fsUtil\""
 					},
-					"defaultValue": " node.node.fs"
+					"defaultValue": "node.node.fs"
 				},
 				{
 					"id": 252,
@@ -9699,9 +10076,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " node.log('Device')"
+					"defaultValue": "new node.Log('Device')"
 				}
 			],
 			"groups": [
@@ -9774,18 +10151,22 @@
 									"name": "new Foscam",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 447,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DeviceSettings",
-												"id": 69
+												"id": 69,
+												"name": "DeviceSettings"
 											}
 										},
 										{
@@ -9793,23 +10174,25 @@
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Foscam",
-										"id": 443
+										"id": 443,
+										"name": "Foscam"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.__constructor",
-										"id": 186
+										"id": 186,
+										"name": "AbstractCamera.__constructor"
 									}
 								}
 							],
@@ -9822,8 +10205,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.__constructor",
-								"id": 186
+								"id": 186,
+								"name": "AbstractCamera.__constructor"
 							}
 						},
 						{
@@ -9849,8 +10232,8 @@
 							"defaultValue": "false",
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.armed",
-								"id": 185
+								"id": 185,
+								"name": "AbstractCamera.armed"
 							}
 						},
 						{
@@ -9870,13 +10253,17 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 252,
+									"name": "log"
+								}
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.log",
-								"id": 161
+								"id": 161,
+								"name": "AbstractDevice.log"
 							}
 						},
 						{
@@ -9915,7 +10302,9 @@
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns a promise to arm or disarm the device.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
@@ -9926,7 +10315,9 @@
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "boolean"
@@ -9935,23 +10326,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.arm",
-										"id": 219
+										"id": 219,
+										"name": "AbstractCamera.arm"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.arm",
-										"id": 102
+										"id": 102,
+										"name": "AlarmDevice.arm"
 									}
 								}
 							],
@@ -9964,13 +10355,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.arm",
-								"id": 219
+								"id": 219,
+								"name": "AbstractCamera.arm"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.arm",
-								"id": 101
+								"id": 101,
+								"name": "AlarmDevice.arm"
 							}
 						},
 						{
@@ -9987,30 +10378,32 @@
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to check whether the device is armed or not.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.armStatus",
-										"id": 217
+										"id": 217,
+										"name": "AbstractCamera.armStatus"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.armStatus",
-										"id": 100
+										"id": 100,
+										"name": "AlarmDevice.armStatus"
 									}
 								}
 							],
@@ -10023,13 +10416,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.armStatus",
-								"id": 217
+								"id": 217,
+								"name": "AbstractCamera.armStatus"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.armStatus",
-								"id": 99
+								"id": 99,
+								"name": "AlarmDevice.armStatus"
 							}
 						},
 						{
@@ -10046,20 +10439,22 @@
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.getAudible",
-										"id": 225
+										"id": 225,
+										"name": "AbstractCamera.getAudible"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getAudible",
-										"id": 110
+										"id": 110,
+										"name": "AlarmDevice.getAudible"
 									}
 								}
 							],
@@ -10072,13 +10467,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.getAudible",
-								"id": 225
+								"id": 225,
+								"name": "AbstractCamera.getAudible"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getAudible",
-								"id": 109
+								"id": 109,
+								"name": "AlarmDevice.getAudible"
 							}
 						},
 						{
@@ -10095,29 +10490,31 @@
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`."
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.getFtpCfg",
-										"id": 211
+										"id": 211,
+										"name": "AbstractCamera.getFtpCfg"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.getFtpCfg",
-										"id": 139
+										"id": 139,
+										"name": "Camera.getFtpCfg"
 									}
 								}
 							],
@@ -10130,13 +10527,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.getFtpCfg",
-								"id": 211
+								"id": 211,
+								"name": "AbstractCamera.getFtpCfg"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.getFtpCfg",
-								"id": 138
+								"id": 138,
+								"name": "Camera.getFtpCfg"
 							}
 						},
 						{
@@ -10153,20 +10550,22 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.getName",
-										"id": 181
+										"id": 181,
+										"name": "AbstractDevice.getName"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getName",
-										"id": 119
+										"id": 119,
+										"name": "AlarmDevice.getName"
 									}
 								}
 							],
@@ -10179,13 +10578,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.getName",
-								"id": 181
+								"id": 181,
+								"name": "AbstractDevice.getName"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getName",
-								"id": 118
+								"id": 118,
+								"name": "AlarmDevice.getName"
 							}
 						},
 						{
@@ -10202,26 +10601,28 @@
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.getRecordingDir",
-										"id": 204
+										"id": 204,
+										"name": "AbstractCamera.getRecordingDir"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.getRecordingDir",
-										"id": 135
+										"id": 135,
+										"name": "Camera.getRecordingDir"
 									}
 								}
 							],
@@ -10234,13 +10635,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.getRecordingDir",
-								"id": 204
+								"id": 204,
+								"name": "AbstractCamera.getRecordingDir"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.getRecordingDir",
-								"id": 134
+								"id": 134,
+								"name": "Camera.getRecordingDir"
 							}
 						},
 						{
@@ -10257,21 +10658,23 @@
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "DeviceSettings",
-										"id": 69
+										"id": 69,
+										"name": "DeviceSettings"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.getSettings",
-										"id": 179
+										"id": 179,
+										"name": "AbstractDevice.getSettings"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getSettings",
-										"id": 117
+										"id": 117,
+										"name": "AlarmDevice.getSettings"
 									}
 								}
 							],
@@ -10284,13 +10687,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.getSettings",
-								"id": 179
+								"id": 179,
+								"name": "AbstractDevice.getSettings"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getSettings",
-								"id": 116
+								"id": 116,
+								"name": "AlarmDevice.getSettings"
 							}
 						},
 						{
@@ -10307,25 +10710,27 @@
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.hasAlarm",
-										"id": 166
+										"id": 166,
+										"name": "AbstractDevice.hasAlarm"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.hasAlarm",
-										"id": 195
+										"id": 195,
+										"name": "AbstractCamera.hasAlarm"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasAlarm",
-										"id": 98
+										"id": 98,
+										"name": "AlarmDevice.hasAlarm"
 									}
 								}
 							],
@@ -10338,18 +10743,18 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.hasAlarm",
-								"id": 166
+								"id": 166,
+								"name": "AbstractDevice.hasAlarm"
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.hasAlarm",
-								"id": 195
+								"id": 195,
+								"name": "AbstractCamera.hasAlarm"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasAlarm",
-								"id": 97
+								"id": 97,
+								"name": "AlarmDevice.hasAlarm"
 							}
 						},
 						{
@@ -10366,20 +10771,22 @@
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.hasAudio",
-										"id": 164
+										"id": 164,
+										"name": "AbstractDevice.hasAudio"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasAudio",
-										"id": 123
+										"id": 123,
+										"name": "AlarmDevice.hasAudio"
 									}
 								}
 							],
@@ -10392,13 +10799,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.hasAudio",
-								"id": 164
+								"id": 164,
+								"name": "AbstractDevice.hasAudio"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasAudio",
-								"id": 122
+								"id": 122,
+								"name": "AlarmDevice.hasAudio"
 							}
 						},
 						{
@@ -10415,15 +10822,17 @@
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.hasMotionAlarm",
-										"id": 168
+										"id": 168,
+										"name": "AbstractDevice.hasMotionAlarm"
 									}
 								}
 							],
@@ -10436,8 +10845,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.hasMotionAlarm",
-								"id": 168
+								"id": 168,
+								"name": "AbstractDevice.hasMotionAlarm"
 							}
 						},
 						{
@@ -10454,20 +10863,22 @@
 									"name": "hasPTZ",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.hasPTZ",
-										"id": 199
+										"id": 199,
+										"name": "AbstractCamera.hasPTZ"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.hasPTZ",
-										"id": 130
+										"id": 130,
+										"name": "Camera.hasPTZ"
 									}
 								}
 							],
@@ -10480,13 +10891,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.hasPTZ",
-								"id": 199
+								"id": 199,
+								"name": "AbstractCamera.hasPTZ"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.hasPTZ",
-								"id": 129
+								"id": 129,
+								"name": "Camera.hasPTZ"
 							}
 						},
 						{
@@ -10503,25 +10914,27 @@
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.hasVideo",
-										"id": 162
+										"id": 162,
+										"name": "AbstractDevice.hasVideo"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.hasVideo",
-										"id": 193
+										"id": 193,
+										"name": "AbstractCamera.hasVideo"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasVideo",
-										"id": 121
+										"id": 121,
+										"name": "AlarmDevice.hasVideo"
 									}
 								}
 							],
@@ -10534,18 +10947,18 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.hasVideo",
-								"id": 162
+								"id": 162,
+								"name": "AbstractDevice.hasVideo"
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.hasVideo",
-								"id": 193
+								"id": 193,
+								"name": "AbstractCamera.hasVideo"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasVideo",
-								"id": 120
+								"id": 120,
+								"name": "AlarmDevice.hasVideo"
 							}
 						},
 						{
@@ -10562,40 +10975,44 @@
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 451,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.initDevice",
-										"id": 190
+										"id": 190,
+										"name": "AbstractCamera.initDevice"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.initDevice",
-										"id": 112
+										"id": 112,
+										"name": "AlarmDevice.initDevice"
 									}
 								}
 							],
@@ -10608,13 +11025,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.initDevice",
-								"id": 190
+								"id": 190,
+								"name": "AbstractCamera.initDevice"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.initDevice",
-								"id": 111
+								"id": 111,
+								"name": "AlarmDevice.initDevice"
 							}
 						},
 						{
@@ -10631,20 +11048,22 @@
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.isArmed",
-										"id": 197
+										"id": 197,
+										"name": "AbstractCamera.isArmed"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.isArmed",
-										"id": 105
+										"id": 105,
+										"name": "AlarmDevice.isArmed"
 									}
 								}
 							],
@@ -10657,13 +11076,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.isArmed",
-								"id": 197
+								"id": 197,
+								"name": "AbstractCamera.isArmed"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.isArmed",
-								"id": 104
+								"id": 104,
+								"name": "AlarmDevice.isArmed"
 							}
 						},
 						{
@@ -10680,7 +11099,9 @@
 									"name": "ptzPreset",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Moves the camera to a preset position.\nThis default implementation returns an empty promise."
 									},
@@ -10690,7 +11111,9 @@
 											"name": "index",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the preset position index to move to\n"
 											},
@@ -10702,23 +11125,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.ptzPreset",
-										"id": 208
+										"id": 208,
+										"name": "AbstractCamera.ptzPreset"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.ptzPreset",
-										"id": 141
+										"id": 141,
+										"name": "Camera.ptzPreset"
 									}
 								}
 							],
@@ -10731,13 +11154,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.ptzPreset",
-								"id": 208
+								"id": 208,
+								"name": "AbstractCamera.ptzPreset"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.ptzPreset",
-								"id": 140
+								"id": 140,
+								"name": "Camera.ptzPreset"
 							}
 						},
 						{
@@ -10755,7 +11178,9 @@
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promised to send `cmd` to the foscam camera specified in `options`"
 									},
@@ -10765,7 +11190,9 @@
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the command string to send"
 											},
@@ -10780,6 +11207,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"type": {
@@ -10790,18 +11218,18 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.sendCommandToDevice",
-										"id": 227
+										"id": 227,
+										"name": "AbstractCamera.sendCommandToDevice"
 									}
 								}
 							],
@@ -10814,8 +11242,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.sendCommandToDevice",
-								"id": 227
+								"id": 227,
+								"name": "AbstractCamera.sendCommandToDevice"
 							}
 						},
 						{
@@ -10832,7 +11260,9 @@
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global audible flag. If the flag is set to true,\ndevices will sound an audible alarm after the next time they are armed.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -10843,7 +11273,9 @@
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the name of the device"
 											},
@@ -10855,23 +11287,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.setAudible",
-										"id": 222
+										"id": 222,
+										"name": "AbstractCamera.setAudible"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.setAudible",
-										"id": 107
+										"id": 107,
+										"name": "AlarmDevice.setAudible"
 									}
 								}
 							],
@@ -10884,13 +11316,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.setAudible",
-								"id": 222
+								"id": 222,
+								"name": "AbstractCamera.setAudible"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.setAudible",
-								"id": 106
+								"id": 106,
+								"name": "AlarmDevice.setAudible"
 							}
 						},
 						{
@@ -10907,24 +11339,26 @@
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to set the device's ftp confguration.\nThe promsie resolves to true orfalse, depending on the success of the call"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.setFtpCfg",
-										"id": 213
+										"id": 213,
+										"name": "AbstractCamera.setFtpCfg"
 									}
 								}
 							],
@@ -10937,13 +11371,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.setFtpCfg",
-								"id": 213
+								"id": 213,
+								"name": "AbstractCamera.setFtpCfg"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.setFtpCfg",
-								"id": 143
+								"id": 143,
+								"name": "Camera.setFtpCfg"
 							}
 						},
 						{
@@ -10960,7 +11394,9 @@
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global snapshot directory.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -10971,7 +11407,9 @@
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "absolute path to write recordings to"
 											},
@@ -10983,23 +11421,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.setRecordingDir",
-										"id": 201
+										"id": 201,
+										"name": "AbstractCamera.setRecordingDir"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.setRecordingDir",
-										"id": 132
+										"id": 132,
+										"name": "Camera.setRecordingDir"
 									}
 								}
 							],
@@ -11012,13 +11450,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.setRecordingDir",
-								"id": 201
+								"id": 201,
+								"name": "AbstractCamera.setRecordingDir"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.setRecordingDir",
-								"id": 131
+								"id": 131,
+								"name": "Camera.setRecordingDir"
 							}
 						},
 						{
@@ -11035,26 +11473,28 @@
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.setTime",
-										"id": 170
+										"id": 170,
+										"name": "AbstractDevice.setTime"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.setTime",
-										"id": 115
+										"id": 115,
+										"name": "AlarmDevice.setTime"
 									}
 								}
 							],
@@ -11067,13 +11507,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.setTime",
-								"id": 170
+								"id": 170,
+								"name": "AbstractDevice.setTime"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.setTime",
-								"id": 114
+								"id": 114,
+								"name": "AlarmDevice.setTime"
 							}
 						},
 						{
@@ -11090,29 +11530,31 @@
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "captures a snapshot from the device and saves it to gSnapshotDir"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.snapPicture",
-										"id": 206
+										"id": 206,
+										"name": "AbstractCamera.snapPicture"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.snapPicture",
-										"id": 137
+										"id": 137,
+										"name": "Camera.snapPicture"
 									}
 								}
 							],
@@ -11125,13 +11567,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.snapPicture",
-								"id": 206
+								"id": 206,
+								"name": "AbstractCamera.snapPicture"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.snapPicture",
-								"id": 136
+								"id": 136,
+								"name": "Camera.snapPicture"
 							}
 						},
 						{
@@ -11148,30 +11590,32 @@
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`.",
 										"returns": "Promise a promise that resolves to the testResult: 0 = success, -1 = failure, -3 = unknown\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.testFtpServer",
-										"id": 215
+										"id": 215,
+										"name": "AbstractCamera.testFtpServer"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.testFtpServer",
-										"id": 147
+										"id": 147,
+										"name": "Camera.testFtpServer"
 									}
 								}
 							],
@@ -11184,13 +11628,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.testFtpServer",
-								"id": 215
+								"id": 215,
+								"name": "AbstractCamera.testFtpServer"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.testFtpServer",
-								"id": 146
+								"id": 146,
+								"name": "Camera.testFtpServer"
 							}
 						}
 					],
@@ -11250,25 +11694,25 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "AbstractCamera",
-							"id": 183
+							"id": 183,
+							"name": "AbstractCamera"
 						}
 					],
 					"implementedTypes": [
 						{
 							"type": "reference",
-							"name": "Device",
-							"id": 80
+							"id": 80,
+							"name": "Device"
 						},
 						{
 							"type": "reference",
-							"name": "Camera",
-							"id": 124
+							"id": 124,
+							"name": "Camera"
 						},
 						{
 							"type": "reference",
-							"name": "AlarmDevice",
-							"id": 96
+							"id": 96,
+							"name": "AlarmDevice"
 						}
 					]
 				},
@@ -11512,18 +11956,22 @@
 									"name": "new WansView",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 515,
 											"name": "device",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DeviceSettings",
-												"id": 69
+												"id": 69,
+												"name": "DeviceSettings"
 											}
 										},
 										{
@@ -11531,23 +11979,25 @@
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "WansView",
-										"id": 511
+										"id": 511,
+										"name": "WansView"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.__constructor",
-										"id": 186
+										"id": 186,
+										"name": "AbstractCamera.__constructor"
 									}
 								}
 							],
@@ -11560,8 +12010,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.__constructor",
-								"id": 186
+								"id": 186,
+								"name": "AbstractCamera.__constructor"
 							}
 						},
 						{
@@ -11587,8 +12037,8 @@
 							"defaultValue": "false",
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.armed",
-								"id": 185
+								"id": 185,
+								"name": "AbstractCamera.armed"
 							}
 						},
 						{
@@ -11608,13 +12058,17 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "LogType"
+								"type": "query",
+								"queryType": {
+									"type": "reference",
+									"id": 252,
+									"name": "log"
+								}
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.log",
-								"id": 161
+								"id": 161,
+								"name": "AbstractDevice.log"
 							}
 						},
 						{
@@ -11653,7 +12107,9 @@
 									"name": "arm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns a promise to arm or disarm the device.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
@@ -11664,7 +12120,9 @@
 											"name": "arm",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "boolean"
@@ -11673,23 +12131,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.arm",
-										"id": 219
+										"id": 219,
+										"name": "AbstractCamera.arm"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.arm",
-										"id": 102
+										"id": 102,
+										"name": "AlarmDevice.arm"
 									}
 								}
 							],
@@ -11702,13 +12160,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.arm",
-								"id": 219
+								"id": 219,
+								"name": "AbstractCamera.arm"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.arm",
-								"id": 101
+								"id": 101,
+								"name": "AlarmDevice.arm"
 							}
 						},
 						{
@@ -11725,30 +12183,32 @@
 									"name": "armStatus",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to check whether the device is armed or not.",
 										"returns": "Promise a promise that resolves to True (status: armed) or False (status: disarmed).\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.armStatus",
-										"id": 217
+										"id": 217,
+										"name": "AbstractCamera.armStatus"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.armStatus",
-										"id": 100
+										"id": 100,
+										"name": "AlarmDevice.armStatus"
 									}
 								}
 							],
@@ -11761,13 +12221,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.armStatus",
-								"id": 217
+								"id": 217,
+								"name": "AbstractCamera.armStatus"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.armStatus",
-								"id": 99
+								"id": 99,
+								"name": "AlarmDevice.armStatus"
 							}
 						},
 						{
@@ -11784,20 +12244,22 @@
 									"name": "getAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.getAudible",
-										"id": 225
+										"id": 225,
+										"name": "AbstractCamera.getAudible"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getAudible",
-										"id": 110
+										"id": 110,
+										"name": "AlarmDevice.getAudible"
 									}
 								}
 							],
@@ -11810,13 +12272,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.getAudible",
-								"id": 225
+								"id": 225,
+								"name": "AbstractCamera.getAudible"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getAudible",
-								"id": 109
+								"id": 109,
+								"name": "AlarmDevice.getAudible"
 							}
 						},
 						{
@@ -11833,29 +12295,31 @@
 									"name": "getFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`."
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.getFtpCfg",
-										"id": 211
+										"id": 211,
+										"name": "AbstractCamera.getFtpCfg"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.getFtpCfg",
-										"id": 139
+										"id": 139,
+										"name": "Camera.getFtpCfg"
 									}
 								}
 							],
@@ -11868,13 +12332,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.getFtpCfg",
-								"id": 211
+								"id": 211,
+								"name": "AbstractCamera.getFtpCfg"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.getFtpCfg",
-								"id": 138
+								"id": 138,
+								"name": "Camera.getFtpCfg"
 							}
 						},
 						{
@@ -11891,20 +12355,22 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.getName",
-										"id": 181
+										"id": 181,
+										"name": "AbstractDevice.getName"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getName",
-										"id": 119
+										"id": 119,
+										"name": "AlarmDevice.getName"
 									}
 								}
 							],
@@ -11917,13 +12383,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.getName",
-								"id": 181
+								"id": 181,
+								"name": "AbstractDevice.getName"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getName",
-								"id": 118
+								"id": 118,
+								"name": "AlarmDevice.getName"
 							}
 						},
 						{
@@ -11940,26 +12406,28 @@
 									"name": "getRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.getRecordingDir",
-										"id": 204
+										"id": 204,
+										"name": "AbstractCamera.getRecordingDir"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.getRecordingDir",
-										"id": 135
+										"id": 135,
+										"name": "Camera.getRecordingDir"
 									}
 								}
 							],
@@ -11972,13 +12440,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.getRecordingDir",
-								"id": 204
+								"id": 204,
+								"name": "AbstractCamera.getRecordingDir"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.getRecordingDir",
-								"id": 134
+								"id": 134,
+								"name": "Camera.getRecordingDir"
 							}
 						},
 						{
@@ -11995,21 +12463,23 @@
 									"name": "getSettings",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "DeviceSettings",
-										"id": 69
+										"id": 69,
+										"name": "DeviceSettings"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.getSettings",
-										"id": 179
+										"id": 179,
+										"name": "AbstractDevice.getSettings"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.getSettings",
-										"id": 117
+										"id": 117,
+										"name": "AlarmDevice.getSettings"
 									}
 								}
 							],
@@ -12022,13 +12492,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.getSettings",
-								"id": 179
+								"id": 179,
+								"name": "AbstractDevice.getSettings"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.getSettings",
-								"id": 116
+								"id": 116,
+								"name": "AlarmDevice.getSettings"
 							}
 						},
 						{
@@ -12045,25 +12515,27 @@
 									"name": "hasAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.hasAlarm",
-										"id": 166
+										"id": 166,
+										"name": "AbstractDevice.hasAlarm"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.hasAlarm",
-										"id": 195
+										"id": 195,
+										"name": "AbstractCamera.hasAlarm"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasAlarm",
-										"id": 98
+										"id": 98,
+										"name": "AlarmDevice.hasAlarm"
 									}
 								}
 							],
@@ -12076,18 +12548,18 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.hasAlarm",
-								"id": 166
+								"id": 166,
+								"name": "AbstractDevice.hasAlarm"
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.hasAlarm",
-								"id": 195
+								"id": 195,
+								"name": "AbstractCamera.hasAlarm"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasAlarm",
-								"id": 97
+								"id": 97,
+								"name": "AlarmDevice.hasAlarm"
 							}
 						},
 						{
@@ -12104,20 +12576,22 @@
 									"name": "hasAudio",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.hasAudio",
-										"id": 164
+										"id": 164,
+										"name": "AbstractDevice.hasAudio"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasAudio",
-										"id": 123
+										"id": 123,
+										"name": "AlarmDevice.hasAudio"
 									}
 								}
 							],
@@ -12130,13 +12604,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.hasAudio",
-								"id": 164
+								"id": 164,
+								"name": "AbstractDevice.hasAudio"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasAudio",
-								"id": 122
+								"id": 122,
+								"name": "AlarmDevice.hasAudio"
 							}
 						},
 						{
@@ -12153,15 +12627,17 @@
 									"name": "hasMotionAlarm",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractDevice.hasMotionAlarm",
-										"id": 168
+										"id": 168,
+										"name": "AbstractDevice.hasMotionAlarm"
 									}
 								}
 							],
@@ -12174,8 +12650,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractDevice.hasMotionAlarm",
-								"id": 168
+								"id": 168,
+								"name": "AbstractDevice.hasMotionAlarm"
 							}
 						},
 						{
@@ -12192,20 +12668,22 @@
 									"name": "hasPTZ",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.hasPTZ",
-										"id": 199
+										"id": 199,
+										"name": "AbstractCamera.hasPTZ"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.hasPTZ",
-										"id": 130
+										"id": 130,
+										"name": "Camera.hasPTZ"
 									}
 								}
 							],
@@ -12218,13 +12696,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.hasPTZ",
-								"id": 199
+								"id": 199,
+								"name": "AbstractCamera.hasPTZ"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.hasPTZ",
-								"id": 129
+								"id": 129,
+								"name": "Camera.hasPTZ"
 							}
 						},
 						{
@@ -12241,25 +12719,27 @@
 									"name": "hasVideo",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.hasVideo",
-										"id": 162
+										"id": 162,
+										"name": "AbstractDevice.hasVideo"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.hasVideo",
-										"id": 193
+										"id": 193,
+										"name": "AbstractCamera.hasVideo"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.hasVideo",
-										"id": 121
+										"id": 121,
+										"name": "AlarmDevice.hasVideo"
 									}
 								}
 							],
@@ -12272,18 +12752,18 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.hasVideo",
-								"id": 162
+								"id": 162,
+								"name": "AbstractDevice.hasVideo"
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.hasVideo",
-								"id": 193
+								"id": 193,
+								"name": "AbstractCamera.hasVideo"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.hasVideo",
-								"id": 120
+								"id": 120,
+								"name": "AlarmDevice.hasVideo"
 							}
 						},
 						{
@@ -12300,40 +12780,44 @@
 									"name": "initDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 519,
 											"name": "settings",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "CfgSettings",
-												"id": 53
+												"id": 53,
+												"name": "CfgSettings"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.initDevice",
-										"id": 190
+										"id": 190,
+										"name": "AbstractCamera.initDevice"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.initDevice",
-										"id": 112
+										"id": 112,
+										"name": "AlarmDevice.initDevice"
 									}
 								}
 							],
@@ -12346,13 +12830,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.initDevice",
-								"id": 190
+								"id": 190,
+								"name": "AbstractCamera.initDevice"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.initDevice",
-								"id": 111
+								"id": 111,
+								"name": "AlarmDevice.initDevice"
 							}
 						},
 						{
@@ -12369,20 +12853,22 @@
 									"name": "isArmed",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.isArmed",
-										"id": 197
+										"id": 197,
+										"name": "AbstractCamera.isArmed"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.isArmed",
-										"id": 105
+										"id": 105,
+										"name": "AlarmDevice.isArmed"
 									}
 								}
 							],
@@ -12395,13 +12881,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.isArmed",
-								"id": 197
+								"id": 197,
+								"name": "AbstractCamera.isArmed"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.isArmed",
-								"id": 104
+								"id": 104,
+								"name": "AlarmDevice.isArmed"
 							}
 						},
 						{
@@ -12418,7 +12904,9 @@
 									"name": "ptzPreset",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Moves the camera to a preset position.\nThis default implementation returns an empty promise."
 									},
@@ -12428,7 +12916,9 @@
 											"name": "index",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the preset position index to move to\n"
 											},
@@ -12440,23 +12930,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.ptzPreset",
-										"id": 208
+										"id": 208,
+										"name": "AbstractCamera.ptzPreset"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.ptzPreset",
-										"id": 141
+										"id": 141,
+										"name": "Camera.ptzPreset"
 									}
 								}
 							],
@@ -12469,13 +12959,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.ptzPreset",
-								"id": 208
+								"id": 208,
+								"name": "AbstractCamera.ptzPreset"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.ptzPreset",
-								"id": 140
+								"id": 140,
+								"name": "Camera.ptzPreset"
 							}
 						},
 						{
@@ -12493,7 +12983,9 @@
 									"name": "sendCommandToDevice",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promised to send `cmd` to the foscam camera specified in `options`"
 									},
@@ -12503,7 +12995,9 @@
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the command string to send"
 											},
@@ -12518,6 +13012,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"type": {
@@ -12528,18 +13023,18 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.sendCommandToDevice",
-										"id": 227
+										"id": 227,
+										"name": "AbstractCamera.sendCommandToDevice"
 									}
 								}
 							],
@@ -12552,8 +13047,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.sendCommandToDevice",
-								"id": 227
+								"id": 227,
+								"name": "AbstractCamera.sendCommandToDevice"
 							}
 						},
 						{
@@ -12570,7 +13065,9 @@
 									"name": "setAudible",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global audible flag. If the flag is set to true,\ndevices will sound an audible alarm after the next time they are armed.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -12581,7 +13078,9 @@
 											"name": "audible",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the name of the device"
 											},
@@ -12593,23 +13092,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.setAudible",
-										"id": 222
+										"id": 222,
+										"name": "AbstractCamera.setAudible"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.setAudible",
-										"id": 107
+										"id": 107,
+										"name": "AlarmDevice.setAudible"
 									}
 								}
 							],
@@ -12622,13 +13121,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.setAudible",
-								"id": 222
+								"id": 222,
+								"name": "AbstractCamera.setAudible"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.setAudible",
-								"id": 106
+								"id": 106,
+								"name": "AlarmDevice.setAudible"
 							}
 						},
 						{
@@ -12645,25 +13144,27 @@
 									"name": "setFtpCfg",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "promises to set the device's ftp confguration.",
 										"returns": "Promise a promise that resolves to undefined.\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.setFtpCfg",
-										"id": 213
+										"id": 213,
+										"name": "AbstractCamera.setFtpCfg"
 									}
 								}
 							],
@@ -12676,13 +13177,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.setFtpCfg",
-								"id": 213
+								"id": 213,
+								"name": "AbstractCamera.setFtpCfg"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.setFtpCfg",
-								"id": 143
+								"id": 143,
+								"name": "Camera.setFtpCfg"
 							}
 						},
 						{
@@ -12699,16 +13200,18 @@
 									"name": "setOverlayText",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -12734,7 +13237,9 @@
 									"name": "setRecordingDir",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets the global snapshot directory.",
 										"returns": "Promise a promise that always resolves to True.\n"
@@ -12745,7 +13250,9 @@
 											"name": "recDir",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "absolute path to write recordings to"
 											},
@@ -12757,23 +13264,23 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "string"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "AbstractCamera.setRecordingDir",
-										"id": 201
+										"id": 201,
+										"name": "AbstractCamera.setRecordingDir"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.setRecordingDir",
-										"id": 132
+										"id": 132,
+										"name": "Camera.setRecordingDir"
 									}
 								}
 							],
@@ -12786,13 +13293,13 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "AbstractCamera.setRecordingDir",
-								"id": 201
+								"id": 201,
+								"name": "AbstractCamera.setRecordingDir"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.setRecordingDir",
-								"id": 131
+								"id": 131,
+								"name": "Camera.setRecordingDir"
 							}
 						},
 						{
@@ -12809,26 +13316,28 @@
 									"name": "setTime",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractDevice.setTime",
-										"id": 170
+										"id": 170,
+										"name": "AbstractDevice.setTime"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "AlarmDevice.setTime",
-										"id": 115
+										"id": 115,
+										"name": "AlarmDevice.setTime"
 									}
 								}
 							],
@@ -12841,13 +13350,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractDevice.setTime",
-								"id": 170
+								"id": 170,
+								"name": "AbstractDevice.setTime"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "AlarmDevice.setTime",
-								"id": 114
+								"id": 114,
+								"name": "AlarmDevice.setTime"
 							}
 						},
 						{
@@ -12864,29 +13373,31 @@
 									"name": "snapPicture",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "captures a snapshot from the device and saves it to gSnapshotDir"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "any"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.snapPicture",
-										"id": 206
+										"id": 206,
+										"name": "AbstractCamera.snapPicture"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.snapPicture",
-										"id": 137
+										"id": 137,
+										"name": "Camera.snapPicture"
 									}
 								}
 							],
@@ -12899,13 +13410,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.snapPicture",
-								"id": 206
+								"id": 206,
+								"name": "AbstractCamera.snapPicture"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.snapPicture",
-								"id": 136
+								"id": 136,
+								"name": "Camera.snapPicture"
 							}
 						},
 						{
@@ -12922,14 +13433,18 @@
 									"name": "standardSend",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 522,
 											"name": "cmd",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -12940,7 +13455,9 @@
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -12949,13 +13466,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -12981,30 +13498,32 @@
 									"name": "testFtpServer",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "gets the device's ftp confguration and calls `cb`.",
 										"returns": "Promise a promise that resolves to the testResult: 0 = success, -1 = failure, -3 = unknown\n"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "boolean"
 											}
-										]
+										],
+										"name": "Promise"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "AbstractCamera.testFtpServer",
-										"id": 215
+										"id": 215,
+										"name": "AbstractCamera.testFtpServer"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Camera.testFtpServer",
-										"id": 147
+										"id": 147,
+										"name": "Camera.testFtpServer"
 									}
 								}
 							],
@@ -13017,13 +13536,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "AbstractCamera.testFtpServer",
-								"id": 215
+								"id": 215,
+								"name": "AbstractCamera.testFtpServer"
 							},
 							"implementationOf": {
 								"type": "reference",
-								"name": "Camera.testFtpServer",
-								"id": 146
+								"id": 146,
+								"name": "Camera.testFtpServer"
 							}
 						}
 					],
@@ -13085,25 +13604,25 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "AbstractCamera",
-							"id": 183
+							"id": 183,
+							"name": "AbstractCamera"
 						}
 					],
 					"implementedTypes": [
 						{
 							"type": "reference",
-							"name": "Device",
-							"id": 80
+							"id": 80,
+							"name": "Device"
 						},
 						{
 							"type": "reference",
-							"name": "Camera",
-							"id": 124
+							"id": 124,
+							"name": "Camera"
 						},
 						{
 							"type": "reference",
-							"name": "AlarmDevice",
-							"id": 96
+							"id": 96,
+							"name": "AlarmDevice"
 						}
 					]
 				},
@@ -13140,14 +13659,14 @@
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsNode/hsHomeSec/src/node/device/WansView.ts",
 							"line": 4,
-							"character": 59
+							"character": 51
 						}
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogServer"
 					},
-					"defaultValue": " gLog('WansView')"
+					"defaultValue": "new Log('WansView')"
 				},
 				{
 					"id": 578,
@@ -13331,7 +13850,7 @@
 											"name": "string"
 										}
 									},
-									"defaultValue": " [\n        /* ind. lights */ `cmd=setlightattr&statuslight=on&wifilight=on`,\n        /* ind. lights */ `cmd=getlightattr`,                   // returns var statuslight='on'; var wifilight='on'; \n    ]"
+									"defaultValue": "[\n        /* ind. lights */ `cmd=setlightattr&statuslight=on&wifilight=on`,\n        /* ind. lights */ `cmd=getlightattr`,                   // returns var statuslight='on'; var wifilight='on'; \n    ]"
 								}
 							],
 							"groups": [
@@ -13402,7 +13921,7 @@
 											"name": "string"
 										}
 									},
-									"defaultValue": " [\n        /* mac address */ `cmd=getmacaddr`,                     // returns var wifimacaddr='14:6B:9C:D3:59:D7'; var macaddr=''; \n    ]"
+									"defaultValue": "[\n        /* mac address */ `cmd=getmacaddr`,                     // returns var wifimacaddr='14:6B:9C:D3:59:D7'; var macaddr=''; \n    ]"
 								}
 							],
 							"groups": [
@@ -13473,7 +13992,7 @@
 											"name": "string"
 										}
 									},
-									"defaultValue": " [\n        /* ptz info    */ `cmd=getmotorattr`,                   // returns var panscan=1; var tiltscan=1; var panspeed=3; var tiltspeed=3; var selfdet='on'; var movehome='on'; var ptzalarmmask='on'; var homegopos=1; \n        /* ptz info    */ `cmd=getptztour`,                     // returns var tour_enable=0; var tour_index=''; var tour_interval='';  \n        /* ptz info    */ `cmd=getrealtimeptzpos`,              // returns var realTimeposenable=0; \n        /* ptz preset  */ `cmd=preset&act=goto&number=`,\n    ]"
+									"defaultValue": "[\n        /* ptz info    */ `cmd=getmotorattr`,                   // returns var panscan=1; var tiltscan=1; var panspeed=3; var tiltspeed=3; var selfdet='on'; var movehome='on'; var ptzalarmmask='on'; var homegopos=1; \n        /* ptz info    */ `cmd=getptztour`,                     // returns var tour_enable=0; var tour_index=''; var tour_interval='';  \n        /* ptz info    */ `cmd=getrealtimeptzpos`,              // returns var realTimeposenable=0; \n        /* ptz preset  */ `cmd=preset&act=goto&number=`,\n    ]"
 								}
 							],
 							"groups": [
@@ -13544,7 +14063,7 @@
 											"name": "string"
 										}
 									},
-									"defaultValue": " [\n        /* dev status  */ `cmd=getdevstatus`,                   // returns var MAC='14:6B:9C:D3:59:D7'; var networktype=1; var rtspclientnum=1; \n    ]"
+									"defaultValue": "[\n        /* dev status  */ `cmd=getdevstatus`,                   // returns var MAC='14:6B:9C:D3:59:D7'; var networktype=1; var rtspclientnum=1; \n    ]"
 								}
 							],
 							"groups": [
@@ -13615,7 +14134,7 @@
 											"name": "string"
 										}
 									},
-									"defaultValue": " [\n        /* usr info    */ `cmd=checkuserinfo&ck_password=0`,    // returns var userid='10001' var username='hauke'; var rolename='admin'; \n    ]"
+									"defaultValue": "[\n        /* usr info    */ `cmd=checkuserinfo&ck_password=0`,    // returns var userid='10001' var username='hauke'; var rolename='admin'; \n    ]"
 								}
 							],
 							"groups": [

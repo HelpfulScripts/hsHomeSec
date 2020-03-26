@@ -1,7 +1,7 @@
 /**
  * functions to interface with WansView devices.
  */
-import { http, log as gLog }    from 'hsnode';    const log = gLog('WansView');
+import { http, Log }    from 'hsnode';    const log = new Log('WansView');
 //import { fs  }                from 'hsnode';
 //import { date }               from 'hsutil';
 import { DeviceSettings }       from './Device';

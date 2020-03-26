@@ -1,6 +1,6 @@
 
 import * as http            from 'http';
-import { log as gLog }      from 'hsnode';  const log = gLog('httpSrv');
+import { Log }              from 'hsnode';  const log = new Log('httpSrv');
 import * as os              from 'os';
 import * as url             from 'url';
 import { processCommand }   from '../core/CommandReceiver';

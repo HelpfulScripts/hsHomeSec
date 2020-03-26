@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as node  from 'hsnode';  const log = node.log('hsFTP');
+import * as node  from 'hsnode';  const log = new node.Log('hsFTP');
 import * as ftp         from './node/comm/ftpSrv';
 
 const settings:ftp.FtpSettings = ftp.getSettings();
@@ -26,10 +26,10 @@ function cli(args:string[]): boolean {
                         }
                         break;
             case '-r': switch(args[i++]) { 
-                case 'info':    log.level(log.INFO, true); break;
-                case 'debug':   log.level(log.DEBUG, true); break;
-                case 'warning': log.level(log.WARN, true); break;
-                default: log.level(log.INFO, true); break;
+                case 'info':    log.level(node.Log.INFO, true); break;
+                case 'debug':   log.level(node.Log.DEBUG, true); break;
+                case 'warning': log.level(node.Log.WARN, true); break;
+                default: log.level(node.Log.INFO, true); break;
             } break;    
             case '-h': log.info(helpText);  return false;       
         }

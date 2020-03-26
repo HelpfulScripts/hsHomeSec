@@ -4,7 +4,7 @@
  * @description Defines the action for external commands received
  */
 
-import * as node  from 'hsnode';  const log = node.log('CmdExc');
+import * as node  from 'hsnode';  const log = new node.Log('CmdExc');
 import { timeout, delay } from 'hsutil';
 import { osaCommands }    from 'hsosaes6';
 import { users }          from '../comm/UserComm';

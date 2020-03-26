@@ -608,7 +608,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 import { URL }              from 'url';
-import * as node  from 'hsnode';  const log = node.log('Device');
+import * as node  from 'hsnode';  const log = new node.Log('Device');
 import { http }             from 'hsnode';
 import { CfgSettings }      from '../core/CfgSettings';
 import { FtpSettings }      from '../comm/ftpSrv';
@@ -727,7 +727,7 @@ export abstract class AbstractDevice implements Device {
     constructor(deviceSettings: DeviceSettings, settings:CfgSettings) {
         this.settings = deviceSettings;
         DeviceList.addDevice(this);
-        this.log = node.log(`${deviceSettings.type} ${deviceSettings.name}`);
+        this.log = new node.Log(`${deviceSettings.type} ${deviceSettings.name}`);
     }
 &nbsp;
     async <span class="fstat-no" title="function not covered" >initDevice(</span>settings:CfgSettings) {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >}</span></span>
