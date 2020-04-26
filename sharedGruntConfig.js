@@ -54,8 +54,12 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json', '-i'], {stdio: 'inherit'}); });
     grunt.registerTask('test', ['clean:cov', 'jest', 'copy:coverage', 'cleanupCoverage']); 
     
+    //------ Add Coverage Reporting
+    grunt.registerTask('codecov', codecov);
+    
     //------ Support Tasks
-    grunt.registerTask('run-coveralls', [/*'coveralls:main'*/]);
+    // grunt.registerTask('run-coveralls', ['coveralls:main']);
+    grunt.registerTask('coverageReport',['codecov']);
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
     // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
@@ -63,13 +67,13 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
     grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example', 'build-js']);
     switch(type) {
-        case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test', 'run-coveralls']);
+        case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base']);
                     break;
-        case 'lib': grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'run-coveralls']);
+        case 'lib': grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
                     break;
-        default:    grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'run-coveralls']);
+        default:    grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
     }
 
@@ -78,7 +82,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('dev',           ['buildDev', 'stage']);
     grunt.registerTask('product',       ['buildMin', 'stage']);	
     // grunt.registerTask('travis',        ['build-base', (type === 'node')?'':'webpack:appProd', 'test']); // exlude node-apps from webPack to avoid webpack error
-    grunt.registerTask('travis',        ['build-base', 'test']); // exlude node-apps from webPack to avoid webpack error
+    grunt.registerTask('travis',        ['build-base', 'test', 'coverageReport']); 
     grunt.registerTask('help',          ['h']);	
 
     grunt.registerMultiTask('sourceCode', translateSourcesToHTML);  
@@ -294,7 +298,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         coveralls: {
             options: { force: true },
             main: {
-                src: `docs/data/src/${lib}/coverage/lcov.info`
+                src: `docs/data/src/lcov.info`
             }
         },
 
@@ -412,6 +416,18 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         });
         console.log(`cleaned ${this.files.length} files`);
         }
+    
+    function codecov() {
+        const cp = require('child_process');
+        try {
+            const codecov = require('./.codecov.json');
+            if (codecov) {
+                const result = cp.spawnSync(`bash <(curl -s https://codecov.io/bash) -t ${codecov.token}`, {stdio: 'inherit', shell:'/bin/bash'});
+                console.log(`status: ${result.status}`);
+                if (result.stderr) { console.log(`error: ${result.stderr}`); }
+            }
+        } catch(e) { console.log(`...skipped`); }
+    }
 
     function writeIndexJson() {
         grunt.file.write('docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
