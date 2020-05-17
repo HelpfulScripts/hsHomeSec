@@ -163,7 +163,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     setRecordingDir(recDir:string):Promise<string> {
         return fs.realPath(recDir).then((p:string) => {
             this.getSettings().recDir = p;
-            this.log.debug(`${this.getName()} recording directory set to ${this.getSettings().recDir}`);
+            this.log.debug(()=>`${this.getName()} recording directory set to ${this.getSettings().recDir}`);
             return p;
         });
     }
@@ -223,7 +223,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
      */
     setAudible(audible:boolean):Promise<boolean> {
         this.audible = (audible===true);
-        return this.log.debug(`${this.getName()} audible: ${this.audible}`)
+        return this.log.debug(()=>`${this.getName()} audible: ${this.audible}`)
         .then(() => true);
     }
 
@@ -239,13 +239,13 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     protected sendCommandToDevice(cmd:string, referer?:string):Promise<any> {
         const settings = this.getSettings();
         const Url = new URL(`http://${settings.host}:${settings.port}${cmd}`);
-        this.log.debug(`${this.getName()} requesting ${Url.href}`);
+        this.log.debug(()=>`${this.getName()} requesting ${Url.href}`);
         return http.request(Url, new http.Digest(settings.user, settings.passwd), referer)
             .then((r:http.HttpResponse) => {
-                this.log.debug(`${this.getName()} received ${r.response.headers['content-type']} for ${cmd}`);
+                this.log.debug(()=>`${this.getName()} received ${r.response.headers['content-type']} for ${cmd}`);
                 if (r.response.headers['content-type'].indexOf('text/') >= 0) {
                     r.body = http.xml2json(r.data);
-                    this.log.debug(`response: ${this.log.inspect(r.body,null)}`);
+                    this.log.debug(()=>`response: ${this.log.inspect(r.body)}`);
                 }
                 return r;
             })
@@ -260,7 +260,7 @@ export class DeviceList {
         if (!settings.name) { log.error('device name missing'); }
         if (!settings.host) { log.error('device host missing'); }
         if (!settings.port) { log.error('device port missing'); }
-        log.debug(`adding device '${device.getName()}'`);
+        log.debug(()=>`adding device '${device.getName()}'`);
         DeviceList.list.push(device);
         // reference device by both short name and unique ID
         DeviceList.list[settings.name] = device;

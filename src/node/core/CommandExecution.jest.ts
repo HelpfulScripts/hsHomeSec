@@ -71,7 +71,7 @@ describe('CommandExecution', ()=> {
     beforeAll(() => {
         cmds.setSnapshotDir('./');
         settings.devices.map((dev:DeviceSettings) => {
-            log.debug(`creating ${dev.name}`);
+            log.debug(()=>`creating ${dev.name}`);
             new TestCamera(dev, settings);
         });
         settings.users.map(u => user.users.addUser(u));

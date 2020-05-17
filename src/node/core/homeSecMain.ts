@@ -48,7 +48,7 @@ function ftpInit(settings: CfgSettings):CfgSettings {
 // }
 
 async function start() {
-    log.debug('Starting Home Security System');
+    log.debug(()=>'Starting Home Security System');
     log.level(node.Log.INFO);
     await cli(process.argv);
     const cfg = await fs.readJsonFile(__dirname+'/../../config/homeCfg.json');

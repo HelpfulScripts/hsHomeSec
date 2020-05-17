@@ -52,7 +52,7 @@ function onRequest(request:any, response:any) {
     if (query.cmd) {
         const cmd:string = <string>query.cmd;
         const sender:string = <string>query.sender;
-        log.debug(`received message '${cmd}' from '${sender}'`);
+        log.debug(()=>`received message '${cmd}' from '${sender}'`);
 
         user = users.userByEmail(sender);
         request.addListener("end", writeHeader(response, user!==undefined));

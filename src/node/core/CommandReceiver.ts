@@ -55,7 +55,7 @@ function interpretCommand(cmd:string, params:string[], from:User):Promise<any> {
 } 
 
 function informSender(cmd:string, content:Content, from:User): Promise<any> {
-    log.info(`informing ${from.name}: cmd '${cmd}' returned ${log.inspect(content, 0)}`);
+    log.info(`informing ${from.name}: cmd '${cmd}' returned ${log.inspect(content, {depth:0})}`);
     if (content) {
         return Promise.all([
             sendEmail(`Re: ${cmd}`, [from], content.message, content.attachments),
@@ -83,7 +83,7 @@ export function processCommand(cmd:string, from:User):Promise<any> {
  * @param options optional; 
  */
 export const addCommand = (cmdFn:any, cmd:string, ...options:string[]) => {
-    log.debug('adding command ' + cmd);
+    log.debug(()=>'adding command ' + cmd);
     var obj:Command = {commandFn: cmdFn, command: cmd, params:options};
     gCommands.push(obj);
     gCommands[cmd] = obj;
@@ -95,7 +95,7 @@ export const addCommand = (cmdFn:any, cmd:string, ...options:string[]) => {
  * @return an array of command strings
  */
 export const getCommands = () => {
-    log.debug('getting list of command');
+    log.debug(()=>'getting list of command');
     return  gCommands.map((c) => `${c.command} ${c.params.join(' ')}`);
 };
 
@@ -134,7 +134,7 @@ export class EmailPolling {
     }
 
     private processMails(accounts:any) {
-        log.debug(`processMails: \n${log.inspect(accounts, null)}`);
+        log.debug(()=>`processMails: \n${log.inspect(accounts)}`);
         accounts.forEach((a:Account) => a.msgSinceDate.forEach((m:Message) => {
             if (!this.processed[''+m.id]) {
                 this.processed[''+m.id] = Date.now();
@@ -148,7 +148,7 @@ export class EmailPolling {
                     log.warn(`rejecting email ${m.id} from ${m.from} with subject ${m.subject}`);
                 }
             } else {
-                log.debug(`message id=${m.id} already proccessed of ${Object.keys(this.processed).length} total`);
+                log.debug(()=>`message id=${m.id} already proccessed of ${Object.keys(this.processed).length} total`);
             }
         }));
         this.cleanupProcessed();

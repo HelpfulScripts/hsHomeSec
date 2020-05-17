@@ -36,7 +36,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('@vamship/grunt-typedoc');
-    grunt.loadNpmTasks('grunt-tslint');
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks('jest');
@@ -44,7 +43,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
 
     //------ Add Doc Tasks
     grunt.registerTask('noTask', []);
-    grunt.registerTask('doc', ['copy:docs', 'typedoc', 'sourceCode', `${(type === 'app')? 'copy:docs2NPM' : 'noTask'}`]);
+    grunt.registerTask('doc', ['clean:docs', 'copy:example', 'typedoc', 'sourceCode', 'copy:docs', `${(type === 'app')? 'copy:docs2NPM' : 'noTask'}`]);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
@@ -58,14 +57,11 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('codecov', codecov);
     
     //------ Support Tasks
-    // grunt.registerTask('run-coveralls', ['coveralls:main']);
     grunt.registerTask('coverageReport',['codecov']);
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
-    // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
-    grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
-    // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
-    grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example', 'build-js']);
+    grunt.registerTask('build-js',      ['ts:src']);
+    grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'build-js']);
     switch(type) {
         case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base']);
@@ -129,7 +125,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     src:['index*.html'], dest:'docs' 
                 },
                 { expand:true, cwd: './src/docs',       // project-specific docs index*.html
-                    src:['index*.html'], dest:'docs' 
+                    src:['index*.html', '**/index.json'], dest:'docs' 
                 },
                 { expand:true, cwd: './',               // project-specific docs css files
                     src:[`${lib}.css*`], dest:'docs' 
@@ -180,19 +176,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 files: {
                     'docs/example/<%= pkg.name %>.css': `src/example/${libPath}.less`
                 }
-            }
-        },
-        tslint: {
-            options: {
-                configuration: __dirname+'/tslint.json',
-                force:  false,
-                fix:    false
-            },
-            src: {
-                src: ["src/**/*.ts"]
-            },
-            spec: {
-                src: ["src/**/*.spec.ts", "src/**/*.jest.ts"]
             }
         },
         ts: {

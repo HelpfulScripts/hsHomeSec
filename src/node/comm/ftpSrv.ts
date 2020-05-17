@@ -35,12 +35,12 @@ function login(data:any, resolve:any, reject:any) {
         else { 
         }
     }); 
-    log.debug(`ftp login received: resolving for root "${settings.root}"`);
+    log.debug(()=>`ftp login received: resolving for root "${settings.root}"`);
     if (data.username !== settings.user || data.password !== settings.pwd) {
         log.error(`wrong user/pwd: ${data.username}/${data.password}`);
         reject(new Error('nono'));
     }
-    log.debug(`login accepted for root "${settings.root}"`);
+    log.debug(()=>`login accepted for root "${settings.root}"`);
     resolve({root:settings.root, cwd:'./'});
 }
 
@@ -49,7 +49,7 @@ export function start(baseDir:string, s:FtpSettings): Promise<void> {
 //    settings.port = Math.floor(Math.random()*2000 + 1000);
     const ftpServer = new FtpSrv({url:`ftp://${settings.host}:${settings.port}`});
     const root = `${baseDir}/${s.root}`;
-    log.debug(`testing ftp server root '${root}'`);
+    log.debug(()=>`testing ftp server root '${root}'`);
     return fs.realPath(root)
     .then((p:string):void => {
         settings.root = p;

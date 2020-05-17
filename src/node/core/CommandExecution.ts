@@ -81,7 +81,7 @@ export const snapFn = async (params?:string[]):Promise<{attachments:string[]}> =
                 log.info(`saving snapshot from ${dev.getName()} at ${fileName}`);
                 return fs.writeStream(fileName, picData.data);
             });
-        log.debug(`snap '${params?params[0]:''}': ${DeviceList.getDevices().map(d=>d.getName()).join(', ')}`);
+        log.debug(()=>`snap '${params?params[0]:''}': ${DeviceList.getDevices().map(d=>d.getName()).join(', ')}`);
         const files = await Promise.all(// get snapshot from all devices    :  get snapshot from specific device
         (!params || !params[0] || params[0] === '') ? DeviceList.getDevices().map(getSnap) : [getSnap((<Camera>DeviceList.getDevice(params[0])))]);
     return { attachments: files }; // send result(s) back to user
@@ -139,7 +139,7 @@ export const armFn = (param?:string[]):Promise<{message:string}> => {
         )
     )
     .then((results:string[]) => {
-        log.debug(`devices armed: ${log.inspect(results)}`);
+        log.debug(()=>`devices armed: ${log.inspect(results)}`);
         return {message: results.join('\n')};
     });
 };

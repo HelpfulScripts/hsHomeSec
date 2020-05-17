@@ -27,14 +27,14 @@ export const cmdList:[any, string, ...string[]][] = [
 
 function addCommands() {
     cmdList.map(c => Comm.addCommand(c[0], c[1], ...c.slice(2)));
-    log.debug(`added ${Comm.getCommands().length} commands`);
+    log.debug(()=>`added ${Comm.getCommands().length} commands`);
 }
 
 function createDevices(settings:CfgSettings) {
     settings.devices.map((dev:DeviceSettings) => {
         if (dev.type === 'foscam')   { new Foscam(dev, settings); }
         if (dev.type === 'wansview') { new WansView(dev, settings); }
-        log.debug(`created device '${dev.name}'`);
+        log.debug(()=>`created device '${dev.name}'`);
     });
 }
 
@@ -44,10 +44,10 @@ function wifiCheck(settings:CfgSettings) {
     const pwd  = settings.wifiPasswd;
     return async () => {
         const result = await exec('networksetup -getairportnetwork en0');
-        log.debug(`wifi stdout:'${result.stdout}'`);
-        log.debug(`wifi stderr:'${result.stderr}'`);
+        log.debug(()=>`wifi stdout:'${result.stdout}'`);
+        log.debug(()=>`wifi stderr:'${result.stderr}'`);
         if (result.stdout.match(ssid)) {
-            log.debug(`wifi network connected to ${ssid}`);
+            log.debug(()=>`wifi network connected to ${ssid}`);
         } else {
             log.warn(`wifi not connected to ${ssid}; attempting reconnect`);
             log.warn(`wifi stdout:'${result.stdout}'`);

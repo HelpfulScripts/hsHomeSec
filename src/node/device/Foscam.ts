@@ -64,7 +64,7 @@ export class Foscam extends AbstractCamera {
         .then((res:http.HttpResponse) => {
             let src = res.body.html.body.img.attrs.src;
             if (src.indexOf('../')===0) { src = src.substr(2); }
-            this.log.debug(`get snapshot: ${src}`);
+            this.log.debug(()=>`get snapshot: ${src}`);
             return this.sendCommandToDevice(src);    // no command word triggers simple request for options.path
         })
         .catch(this.log.error.bind(this.log));
@@ -102,7 +102,7 @@ export class Foscam extends AbstractCamera {
             .then((res:http.HttpResponse) => { 
                 const success = res.body.CGI_Result.result === '0';
                 this.log.info(`setFtpCfg ${success?'success':'failure'}`);
-                this.log.debug(`res: ${this.log.inspect(res.body, null)}`);
+                this.log.debug(()=>`res: ${this.log.inspect(res.body)}`);
                 return success;
             })
             .catch(err => {
@@ -163,9 +163,9 @@ export class Foscam extends AbstractCamera {
         return this.sendCommandToDevice(cmd)        
             .then((res) => {
                 const success = res.body.CGI_Result.result === '0';
-                this.log.debug(`arm result: ${success? 'successful' : 'error'}`);
+                this.log.debug(()=>`arm result: ${success? 'successful' : 'error'}`);
                 if (!success) { 
-                    this.log.error(`received data: ${this.log.inspect(res.data, null)}`);
+                    this.log.error(`received data: ${this.log.inspect(res.data)}`);
                 } 
                 return this.armed = success;
             })  // resolves to the arming status of the device (true or false)

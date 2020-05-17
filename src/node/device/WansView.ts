@@ -68,12 +68,12 @@ export class WansView extends AbstractCamera {
     standardSend(cmd:string, name:string) {
         return this.sendCommandToDevice(cmd)
             .then((receivedData:http.HttpResponse) => { 
-                this.log.debug(`standardSend '${cmd}' result:\n${log.inspect(receivedData.body, null)}`);
+                this.log.debug(()=>`standardSend '${cmd}' result:\n${log.inspect(receivedData.body)}`);
                 if ((typeof receivedData.body === 'string') && (receivedData.body.match(/Success/))) {
                     this.log.info(`${name} success`);
                     return true;
                 } else {
-                    this.log.info(`${name} failure: ${log.inspect(receivedData.body, null)}`);
+                    this.log.info(`${name} failure: ${log.inspect(receivedData.body)}`);
                     return false;
                 }
             })
@@ -105,7 +105,7 @@ export class WansView extends AbstractCamera {
             .then((res:http.HttpResponse) => { 
                 const path = res.body.toString().split('=');
                 const src = path[1].replace(';','').trim();
-                this.log.debug('get snapshot:' + src);
+                this.log.debug(()=>'get snapshot:' + src);
                 return this.sendCommandToDevice(src);
             })
             .catch(this.log.error.bind(this.log));
@@ -131,10 +131,10 @@ export class WansView extends AbstractCamera {
         this.log.info(`setting FTP config`);
         return this.sendCommandToDevice(cmd)
             .then((receivedData:http.HttpResponse) => { 
-                this.log.debug('get ftp config:' + log.inspect(receivedData.body));
+                this.log.debug(()=>'get ftp config:' + log.inspect(receivedData.body));
                 const result = {};
                 receivedData.body.replace(/var /g, '').replace(/\n/g, '').split(';').map((p:any) => { p = p.split('='); if (p[1]) { result[p[0]] = p[1].replace(/\'/g, ''); }});
-                this.log.info(`ftp config: \n${log.inspect(result, null)}`);
+                this.log.info(`ftp config: \n${log.inspect(result)}`);
                 return result;
             })
             .catch(err => {
@@ -164,13 +164,13 @@ export class WansView extends AbstractCamera {
         const cmd2 = `${this.path}ftp.cgi?cmd=testftpresult`;
         return this.sendCommandToDevice(cmd1)
             .then((receivedData:any) => { 
-                this.log.debug('ftp server test1:' + receivedData.url + '\n' + log.inspect(receivedData));
+                this.log.debug(()=>'ftp server test1:' + receivedData.url + '\n' + log.inspect(receivedData));
                 if (receivedData.testResult !== '0') { throw new Error('testFtpServer failed: ' + receivedData.testResult);}
                 return receivedData;
             })
             .then(() => this.sendCommandToDevice(cmd2))
             .then((receivedData:any) => { 
-                this.log.debug('ftp server test2:' + receivedData.url + '\n' + log.inspect(receivedData));
+                this.log.debug(()=>'ftp server test2:' + receivedData.url + '\n' + log.inspect(receivedData));
                 if (receivedData.testResult !== '0') { throw new Error('testFtpServer failed: ' + receivedData.testResult);}
                 return receivedData;
             })
@@ -214,11 +214,11 @@ export class WansView extends AbstractCamera {
             .then((result) => {
                 const successes = result.data.split('\n');
                 let success = successes[0] === 'Success';
-                this.log.debug(`individual arm results: (${typeof result.data}) ${log.inspect(result.data)}`);
+                this.log.debug(()=>`individual arm results: (${typeof result.data}) ${log.inspect(result.data)}`);
                 successes.forEach((s:string, i:number) => { if(s && s!=='Success') { this.log.warn(`Command '${commands.alarm.cmds[i]}' reported error '${s}'`); }});
-                this.log.debug(`arm result: ${success? 'successful' : 'error'}`);
+                this.log.debug(()=>`arm result: ${success? 'successful' : 'error'}`);
                 if (success!==true) {
-                    this.log.warn(`received data: ${log.inspect(result.data, null)}`);
+                    this.log.warn(`received data: ${log.inspect(result.data)}`);
                     success = result.data.indexOf('Success') === 0;
                     if (success!==true) {
                         this.log.error(`setting motion detect not successful`);
