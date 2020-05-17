@@ -35,7 +35,7 @@
     },
     "plugins": [],
     "devDependencies": {
-        "@types/node": "^13.13.4",
+        "@types/node": "14.0.x",
         "@types/jest": "^25.2.x",
         "@types/request": "^2.48.2",
         "coveralls": "^3.0.9",
