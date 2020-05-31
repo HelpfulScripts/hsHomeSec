@@ -66,8 +66,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base']);
                     break;
-        case 'lib': grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
-                    grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
+        case 'lib': grunt.registerTask('buildMin', ['build-base' /*, 'webpack:appDev', 'webpack:appProd'*/, 'doc', 'test']);
+                    grunt.registerTask('buildDev', ['build-base' /*, 'webpack:appDev'*/]);
                     break;
         default:    grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
