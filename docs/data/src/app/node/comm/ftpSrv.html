@@ -1,0 +1,94 @@
+
+                <html><style>body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding:0; }
+            br  { margin:0; padding:0; }
+            .line { 
+                white-space: nowrap;
+                height:16px; 
+            }
+            .line>span { 
+                display:inline-block; background-color:#eef; height:100%; 
+                margin: 0 5px 0 0; padding-right: 5px; color:#999;   
+            }
+            comment {color: #080;} module {color: #804;} 
+            quote {color: #008;} comment>quote {color: #080;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                    font-size: 14px;  
+                    overflow:scroll;
+                    height:90%;
+            }
+            code { padding: 5px 0;}</style></html><body>
+                <h1>ftpSrv.ts</h1>
+                <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span>import&nbsp;{&nbsp;FtpSrv&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'ftp-srv'</quote>;</p>
+<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;fs,&nbsp;Log&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log(<quote>'ftpsrv'</quote>);</p>
+<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;raiseAlarm&nbsp;}&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'../core/alarm'</quote>;</p>
+<p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span></p>
+<p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span>export&nbsp;interface&nbsp;FtpSettings&nbsp;{</p>
+<p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span>&nbsp;&nbsp;&nbsp;&nbsp;host:&nbsp;string;</p>
+<p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span>&nbsp;&nbsp;&nbsp;&nbsp;port?:&nbsp;number;</p>
+<p id=8 class="line"><span>&nbsp;&nbsp;&nbsp;8</span>&nbsp;&nbsp;&nbsp;&nbsp;root:&nbsp;string;</p>
+<p id=9 class="line"><span>&nbsp;&nbsp;&nbsp;9</span>&nbsp;&nbsp;&nbsp;&nbsp;user?:&nbsp;string;</p>
+<p id=10 class="line"><span>&nbsp;&nbsp;10</span>&nbsp;&nbsp;&nbsp;&nbsp;pwd?:&nbsp;&nbsp;string;</p>
+<p id=11 class="line"><span>&nbsp;&nbsp;11</span>}</p>
+<p id=12 class="line"><span>&nbsp;&nbsp;12</span></p>
+<p id=13 class="line"><span>&nbsp;&nbsp;13</span>export&nbsp;const&nbsp;settings:FtpSettings&nbsp;=&nbsp;{</p>
+<p id=14 class="line"><span>&nbsp;&nbsp;14</span>&nbsp;&nbsp;&nbsp;&nbsp;host:&nbsp;<quote>'0.0.0.0'</quote>,&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;will&nbsp;be&nbsp;set&nbsp;during&nbsp;start&nbsp;via&nbsp;cfg&nbsp;file</comment></p>
+<p id=15 class="line"><span>&nbsp;&nbsp;15</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;port:&nbsp;&nbsp;21,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p id=16 class="line"><span>&nbsp;&nbsp;16</span>&nbsp;&nbsp;&nbsp;&nbsp;root:&nbsp;<quote>''</quote>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;will&nbsp;be&nbsp;set&nbsp;during&nbsp;start()</comment></p>
+<p id=17 class="line"><span>&nbsp;&nbsp;17</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;user:&nbsp;<quote>'one'</quote>,</p>
+<p id=18 class="line"><span>&nbsp;&nbsp;18</span>&nbsp;&nbsp;&nbsp;&nbsp;pwd:&nbsp;&nbsp;<quote>'two'</quote></p>
+<p id=19 class="line"><span>&nbsp;&nbsp;19</span>};</p>
+<p id=20 class="line"><span>&nbsp;&nbsp;20</span></p>
+<p id=21 class="line"><span>&nbsp;&nbsp;21</span>export&nbsp;function&nbsp;getSettings():FtpSettings&nbsp;{</p>
+<p id=22 class="line"><span>&nbsp;&nbsp;22</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;settings;</p>
+<p id=23 class="line"><span>&nbsp;&nbsp;23</span>}</p>
+<p id=24 class="line"><span>&nbsp;&nbsp;24</span></p>
+<p id=25 class="line"><span>&nbsp;&nbsp;25</span>function&nbsp;login(data:any,&nbsp;resolve:any,&nbsp;reject:any)&nbsp;{</p>
+<p id=26 class="line"><span>&nbsp;&nbsp;26</span>&nbsp;&nbsp;&nbsp;&nbsp;data.connection.on(<quote>'RETR'</quote>,&nbsp;(error:string,&nbsp;filePath:string)&nbsp;=>&nbsp;{&nbsp;</p>
+<p id=27 class="line"><span>&nbsp;&nbsp;27</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(error)&nbsp;{&nbsp;log.error(`reading&nbsp;<quote>'${filePath}'</quote>:&nbsp;${error}`);&nbsp;}</p>
+<p id=28 class="line"><span>&nbsp;&nbsp;28</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{&nbsp;log.warn(`reading&nbsp;<quote>'${filePath}'</quote>`);}</p>
+<p id=29 class="line"><span>&nbsp;&nbsp;29</span>&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;</p>
+<p id=30 class="line"><span>&nbsp;&nbsp;30</span>&nbsp;&nbsp;&nbsp;&nbsp;data.connection.on(<quote>'STOR'</quote>,&nbsp;(error:string,&nbsp;filePath:string)&nbsp;=>&nbsp;{&nbsp;</p>
+<p id=31 class="line"><span>&nbsp;&nbsp;31</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raiseAlarm(filePath);</p>
+<p id=32 class="line"><span>&nbsp;&nbsp;32</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(error)&nbsp;{&nbsp;log.error(`writing&nbsp;<quote>'${filePath}'</quote>:&nbsp;${error}`);&nbsp;}</p>
+<p id=33 class="line"><span>&nbsp;&nbsp;33</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{&nbsp;</p>
+<p id=34 class="line"><span>&nbsp;&nbsp;34</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=35 class="line"><span>&nbsp;&nbsp;35</span>&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;</p>
+<p id=36 class="line"><span>&nbsp;&nbsp;36</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`ftp&nbsp;login&nbsp;received:&nbsp;resolving&nbsp;for&nbsp;root&nbsp;<quote>"${settings.root}"</quote>`);</p>
+<p id=37 class="line"><span>&nbsp;&nbsp;37</span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(data.username&nbsp;!==&nbsp;settings.user&nbsp;||&nbsp;data.password&nbsp;!==&nbsp;settings.pwd)&nbsp;{</p>
+<p id=38 class="line"><span>&nbsp;&nbsp;38</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.error(`wrong&nbsp;user/pwd:&nbsp;${data.username}/${data.password}`);</p>
+<p id=39 class="line"><span>&nbsp;&nbsp;39</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reject(new&nbsp;Error(<quote>'nono'</quote>));</p>
+<p id=40 class="line"><span>&nbsp;&nbsp;40</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=41 class="line"><span>&nbsp;&nbsp;41</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`login&nbsp;accepted&nbsp;for&nbsp;root&nbsp;<quote>"${settings.root}"</quote>`);</p>
+<p id=42 class="line"><span>&nbsp;&nbsp;42</span>&nbsp;&nbsp;&nbsp;&nbsp;resolve({root:settings.root,&nbsp;cwd:<quote>'./'</quote>});</p>
+<p id=43 class="line"><span>&nbsp;&nbsp;43</span>}</p>
+<p id=44 class="line"><span>&nbsp;&nbsp;44</span></p>
+<p id=45 class="line"><span>&nbsp;&nbsp;45</span>export&nbsp;function&nbsp;start(baseDir:string,&nbsp;s:FtpSettings):&nbsp;Promise<void>&nbsp;{&nbsp;</p>
+<p id=46 class="line"><span>&nbsp;&nbsp;46</span>&nbsp;&nbsp;&nbsp;&nbsp;settings.host&nbsp;=&nbsp;s.host;</p>
+<p id=47 class="line"><span>&nbsp;&nbsp;47</span><comment>//&nbsp;&nbsp;&nbsp;&nbsp;settings.port&nbsp;=&nbsp;Math.floor(Math.random()*2000&nbsp;+&nbsp;1000);</comment></p>
+<p id=48 class="line"><span>&nbsp;&nbsp;48</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;ftpServer&nbsp;=&nbsp;new&nbsp;FtpSrv({url:`ftp:<comment>//${settings.host}:${settings.port}`});</comment></p>
+<p id=49 class="line"><span>&nbsp;&nbsp;49</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;root&nbsp;=&nbsp;`${baseDir}/${s.root}`;</p>
+<p id=50 class="line"><span>&nbsp;&nbsp;50</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`testing&nbsp;ftp&nbsp;server&nbsp;root&nbsp;<quote>'${root}'</quote>`);</p>
+<p id=51 class="line"><span>&nbsp;&nbsp;51</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fs.realPath(root)</p>
+<p id=52 class="line"><span>&nbsp;&nbsp;52</span>&nbsp;&nbsp;&nbsp;&nbsp;.then((p:string):void&nbsp;=>&nbsp;{</p>
+<p id=53 class="line"><span>&nbsp;&nbsp;53</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;settings.root&nbsp;=&nbsp;p;</p>
+<p id=54 class="line"><span>&nbsp;&nbsp;54</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.info(`ftp&nbsp;root&nbsp;${settings.root}`);&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p id=55 class="line"><span>&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ftpServer.on(<quote>'login'</quote>,&nbsp;login);&nbsp;&nbsp;</p>
+<p id=56 class="line"><span>&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ftpServer.on(<quote>'client-error'</quote>,&nbsp;(data:any)&nbsp;=>&nbsp;{&nbsp;</p>
+<p id=57 class="line"><span>&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.error(`client&nbsp;error&nbsp;received:&nbsp;context&nbsp;${data.context}&nbsp;\n${log.inspect(data.error)}`);</p>
+<p id=58 class="line"><span>&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</p>
+<p id=59 class="line"><span>&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ftpServer.listen();</p>
+<p id=60 class="line"><span>&nbsp;&nbsp;60</span>&nbsp;&nbsp;&nbsp;&nbsp;})</p>
+<p id=61 class="line"><span>&nbsp;&nbsp;61</span>&nbsp;&nbsp;&nbsp;&nbsp;.then(()&nbsp;=>&nbsp;{&nbsp;log.info(`ftp&nbsp;server&nbsp;started&nbsp;on&nbsp;${settings.host}:${settings.port}`);&nbsp;})</p>
+<p id=62 class="line"><span>&nbsp;&nbsp;62</span>&nbsp;&nbsp;&nbsp;&nbsp;.catch((err:any)&nbsp;=>&nbsp;{</p>
+<p id=63 class="line"><span>&nbsp;&nbsp;63</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.error(`creating&nbsp;ftp&nbsp;server&nbsp;on&nbsp;<quote>'${settings.host}:${settings.port}:/${settings.root}'</quote>`);</p>
+<p id=64 class="line"><span>&nbsp;&nbsp;64</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.error(err);</p>
+<p id=65 class="line"><span>&nbsp;&nbsp;65</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ftpServer.close();</p>
+<p id=66 class="line"><span>&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;});</p>
+<p id=67 class="line"><span>&nbsp;&nbsp;67</span>}</p>
+<p id=68 class="line"><span>&nbsp;&nbsp;68</span></p>
+<p id=69 class="line"><span>&nbsp;&nbsp;69</span></p></code></div>
+                </body>
+            

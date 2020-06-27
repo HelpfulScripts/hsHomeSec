@@ -22,6 +22,13 @@ const webpackExternals = {
     child_process:  'child_process' // node.child_process
 };
 
+/**
+ * `grunt`: the grunt instance
+ * `dir`: the directory containing the grunt file
+ * `dependencies`: modules that this module depends on; used for watching for changes
+ * `type`: module type: 'app' | 'lib' | 'node'
+ * `lib`: optional camelCase lib name; uses `package.json`.name as a default and tries to camel-case it.
+ */
 module.exports = (grunt, dir, dependencies, type, lib) => {
     const devPath = dir.slice(0, dir.indexOf('/dev/')+5);
     const pkg = grunt.file.readJSON(dir+'/package.json');
@@ -66,9 +73,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base']);
                     break;
-        case 'lib': grunt.registerTask('buildMin', ['build-base' /*, 'webpack:appDev', 'webpack:appProd'*/, 'doc', 'test']);
-                    grunt.registerTask('buildDev', ['build-base' /*, 'webpack:appDev'*/]);
+        case 'lib': grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
+                    grunt.registerTask('buildDev', ['build-base']);
                     break;
+        case 'app': 
         default:    grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
                     grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
     }
@@ -94,7 +102,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
 
     //------ Add Task Configurations
     return {
-        pkg: grunt.file.readJSON(dir+'/package.json'),
+        pkg: pkg,
         lib: lib,
         libPath: grunt.config.process(lib).toLowerCase(),
         banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
@@ -181,7 +189,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         ts: {
             options: {
                 target: "es6",
-                module: "CommonJS",
+                module: "es6",
                 rootDir: "./src",
                 moduleResolution: "node",
                 esModuleInterop: true,

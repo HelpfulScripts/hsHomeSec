@@ -1,8 +1,6 @@
 import { FtpSrv }       from 'ftp-srv';
-import * as node  from 'hsnode';  const log = new node.Log('ftpsrv');
+import { fs, Log }      from 'hsnode';  const log = new Log('ftpsrv');
 import { raiseAlarm }   from '../core/alarm';
-
-const fs = node.node.fs;
 
 export interface FtpSettings {
     host: string;

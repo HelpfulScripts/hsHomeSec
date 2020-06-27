@@ -3,6 +3,7 @@
     "coverageDirectory": "_coverage/",
     "coverageReporters": ["json", "lcov", "text", "html"],
     "coveragePathIgnorePatterns": ["./osaCalls.ts"],
+    "transformIgnorePatterns": ["/node_modules/(?!hs.*?/)"],
     "rootDir": "./",
     "roots":["./src"],
     "testMatch": ["**/*.jest.ts","**/*.test.ts"],
@@ -14,7 +15,7 @@
         "json"
     ],
     "transform": {
-        "\\.(ts|tsx)$": "ts-jest"
+        "\\.(ts|js)$": "ts-jest"
     },
     "testURL": "http://localhost/",
     "verbose": true,

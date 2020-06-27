@@ -1,11 +1,14 @@
 
-import { URL }              from 'url';
 import * as node  from 'hsnode';  const log = new node.Log('Device');
-import { http }             from 'hsnode';
+import { Request, Response }    from 'hsnode';
 import { CfgSettings }      from '../core/CfgSettings';
 import { FtpSettings }      from '../comm/ftpSrv';
 
-const fs = node.node.fs;
+const fs = node.fs;
+
+const request = new Request();
+request.setCredentials();
+request.decode = Request.decoders.html2json;
 
 export interface DeviceSettings {
     id:         string;         // unique device name
@@ -141,6 +144,7 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
     constructor(device: DeviceSettings, settings:CfgSettings) {
         super(device, settings);
         if (device.useAlarm === undefined) { device.useAlarm = true; }
+        request.setCredentials(settings.user, settings.passwd);
     }
     
     async initDevice(settings:CfgSettings) {
@@ -223,8 +227,8 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
      */
     setAudible(audible:boolean):Promise<boolean> {
         this.audible = (audible===true);
-        return this.log.debug(()=>`${this.getName()} audible: ${this.audible}`)
-        .then(() => true);
+        this.log.debug(()=>`${this.getName()} audible: ${this.audible}`);
+        return Promise.resolve(true);
     }
 
     getAudible() {
@@ -236,20 +240,13 @@ export abstract class AbstractCamera extends AbstractDevice implements Camera, A
      * @param cmd the command string to send
      * @param dynRef an http options object
      */
-    protected sendCommandToDevice(cmd:string, referer?:string):Promise<any> {
+    protected async sendCommandToDevice(cmd:string, referer?:string):Promise<any> {
         const settings = this.getSettings();
-        const Url = new URL(`http://${settings.host}:${settings.port}${cmd}`);
-        this.log.debug(()=>`${this.getName()} requesting ${Url.href}`);
-        return http.request(Url, new http.Digest(settings.user, settings.passwd), referer)
-            .then((r:http.HttpResponse) => {
-                this.log.debug(()=>`${this.getName()} received ${r.response.headers['content-type']} for ${cmd}`);
-                if (r.response.headers['content-type'].indexOf('text/') >= 0) {
-                    r.body = http.xml2json(r.data);
-                    this.log.debug(()=>`response: ${this.log.inspect(r.body)}`);
-                }
-                return r;
-            })
-            .catch(this.log.error.bind(this.log));
+        const url = `http://${settings.host}:${settings.port}${cmd}`;
+        this.log.debug(()=>`${this.getName()} requesting ${url}`);
+        try {
+            return await request.get(url, {headers: {Referer:referer}})
+        } catch(e) { this.log.error(e); }
     }
 }
     

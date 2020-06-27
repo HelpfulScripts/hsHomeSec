@@ -1,13 +1,12 @@
 import * as cmds            from './CommandExecution';
-import { CfgSettings }         from './CfgSettings';
+import { CfgSettings }      from './CfgSettings';
 import * as user            from '../comm/UserComm';
 import { DeviceSettings }   from '../device/Device';
 import { DeviceList }       from '../device/Device';
 import { AbstractCamera }   from '../device/Device';
 import { FtpSettings }      from '../comm/ftpSrv';
-import { Log, node }        from 'hsnode';  const log = new Log('CmdExcJest');
+import { Log, fs }          from 'hsnode';  const log = new Log('CmdExcJest');
 
-const fs = node.fs;
 
 jest.mock('hsosaes6');
 

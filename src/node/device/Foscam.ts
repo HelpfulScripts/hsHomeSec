@@ -3,7 +3,7 @@
  * @name hsAlarmServer.hsFoscam
  * @description functions to interface with foscam devices.
  */
-import { http }             from 'hsnode';
+import { Request, Response }from 'hsnode';
 import { DeviceSettings }   from './Device';
 import { AbstractCamera }   from './Device';
 import { CfgSettings }      from '../core/CfgSettings';
@@ -20,6 +20,8 @@ const linkage = {
     video:  8
 };
 
+
+const request = new Request();
 
 
 export class Foscam extends AbstractCamera {  
@@ -58,26 +60,25 @@ export class Foscam extends AbstractCamera {
      * captures a snapshot from the device and saves it to gSnapshotDir
      * @param string deviceName the name of the device
      */
-    snapPicture():Promise<any> {
+    async snapPicture():Promise<any> {
         const cmd = `${this.path}snapPicture`;
-        return this.sendCommandToDevice(cmd)
-        .then((res:http.HttpResponse) => {
-            let src = res.body.html.body.img.attrs.src;
+        try {
+            const res:Response = await this.sendCommandToDevice(cmd);
+            let src = (<any>res.data).html.body.img.attrs.src;
             if (src.indexOf('../')===0) { src = src.substr(2); }
             this.log.debug(()=>`get snapshot: ${src}`);
             return this.sendCommandToDevice(src);    // no command word triggers simple request for options.path
-        })
-        .catch(this.log.error.bind(this.log));
+        } catch(e) { this.log.error(e); }
     }
 
     /**
      * gets the device's ftp confguration and calls `cb`. 
      */
-    getFtpCfg():Promise<any> {
+    async getFtpCfg():Promise<any> {
         const cmd = `${this.path}getFtpConfig`;
-        return this.sendCommandToDevice(cmd)
-        .then((res:http.HttpResponse) => { 
-            const result = res.body.CGI_Result;
+        try {
+            const res:Response = await this.sendCommandToDevice(cmd);
+            const result = (<any>res.data).child[0].CGI_Result;
             if (result.result === '0') {
                 result.ftpAddr = unescape(result.ftpAddr);
                 this.log.info(`ftp config = \n${this.log.inspect(result)}`); 
@@ -86,29 +87,27 @@ export class Foscam extends AbstractCamera {
                 this.log.error(`ftp config result=${result.result}: \n${this.log.inspect(result)}`);
                 return result;
             }
-        })
-        .catch(this.log.error.bind(this.log));
+        } catch(e) { this.log.error(e); }
     }
 
     /**
      * promises to set the device's ftp confguration. 
      * The promsie resolves to true orfalse, depending on the success of the call
      */
-    setFtpCfg():Promise<boolean> {
+    async setFtpCfg():Promise<boolean> {
         const ftpSettings = ftp.getSettings();
         const cmd = `${this.path}setFtpConfig&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
         this.log.info(`setting FTP config`);
-        return this.sendCommandToDevice(cmd)
-            .then((res:http.HttpResponse) => { 
-                const success = res.body.CGI_Result.result === '0';
+        try {
+            const res:Response = await this.sendCommandToDevice(cmd)
+                const success = (<any>res.data).CGI_Result.result === '0';
                 this.log.info(`setFtpCfg ${success?'success':'failure'}`);
-                this.log.debug(()=>`res: ${this.log.inspect(res.body)}`);
+                this.log.debug(()=>`res: ${this.log.inspect(res.data)}`);
                 return success;
-            })
-            .catch(err => {
+        } catch(err){
                 this.log.error(err);
                 return false;
-            });
+        };
     }
 
     /**
@@ -117,16 +116,15 @@ export class Foscam extends AbstractCamera {
      * @param function cb the function to call with the result
      * @return Promise a promise that resolves to the testResult: 0 = success, -1 = failure, -3 = unknown 
      */
-    testFtpServer():Promise<boolean> {
+    async testFtpServer():Promise<boolean> {
         const ftpSettings = ftp.getSettings();
         const cmd = `${this.path}testFtpServer&ftpAddr=ftp://${ftpSettings.host}/&ftpPort=${ftpSettings.port}&mode=0&userName=${ftpSettings.user}&password=${ftpSettings.pwd}`;
-        return this.sendCommandToDevice(cmd)
-        .then((res:http.HttpResponse) => { 
-            const result = res.body.testResult === '0';
+        try {
+            const res:Response = await this.sendCommandToDevice(cmd)
+            const result = (<any>res.data).child[0].testResult === '0';
             this.log[result?'info':'error'](`ftp server test ${result?'succeeded':'failed'}`);
             return result;
-        })
-        .catch(this.log.error.bind(this.log));
+        } catch(e) { this.log.error(e); }
     }
 
     /**

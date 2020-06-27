@@ -1,6 +1,6 @@
 import { CfgSettings }          from './CfgSettings';
 import * as init                from './Init';
-import { http }                 from 'hsnode'; if(http) {}
+import { Request }              from 'hsnode';
 // import { DeviceSettings }       from '../device/Device';
 import { DeviceList }           from '../device/Device';
 // import { Device }               from '../device/Device';

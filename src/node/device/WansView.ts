@@ -1,7 +1,7 @@
 /**
  * functions to interface with WansView devices.
  */
-import { http, Log }    from 'hsnode';    const log = new Log('WansView');
+import { Request, Log }         from 'hsnode';    const log = new Log('WansView');
 //import { fs  }                from 'hsnode';
 //import { date }               from 'hsutil';
 import { DeviceSettings }       from './Device';
@@ -65,22 +65,21 @@ export class WansView extends AbstractCamera {
         await this.setTime();
     }
 
-    standardSend(cmd:string, name:string) {
-        return this.sendCommandToDevice(cmd)
-            .then((receivedData:http.HttpResponse) => { 
-                this.log.debug(()=>`standardSend '${cmd}' result:\n${log.inspect(receivedData.body)}`);
-                if ((typeof receivedData.body === 'string') && (receivedData.body.match(/Success/))) {
-                    this.log.info(`${name} success`);
-                    return true;
-                } else {
-                    this.log.info(`${name} failure: ${log.inspect(receivedData.body)}`);
-                    return false;
-                }
-            })
-            .catch(err => {
-                this.log.error('error '+err);
+    async standardSend(cmd:string, name:string) {
+        try {
+            const receivedData = await this.sendCommandToDevice(cmd);
+            this.log.debug(()=>`standardSend '${cmd}' result:\n${log.inspect(receivedData.body)}`);
+            if ((typeof receivedData.body === 'string') && (receivedData.body.match(/Success/))) {
+                this.log.info(`${name} success`);
+                return true;
+            } else {
+                this.log.info(`${name} failure: ${log.inspect(receivedData.body)}`);
                 return false;
-            });
+            }
+        } catch(err) {
+            this.log.error('error '+err);
+            return false;
+        }
     }
 
     async setTime() {
@@ -99,16 +98,15 @@ export class WansView extends AbstractCamera {
      * captures a snapshot from the device and saves it to gSnapshotDir
      * @param string deviceName the name of the device
      */
-    snapPicture():Promise<any> {
+    async snapPicture():Promise<any> {
         const cmd = `${this.path}av.cgi?cmd=manualsnap&chn=0`;
-        return this.sendCommandToDevice(cmd)
-            .then((res:http.HttpResponse) => { 
-                const path = res.body.toString().split('=');
-                const src = path[1].replace(';','').trim();
-                this.log.debug(()=>'get snapshot:' + src);
-                return this.sendCommandToDevice(src);
-            })
-            .catch(this.log.error.bind(this.log));
+        try {
+            const res = await this.sendCommandToDevice(cmd)
+            const path = res.body.toString().split('=');
+            const src = path[1].replace(';','').trim();
+            this.log.debug(()=>'get snapshot:' + src);
+            return this.sendCommandToDevice(src);
+        } catch(e) { this.log.error(e); }
         }
 
     /**
@@ -126,20 +124,19 @@ export class WansView extends AbstractCamera {
      * @param string deviceName the name of the device
      * @param function cb the function to call with the result
      */
-    getFtpCfg():Promise<any> {
+    async getFtpCfg():Promise<any> {
         const cmd = `${this.path}ftp.cgi?cmd=getftpattr`;
         this.log.info(`setting FTP config`);
-        return this.sendCommandToDevice(cmd)
-            .then((receivedData:http.HttpResponse) => { 
-                this.log.debug(()=>'get ftp config:' + log.inspect(receivedData.body));
-                const result = {};
-                receivedData.body.replace(/var /g, '').replace(/\n/g, '').split(';').map((p:any) => { p = p.split('='); if (p[1]) { result[p[0]] = p[1].replace(/\'/g, ''); }});
-                this.log.info(`ftp config: \n${log.inspect(result)}`);
-                return result;
-            })
-            .catch(err => {
-                this.log.error('error'+err);
-            });
+        try {
+            const receivedData = await this.sendCommandToDevice(cmd);
+            this.log.debug(()=>'get ftp config:' + log.inspect(receivedData.body));
+            const result = {};
+            receivedData.body.replace(/var /g, '').replace(/\n/g, '').split(';').map((p:any) => { p = p.split('='); if (p[1]) { result[p[0]] = p[1].replace(/\'/g, ''); }});
+            this.log.info(`ftp config: \n${log.inspect(result)}`);
+            return result;
+        } catch(err){
+            this.log.error('error'+err);
+        }
     }
 
     /**

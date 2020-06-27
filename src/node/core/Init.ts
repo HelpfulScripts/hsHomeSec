@@ -1,4 +1,4 @@
-import * as node        from 'hsnode';  const log = new node.Log('Init');
+import { Log, cp }      from 'hsnode';  const log = new Log('Init');
 import { Foscam }       from '../device/Foscam';
 import { WansView }     from '../device/WansView';
 import * as Comm        from './CommandReceiver';
@@ -9,7 +9,7 @@ import { DeviceSettings,
          DeviceList,
          Device }       from '../device/Device';
 
-const exec = node.node.child_process.exec;
+const exec = cp.exec;
 
 export const cmdList:[any, string, ...string[]][] = [
     [Exec.helpFn,        'help'],
