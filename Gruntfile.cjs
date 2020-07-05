@@ -26,14 +26,27 @@ const webpackExternals = {
  * `grunt`: the grunt instance
  * `dir`: the directory containing the grunt file
  * `dependencies`: modules that this module depends on; used for watching for changes
- * `type`: module type: 'app' | 'lib' | 'node'
+ * `type`: module type: 
+ *  - 'app': a runnable web-app
+ *  - 'lib': a library, not intended to run standalone
+ *  - 'node' a runnable node application
  * `lib`: optional camelCase lib name; uses `package.json`.name as a default and tries to camel-case it.
  */
-module.exports = (grunt, dir, dependencies, type, lib) => {
+module.exports = (grunt) => {
+    sgc = make(grunt);
+    grunt.initConfig(sgc); 
+}
+
+
+function make(grunt) {
+    const cfg = require('./gruntCfg.json');
+    const dir = __dirname;
+    const dependencies = cfg.dependencies || [];
+    const type = cfg.type || 'lib';
     const devPath = dir.slice(0, dir.indexOf('/dev/')+5);
     const pkg = grunt.file.readJSON(dir+'/package.json');
     const slash = pkg.name.lastIndexOf('/');
-    lib = lib || hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
+    lib = cfg.lib  || hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
     const libPath = lib.toLowerCase();
     console.log(`${devPath} > ${lib}: ${type}`);    
 
@@ -67,7 +80,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('coverageReport',['codecov']);
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
-    grunt.registerTask('build-js',      ['ts:src']);
+    grunt.registerTask('build-js',      ['ts:esm', 'ts:cjs']);
     grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'build-js']);
     switch(type) {
         case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test']);
@@ -122,9 +135,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             bin:{ files: [
                 { expand:true, cwd: 'src/bin',              // if present, scaffolding for bin distribution
                     src:['**/*', '!**/*.ts'], dest:'bin' 
-                },
-                { expand:true, cwd: './',                   // readme and package.json
-                    src:['*.md', 'package.json'], dest:'bin' 
                 }
             ]},
             // create docs/html files
@@ -153,10 +163,11 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             ]},
             lib2NPM: { files: [
                 { expand:true, cwd: 'bin',                  // copy everything from bin
-                    src:['**/*.*', '!cache/**.*.*'], dest:`node_modules/${libPath}/` },
-                { expand:true, cwd: './',                  // copy css and map
-                    src:['*.css*'], dest:`node_modules/${libPath}/` },
-            ]},
+                    src:['**/*.*'], dest:`node_modules/${libPath}/` },
+                { expand:true, cwd: './',                  // copy everything from bin
+                    src:['package.json', '*.md'], dest:`node_modules/${libPath}/` },
+                { src:'./packageCJS.json', dest:`./node_modules/${libPath}/cjs/package.json` },
+             ]},
             app2NPM: { files: [ 
                 { expand:true, cwd: 'bin',                  // copy everything from bin
                     src:['**/*.*'], dest:`node_modules/${libPath}/` },
@@ -188,8 +199,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
         },
         ts: {
             options: {
-                target: "es6",
-                module: "es6",
+                target: "es2020",
+                module: "esnext",
                 rootDir: "./src",
                 moduleResolution: "node",
                 esModuleInterop: true,
@@ -199,8 +210,13 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 declaration: true,
                 suppressImplicitAnyIndexErrors: true
             },
-            src : {
-                outDir:     "bin",
+            esm : {
+                outDir:     "bin/esm",
+                src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
+            },
+            cjs : {
+                options: { module: "CommonJS" },
+                outDir:     "bin/cjs",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/**/*.jest.ts", "!src/example/*.ts"],
             },
             example : {
@@ -229,7 +245,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             appProd: { 
                 mode: 'production',
                 entry: {
-                    main: './bin/index.js'
+                    main: './bin/esm/index.js'
                 },
                 // optimization: {
                 //     splitChunks: {
@@ -258,7 +274,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             },
             appDev: {
                 mode: 'development',
-                entry: './bin/index.js',
+                entry: './bin/esm/index.js',
                 devtool: "inline-source-map",
                 output: {
                     filename: `${lib}.js`,

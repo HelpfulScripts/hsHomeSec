@@ -3,6 +3,12 @@
 import * as node  from 'hsnode';  const log = new node.Log('hsFTP');
 import * as ftp         from './node/comm/ftpSrv';
 
+// see https://nodejs.org/api/esm.html#esm_no_require_exports_module_exports_filename_dirname
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const settings:ftp.FtpSettings = ftp.getSettings();
 
 const helpText = `
