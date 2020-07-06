@@ -46,7 +46,7 @@ function make(grunt) {
     const devPath = dir.slice(0, dir.indexOf('/dev/')+5);
     const pkg = grunt.file.readJSON(dir+'/package.json');
     const slash = pkg.name.lastIndexOf('/');
-    lib = cfg.lib  || hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
+    const lib = cfg.lib  || hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
     const libPath = lib.toLowerCase();
     console.log(`${devPath} > ${lib}: ${type}`);    
 
@@ -166,6 +166,7 @@ function make(grunt) {
                     src:['**/*.*'], dest:`node_modules/${libPath}/` },
                 { expand:true, cwd: './',                  // copy everything from bin
                     src:['package.json', '*.md'], dest:`node_modules/${libPath}/` },
+                // mark cjs folder as commonJS to Node:
                 { src:'./packageCJS.json', dest:`./node_modules/${libPath}/cjs/package.json` },
              ]},
             app2NPM: { files: [ 
