@@ -4,7 +4,7 @@ node_js:
 jobs:
   include:
     - stage: build
-      script: grunt travis
+      script: npm run grunt travis
 notifications:
   email:
     recipients: 
