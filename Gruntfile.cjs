@@ -63,7 +63,7 @@ function make(grunt) {
 
     //------ Add Doc Tasks
     grunt.registerTask('noTask', []);
-    grunt.registerTask('doc', ['clean:docs', 'copy:example', 'typedoc', 'sourceCode', 'copy:docs', `${(type === 'app')? 'copy:docs2NPM' : 'noTask'}`]);
+    grunt.registerTask('doc', ['clean:docs', 'copy:example', 'typedoc', 'insertExamples', 'sourceCode', 'copy:docs', `${(type === 'app')? 'copy:docs2NPM' : 'noTask'}`]);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
@@ -80,30 +80,30 @@ function make(grunt) {
     grunt.registerTask('coverageReport',['codecov']);
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
-    grunt.registerTask('build-js',      ['ts:esm', 'ts:cjs']);
-    grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'build-js']);
+    grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin']);
     switch(type) {
-        case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test']);
-                    grunt.registerTask('buildDev', ['build-base']);
+        case 'node':grunt.registerTask('buildMin', ['build-base', 'ts:cjs', 'doc', 'test', 'stage']);
+                    grunt.registerTask('buildDev', ['build-base', 'ts:cjs', 'stage']);
                     break;
-        case 'lib': grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
-                    grunt.registerTask('buildDev', ['build-base']);
+        case 'lib': grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'stage']);
+                    grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'webpack:appProd', 'stage']);
                     break;
         case 'app': 
-        default:    grunt.registerTask('buildMin', ['build-base', 'webpack:appDev', 'webpack:appProd', 'doc', 'test']);
-                    grunt.registerTask('buildDev', ['build-base', 'webpack:appDev']);
+        default:    grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'stage']);
+                    grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'webpack:appDev', 'stage']);
     }
 
     //------ Entry-point MultiTasks
     grunt.registerTask('default',       ['product']);	
-    grunt.registerTask('dev',           ['buildDev', 'stage']);
-    grunt.registerTask('product',       ['buildMin', 'stage']);	
+    grunt.registerTask('dev',           ['buildDev']);
+    grunt.registerTask('product',       ['buildMin']);	
     // grunt.registerTask('travis',        ['build-base', (type === 'node')?'':'webpack:appProd', 'test']); // exlude node-apps from webPack to avoid webpack error
     grunt.registerTask('travis',        ['build-base', 'test', 'coverageReport']); 
     grunt.registerTask('help',          ['h']);	
 
     grunt.registerMultiTask('sourceCode', translateSourcesToHTML);  
     grunt.registerMultiTask('cleanupCoverage', removeTimestampFromCoverage);  
+    grunt.registerMultiTask('insertExamples', insertExamples);  
 
     //------ Add general help 
     grunt.registerTask('h', 'help on grunt options', () => {
@@ -133,8 +133,14 @@ function make(grunt) {
                 src:['*.html', '*.json'], dest:'bin/' 
             },
             bin:{ files: [
-                { expand:true, cwd: 'src/bin',              // if present, scaffolding for bin distribution
+                { 
+                    expand:true, cwd: 'src/bin',        // if present, scaffolding for bin distribution
                     src:['**/*', '!**/*.ts'], dest:'bin' 
+                // },{ 
+                //     expand:true, cwd: '.',              // if present, scaffolding for bin distribution
+                //     src:['package.json'], dest:'bin' 
+                },{                                     // mark cjs folder as commonJS to Node:
+                    src:'./packageCJS.json', dest:`./bin/cjs/package.json` 
                 }
             ]},
             // create docs/html files
@@ -163,21 +169,19 @@ function make(grunt) {
             ]},
             lib2NPM: { files: [
                 { expand:true, cwd: 'bin',                  // copy everything from bin
-                    src:['**/*.*'], dest:`node_modules/${libPath}/` },
+                    src:['**/*.*'], dest:`node_modules/${libPath}/bin/` },
                 { expand:true, cwd: './',                  // copy everything from bin
-                    src:['package.json', '*.md'], dest:`node_modules/${libPath}/` },
-                // mark cjs folder as commonJS to Node:
-                { src:'./packageCJS.json', dest:`./node_modules/${libPath}/cjs/package.json` },
+                    src:['package.json', '*.md'], dest:`node_modules/${libPath}/` }
              ]},
             app2NPM: { files: [ 
                 { expand:true, cwd: 'bin',                  // copy everything from bin
-                    src:['**/*.*'], dest:`node_modules/${libPath}/` },
-                { expand:true, cwd: 'bin',                  // copy everything from bin
-                    src:[`**/${lib}.*`], dest:`docs` },
+                    src:['**/*.*'], dest:`node_modules/${libPath}/bin/` },
                 { expand:true, cwd: devPath+'/staging/',    // index.html
                     src:['index.html'], dest:`node_modules/${libPath}/` }
             ]},
-            docs2NPM:   { files: [                      // copy the module's docs to npm  
+            docs2NPM:   { files: [                          // copy the module's docs to npm  
+                { expand:true, cwd: 'bin',                  // copy everything from bin
+                    src:[`**/${lib}.*`], dest:`docs` },
                 { expand:true, cwd: 'docs', 
                     src:['**/*'], dest:`node_modules/${libPath}/docs`}
             ]}
@@ -295,6 +299,13 @@ function make(grunt) {
                 rename: (dest, src) => dest + src.replace('.ts','.html')
             }
         },
+        insertExamples: { 
+            main: {  // insert example code into comments
+                cwd: 'src/', 
+                src: ['**/*.js', '**/*.css'], 
+                dest: `docs/data/${lib}.json`
+            }
+        },
         cleanupCoverage: { 
             main: {  // translate all *.ts files in src *.html files in doc
                 expand: true, 
@@ -312,7 +323,7 @@ function make(grunt) {
 
         watch: {
             dependencies: {
-                files: dependencies.map(d => `./node_modules/${d.toLowerCase()}/index.js`),
+                files: dependencies.map(d => `./node_modules/${d.toLowerCase()}/bin/${d}.js`),
 				tasks: ['dev']
             },
 			gruntfile: {
@@ -330,10 +341,6 @@ function make(grunt) {
 			html: {
 				files: ['src/**/*.html'],
 				tasks: ['build-html', 'stage']
-			},
-			specs: {
-				files: ['src/**/*.spec.ts'],
-				tasks: ['test']
 			},
 			jest: {
 				files: ['src/**/*.jest.ts'],
@@ -439,5 +446,23 @@ function make(grunt) {
 
     function writeIndexJson() {
         grunt.file.write('docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
+    }
+
+    function insertExamples() {
+        this.files.map(f => {
+            let changed = false;
+            const content = grunt.file.read(f.dest);
+            const result = content.replace(/ximport='(.*?)'/g, (match, p1) => {
+                const i = f.src.indexOf(p1);
+                if (i>=0) {
+                    changed = true;
+                    grunt.log.writeln(`substituting ${match} = ${p1} for  ${f.cwd+f.src[i]}`);
+                    const replacement = grunt.file.read(f.cwd+f.src[i]).replace(/\n/g, "\\n").replace(/\"/g, "\\\"");
+                    return '/*ximport*/' + replacement;
+                }
+                return '';
+            });
+            if (changed) { grunt.file.write(f.dest, result); }
+        })
     }
 };
