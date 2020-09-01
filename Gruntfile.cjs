@@ -58,7 +58,7 @@ function make(grunt) {
     grunt.loadNpmTasks('@vamship/grunt-typedoc');
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-webpack');
-    grunt.loadNpmTasks('jest');
+    // grunt.loadNpmTasks('jest');
     grunt.loadNpmTasks('grunt-coveralls');
 
     //------ Add Doc Tasks
@@ -86,7 +86,7 @@ function make(grunt) {
                     grunt.registerTask('buildDev', ['build-base', 'ts:cjs', 'stage']);
                     break;
         case 'lib': grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'stage']);
-                    grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'webpack:appProd', 'stage']);
+                    grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'stage']);
                     break;
         case 'app': 
         default:    grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'stage']);
@@ -457,8 +457,7 @@ function make(grunt) {
                 if (i>=0) {
                     changed = true;
                     grunt.log.writeln(`substituting ${match} = ${p1} for  ${f.cwd+f.src[i]}`);
-                    const replacement = grunt.file.read(f.cwd+f.src[i]).replace(/\n/g, "\\n").replace(/\"/g, "\\\"");
-                    return '/*ximport*/' + replacement;
+                    return grunt.file.read(f.cwd+f.src[i]).replace(/\n/g, "\\n").replace(/\"/g, "\\\"");
                 }
                 return '';
             });
