@@ -1,0 +1,49 @@
+
+                <html><style>body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding:0; }
+            br  { margin:0; padding:0; }
+            .line { 
+                white-space: nowrap;
+                height:16px; 
+            }
+            .line>span { 
+                display:inline-block; background-color:#eef; height:100%; 
+                margin: 0 5px 0 0; padding-right: 5px; color:#999;   
+            }
+            comment {color: #080;} module {color: #804;} 
+            quote {color: #008;} comment>quote {color: #080;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                    font-size: 14px;  
+                    overflow:scroll;
+                    height:90%;
+            }
+            code { padding: 5px 0;}</style></html><body>
+                <h1>alarm.ts</h1>
+                <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span>import&nbsp;{&nbsp;Log&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'hsnode'</quote>;&nbsp;&nbsp;const&nbsp;log&nbsp;=&nbsp;new&nbsp;Log(<quote>'alarm'</quote>);</p>
+<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;users}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'../comm/UserComm'</quote>;</p>
+<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;message}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'../comm/UserComm'</quote>;</p>
+<p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span>import&nbsp;{&nbsp;sayFn&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'./CommandExecution'</quote>;</p>
+<p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span>import&nbsp;*&nbsp;as&nbsp;path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;<quote>'path'</quote>;</p>
+<p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span>import&nbsp;{&nbsp;CfgSettings&nbsp;}&nbsp;&nbsp;from&nbsp;<quote>'./CfgSettings'</quote>;</p>
+<p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span></p>
+<p id=8 class="line"><span>&nbsp;&nbsp;&nbsp;8</span>let&nbsp;alarmText&nbsp;=&nbsp;<quote>''</quote>;</p>
+<p id=9 class="line"><span>&nbsp;&nbsp;&nbsp;9</span></p>
+<p id=10 class="line"><span>&nbsp;&nbsp;10</span>export&nbsp;function&nbsp;setAlarmText(settings:CfgSettings):CfgSettings&nbsp;{</p>
+<p id=11 class="line"><span>&nbsp;&nbsp;11</span>&nbsp;&nbsp;&nbsp;&nbsp;alarmText&nbsp;=&nbsp;settings.alarmText;</p>
+<p id=12 class="line"><span>&nbsp;&nbsp;12</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;settings;</p>
+<p id=13 class="line"><span>&nbsp;&nbsp;13</span>}</p>
+<p id=14 class="line"><span>&nbsp;&nbsp;14</span></p>
+<p id=15 class="line"><span>&nbsp;&nbsp;15</span>export&nbsp;function&nbsp;raiseAlarm(filePath:string)&nbsp;{</p>
+<p id=16 class="line"><span>&nbsp;&nbsp;16</span>&nbsp;&nbsp;&nbsp;&nbsp;log.warn(`motion&nbsp;alarm:&nbsp;writing&nbsp;<quote>'${filePath}'</quote>`);</p>
+<p id=17 class="line"><span>&nbsp;&nbsp;17</span>&nbsp;&nbsp;&nbsp;&nbsp;sayFn([alarmText]);</p>
+<p id=18 class="line"><span>&nbsp;&nbsp;18</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;ext&nbsp;=&nbsp;path.extname(filePath);</p>
+<p id=19 class="line"><span>&nbsp;&nbsp;19</span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(ext&nbsp;===&nbsp;<quote>'jpg'</quote>&nbsp;||&nbsp;ext&nbsp;===&nbsp;<quote>'png'</quote>)&nbsp;{</p>
+<p id=20 class="line"><span>&nbsp;&nbsp;20</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message([users.userByName()],&nbsp;<quote>'alarm'</quote>,&nbsp;[filePath]);</p>
+<p id=21 class="line"><span>&nbsp;&nbsp;21</span>&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;}&nbsp;else&nbsp;{</comment></p>
+<p id=22 class="line"><span>&nbsp;&nbsp;22</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message([users.userByName()],&nbsp;<quote>'alarm'</quote>,&nbsp;[filePath]);</comment></p>
+<p id=23 class="line"><span>&nbsp;&nbsp;23</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=24 class="line"><span>&nbsp;&nbsp;24</span>}</p></code></div>
+                </body>
+            

@@ -204,7 +204,7 @@ function make(grunt) {
         },
         ts: {
             options: {
-                target: "es2020",
+                target: "es2019",   // webpack 4.44 does not yet support a?.b?.c
                 module: "esnext",
                 rootDir: "./src",
                 moduleResolution: "node",
