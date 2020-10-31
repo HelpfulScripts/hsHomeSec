@@ -368,6 +368,8 @@ function make(grunt) {
             const i = src.lastIndexOf('/');
             const file = (i>=0)? src.slice(i+1) : src;
             let content = grunt.file.read(srcFile)
+                .replace(/\</g, '&lt;')                 // replace '<' before adding `comment'
+                .replace(/\>/g, '&gt;')                 // replace '>' before adding `comment'
                 .replace(/( )/g, '&nbsp;')              // preserve whitespaces
                 .replace(/(\/\/.*?)<\/code>/g, comment) // color code // comments
                 .replace(/\/\/.*?\n/g, comment)         // color code // comments
