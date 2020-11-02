@@ -41,7 +41,7 @@
         "@types/jest": "26.x.x",
         "@types/request": "^2.48.2",
         "coveralls": "3.1.x",
-        "grunt": "1.1.x",
+        "grunt": "1.2.x",
         "grunt-contrib-clean": "^2.0.0",
         "grunt-contrib-concat": "^1.0.1",
         "grunt-contrib-copy": "^1.0.0",
