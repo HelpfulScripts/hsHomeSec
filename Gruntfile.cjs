@@ -38,6 +38,8 @@ module.exports = (grunt) => {
 }
 
 
+const launchJest = () => require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json', '-i'], {stdio: 'inherit'});
+
 function make(grunt) {
     const cfg = require('./gruntCfg.json');
     const dir = __dirname;
@@ -70,7 +72,7 @@ function make(grunt) {
     
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
-    grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json', '-i'], {stdio: 'inherit'}); });
+    grunt.registerTask('jest',  () => launchJest().status===0)
     grunt.registerTask('test', ['clean:cov', 'jest', 'copy:coverage', 'cleanupCoverage']); 
     
     //------ Add Coverage Reporting
@@ -98,7 +100,7 @@ function make(grunt) {
     grunt.registerTask('dev',           ['buildDev']);
     grunt.registerTask('product',       ['buildMin']);	
     // grunt.registerTask('travis',        ['build-base', (type === 'node')?'':'webpack:appProd', 'test']); // exlude node-apps from webPack to avoid webpack error
-    grunt.registerTask('travis',        ['build-base', 'test', 'coverageReport']); 
+    grunt.registerTask('ci',            ['build-base', 'ts:cjs', 'test', 'coverageReport']); 
     grunt.registerTask('help',          ['h']);	
 
     grunt.registerMultiTask('sourceCode', translateSourcesToHTML);  
