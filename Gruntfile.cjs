@@ -84,14 +84,14 @@ function make(grunt) {
     grunt.registerTask('build-css',     ['less']);
     grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin']);
     switch(type) {
-        case 'node':grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'doc', 'test', 'stage']);
+        case 'node':grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'doc', 'stage', 'test']);
                     grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'ts:cjs', 'stage']);
                     break;
-        case 'lib': grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'stage']);
+        case 'lib': grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'webpack:appProd', 'doc', 'stage', 'test']);
                     grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'stage']);
                     break;
         case 'app': 
-        default:    grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'stage']);
+        default:    grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'webpack:appDev', 'webpack:appProd', 'doc', 'stage', 'test']);
                     grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'webpack:appDev', 'stage']);
     }
 
@@ -205,7 +205,7 @@ function make(grunt) {
         },
         ts: {
             options: {
-                target: "es2019",   // webpack 4.44 does not yet support a?.b?.c
+                target: "ESNext",   // webpack 4.44 does not yet support a?.b?.c
                 module: "esnext",
                 rootDir: "./src",
                 moduleResolution: "node",

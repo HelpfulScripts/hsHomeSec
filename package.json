@@ -3,9 +3,7 @@
     "version": "1.4.21",
     "main": "./bin/cjs/index.js",
     "module": "./bin/esm/index.js",
-    "files": [
-        "./bin"
-    ],
+    "files": ["bin/"],
     "types": "./bin/esm/index.d.ts",
     "type": "module",
     "scripts": {
@@ -56,7 +54,7 @@
         "eslint": "^6.8.0",
         "typedoc": "^0.15.5",
         "typescript": "4.x.x",
-        "terser-webpack-plugin": "^2.3.1",
+        "terser-webpack-plugin": "5.x.x",
         "webpack": "5.x.x"
     },
     "dependencies": {
