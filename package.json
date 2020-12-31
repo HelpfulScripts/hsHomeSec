@@ -7,8 +7,10 @@
     "types": "./bin/esm/index.d.ts",
     "type": "module",
     "scripts": {
+        "dev": "grunt --gruntfile Gruntfile.cjs dev",
+        "build": "grunt --gruntfile Gruntfile.cjs build",
         "grunt": "grunt --gruntfile Gruntfile.cjs",
-        "prepublishOnly": "npm run grunt",
+        "prepublishOnly": "npm run grunt publish",
         "postpublish": "npm version patch"
     },
     "keywords": [
